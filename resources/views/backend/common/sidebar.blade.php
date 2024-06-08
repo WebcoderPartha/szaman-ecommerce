@@ -1,6 +1,7 @@
 <aside class="page-sidebar">
     <div class="py-2 text-center">
-        <img src="{{ asset('backend/assets/img/logo.png') }}" width="150px" aria-roledescription="logo" alt="">
+{{--        <img src="{{ asset('backend/assets/img/logo.png') }}" width="150px" aria-roledescription="logo" alt="">--}}
+        <h2 class="text-white p-0 m-0">Ecommerce</h2>
     </div>
     <!-- BEGIN PRIMARY NAVIGATION -->
     <nav id="js-primary-nav" class="primary-nav" role="navigation">
