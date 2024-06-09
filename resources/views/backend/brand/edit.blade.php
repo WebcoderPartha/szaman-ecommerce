@@ -1,16 +1,16 @@
 @extends('backend.layout.app')
-@section('title', 'Edit Category')
+@section('title', 'Edit Brand')
 @section('content')
 
     <ol class="breadcrumb page-breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('backend.dashboard') }}">Dashboard</a></li>
-        <li class="breadcrumb-item">Edit Category</li>
+        <li class="breadcrumb-item">Edit Brand</li>
         <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
     </ol>
     <div class="subheader">
         <h1 class="subheader-title">
             <small>
-                Edit Category
+                Edit Brand
             </small>
         </h1>
     </div>
@@ -22,14 +22,14 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h4>Edit Category</h4>
-                                <form action="{{ route('backend.category.update', $category->id) }}" id="form" enctype="multipart/form-data" method="post">
+                                <h4>Edit Brand</h4>
+                                <form action="{{ route('backend.brand.update', $brand->id) }}" id="form" enctype="multipart/form-data" method="post">
                                     @csrf @method('PUT')
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-label" for="name">Category name</label>
-                                                <input class="form-control" value="{{ $category->name }}" id="name" placeholder="Ex: Laptop" type="text" name="name">
+                                                <label class="form-label" for="name">Brand name</label>
+                                                <input class="form-control" value="{{ $brand->name }}" id="name" placeholder="Ex: Asus" type="text" name="name">
                                                 @error('name')
                                                 <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
@@ -41,18 +41,18 @@
                                                 <input class="form-control" id="image" type="file" name="image">
                                             </div>
                                         </div>
-                                        @if($category->image !== null)
+                                        @if($brand->image !== null)
                                             <div class="col-md-4">
                                                 <p>Image Preview</p>
-                                                <img src="{{ asset('storage/category/'.$category->image) }}" width="200" id="imagePreview" alt="">
+                                                <img src="{{ asset('storage/brand/'.$brand->image) }}" width="200" id="imagePreview" alt="">
                                             </div>
                                         @else
-                                        <div class="col-md-4">
                                             <div class="col-md-4">
-                                                <p>Image Preview</p>
-                                                <img src="" width="200" id="imagePreview" alt="">
+                                                <div class="col-md-4">
+                                                    <p>Image Preview</p>
+                                                    <img src="" width="200" id="imagePreview" alt="">
+                                                </div>
                                             </div>
-                                        </div>
                                         @endif
                                     </div>
                                     <div class="mt-4 text-right">

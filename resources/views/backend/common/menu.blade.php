@@ -19,6 +19,13 @@
     </a>
 </li>
 
+<li class="dashboard_permission">
+    <a href="{{ route('backend.brand.index') }}" title="Brand" data-filter-tags="blank page">
+        <i class="fal fa-globe"></i>
+        <span class="nav-link-text" data-i18n="nav.blankpage">Brand </span>
+    </a>
+</li>
+
 <li class="employee_permission">
     <a title="Product"  data-filter-tags="application intel" class=" waves-effect waves-themed" aria-expanded="false">
         <i class="fal fa-info-circle"></i>

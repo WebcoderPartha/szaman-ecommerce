@@ -150,7 +150,7 @@
 <script type="text/javascript">
     /* Activate smart panels */
     $('#js-page-content').smartPanel();
-
+    $('.select2').select2();
     axios.defaults.headers.common['Authorization'] = 'Bearer '+localStorage.getItem('access_token');
 
     $('#logoutButton').click(function (e){

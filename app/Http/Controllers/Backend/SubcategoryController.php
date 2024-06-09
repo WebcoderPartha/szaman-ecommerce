@@ -34,15 +34,16 @@ class SubcategoryController extends Controller
                 }
             })
             ->addColumn('action', function($row){
-                $actionBtn = '<a href="'.route('backend.category.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                $actionBtn = '<a href="'.route('backend.subcategory.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
                 return $actionBtn;
             })->rawColumns(['category', 'image','action'])->addIndexColumn()->toJson();
     }
 
 
     public function edit($id){
+        $categories = Category::select('id', 'name')->get();
         $subcategory = Subcategory::find($id);
-        return view('backend.subcategory.edit', compact('subcategory'));
+        return view('backend.subcategory.edit', compact('subcategory', 'categories'));
     }
 
 
@@ -81,6 +82,11 @@ class SubcategoryController extends Controller
     }
 
     public function update_subcategory(Request $request, $id){
+        $validate = $request->validate([
+            'name' => 'required|string',
+            'category_id' => 'required'
+        ]);
+
         $subcategory = Subcategory::find($id);
         $subcategory->name = $request->name;
         // If image request
@@ -110,7 +116,7 @@ class SubcategoryController extends Controller
 
         Alert::success('Success', 'Data updated successfully!');
 
-        return redirect()->route('backend.category.index');
+        return redirect()->route('backend.subcategory.index');
 
     }
 

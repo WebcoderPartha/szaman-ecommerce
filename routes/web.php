@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubcategoryController;
+use App\Http\Controllers\Backend\BrandController;
 
 
 
@@ -40,6 +41,16 @@ Route::prefix('/admin')->group(function (){
         Route::get('/get-subcategory-data', 'get_subcategory_data')->name('backend.subcategory.data');
         Route::put('/{id}/update', 'update_subcategory')->name('backend.subcategory.update');
         Route::get('/{id}/delete', 'destroy')->name('backend.subcategory.destroy');
+    });
+
+    // Subcategory Controller
+    Route::controller(BrandController::class)->prefix('brand')->group(function (){
+        Route::get('/', 'index')->name('backend.brand.index');
+        Route::get('/{id}/edit', 'edit')->name('backend.brand.edit');
+        Route::post('/store', 'brand_store')->name('backend.brand.store');
+        Route::get('/get-brand-data', 'get_brand_data')->name('backend.brand.data');
+        Route::put('/{id}/update', 'update_brand')->name('backend.brand.update');
+        Route::get('/{id}/delete', 'destroy')->name('backend.brand.destroy');
     });
 
 
