@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        Login | HRMS
+        Login | e-Commerce
     </title>
     <meta name="description" content="Login">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,75 +26,12 @@
 </head>
 
 <body>
-<!-- DOC: script to save and load page settings -->
-<script>
-    /**
-     *	This script should be placed right after the body tag for fast execution
-     *	Note: the script is written in pure javascript and does not depend on thirdparty library
-     **/
-    'use strict';
 
-    var classHolder = document.getElementsByTagName("BODY")[0],
-        /**
-         * Load from localstorage
-         **/
-        themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
-            {},
-        themeURL = themeSettings.themeURL || '',
-        themeOptions = themeSettings.themeOptions || '';
-    /**
-     * Load theme options
-     **/
-    if (themeSettings.themeOptions)
-    {
-        classHolder.className = themeSettings.themeOptions;
-        console.log("%c✔ Theme settings loaded", "color: #148f32");
-    }
-    else
-    {
-        console.log("%c✔ Heads up! Theme settings is empty or does not exist, loading default settings...", "color: #ed1c24");
-    }
-    if (themeSettings.themeURL && !document.getElementById('mytheme'))
-    {
-        var cssfile = document.createElement('link');
-        cssfile.id = 'mytheme';
-        cssfile.rel = 'stylesheet';
-        cssfile.href = themeURL;
-        document.getElementsByTagName('head')[0].appendChild(cssfile);
-
-    }
-    else if (themeSettings.themeURL && document.getElementById('mytheme'))
-    {
-        document.getElementById('mytheme').href = themeSettings.themeURL;
-    }
-    /**
-     * Save to localstorage
-     **/
-    var saveSettings = function()
-    {
-        themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function(item)
-        {
-            return /^(nav|header|footer|mod|display)-/i.test(item);
-        }).join(' ');
-        if (document.getElementById('mytheme'))
-        {
-            themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
-        };
-        localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
-    }
-    /**
-     * Reset settings
-     **/
-    var resetSettings = function()
-    {
-        localStorage.setItem("themeSettings", "");
-    }
-
-</script>
 <div class="blankpage-form-field">
     <div class="" style="background: #886ab5">
-        <h2 class="text-center py-2">
-            <img src="{{ asset('backend/assets/img/logo.png') }}" width="150px" aria-roledescription="logo" alt="">
+        <h2 class="text-center py-2 p-0 text-white">
+{{--            <img src="{{ asset('backend/assets/img/logo.png') }}" width="150px" aria-roledescription="logo" alt="">--}}
+            Ecommerce
         </h2>
     </div>
     <div class="card p-4 border-top-left-radius-0 border-top-right-radius-0">
@@ -127,10 +64,10 @@
 
 </div>
 
-<video poster="{{ asset('backend/assets/img/backgrounds/clouds.png') }}" id="bgvid" playsinline autoplay muted loop>
-    <source src="{{ asset('backend/assets/media/video/cc.webm') }}" type="video/webm">
-    <source src="{{ asset('backend/assets/media/video/cc.mp4') }}" type="video/mp4">
-</video>
+{{--<video poster="{{ asset('backend/assets/img/backgrounds/clouds.png') }}" id="bgvid" playsinline autoplay muted loop>--}}
+{{--    <source src="{{ asset('backend/assets/media/video/cc.webm') }}" type="video/webm">--}}
+{{--    <source src="{{ asset('backend/assets/media/video/cc.mp4') }}" type="video/mp4">--}}
+{{--</video>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
 <script src="{{asset('backend/assets/js/vendors.bundle.js')}}"></script>
 <script src="{{ asset('backend/assets/js/app.bundle.js') }}"></script>
@@ -153,8 +90,8 @@
             title: successMessage
         });
     }
-    if (localStorage.getItem('token')){
-        window.location = "{{ route('dashboard') }}"
+    if (localStorage.getItem('access_token')){
+        window.location = "{{ route('backend.dashboard') }}"
     }
     $('#login_button').click(function (e) {
         e.preventDefault();
@@ -175,19 +112,22 @@
                 email: email,
                 password: password
             }
-            axios.post('/api/auth/login', data).then(response => {
+            axios.post('/api/admin/login', data).then(response => {
                 if (response.data.success){
-                    localStorage.setItem('token', response.data.token)
-                    localStorage.setItem('user_id', response.data.user.id);
-                    localStorage.setItem('role_id', response.data.user.role_id);
-                    window.location = "{{ route('dashboard') }}"
-                    // console.log(response.data)
-                }else{
+                    Toast.fire({
+                        icon: "success",
+                        title: response.data.success
+                    });
+                    localStorage.setItem('admin_id', response.data.data.original.user_id);
+                    localStorage.setItem('access_token', response.data.data.original.access_token);
+                }else {
                     Toast.fire({
                         icon: "error",
                         title: response.data.error
                     });
+                    // console.log(response.data.error)
                 }
+
 
             })
         }
