@@ -48,13 +48,14 @@
                                 </form>
                             </div>
                             <div class="col-md-6">
-                                <h4>Country List</h4>
+                                <h4>Category List</h4>
                                 <!-- datatable start -->
-                                <table id="countrytabledata" class="table text-center table-bordered table-hover table-striped w-100">
+                                <table id="data-table" class="table text-center table-bordered table-hover table-striped w-100">
                                     <thead class="bg-primary-600">
                                     <tr>
                                         <th>SL</th>
                                         <th>Category Name</th>
+                                        <th>Image</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -98,7 +99,54 @@
 
 
 
+        $(document).ready(function() {
 
+            var table = $('#data-table').removeAttr('width').DataTable({
+                processing: true,
+                serverSide: true,
+                scrollX: false,
+                pageLength: 10,
+                ordering: true,
+                responsive : true,
+                searching : true,
+                bDestroy : true,
+                lengthChange : false,
+                sorting : true,
+                ajax: {
+                    url: "{{route('backend.category.data')}}",
+                    type: "GET",
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                },
+                columns: [
+                    {
+                        data: 'DT_RowIndex',
+                        searchable: false,
+                        class: "text-center",
+                        orderable: false
+                    },
+                    {
+                        data: 'name',
+                        name: 'name',
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'image',
+                        name: 'image',
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                    }
+                ]
+            });
+
+        });
 
         function delete_alert(id) {
             Swal.fire({

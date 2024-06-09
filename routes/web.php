@@ -24,8 +24,9 @@ Route::prefix('/admin')->group(function (){
     // Category Controller
     Route::controller(CategoryController::class)->prefix('category')->group(function (){
         Route::get('/', 'index')->name('backend.category.index');
-        Route::get('/{id}/edit', 'index')->name('backend.category.edit');
+        Route::get('/{id}/edit', 'edit')->name('backend.category.edit');
         Route::post('/store', 'category_store')->name('backend.category.store');
+        Route::get('/get-category-data', 'get_category_data')->name('backend.category.data');
     });
 
 

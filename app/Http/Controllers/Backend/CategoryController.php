@@ -9,12 +9,37 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use RealRashid\SweetAlert\Facades\Alert;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
 
     public function index(){
         return view('backend.category.index');
+    }
+
+    public function get_category_data(){
+        $data = Category::all();
+
+        return Datatables::of($data)
+            ->addColumn('punch_id', function ($row){
+                if ($row->punch_id !== null){
+                    return $row->punch_id;
+                }else{
+                    return 'N/A';
+                }
+            })
+            ->addColumn('image', function ($row){
+                if ($row->image !== null){
+                    return '<img src="'.asset('storage/category/'.$row->image).'"  width="50">';
+                }else{
+                    return '<img src="https://placehold.co/40x40"  width="50">';
+                }
+            })
+            ->addColumn('action', function($row){
+                $actionBtn = '<a href="'.route('backend.category.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                return $actionBtn;
+            })->rawColumns(['punch_id', 'image','action'])->addIndexColumn()->toJson();
     }
 
     public function create(){
