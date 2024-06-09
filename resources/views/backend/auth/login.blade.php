@@ -120,6 +120,7 @@
                     });
                     localStorage.setItem('admin_id', response.data.data.original.user_id);
                     localStorage.setItem('access_token', response.data.data.original.access_token);
+                    window.location = "{{ route('backend.dashboard') }}"
                 }else {
                     Toast.fire({
                         icon: "error",

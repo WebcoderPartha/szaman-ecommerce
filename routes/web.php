@@ -2,16 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
+use App\Http\Controllers\Backend\DashboardController;
 
-Route::controller(LoginController::class)->group(function (){
-    Route::get('/admin/login', 'login_form')->name('admin.login');
-});
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard' , function (){
-    return view('backend.dashboard');
-})->name('backend.dashboard');
+Route::prefix('/admin')->group(function (){
+
+    Route::controller(LoginController::class)->group(function (){
+        Route::get('/login', 'login_form')->name('admin.login');
+    });
+
+    Route::controller(DashboardController::class)->group(function (){
+       Route::get('/dashboard', 'dashboard_view')->name('backend.dashboard');
+    });
+});
 
