@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -11,20 +12,23 @@ use Intervention\Image\Facades\Image;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 
-class CategoryController extends Controller
+class SubcategoryController extends Controller
 {
-
     public function index(){
-        return view('backend.category.index');
+        $categories = Category::select('id', 'name')->get();
+        return view('backend.subcategory.index', compact('categories'));
     }
 
-    public function get_category_data(){
-        $data = Category::all();
+    public function get_subcategory_data(){
+        $data = Subcategory::with('category')->orderByDesc('id')->get();
 
         return Datatables::of($data)
+            ->addColumn('category', function ($row){
+                return $row->category->name;
+            })
             ->addColumn('image', function ($row){
                 if ($row->image !== null){
-                    return '<img src="'.asset('storage/category/'.$row->image).'"  width="50">';
+                    return '<img src="'.asset('storage/subcategory/'.$row->image).'"  width="50">';
                 }else{
                     return '<img src="https://placehold.co/40x40"  width="50">';
                 }
@@ -32,23 +36,25 @@ class CategoryController extends Controller
             ->addColumn('action', function($row){
                 $actionBtn = '<a href="'.route('backend.category.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
                 return $actionBtn;
-            })->rawColumns(['image','action'])->addIndexColumn()->toJson();
+            })->rawColumns(['category', 'image','action'])->addIndexColumn()->toJson();
     }
 
 
     public function edit($id){
-        $category = Category::find($id);
-        return view('backend.category.edit', compact('category'));
+        $subcategory = Subcategory::find($id);
+        return view('backend.subcategory.edit', compact('subcategory'));
     }
 
 
-    public function category_store(Request $request){
+    public function subcategory_store(Request $request){
         $validate = $request->validate([
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'category_id' => 'required'
         ]);
 
-        $category = new Category();
-        $category->name = $request->name;
+        $subcategory = new Subcategory();
+        $subcategory->name = $request->name;
+        $subcategory->category_id = $request->category_id;
 
         // If image request
         if ($request->file('image')){
@@ -56,17 +62,17 @@ class CategoryController extends Controller
             $image = Str::of(Str::lower($request->name))->slug('-').'-'.time().'.'.$file->getClientOriginalExtension();
 
             // check post directory slider is exists
-            if(!Storage::disk('public')->exists('category')){
-                Storage::disk('public')->makeDirectory('category');
+            if(!Storage::disk('public')->exists('subcategory')){
+                Storage::disk('public')->makeDirectory('subcategory');
             }
 
             $imgResize = Image::make($request->image)->resize('300', '300')->stream();
-            Storage::disk('public')->put('category/'.$image,$imgResize);
+            Storage::disk('public')->put('subcategory/'.$image,$imgResize);
 
-            $category->image = $image;
+            $subcategory->image = $image;
         }
 
-        $category->save();
+        $subcategory->save();
 
         Alert::success('Success', 'Data inserted successfully!');
 
@@ -74,33 +80,33 @@ class CategoryController extends Controller
 
     }
 
-    public function update_category(Request $request, $id){
-        $category = Category::find($id);
-        $category->name = $request->name;
+    public function update_subcategory(Request $request, $id){
+        $subcategory = Subcategory::find($id);
+        $subcategory->name = $request->name;
         // If image request
         if ($request->file('image')){
             $file = $request->file('image');
             $image = Str::of(Str::lower($request->name))->slug('-').'-'.time().'.'.$file->getClientOriginalExtension();
 
             // Check if category directory exists
-            if(!Storage::disk('public')->exists('category')){
-                Storage::disk('public')->makeDirectory('category');
+            if(!Storage::disk('public')->exists('subcategory')){
+                Storage::disk('public')->makeDirectory('subcategory');
             }
 
             // Remove existing image
-            if ($category->image !== null) {
-                if (Storage::disk('public')->exists('category/' . $category->image)) {
-                    Storage::disk('public')->delete('category/' . $category->image);
+            if ($subcategory->image !== null) {
+                if (Storage::disk('public')->exists('subcategory/' . $subcategory->image)) {
+                    Storage::disk('public')->delete('subcategory/' . $subcategory->image);
                 }
             }
 
             $imgResize = Image::make($request->image)->resize('300', '300')->stream();
-            Storage::disk('public')->put('category/'.$image,$imgResize);
+            Storage::disk('public')->put('subcategory/'.$image,$imgResize);
 
-            $category->image = $image;
+            $subcategory->image = $image;
         }
 
-        $category->save();
+        $subcategory->save();
 
         Alert::success('Success', 'Data updated successfully!');
 
@@ -110,22 +116,20 @@ class CategoryController extends Controller
 
     public function destroy($id){
 
-        $category = Category::find($id);
+        $subcategory = Subcategory::find($id);
         // Remove existing image
-        if ($category->image !== null) {
-            if (Storage::disk('public')->exists('category/' . $category->image)) {
-                Storage::disk('public')->delete('category/' . $category->image);
+        if ($subcategory->image !== null) {
+            if (Storage::disk('public')->exists('subcategory/' . $subcategory->image)) {
+                Storage::disk('public')->delete('subcategory/' . $subcategory->image);
             }
         }
 
-        $category->delete();
+        $subcategory->delete();
 
         Alert::success('Success', 'Data deleted successfully!');
 
         return redirect()->back();
 
     }
-
-
 
 }

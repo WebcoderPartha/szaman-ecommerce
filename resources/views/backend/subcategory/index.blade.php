@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title', 'Category')
+@section('title', 'Subcategory')
 @section('content')
 
     <ol class="breadcrumb page-breadcrumb">
@@ -20,36 +20,45 @@
                 <div class="panel-container show">
                     <div class="panel-content">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
 
-                                <h4>Sub Category</h4>
-                                <form action="#">
+                                <h4>Add Subcategory</h4>
+                                <form action="{{ route('backend.subcategory.store') }}" id="form" enctype="multipart/form-data" method="post">
                                     @csrf @method('POST')
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-label" for="category_id">Category</label>
-                                                <select name="category_id" class="form-control" id="category_id">
-                                                    <option value="">Choose category</option>
+                                                <select class="form-control select2" name="category_id" id="category_id">
+                                                    <option value="">Select Category</option>
+                                                    @foreach($categories as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @endforeach
                                                 </select>
-                                                @error('name')
-                                                <span class="text-red"><small>{{ $message }}</small></span>
+                                                @error('category_id')
+                                                <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label class="form-label" for="name">Sub Category name</label>
-                                                <input class="form-control" id="name" placeholder="Ex: Iphone" type="text" name="name">
+                                                <label class="form-label" for="name">Subcategory</label>
+                                                <input class="form-control" id="name" placeholder="Ex: Laptop" type="text" name="name">
                                                 @error('name')
-                                                <span class="text-red"><small>{{ $message }}</small></span>
+                                                <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-label" for="name">Image</label>
                                                 <input class="form-control" id="image" type="file" name="image">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="col-md-4">
+                                                <p>Preview</p>
+                                                <img src="" width="200" id="imagePreview" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -58,14 +67,16 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-md-6">
-                                <h4>Sub Category List</h4>
+                            <div class="col-md-12">
+                                <h4>Subcategory List</h4>
                                 <!-- datatable start -->
-                                <table id="countrytabledata" class="table text-center table-bordered table-hover table-striped w-100">
+                                <table id="data-table" class="table text-center table-bordered table-hover table-striped w-100">
                                     <thead class="bg-primary-600">
                                     <tr>
                                         <th>SL</th>
-                                        <th>Country Name</th>
+                                        <th>Category</th>
+                                        <th>Subcategory</th>
+                                        <th>Image</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -81,6 +92,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 @section('js')
     <script>
@@ -106,62 +118,81 @@
         });
         // Sweetalert
 
+        $('.select2').select2();
 
+        // Image Preview
+        $('#image').change(function(){
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#imagePreview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
 
+        $(document).ready(function() {
 
+            var table = $('#data-table').removeAttr('width').DataTable({
+                processing: true,
+                serverSide: true,
+                scrollX: false,
+                pageLength: 10,
+                ordering: true,
+                responsive : true,
+                searching : true,
+                bDestroy : true,
+                lengthChange : false,
+                sorting : true,
+                ajax: {
+                    url: "{{route('backend.subcategory.data')}}",
+                    type: "GET",
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                },
+                columns: [
+                    {
+                        data: 'DT_RowIndex',
+                        searchable: false,
+                        class: "text-center",
+                        orderable: false
+                    },
+                    {
+                        data: 'name',
+                        name: 'name',
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'category',
+                        name: 'category',
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'image',
+                        name: 'image',
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                    }
+                ]
+            });
+
+        });
 
         function delete_alert(id) {
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
+                title: "Are you sure to delete?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Yes, delete it!"
             }).then(function(result) {
                 if (result.value) {
-                    axios.get(`/api/country-api/destroy/`+id).then(response => {
-                        Toast.fire({
-                            icon: "success",
-                            title: response.data.success
-                        });
-                        var table = $('#countrytabledata').removeAttr('width').DataTable({
-                            processing: true,
-                            serverSide: true,
-                            scrollX: false,
-                            pageLength: 10,
-                            ordering: true,
-                            responsive : true,
-                            searching : false,
-                            bDestroy : true,
-                            lengthChange : false,
-                            sorting : true,
-                            ajax: {
-                                url: "",
-                                type: "GET",
-                                headers: {
-                                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                                },
-                            },
-                            columns: [{
-                                data: 'DT_RowIndex',
-                                searchable: false,
-                                class: "text-center",
-                                orderable: false
-                            },
-                                {
-                                    data: 'country_name',
-                                    name: 'country_name',
-                                    searchable: true,
-                                    orderable: false
-                                },
-                                {
-                                    data: 'action',
-                                    name: 'action',
-                                    orderable: false,
-                                }
-                            ]
-                        });
-                    })
+                    window.location = "/admin/subcategory/"+id+"/delete"
                 }
             }); //alert ends
         }

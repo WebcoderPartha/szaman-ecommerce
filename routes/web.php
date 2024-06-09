@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SubcategoryController;
 
 
 
@@ -29,6 +30,16 @@ Route::prefix('/admin')->group(function (){
         Route::get('/get-category-data', 'get_category_data')->name('backend.category.data');
         Route::put('/{id}/update', 'update_category')->name('backend.category.update');
         Route::get('/{id}/delete', 'destroy')->name('backend.category.destroy');
+    });
+
+    // Subcategory Controller
+    Route::controller(SubcategoryController::class)->prefix('subcategory')->group(function (){
+        Route::get('/', 'index')->name('backend.subcategory.index');
+        Route::get('/{id}/edit', 'edit')->name('backend.subcategory.edit');
+        Route::post('/store', 'subcategory_store')->name('backend.subcategory.store');
+        Route::get('/get-subcategory-data', 'get_subcategory_data')->name('backend.subcategory.data');
+        Route::put('/{id}/update', 'update_subcategory')->name('backend.subcategory.update');
+        Route::get('/{id}/delete', 'destroy')->name('backend.subcategory.destroy');
     });
 
 

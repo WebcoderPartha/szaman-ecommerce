@@ -26,7 +26,7 @@
                                 <form action="{{ route('backend.category.store') }}" id="form" enctype="multipart/form-data" method="post">
                                     @csrf @method('POST')
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-label" for="name">Category name</label>
                                                 <input class="form-control" id="name" placeholder="Ex: Laptop" type="text" name="name">
@@ -35,10 +35,16 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-label" for="name">Image</label>
                                                 <input class="form-control" id="image" type="file" name="image">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col-md-4">
+                                                <p>Preview</p>
+                                                <img src="" width="200" id="imagePreview" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +103,14 @@
         });
         // Sweetalert
 
-
+        // Image Preview
+        $('#image').change(function(){
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#imagePreview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
 
         $(document).ready(function() {
 

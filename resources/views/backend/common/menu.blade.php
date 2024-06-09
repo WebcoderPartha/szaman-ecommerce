@@ -13,9 +13,9 @@
     </a>
 </li>
 <li class="dashboard_permission">
-    <a href=""   title="Brand" data-filter-tags="blank page">
+    <a href="{{ route('backend.subcategory.index') }}" title="Brand" data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
-        <span class="nav-link-text" data-i18n="nav.blankpage">Brand </span>
+        <span class="nav-link-text" data-i18n="nav.blankpage">Subcategory </span>
     </a>
 </li>
 
