@@ -23,8 +23,8 @@
                             <div class="col-md-12">
 
                                 <h4>Add Category</h4>
-                                <form action="{{ route('backend.category.store') }}" id="form" enctype="multipart/form-data" method="post">
-                                    @csrf @method('POST')
+                                <form action="{{ route('backend.category.update', $category->id) }}" id="form" enctype="multipart/form-data" method="post">
+                                    @csrf @method('PUT')
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">

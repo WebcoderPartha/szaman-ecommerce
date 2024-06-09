@@ -150,56 +150,13 @@
 
         function delete_alert(id) {
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
+                title: "Are you sure to delete?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Yes, delete it!"
             }).then(function(result) {
                 if (result.value) {
-                    axios.get(`/api/country-api/destroy/`+id).then(response => {
-                        Toast.fire({
-                            icon: "success",
-                            title: response.data.success
-                        });
-                        var table = $('#countrytabledata').removeAttr('width').DataTable({
-                            processing: true,
-                            serverSide: true,
-                            scrollX: false,
-                            pageLength: 10,
-                            ordering: true,
-                            responsive : true,
-                            searching : false,
-                            bDestroy : true,
-                            lengthChange : false,
-                            sorting : true,
-                            ajax: {
-                                url: "",
-                                type: "GET",
-                                headers: {
-                                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                                },
-                            },
-                            columns: [{
-                                data: 'DT_RowIndex',
-                                searchable: false,
-                                class: "text-center",
-                                orderable: false
-                            },
-                                {
-                                    data: 'country_name',
-                                    name: 'country_name',
-                                    searchable: true,
-                                    orderable: false
-                                },
-                                {
-                                    data: 'action',
-                                    name: 'action',
-                                    orderable: false,
-                                }
-                            ]
-                        });
-                    })
+                    window.location = "/admin/category/"+id+"/delete"
                 }
             }); //alert ends
         }

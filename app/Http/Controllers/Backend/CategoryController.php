@@ -37,7 +37,7 @@ class CategoryController extends Controller
                 }
             })
             ->addColumn('action', function($row){
-                $actionBtn = '<a href="'.route('backend.category.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                $actionBtn = '<a href="'.route('backend.category.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
                 return $actionBtn;
             })->rawColumns(['punch_id', 'image','action'])->addIndexColumn()->toJson();
     }
@@ -83,6 +83,59 @@ class CategoryController extends Controller
         return redirect()->back();
 
     }
+
+    public function update_category(Request $request, $id){
+        $category = Category::find($id);
+        $category->name = $request->name;
+        // If image request
+        if ($request->file('image')){
+            $file = $request->file('image');
+            $image = Str::of(Str::lower($request->name))->slug('-').'-'.time().'.'.$file->getClientOriginalExtension();
+
+            // Check if category directory exists
+            if(!Storage::disk('public')->exists('category')){
+                Storage::disk('public')->makeDirectory('category');
+            }
+
+            // Remove existing image
+            if ($category->image !== null) {
+                if (Storage::disk('public')->exists('category/' . $category->image)) {
+                    Storage::disk('public')->delete('category/' . $category->image);
+                }
+            }
+
+            $imgResize = Image::make($request->image)->resize('300', '300')->stream();
+            Storage::disk('public')->put('category/'.$image,$imgResize);
+
+            $category->image = $image;
+        }
+
+        $category->save();
+
+        Alert::success('Success', 'Data updated successfully!');
+
+        return redirect()->route('backend.category.index');
+
+    }
+
+    public function destroy($id){
+
+        $category = Category::find($id);
+        // Remove existing image
+        if ($category->image !== null) {
+            if (Storage::disk('public')->exists('category/' . $category->image)) {
+                Storage::disk('public')->delete('category/' . $category->image);
+            }
+        }
+
+        $category->delete();
+
+        Alert::success('Success', 'Data deleted successfully!');
+
+        return redirect()->back();
+
+    }
+
 
 
 }

@@ -188,6 +188,10 @@
             window.location.href = "{{ route('admin.login') }}"
         }
     }
+    // Example usage
+    const token = localStorage.getItem('access_token'); // Replace with the token you want to check
+    checkTokenExpiration(token);
+    // console.log(token)
 
     // ====== JWT Token Checking ============= //
 

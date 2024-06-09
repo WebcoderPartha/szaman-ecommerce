@@ -27,6 +27,8 @@ Route::prefix('/admin')->group(function (){
         Route::get('/{id}/edit', 'edit')->name('backend.category.edit');
         Route::post('/store', 'category_store')->name('backend.category.store');
         Route::get('/get-category-data', 'get_category_data')->name('backend.category.data');
+        Route::put('/{id}/update', 'update_category')->name('backend.category.update');
+        Route::get('/{id}/delete', 'destroy')->name('backend.category.destroy');
     });
 
 
