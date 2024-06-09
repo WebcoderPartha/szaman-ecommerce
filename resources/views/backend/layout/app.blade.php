@@ -192,7 +192,7 @@
     // ====== JWT Token Checking ============= //
 
 </script>
-
+@include('sweetalert::alert')
 @yield('js')
 
 

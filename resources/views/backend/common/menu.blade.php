@@ -7,20 +7,20 @@
 </li>
 
 <li class="dashboard_permission">
-    <a href=""   title="Dashboard" data-filter-tags="blank page">
+    <a href="{{ route('backend.category.index') }}" title="Category" data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
         <span class="nav-link-text" data-i18n="nav.blankpage">Category </span>
     </a>
 </li>
 <li class="dashboard_permission">
-    <a href=""   title="Dashboard" data-filter-tags="blank page">
+    <a href=""   title="Brand" data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
         <span class="nav-link-text" data-i18n="nav.blankpage">Brand </span>
     </a>
 </li>
 
 <li class="employee_permission">
-    <a title="Application Intel"  data-filter-tags="application intel" class=" waves-effect waves-themed" aria-expanded="false">
+    <a title="Product"  data-filter-tags="application intel" class=" waves-effect waves-themed" aria-expanded="false">
         <i class="fal fa-info-circle"></i>
         <span class="nav-link-text" data-i18n="nav.application_intel">Product</span>
     </a>
