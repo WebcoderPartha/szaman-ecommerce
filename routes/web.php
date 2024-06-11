@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\AttributeController;
 
 
 
@@ -63,6 +64,13 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::get('/get-brand-data', 'get_brand_data')->name('backend.brand.data');
         Route::put('/{id}/update', 'update_brand')->name('backend.brand.update');
         Route::get('/{id}/delete', 'destroy')->name('backend.brand.destroy');
+    });
+
+    // Attribute Controller
+    Route::controller(AttributeController::class)->prefix('attribute')->group(function (){
+        Route::get('/', 'attribute_view')->name('backend.attribute.index');
+        Route::post('/store', 'attribute_store')->name('backend.attribute.store');
+        Route::get('/get-data', 'attribute_data')->name('backend.attribute.getdata');
     });
 
 });
