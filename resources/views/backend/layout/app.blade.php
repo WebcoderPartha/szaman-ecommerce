@@ -145,58 +145,57 @@
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.print.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
 <!-- Jwt decode -->
-<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+{{--<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>--}}
 <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
 <script type="text/javascript">
     /* Activate smart panels */
     $('#js-page-content').smartPanel();
     $('.select2').select2();
-    axios.defaults.headers.common['Authorization'] = 'Bearer '+localStorage.getItem('access_token');
+    // axios.defaults.headers.common['Authorization'] = 'Bearer '+localStorage.getItem('access_token');
 
-    $('#logoutButton').click(function (e){
-        e.preventDefault();
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('admin_id');
-        window.location.href = "{{ route('admin.login') }}"
-    });
+    {{--$('#logoutButton').click(function (e){--}}
+    {{--    e.preventDefault();--}}
+    {{--    localStorage.removeItem('access_token');--}}
+    {{--    localStorage.removeItem('admin_id');--}}
+    {{--    window.location.href = "{{ route('admin.login') }}"--}}
+    {{--});--}}
 
-    $('#header_logout').click(function (e){
-        e.preventDefault();
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('admin_id');
-        window.location.href = "{{ route('admin.login') }}"
-    });
+    {{--$('#header_logout').click(function (e){--}}
+    {{--    e.preventDefault();--}}
+    {{--    localStorage.removeItem('access_token');--}}
+    {{--    localStorage.removeItem('admin_id');--}}
+    {{--    window.location.href = "{{ route('admin.login') }}"--}}
+    {{--});--}}
 
     // ====== JWT Token Checking ============= //
-    function checkTokenExpiration(token) {
-        try {
-            const decoded = jwt_decode(token);
+    {{--function checkTokenExpiration(token) {--}}
+    {{--    try {--}}
+    {{--        const decoded = jwt_decode(token);--}}
 
-            // Get current time
-            const currentTime = Math.floor(Date.now() / 1000);
+    {{--        // Get current time--}}
+    {{--        const currentTime = Math.floor(Date.now() / 1000);--}}
 
-            // Check if token is expired
+    {{--        // Check if token is expired--}}
 
-            if (decoded.exp < currentTime) {
-                localStorage.removeItem('access_token');
-                localStorage.removeItem('admin_id');
-                window.location.href = "{{ route('admin.login') }}"
-            }
-        } catch (error) {
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('admin_id');
-            window.location.href = "{{ route('admin.login') }}"
-        }
-    }
+    {{--        if (decoded.exp < currentTime) {--}}
+    {{--            localStorage.removeItem('access_token');--}}
+    {{--            localStorage.removeItem('admin_id');--}}
+    {{--            window.location.href = "{{ route('admin.login') }}"--}}
+    {{--        }--}}
+    {{--    } catch (error) {--}}
+    {{--        localStorage.removeItem('access_token');--}}
+    {{--        localStorage.removeItem('admin_id');--}}
+    {{--        window.location.href = "{{ route('admin.login') }}"--}}
+    {{--    }--}}
+    {{--}--}}
     // Example usage
-    const token = localStorage.getItem('access_token'); // Replace with the token you want to check
-    checkTokenExpiration(token);
+    // const token = localStorage.getItem('access_token'); // Replace with the token you want to check
+    // checkTokenExpiration(token);
     // console.log(token)
 
     // ====== JWT Token Checking ============= //
 
 </script>
-@include('sweetalert::alert')
 @yield('js')
 
 

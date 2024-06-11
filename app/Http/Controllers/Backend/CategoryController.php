@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
-use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
@@ -68,7 +67,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        Alert::success('Success', 'Data inserted successfully!');
+        toastr()->success( 'Data inserted successfully!', 'Success');
 
         return redirect()->back();
 
@@ -107,7 +106,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        Alert::success('Success', 'Data updated successfully!');
+        toastr()->success('Data updated successfully!', 'Success');
 
         return redirect()->route('backend.category.index');
 
@@ -125,7 +124,7 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        Alert::success('Success', 'Data deleted successfully!');
+        toastr()->success('Data deleted successfully!','Success');
 
         return redirect()->back();
 

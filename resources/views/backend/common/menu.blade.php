@@ -1,6 +1,6 @@
 
 <li class="dashboard_permission">
-    <a href=""   title="Dashboard" data-filter-tags="blank page">
+    <a href="{{ route('backend.dashboard') }}" title="Dashboard" data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
         <span class="nav-link-text" data-i18n="nav.blankpage">Dashboard </span>
     </a>
@@ -46,7 +46,7 @@
 </li>
 
 <li>
-    <a title="Logout" id="logoutButton" data-filter-tags="blank page">
+    <a href="{{ route('backend.admin.logout') }}" title="Logout" id="logoutButton">
         <i class="fal fa-sign-out"></i>
         <span class="nav-link-text">Logout</span>
     </a>

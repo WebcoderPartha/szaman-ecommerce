@@ -98,9 +98,9 @@
     <script>
 
         // Verify token
-        if (!localStorage.getItem('access_token')){
-            window.location = "{{route('admin.login')}}";
-        }
+        {{--if (!localStorage.getItem('access_token')){--}}
+        {{--    window.location = "{{route('admin.login')}}";--}}
+        {{--}--}}
 
         $.ajaxSetup({
             headers: {

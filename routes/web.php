@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\ProfileController;
 
 
 
@@ -13,14 +14,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/admin')->group(function (){
 
-    Route::controller(LoginController::class)->group(function (){
-        Route::get('/login', 'login_form')->name('admin.login');
-    });
+Route::controller(LoginController::class)->group(function (){
+    Route::get('/admin/login', 'login_form')->name('admin.form');
+    Route::post('/admin/login', 'login')->name('admin.login');
+});
 
+Route::middleware('admin')->prefix('/admin')->group(function (){
+
+    // Dashboard Controller
     Route::controller(DashboardController::class)->group(function (){
        Route::get('/dashboard', 'dashboard_view')->name('backend.dashboard');
+    });
+
+    Route::controller(ProfileController::class)->prefix('profile')->group(function (){
+        Route::get('/change-password', 'change_password_view')->name('backend.admin.change-password');
+        Route::post('/change-password', 'update_change_password')->name('backend.admin.update-change-password');
+        Route::get('/update-profile', 'edit_profile_view')->name('backend.admin.edit_profile');
+        Route::post('/update-profile', 'update_edit_profile_view')->name('backend.admin.update_profile');
+        Route::get('/logout', 'admin_logout')->name('backend.admin.logout');
     });
 
     // Category Controller
@@ -52,7 +64,6 @@ Route::prefix('/admin')->group(function (){
         Route::put('/{id}/update', 'update_brand')->name('backend.brand.update');
         Route::get('/{id}/delete', 'destroy')->name('backend.brand.destroy');
     });
-
 
 });
 

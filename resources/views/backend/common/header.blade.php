@@ -32,23 +32,8 @@
             <i class="ni ni-menu"></i>
         </a>
     </div>
-    <div class="search">
-        <form class="app-forms hidden-xs-down" role="search" action="page_search.html" autocomplete="off">
-            <input type="text" id="search-field" placeholder="Search for anything" class="form-control" tabindex="1">
-            <a href="#" onclick="return false;" class="btn-danger btn-search-close js-waves-off d-none" data-action="toggle" data-class="mobile-search-on">
-                <i class="fal fa-times"></i>
-            </a>
-        </form>
-    </div>
+
     <div class="ml-auto d-flex">
-        <!-- activate app search icon (mobile) -->
-        <div class="hidden-sm-up">
-            <a href="#" class="header-icon" data-action="toggle" data-class="mobile-search-on" data-focus="search-field" title="Search">
-                <i class="fal fa-search"></i>
-            </a>
-        </div>
-
-
 
 
         <!-- app user menu -->
@@ -66,32 +51,22 @@
                                                 <img src="{{ asset('backend/assets/img/demo/avatars/avatar-admin.png') }}" class="rounded-circle profile-image" alt="Dr. Codex Lantern">
                                             </span>
                         <div class="info-card-text">
-                            <div class="fs-lg text-truncate text-truncate-lg">{{ Auth::check() ? Auth::user()->name : 'admin' }}</div>
-                            <span class="text-truncate text-truncate-md opacity-80">{{ Auth::check() ? Auth::user()->email : 'email'  }}</span>
+                            <div class="fs-lg text-truncate text-truncate-lg">{{ Auth::guard('admin')->check() ? Auth::guard('admin')->user()->name : 'admin' }}</div>
+                            <span class="text-truncate text-truncate-md opacity-80">{{ Auth::guard('admin')->check() ? Auth::guard('admin')->user()->email : 'email'  }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="dropdown-divider m-0"></div>
-                <a href="#" class="dropdown-item" data-action="app-reset">
-                    <span data-i18n="drpdwn.reset_layout">Reset Layout</span>
-                </a>
-                <a href="#" class="dropdown-item" data-toggle="modal" data-target=".js-modal-settings">
-                    <span data-i18n="drpdwn.settings">Settings</span>
+                <a href="{{ route('backend.admin.change-password') }}" class="dropdown-item">
+                    <span>Change Password</span>
                 </a>
                 <div class="dropdown-divider m-0"></div>
-                <a href="#" class="dropdown-item" data-action="app-fullscreen">
-                    <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
-                    <i class="float-right text-muted fw-n">F11</i>
+                <a href="{{ route('backend.admin.edit_profile') }}" class="dropdown-item">
+                    <span>Profile</span>
                 </a>
-                <a href="#" class="dropdown-item" data-action="app-print">
-                    <span data-i18n="drpdwn.print">Print</span>
-                    <i class="float-right text-muted fw-n">Ctrl + P</i>
-                </a>
-
                 <div class="dropdown-divider m-0"></div>
-                <a class="dropdown-item fw-500 pt-3 pb-3" id="header_logout" href="#">
-                    <span data-i18n="drpdwn.page-logout">Logout</span>
-
+                <a class="dropdown-item fw-500 pt-3 pb-3" id="header_logout" href="{{ route('backend.admin.logout') }}">
+                    <span>Logout</span>
                 </a>
             </div>
         </div>

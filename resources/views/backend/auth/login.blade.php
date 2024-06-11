@@ -35,9 +35,9 @@
         </h2>
     </div>
     <div class="card p-4 border-top-left-radius-0 border-top-right-radius-0">
-{{--        <form action="{{ route('authenticate') }}" method="post">--}}
-        <form method="post" id="login_form">
-            @csrf
+        <form action="{{ route('admin.login') }}" method="post">
+{{--        <form method="post" id="login_form">--}}
+            @csrf @method('POST')
             <div class="form-group">
                 <label class="form-label" for="email">Email</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
@@ -63,76 +63,75 @@
     </div>
 
 </div>
-
 {{--<video poster="{{ asset('backend/assets/img/backgrounds/clouds.png') }}" id="bgvid" playsinline autoplay muted loop>--}}
 {{--    <source src="{{ asset('backend/assets/media/video/cc.webm') }}" type="video/webm">--}}
 {{--    <source src="{{ asset('backend/assets/media/video/cc.mp4') }}" type="video/mp4">--}}
 {{--</video>--}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>--}}
 <script src="{{asset('backend/assets/js/vendors.bundle.js')}}"></script>
 <script src="{{ asset('backend/assets/js/app.bundle.js') }}"></script>
 <script src="{{ asset('backend/assets') }}/js/notifications/sweetalert2/sweetalert2.bundle.js"></script>
 <script>
-    // Sweetalert
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-    });
+    {{--// Sweetalert--}}
+    {{--const Toast = Swal.mixin({--}}
+    {{--    toast: true,--}}
+    {{--    position: "top-end",--}}
+    {{--    showConfirmButton: false,--}}
+    {{--    timer: 3000,--}}
+    {{--    timerProgressBar: true,--}}
+    {{--});--}}
 
-    let successMessage = "{{ session('success') }}";
-    // Login Message
-    if (successMessage){
-        Toast.fire({
-            icon: "success",
-            title: successMessage
-        });
-    }
-    if (localStorage.getItem('access_token')){
-        window.location = "{{ route('backend.dashboard') }}"
-    }
-    $('#login_button').click(function (e) {
-        e.preventDefault();
-        let email = $('#email').val();
-        let password = $('#password').val();
-        if (!email.length > 0){
-            Toast.fire({
-                icon: "error",
-                title: 'Email is required!'
-            });
-        }else if (!password.length > 0){
-            Toast.fire({
-                icon: "error",
-                title: 'Password is required!'
-            });
-        }else{
-            let data = {
-                email: email,
-                password: password
-            }
-            axios.post('/api/admin/login', data).then(response => {
-                if (response.data.success){
-                    Toast.fire({
-                        icon: "success",
-                        title: response.data.success
-                    });
-                    localStorage.setItem('admin_id', response.data.data.original.user_id);
-                    localStorage.setItem('access_token', response.data.data.original.access_token);
-                    window.location = "{{ route('backend.dashboard') }}"
-                }else {
-                    Toast.fire({
-                        icon: "error",
-                        title: response.data.error
-                    });
-                    // console.log(response.data.error)
-                }
+    {{--let successMessage = "{{ session('success') }}";--}}
+    {{--// Login Message--}}
+    {{--if (successMessage){--}}
+    {{--    Toast.fire({--}}
+    {{--        icon: "success",--}}
+    {{--        title: successMessage--}}
+    {{--    });--}}
+    {{--}--}}
+    {{--if (localStorage.getItem('access_token')){--}}
+    {{--    window.location = "{{ route('backend.dashboard') }}"--}}
+    {{--}--}}
+    {{--$('#login_button').click(function (e) {--}}
+    {{--    e.preventDefault();--}}
+    {{--    let email = $('#email').val();--}}
+    {{--    let password = $('#password').val();--}}
+    {{--    if (!email.length > 0){--}}
+    {{--        Toast.fire({--}}
+    {{--            icon: "error",--}}
+    {{--            title: 'Email is required!'--}}
+    {{--        });--}}
+    {{--    }else if (!password.length > 0){--}}
+    {{--        Toast.fire({--}}
+    {{--            icon: "error",--}}
+    {{--            title: 'Password is required!'--}}
+    {{--        });--}}
+    {{--    }else{--}}
+    {{--        let data = {--}}
+    {{--            email: email,--}}
+    {{--            password: password--}}
+    {{--        }--}}
+    {{--        axios.post('/api/admin/login', data).then(response => {--}}
+    {{--            if (response.data.success){--}}
+    {{--                Toast.fire({--}}
+    {{--                    icon: "success",--}}
+    {{--                    title: response.data.success--}}
+    {{--                });--}}
+    {{--                localStorage.setItem('admin_id', response.data.data.original.user_id);--}}
+    {{--                localStorage.setItem('access_token', response.data.data.original.access_token);--}}
+    {{--                window.location = "{{ route('backend.dashboard') }}"--}}
+    {{--            }else {--}}
+    {{--                Toast.fire({--}}
+    {{--                    icon: "error",--}}
+    {{--                    title: response.data.error--}}
+    {{--                });--}}
+    {{--                // console.log(response.data.error)--}}
+    {{--            }--}}
 
 
-            })
-        }
-    })
+    {{--        })--}}
+    {{--    }--}}
+    {{--})--}}
 
 
 
