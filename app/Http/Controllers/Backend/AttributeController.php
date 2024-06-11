@@ -34,7 +34,7 @@ class AttributeController extends Controller
                 return $badges;
             })
             ->addColumn('action', function($row){
-                $actionBtn = '<a href="'.route('backend.brand.edit', $row->id).'" class="btn btn-success btn-sm">Edit</a> <a href="#" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                $actionBtn = '<a href="'.route('backend.brand.edit', $row->id).'" class="btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
                 return $actionBtn;
             })->rawColumns(['attribute','action'])->addIndexColumn()->toJson();
     }
