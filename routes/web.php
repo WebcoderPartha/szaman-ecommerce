@@ -72,6 +72,8 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::post('/store', 'attribute_store')->name('backend.attribute.store');
         Route::get('/get-data', 'attribute_data')->name('backend.attribute.getdata');
         Route::get('/destroy/{id}', 'destroy')->name('backend.attribute.destroy');
+        Route::get('/{id}/edit', 'attribute_edit')->name('backend.attribute.edit');
+        Route::post('/{id}/update', 'attribute_update')->name('backend.attribute.update');
     });
 
 });

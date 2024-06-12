@@ -34,7 +34,7 @@ class AttributeController extends Controller
                 return $badges;
             })
             ->addColumn('action', function($row){
-                $actionBtn = '<a href="'.route('backend.brand.edit', $row->id).'" class="btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                $actionBtn = '<a href="'.route('backend.attribute.edit', $row->id).'" class="btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
                 return $actionBtn;
             })->rawColumns(['attribute','action'])->addIndexColumn()->toJson();
     }
@@ -45,7 +45,23 @@ class AttributeController extends Controller
         $attribute->name = $request->name;
         $attribute->attributes = $request->attribute;
         $attribute->save();
+        toastr()->success('Data stored successfully!');
+        return redirect()->route('backend.attribute.index');
 
+    }
+
+    public function attribute_edit($id){
+        $attribute = Attribute::find($id);
+        return view('backend.attribute.edit', compact('attribute'));
+    }
+
+    public function attribute_update(Request $request, $id){
+        $attribute = Attribute::find($id);
+        $attribute->name = $request->name;
+        $attribute->attributes = $request->attribute;
+        $attribute->save();
+        toastr()->success('Data updated successfully!', 'Success');
+        return redirect()->back();
     }
 
     public function destroy($id){

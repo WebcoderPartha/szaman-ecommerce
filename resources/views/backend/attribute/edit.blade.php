@@ -27,12 +27,12 @@
 
                                 <h4>Edit Attribute</h4>
                                 <form id="form">
-                                    @csrf @method('POST')
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label" for="name">Attribute Name</label>
-                                                <input class="form-control" id="name" placeholder="Ex: Color" type="text" name="name">
+                                                <input class="form-control" id="name" value="{{ $attribute->name }}" placeholder="Ex: Color" type="text" name="name">
                                                 @error('name')
                                                 <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
@@ -41,11 +41,12 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label" for="attribute">Attribute</label>
-                                                <input class="form-control" id="attribute" type="text" name="attribute">
+                                                <input class="form-control" value="{{ $attribute->attributes }}" id="attribute" type="text" name="attribute">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mt-4 text-right">
+                                        <input type="hidden" value="{{ $attribute->id }}" name="attribute_id" id="attribute_id">
                                         <button type="button" id="form_button" class="btn btn-success">Save</button>
                                     </div>
                                 </form>
@@ -76,7 +77,7 @@
         $('#attribute').inputTags({
             max: 20,
             minLength: 1,
-            maxLength: 30,
+            maxLength: 100,
         });
 
         // Sweetalert
@@ -93,7 +94,7 @@
             e.preventDefault();
             let name = $('#name').val();
             let attribute = $('#attribute').val();
-
+            let attribute_id = $('#attribute_id').val();
             if (!name.length > 0){
                 Toast.fire({
                     icon: "error",
@@ -110,10 +111,15 @@
                     name: name,
                     attribute: attribute
                 }
-                axios.post('/admin/attribute/store', data).then(response => {
+                axios.post('/admin/attribute/'+attribute_id+'/update', data).then(response => {
                     $('#form')[0].reset();
-                    window.location = "{{ route('backend.attribute.index') }}"
-                    console.log(response.data)
+                    Toast.fire({
+                        icon: "success",
+                        title: "Updated successfully!"
+                    });
+                    setTimeout(()=> {
+                        window.location = "{{ route('backend.attribute.index') }}"
+                    },1000)
                 })
             }
 

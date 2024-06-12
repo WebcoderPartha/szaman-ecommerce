@@ -94,7 +94,7 @@
         $('#attribute').inputTags({
             max: 20,
             minLength: 1,
-            maxLength: 30,
+            maxLength: 100,
         });
 
         // Sweetalert
@@ -130,8 +130,15 @@
                 }
                 axios.post('/admin/attribute/store', data).then(response => {
                     $('#form')[0].reset();
-                    window.location = "{{ route('backend.attribute.index') }}"
-                    console.log(response.data)
+                    Toast.fire({
+                        icon: "error",
+                        title: "Attribute name is required!"
+                    });
+                    setTimeout(() => {
+                        window.location = "{{ route('backend.attribute.index') }}"
+                    },1000)
+
+                    {{--console.log(response.data)--}}
                 })
             }
 
