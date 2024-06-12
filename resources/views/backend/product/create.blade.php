@@ -133,15 +133,15 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group pb-4">
-                                                            <label class="form-label" for="feature_image">Gallery</label>
-                                                            <input class="form-control" id="feature_image" type="file" name="feature_image">
+                                                            <label class="form-label" for="gallery[]">Gallery</label>
+                                                            <input class="form-control gallery-input" type="file" name="gallery[]">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-3 pb-2">
                                                         <div class="col-md-4">
                                                             <p>Preview</p>
-                                                            <img src="" width="200" id="gallery" alt="">
+                                                            <img src="" width="50" class="gallery-preview" alt="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -204,15 +204,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group pb-4">
-                        <label class="form-label" for="feature_image">Gallery</label>
-                        <input class="form-control" id="feature_image" type="file" name="feature_image">
+                        <label class="form-label" for="gallery[]">Gallery</label>
+                        <input class="form-control gallery-input" type="file" name="gallery[]">
                     </div>
                 </div>
 
                 <div class="col-md-3 pb-2">
                     <div class="col-md-4">
                         <p>Preview</p>
-                        <img src="" width="200" id="gallery" alt="">
+                        <img src="" width="50" class="gallery-preview" alt="">
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -309,6 +309,20 @@
             discountInput.addEventListener('input', calculateDiscountPrice);
         });
 
+
+
+        // Handle dynamically added gallery inputs
+        function previewGalleryImage(input) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $(input).closest('.row').find('.gallery-preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        $(document).on('change', '.gallery-input', function() {
+            previewGalleryImage(this);
+        });
 
         $(document).ready(function (){
             let counter = 0;
