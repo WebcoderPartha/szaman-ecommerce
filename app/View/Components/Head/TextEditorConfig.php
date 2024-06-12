@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ShortDescriptionConfig extends Component
+class TextEditorConfig extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class ShortDescriptionConfig extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.head.short-description-config');
+        return view('components.head.text-editor-config');
     }
 }

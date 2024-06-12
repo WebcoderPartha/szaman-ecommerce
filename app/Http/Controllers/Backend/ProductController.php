@@ -39,7 +39,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'title' => 'required|string'
+        ]);
+        return $request->all();
     }
 
     /**

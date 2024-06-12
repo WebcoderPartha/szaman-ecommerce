@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="col-md-12 px-6">
                                 <h4>Add Product</h4>
-                                <form action="{{ route('backend.brand.store') }}" id="form" enctype="multipart/form-data" method="post">
+                                <form action="{{ route('backend.product.store') }}" method="post" id="form" enctype="multipart/form-data" >
                                     @csrf @method('POST')
                                     <div class="row">
                                         <div class="col-md-12">
@@ -35,19 +35,19 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="form-group pb-2">
-                                                <label class="form-label" for="name">Description</label>
-                                                <x-forms.description-editor />
+                                            <div class="form-group pb-4">
+                                                <label class="form-label" for="description">Description</label>
+                                                <textarea name="description" id="description" class="text-editor"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="form-group pb-2">
-                                                <label class="form-label" for="name">Short Description</label>
-                                                <x-forms.shortdescription-editor />
+                                            <div class="form-group pb-4">
+                                                <label class="form-label" for="short_description">Short Description</label>
+                                                <textarea name="short_description" id="short_description" class="text-editor"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group pb-2">
+                                        <div class="col-md-4">
+                                            <div class="form-group pb-4">
                                                 <label class="form-label" for="category_id">Category</label>
                                                 <select name="category_id" class="form-control select2" id="category_id">
                                                     <option value="">Choose category</option>
@@ -60,8 +60,8 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group pb-2">
+                                        <div class="col-md-4">
+                                            <div class="form-group pb-4">
                                                 <label class="form-label" for="subcategory_id">Sub Category</label>
                                                 <select name="subcategory_id" class="form-control select2" id="subcategory_id">
                                                     <option value="">Choose subcategory</option>
@@ -74,8 +74,8 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group pb-2">
+                                        <div class="col-md-4">
+                                            <div class="form-group pb-4">
                                                 <label class="form-label" for="brand_id">Brand</label>
                                                 <select name="brand_id" class="form-control select2" id="brand_id">
                                                     <option value="">Choose brand</option>
@@ -88,17 +88,102 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group pb-4">
+                                                <label class="form-label" for="unit_price">Regular Price</label>
+                                                <input type="text" name="unit_price" id="unit_price" class="form-control" placeholder="Enter regular price" autocomplete="off">
+                                                @error('unit_price')
+                                                    <span class="text-danger"><small>{{ $message }}</small></span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group pb-4">
+                                                <label class="form-label" for="discount">Discount (%)</label>
+                                                <input type="text" name="discount" id="discount" class="form-control" placeholder="Ex: 10" autocomplete="off">
+                                                @error('discount')
+                                                    <span class="text-danger"><small>{{ $message }}</small></span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group pb-4">
+                                                <label class="form-label" for="discount_price">Discount Price</label>
+                                                <input type="text" name="discount_price" id="discount_price" class="form-control" readonly autocomplete="off">
+                                                @error('discount')
+                                                    <span class="text-danger"><small>{{ $message }}</small></span>
+                                                @enderror
+                                            </div>
+                                        </div>
                                         <div class="col-md-3">
-                                            <div class="form-group pb-2">
-                                                <label class="form-label" for="name">Image</label>
-                                                <input class="form-control" id="image" type="file" name="image">
+                                            <div class="form-group pb-4">
+                                                <label class="form-label" for="feature_image">Feature Image</label>
+                                                <input class="form-control" id="feature_image" type="file" name="feature_image">
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4 pb-2">
+                                        <div class="col-md-2 pb-2">
                                             <div class="col-md-4">
                                                 <p>Preview</p>
-                                                <img src="" width="200" id="imagePreview" alt="">
+                                                <img src="" width="50" id="feature_image_preview" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="closestAdd">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group pb-4">
+                                                            <label class="form-label" for="feature_image">Gallery</label>
+                                                            <input class="form-control" id="feature_image" type="file" name="feature_image">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3 pb-2">
+                                                        <div class="col-md-4">
+                                                            <p>Preview</p>
+                                                            <img src="" width="200" id="gallery" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button class="btn btn-sm btn-primary addMore" type="button">+</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group pb-4">
+                                                <label for="">Feature Product</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="feature_product" value="1">
+                                                    <label class="custom-control-label" for="feature_product">Active</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group pb-4">
+                                                <label for="">Hot Deal</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="hot_deal" value="1">
+                                                    <label class="custom-control-label" for="hot_deal">Active</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group pb-4">
+                                                <label for="is_publish">Publish</label>
+                                                <select name="is_publish" id="is_publish" class="select2 form-control">
+                                                    <option value="0">Unpublished</option>
+                                                    <option value="1">Published</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group pb-4">
+                                                <label for="is_active">Status</label>
+                                                <select name="is_active" id="is_active" class="select2 form-control">
+                                                    <option value="0">Inactive</option>
+                                                    <option value="1">Active</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -114,10 +199,32 @@
         </div>
     </div>
 
+    <div class="addEventItem" style="display: none">
+        <div class="deleteEventItem">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group pb-4">
+                        <label class="form-label" for="feature_image">Gallery</label>
+                        <input class="form-control" id="feature_image" type="file" name="feature_image">
+                    </div>
+                </div>
+
+                <div class="col-md-3 pb-2">
+                    <div class="col-md-4">
+                        <p>Preview</p>
+                        <img src="" width="200" id="gallery" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-sm btn-primary addMore" type="button">+</button> &nbsp;
+                    <button class="btn btn-sm btn-danger deleteItem" type="button">-</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('js')
-    <x-head.description-config />
-{{--    <x-head.short-description-config />--}}
     <script>
 
         {{--// Verify token--}}
@@ -129,6 +236,15 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
+        });
+
+        // Image Preview
+        $('#feature_image').change(function(){
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#feature_image_preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
         });
 
         // Sweetalert
@@ -150,68 +266,66 @@
             reader.readAsDataURL(this.files[0]);
         });
 
-        $(document).ready(function() {
 
-            var table = $('#data-table').removeAttr('width').DataTable({
-                processing: true,
-                serverSide: true,
-                scrollX: false,
-                pageLength: 10,
-                ordering: true,
-                responsive : true,
-                searching : true,
-                bDestroy : true,
-                lengthChange : false,
-                sorting : true,
-                ajax: {
-                    url: "{{route('backend.brand.data')}}",
-                    type: "GET",
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    },
-                },
-                columns: [
-                    {
-                        data: 'DT_RowIndex',
-                        searchable: false,
-                        class: "text-center",
-                        orderable: false
-                    },
-                    {
-                        data: 'name',
-                        name: 'name',
-                        searchable: true,
-                        orderable: false
-                    },
-                    {
-                        data: 'image',
-                        name: 'image',
-                        searchable: true,
-                        orderable: false
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
+        document.addEventListener('DOMContentLoaded', function () {
+            const unitPriceInput = document.getElementById('unit_price');
+            const discountInput = document.getElementById('discount');
+            const discountPriceInput = document.getElementById('discount_price');
+
+            function calculateDiscountPrice() {
+                const unitPrice = parseFloat(unitPriceInput.value) || 0;
+                const discount = parseFloat(discountInput.value) || 0;
+
+                if (unitPrice > 0 && discount > 0) {
+                    const discountPrice = unitPrice - (unitPrice * discount / 100);
+
+                    // Ensure the discount price is not negative
+                    if (discountPrice >= 0) {
+                        discountPriceInput.value = discountPrice.toFixed(0);
+                    } else {
+                        discountPriceInput.value = '0'; // Set to zero if the discount makes the price negative
+                        Toast.fire({
+                            icon: 'error',
+                            text: 'Discount price shoud not be negative value!'
+                        })
                     }
-                ]
-            });
+                } else {
+                    discountPriceInput.value = '';
+                }
+            }
 
+            function validateNumericInput(event) {
+                if (!/^\d*\.?\d*$/.test(event.target.value)) {
+                    event.target.value = event.target.value.replace(/[^\d.]/g, '');
+                    Toast.fire({
+                        icon: 'error',
+                        text: 'Please enter only numeric values!'
+                    })
+                }
+            }
+            unitPriceInput.addEventListener('input', validateNumericInput);
+            discountInput.addEventListener('input', validateNumericInput);
+            unitPriceInput.addEventListener('input', calculateDiscountPrice);
+            discountInput.addEventListener('input', calculateDiscountPrice);
         });
 
-        function delete_alert(id) {
-            Swal.fire({
-                title: "Are you sure to delete?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonText: "Yes, delete it!"
-            }).then(function(result) {
-                if (result.value) {
-                    window.location = "/admin/brand/"+id+"/delete"
-                }
-            }); //alert ends
-        }
 
+        $(document).ready(function (){
+            let counter = 0;
+
+            $(document).on('click', '.addMore', function (e){
+                e.preventDefault();
+                let addEventItem = $('.addEventItem').html();
+                $(this).closest('.closestAdd').append(addEventItem);
+                counter++;
+            });
+
+            $(document).on('click', '.deleteItem', function (e){
+                e.preventDefault();
+                $(this).closest('.deleteEventItem').remove();
+                counter -= 1;
+            });
+        })
 
     </script>
 

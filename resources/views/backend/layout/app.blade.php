@@ -37,6 +37,7 @@
             display: none !important;
         }
     </style>
+    <x-head.text-editor-config />
     @yield('css')
 </head>
 <!-- BEGIN Body -->
@@ -155,6 +156,7 @@
 <!-- Jwt decode -->
 {{--<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>--}}
 <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
+
 <script type="text/javascript">
     /* Activate smart panels */
     $('#js-page-content').smartPanel();
