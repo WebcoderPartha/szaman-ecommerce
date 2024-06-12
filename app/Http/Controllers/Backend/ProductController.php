@@ -7,7 +7,10 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -42,7 +45,45 @@ class ProductController extends Controller
         $validate = $request->validate([
             'title' => 'required|string'
         ]);
-        return $request->all();
+
+        $product = new ProductController();
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->short_description = $request->short_description;
+        $product->category_id = $request->category_id;
+        $product->subcategory_id = $request->subcategory_id;
+        $product->brand_id = $request->brand_id;
+        $product->unit_price = $request->unit_price;
+        $product->discount = $request->discount;
+        $product->discount_price = $request->discount_price;
+
+        if ($request->file('feature_image')){
+            $file = $request->file('feature_image');
+            $image = Str::of(Str::lower($request->title))->slug('-').'-'.time().'.'.$file->getClientOriginalExtension();
+
+            // check post directory slider is exists
+            if(!Storage::disk('public')->exists('gallery')){
+                Storage::disk('public')->makeDirectory('gallery');
+            }
+
+            $imgResize = Image::make($request->image)->resize('300', '300')->stream();
+            Storage::disk('public')->put('gallery/'.$image,$imgResize);
+
+            $product->feature_image = $image;
+        }
+        $product->feature_product = $request->feature_product;
+        $product->hot_deal = $request->hot_deal;
+        $product->is_publish = $request->is_publish;
+        $product->is_active = $request->is_active;
+        $save = $product->save();
+        if ($request->file('gallery')){
+            if ($save){
+                $count = count($request->gallery);
+                for ($i = 0; $i < $count; $i++){
+
+                }
+            }
+        }
     }
 
     /**
