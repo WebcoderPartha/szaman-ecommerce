@@ -29,6 +29,14 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <style>
+        .tox-promotion {
+            display: none !important;
+        }
+        .tox-statusbar__right-container {
+            display: none !important;
+        }
+    </style>
     @yield('css')
 </head>
 <!-- BEGIN Body -->

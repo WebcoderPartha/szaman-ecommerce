@@ -20,18 +20,30 @@
                 <div class="panel-container show">
                     <div class="panel-content">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 px-6">
                                 <h4>Add Product</h4>
                                 <form action="{{ route('backend.brand.store') }}" id="form" enctype="multipart/form-data" method="post">
                                     @csrf @method('POST')
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-12">
                                             <div class="form-group pb-2">
                                                 <label class="form-label" for="title">Product Title</label>
                                                 <input type="text" name="title" id="title" class="form-control" placeholder="Enter product title" autocomplete="off">
                                                 @error('title')
                                                     <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group pb-2">
+                                                <label class="form-label" for="name">Description</label>
+                                                <x-forms.description-editor />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group pb-2">
+                                                <label class="form-label" for="name">Short Description</label>
+                                                <x-forms.shortdescription-editor />
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -58,7 +70,7 @@
                                                     @endforeach
                                                 </select>
                                                 @error('subcategory_id')
-                                                <span class="text-danger"><small>{{ $message }}</small></span>
+                                                    <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
                                             </div>
                                         </div>
@@ -82,6 +94,7 @@
                                                 <input class="form-control" id="image" type="file" name="image">
                                             </div>
                                         </div>
+
                                         <div class="col-md-4 pb-2">
                                             <div class="col-md-4">
                                                 <p>Preview</p>
@@ -103,6 +116,8 @@
 
 @endsection
 @section('js')
+    <x-head.description-config />
+{{--    <x-head.short-description-config />--}}
     <script>
 
         {{--// Verify token--}}
