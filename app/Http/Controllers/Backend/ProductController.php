@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Subcategory;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
 {
@@ -12,7 +16,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.product.index');
+    }
+
+    public function product_data(){
+
     }
 
     /**
@@ -20,7 +28,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $brands = Brand::all();
+        return view('backend.product.create', compact('categories', 'subcategories', 'brands'));
     }
 
     /**
@@ -36,7 +47,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -44,7 +55,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $brands = Brand::all();
+        return view('backend.product.edit', compact('categories', 'subcategories', 'brands'));
     }
 
     /**

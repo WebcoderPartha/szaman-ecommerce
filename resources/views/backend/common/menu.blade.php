@@ -39,12 +39,12 @@
     </a>
     <ul style="display: none;" >
         <li>
-            <a href="" title="Analytics Dashboard" data-filter-tags="application intel analytics dashboard" class=" waves-effect waves-themed">
+            <a href="{{ route('backend.product.create') }}" title="Analytics Dashboard" data-filter-tags="application intel analytics dashboard" class=" waves-effect waves-themed">
                 <span class="nav-link-text" data-i18n="nav.application_intel_analytics_dashboard">Add Product</span>
             </a>
         </li>
         <li>
-            <a href="" title="Analytics Dashboard" data-filter-tags="application intel analytics dashboard" class=" waves-effect waves-themed">
+            <a href="{{ route('backend.product.index') }}" title="Analytics Dashboard" data-filter-tags="application intel analytics dashboard" class=" waves-effect waves-themed">
                 <span class="nav-link-text" data-i18n="nav.application_intel_analytics_dashboard">Product List</span>
             </a>
         </li>

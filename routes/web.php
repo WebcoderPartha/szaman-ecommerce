@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\AttributeController;
+use App\Http\Controllers\Backend\ProductController;
 
 
 
@@ -74,6 +75,17 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::get('/destroy/{id}', 'destroy')->name('backend.attribute.destroy');
         Route::get('/{id}/edit', 'attribute_edit')->name('backend.attribute.edit');
         Route::post('/{id}/update', 'attribute_update')->name('backend.attribute.update');
+    });
+
+    // Product Controller
+    Route::controller(ProductController::class)->prefix('product')->group(function (){
+        Route::get('/', 'index')->name('backend.product.index');
+        Route::get('/create', 'create')->name('backend.product.create');
+        Route::post('/store', 'store')->name('backend.product.store');
+        Route::get('/get-data', 'product_data')->name('backend.product.getdata');
+        Route::get('/destroy/{id}', 'destroy')->name('backend.product.destroy');
+        Route::get('/{id}/edit', 'edit')->name('backend.product.edit');
+        Route::post('/{id}/update', 'update')->name('backend.product.update');
     });
 
 });
