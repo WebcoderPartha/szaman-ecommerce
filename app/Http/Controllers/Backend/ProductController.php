@@ -27,7 +27,37 @@ class ProductController extends Controller
     }
 
     public function product_data(){
+        $data = Product::with('category', 'sub_category', 'brand')->get();
 
+        return Datatables::of($data)
+            ->addColumn('category', function ($row){
+                if ($row->category){
+                    return $row->category->name;
+                }else{
+                    return '-';
+                }
+            })->addColumn('sub_category', function ($row){
+                if ($row->category){
+                    return $row->sub_category->name;
+                }else{
+                    return '-';
+                }
+            })->addColumn('brand', function ($row){
+                if ($row->category){
+                    return $row->brand->name;
+                }else{
+                    return '-';
+                }
+            })->addColumn('feature_image', function ($row){
+                if ($row->feature_image !== null){
+                    return '<img src="'.asset('storage/gallery/'.$row->feature_image).'"  width="50">';
+                }else{
+                    return '<img src="https://placehold.co/40x40"  width="50">';
+                }
+            })->addColumn('action', function($row){
+                $actionBtn = '<a href="'.route('backend.brand.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                return $actionBtn;
+            })->rawColumns(['category', 'sub_category', 'brand', 'feature_image','action'])->addIndexColumn()->toJson();
     }
 
     /**
