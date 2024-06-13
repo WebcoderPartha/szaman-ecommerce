@@ -88,7 +88,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="unit_price">Regular Price</label>
                                                 <input type="text" name="unit_price" id="unit_price" class="form-control" placeholder="Enter regular price" autocomplete="off">
@@ -97,7 +97,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="discount">Discount (%)</label>
                                                 <input type="text" name="discount" id="discount" class="form-control" placeholder="Ex: 10" autocomplete="off">
@@ -106,12 +106,21 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="discount_price">Discount Price</label>
                                                 <input type="text" name="discount_price" id="discount_price" class="form-control" readonly autocomplete="off">
                                                 @error('discount')
                                                     <span class="text-danger"><small>{{ $message }}</small></span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group pb-4">
+                                                <label class="form-label" for="quantity">Quantity</label>
+                                                <input type="text" name="quantity" id="quantity" class="form-control" placeholder="Ex: 100" autocomplete="off">
+                                                @error('quantity')
+                                                <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
                                             </div>
                                         </div>
@@ -162,11 +171,13 @@
                                             <div class="row" style="border: 1px solid #dcd8d8; padding: 10px 0px 18px 0px;">
                                                 @foreach($attributes as $attribute)
                                                     <div class="col-md-3">
-                                                        <label class="form-label"  for="{{ Str::lower($attribute->name) }}">{{ $attribute->name }}</label>
+                                                        <label class="form-label"  for="{{ $attribute->name }}">{{ $attribute->name }}
+                                                            <input type="hidden" name="variant_name[]" value="{{ $attribute->name }}">
+                                                        </label>
                                                         @php
                                                             $attribute_values = explode(',', $attribute->attributes);
                                                         @endphp
-                                                        <select name="{{ Str::lower($attribute->name) }}" class="select2" id="{{ Str::lower($attribute->name) }}" multiple="multiple">
+                                                        <select name="variant_value[]" class="select2" id="{{ $attribute->name }}" multiple="multiple">
                                                             @foreach($attribute_values as $attribute_value)
                                                                 <option value="{{ $attribute_value }}">{{ $attribute_value }}</option>
                                                             @endforeach
@@ -296,6 +307,7 @@
             const unitPriceInput = document.getElementById('unit_price');
             const discountInput = document.getElementById('discount');
             const discountPriceInput = document.getElementById('discount_price');
+            const quantityInput = document.getElementById('quantity');
 
             function calculateDiscountPrice() {
                 const unitPrice = parseFloat(unitPriceInput.value) || 0;
@@ -311,7 +323,7 @@
                         discountPriceInput.value = '0'; // Set to zero if the discount makes the price negative
                         Toast.fire({
                             icon: 'error',
-                            text: 'Discount price shoud not be negative value!'
+                            text: 'Discount price should not be negative value!'
                         })
                     }
                 } else {
@@ -330,6 +342,8 @@
             }
             unitPriceInput.addEventListener('input', validateNumericInput);
             discountInput.addEventListener('input', validateNumericInput);
+            quantityInput.addEventListener('input', validateNumericInput);
+
             unitPriceInput.addEventListener('input', calculateDiscountPrice);
             discountInput.addEventListener('input', calculateDiscountPrice);
         });

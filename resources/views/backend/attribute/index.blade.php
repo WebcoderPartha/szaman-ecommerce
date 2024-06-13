@@ -131,8 +131,8 @@
                 axios.post('/admin/attribute/store', data).then(response => {
                     $('#form')[0].reset();
                     Toast.fire({
-                        icon: "error",
-                        title: "Attribute name is required!"
+                        icon: "success",
+                        title: "Data stored successfully!"
                     });
                     setTimeout(() => {
                         window.location = "{{ route('backend.attribute.index') }}"
