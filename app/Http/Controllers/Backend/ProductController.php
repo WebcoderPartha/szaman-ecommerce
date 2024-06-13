@@ -42,6 +42,12 @@ class ProductController extends Controller
                 }else{
                     return '-';
                 }
+            })->addColumn('stock', function ($row){
+                if ($row->quantity > '0'){
+                    return '<span class="badge badge-success">Available</span>';
+                }else{
+                    return '<span class="badge badge-danger">Stock Out</span>';
+                }
             })->addColumn('brand', function ($row){
                 if ($row->category){
                     return $row->brand->name;
@@ -50,14 +56,14 @@ class ProductController extends Controller
                 }
             })->addColumn('feature_image', function ($row){
                 if ($row->feature_image !== null){
-                    return '<img src="'.asset('storage/gallery/'.$row->feature_image).'"  width="50">';
+                    return '<img src="'.asset('storage/product/'.$row->feature_image).'"  width="50">';
                 }else{
                     return '<img src="https://placehold.co/40x40"  width="50">';
                 }
             })->addColumn('action', function($row){
-                $actionBtn = '<a href="'.route('backend.brand.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                $actionBtn = '<a href="'.route('backend.product.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
                 return $actionBtn;
-            })->rawColumns(['category', 'sub_category', 'brand', 'feature_image','action'])->addIndexColumn()->toJson();
+            })->rawColumns(['category', 'sub_category', 'brand', 'stock', 'feature_image','action'])->addIndexColumn()->toJson();
     }
 
     /**
@@ -95,15 +101,15 @@ class ProductController extends Controller
 
         if ($request->file('feature_image')){
             $file = $request->file('feature_image');
-            $image = 'product'.'-'.time().'.'.$file->getClientOriginalExtension();
+            $image = 'product'.'-'.rand(999999,100000).'.'.$file->getClientOriginalExtension();
 
             // check post directory slider is exists
-            if(!Storage::disk('public')->exists('gallery')){
-                Storage::disk('public')->makeDirectory('gallery');
+            if(!Storage::disk('public')->exists('product')){
+                Storage::disk('public')->makeDirectory('product');
             }
 
             $imgResize = Image::make($request->feature_image)->resize('300', '300')->stream();
-            Storage::disk('public')->put('gallery/'.$image,$imgResize);
+            Storage::disk('public')->put('product/'.$image,$imgResize);
 
             $product->feature_image = $image;
         }
@@ -120,7 +126,7 @@ class ProductController extends Controller
 
                 for ($i = 0; $i < $count; $i++){
                     $file = $request->file('gallery')[$i];
-                    $image = 'gallery'.'-'.time().'.'.$file->getClientOriginalExtension();
+                    $image = 'gallery'.'-'.rand(999999,100000).'.'.$file->getClientOriginalExtension();
 
                     // check post directory slider is exists
                     if(!Storage::disk('public')->exists('gallery')){
@@ -157,7 +163,7 @@ class ProductController extends Controller
             }
         }
         toastr()->success('Product inserted successfully!', 'Success');
-        return redirect()->route('backend.product.create');
+        return redirect()->route('backend.product.index');
     }
 
     /**
@@ -173,10 +179,16 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
+        $product = Product::with('category', 'sub_category', 'brand', 'gallery', 'variation')->first();
+        if (!$product){
+            toastr()->error('Page not found!', 'Error');
+            return redirect()->route('backend.product.index');
+        }
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $brands = Brand::all();
-        return view('backend.product.edit', compact('categories', 'subcategories', 'brands'));
+        $attributes = Attribute::all();
+        return view('backend.product.edit', compact('product', 'categories', 'subcategories', 'brands', 'attributes'));
     }
 
     /**

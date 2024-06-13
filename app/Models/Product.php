@@ -38,7 +38,10 @@ class Product extends Model
     }
 
     public function gallery(){
-        return $this->hasMany(Gallery::class, 'id', 'product_id');
+        return $this->hasMany(Gallery::class, 'product_id', 'id')->select('product_id', 'image');
+    }
+    public function variation(){
+        return $this->hasMany(ProductVariant::class, 'product_id', 'id')->select('product_id', 'variant_name', 'variant_value');
     }
 
 

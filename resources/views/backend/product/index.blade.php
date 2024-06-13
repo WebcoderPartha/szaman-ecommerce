@@ -29,6 +29,8 @@
                                     <th>Category</th>
                                     <th>Subcategory</th>
                                     <th>Brand</th>
+                                    <th>Quantity</th>
+                                    <th>Stock</th>
                                     <th>Image</th>
                                     <th>Action</th>
                                 </tr>
@@ -121,6 +123,20 @@
                     {
                         data: 'brand',
                         name: 'brand',
+                        width: "5%",
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'quantity',
+                        name: 'quantity',
+                        width: "5%",
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'stock',
+                        name: 'stock',
                         width: "5%",
                         searchable: true,
                         orderable: false

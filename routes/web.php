@@ -85,7 +85,7 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::get('/get-data', 'product_data')->name('backend.product.getdata');
         Route::get('/destroy/{id}', 'destroy')->name('backend.product.destroy');
         Route::get('/{id}/edit', 'edit')->name('backend.product.edit');
-        Route::post('/{id}/update', 'update')->name('backend.product.update');
+        Route::put('/{id}/update', 'update')->name('backend.product.update');
     });
 
 });
