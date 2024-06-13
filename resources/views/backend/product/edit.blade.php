@@ -147,29 +147,51 @@
                                                 </div>
                                                 <div class="col-md-7">
                                                     <div class="closestAdd">
-                                                       @foreach($product->gallery as $gallery)
-                                                            <div class="deleteEventItem">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group pb-4">
-                                                                            <label class="form-label" for="gallery[]">Gallery</label>
-                                                                            <input class="form-control gallery-input" type="file" name="gallery[]">
-                                                                        </div>
-                                                                    </div>
+                                                        @if(count($product->gallery))
+                                                            @foreach($product->gallery as $gallery)
+                                                                <div class="deleteEventItem">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group pb-4">
+                                                                                <label class="form-label" for="gallery[]">Gallery</label>
 
-                                                                    <div class="col-md-3 pb-2">
-                                                                        <div class="col-md-4">
-                                                                            <p>Preview</p>
-                                                                            <img src="{{ asset('/storage/gallery/'.$gallery->image) }}" width="90" class="gallery-preview" alt="">
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <button style="margin-top: 25px;" class="btn btn-sm btn-primary addMore" type="button">+</button> &nbsp;
-                                                                        <button style="margin-top: 25px;" class="btn btn-sm btn-danger deleteItem" type="button">-</button>
+
+                                                                        <div class="col-md-3 pb-2">
+                                                                            <div class="col-md-4">
+                                                                                <p>Preview</p>
+                                                                                <img src="{{ asset('/storage/gallery/'.$gallery->image) }}" width="90" class="gallery-preview" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <button style="margin-top: 25px;" class="btn btn-sm btn-primary addMore" type="button">+</button> &nbsp;
+                                                                            <button style="margin-top: 25px;" data-id="{{ $gallery->id }}" class="btn btn-sm btn-danger deleteItem" type="button">-</button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                            @endforeach
+                                                        @else
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group pb-4">
+                                                                        <label class="form-label" for="gallery[]">Gallery</label>
+                                                                        <input class="form-control gallery-input" type="file" name="gallery[]">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-3 pb-2">
+                                                                    <div class="col-md-4">
+                                                                        <p>Preview</p>
+                                                                        <img src="" width="50" class="gallery-preview" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <button style="margin-top: 25px;" class="btn btn-sm btn-primary addMore" type="button">+</button>
+                                                                </div>
                                                             </div>
-                                                       @endforeach
+                                                        @endif
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -236,6 +258,10 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- Hidden input to store deleted gallery IDs -->
+                                    <input type="hidden" name="deleted_gallery" id="deleted_gallery">
+
                                     <div class="mt-4 text-right">
                                         <button type="submit" id="form_button" class="btn btn-success">Save</button>
                                     </div>
@@ -386,9 +412,16 @@
                 counter++;
             });
 
+            let deletedGallery = [];
+
             $(document).on('click', '.deleteItem', function (e){
                 e.preventDefault();
+                $galleryID = e.target.getAttribute('data-id');
                 $(this).closest('.deleteEventItem').remove();
+                if ($galleryID) {
+                    deletedGallery.push($galleryID);
+                    $('#deleted_gallery').val(deletedGallery.join(','));
+                }
                 counter -= 1;
             });
         })

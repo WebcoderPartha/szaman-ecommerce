@@ -196,7 +196,117 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validate = $request->validate([
+            'title' => 'required|string'
+        ]);
+
+        $product = Product::with('gallery')->first();
+
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->short_description = $request->short_description;
+        $product->category_id = $request->category_id;
+        $product->subcategory_id = $request->subcategory_id;
+        $product->brand_id = $request->brand_id;
+        $product->unit_price = $request->unit_price;
+        $product->quantity = $request->quantity;
+        $product->discount = $request->discount;
+        $product->discount_price = $request->discount_price;
+
+        if ($request->file('feature_image')){
+            $file = $request->file('feature_image');
+            $image = 'product'.'-'.rand(999999,100000).'.'.$file->getClientOriginalExtension();
+
+            // check post directory slider is exists
+            if(!Storage::disk('public')->exists('product')){
+                Storage::disk('public')->makeDirectory('product');
+            }
+
+            // Remove existing image
+            if ($product->feature_image !== null) {
+                if (Storage::disk('public')->exists('product/' . $product->feature_image)) {
+                    Storage::disk('public')->delete('product/' . $product->feature_image);
+                }
+            }
+
+            $imgResize = Image::make($request->feature_image)->resize('300', '300')->stream();
+            Storage::disk('public')->put('product/'.$image,$imgResize);
+
+            $product->feature_image = $image;
+        }
+        $product->feature_product = $request->feature_product;
+        $product->hot_deal = $request->hot_deal;
+        $product->is_publish = $request->is_publish;
+        $product->is_active = $request->is_active;
+        $save = $product->save();
+
+        // Delete removed gallery images
+        if ($request->deleted_gallery) {
+            $deletedGalleryIds = explode(',', $request->deleted_gallery);
+            foreach ($deletedGalleryIds as $deletedImageId) {
+                $gallery = Gallery::findOrFail($deletedImageId);
+                if (Storage::disk('public')->exists('gallery/' . $gallery->image)) {
+                    Storage::disk('public')->delete('gallery/' . $gallery->image);
+                }
+                $gallery->delete();
+            }
+        }
+
+        // New Gallery Request
+        if ($request->file('gallery')){
+            if ($save){
+
+                $count = count($request->file('gallery'));
+                for ($i = 0; $i < $count; $i++){
+                    $file = $request->file('gallery')[$i];
+                    $image = 'gallery'.'-'.rand(999999,100000).'.'.$file->getClientOriginalExtension();
+
+                    // check post directory slider is exists
+                    if(!Storage::disk('public')->exists('gallery')){
+                        Storage::disk('public')->makeDirectory('gallery');
+                    }
+
+//                    // Remove existing image
+//                    if ($product->gallery[$i]->image !== null) {
+//                        if (Storage::disk('public')->exists('gallery/' . $product->gallery[$i]->image)) {
+//                            Storage::disk('public')->delete('gallery/' . $product->gallery[$i]->image);
+//                        }
+//                    }
+
+                    $imgResize = Image::make($request->gallery[$i])->resize('300', '300')->stream();
+                    Storage::disk('public')->put('gallery/'.$image,$imgResize);
+
+                    $product->feature_image = $image;
+
+                    $gallery = new Gallery();
+                    $gallery->product_id = $product->id;
+                    $gallery->image = $image;
+                    $gallery->save();
+
+                }
+            }
+        }
+
+        // Product Variant
+        if ($request->variant_name){
+
+            // Delete Product Variant
+            $exist_variant = ProductVariant::where('product_id', $product->id)->delete();
+            foreach ($request->variant_name as $variant){
+
+                $product_variant = new ProductVariant();
+                $product_variant->product_id = $product->id;
+                $product_variant->variant_name = $variant;
+
+                // Array to string convert - "value1,value2,value3"
+                $string_value = implode(',', $request->$variant);
+                $product_variant->variant_value = $string_value;
+                $product_variant->save();
+
+            }
+        }
+        toastr()->success('Product updated successfully!', 'Success');
+        return redirect()->route('backend.product.index');
     }
 
     /**
