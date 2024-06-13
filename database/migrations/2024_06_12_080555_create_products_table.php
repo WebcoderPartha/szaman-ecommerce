@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('feature_image')->nullable();
             $table->integer('feature_product')->nullable();
             $table->integer('hot_deal')->nullable();
+            $table->longText('slug')->nullable();
             $table->integer('is_publish')->default(0)->nullable();
             $table->integer('is_active')->default(0)->nullable();
             $table->timestamps();

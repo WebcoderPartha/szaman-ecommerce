@@ -115,62 +115,87 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group pb-4">
-                                                <label class="form-label" for="feature_image">Feature Image</label>
-                                                <input class="form-control" id="feature_image" type="file" name="feature_image">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2 pb-2">
-                                            <div class="col-md-4">
-                                                <p>Preview</p>
-                                                <img src="" width="50" id="feature_image_preview" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="closestAdd">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group pb-4">
-                                                            <label class="form-label" for="gallery[]">Gallery</label>
-                                                            <input class="form-control gallery-input" type="file" name="gallery[]">
-                                                        </div>
+                                        <div class="col-md-12">
+                                            <h2>Image</h2>
+                                            <div class="row" style="border: 1px solid #dcd8d8; padding: 22px 5px 2px 0px">
+                                                <div class="col-md-3">
+                                                    <div class="form-group pb-4">
+                                                        <label class="form-label" for="feature_image">Feature Image</label>
+                                                        <input class="form-control" id="feature_image" type="file" name="feature_image">
                                                     </div>
+                                                </div>
 
-                                                    <div class="col-md-3 pb-2">
-                                                        <div class="col-md-4">
-                                                            <p>Preview</p>
-                                                            <img src="" width="50" class="gallery-preview" alt="">
-                                                        </div>
+                                                <div class="col-md-2 pb-2">
+                                                    <div class="col-md-4">
+                                                        <p>Preview</p>
+                                                        <img src="" width="50" id="feature_image_preview" alt="">
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <button class="btn btn-sm btn-primary addMore" type="button">+</button>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="closestAdd">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group pb-4">
+                                                                    <label class="form-label" for="gallery[]">Gallery</label>
+                                                                    <input class="form-control gallery-input" type="file" name="gallery[]">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-3 pb-2">
+                                                                <div class="col-md-4">
+                                                                    <p>Preview</p>
+                                                                    <img src="" width="50" class="gallery-preview" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <button style="margin-top: 25px;" class="btn btn-sm btn-primary addMore" type="button">+</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+
+                                        <div class="col-md-12 mt-2 mb-2">
+                                            <h2>Attributes</h2>
+                                            <div class="row" style="border: 1px solid #dcd8d8; padding: 10px 0px 18px 0px;">
+                                                @foreach($attributes as $attribute)
+                                                    <div class="col-md-3">
+                                                        <label class="form-label"  for="{{ Str::lower($attribute->name) }}">{{ $attribute->name }}</label>
+                                                        @php
+                                                            $attribute_values = explode(',', $attribute->attributes);
+                                                        @endphp
+                                                        <select name="{{ Str::lower($attribute->name) }}" class="select2" id="{{ Str::lower($attribute->name) }}" multiple="multiple">
+                                                            @foreach($attribute_values as $attribute_value)
+                                                                <option value="{{ $attribute_value }}">{{ $attribute_value }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                         <div class="col-md-3">
                                             <div class="form-group pb-4">
-                                                <label for="">Feature Product</label>
+                                                <label class="form-label" for="feature_product">Feature Product</label>
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="feature_product" value="1">
+                                                    <input type="checkbox" class="custom-control-input" name="feature_product" id="feature_product" value="1">
                                                     <label class="custom-control-label" for="feature_product">Active</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group pb-4">
-                                                <label for="">Hot Deal</label>
+                                                <label class="form-label" for="hot_deal">Hot Deal</label>
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="hot_deal" value="1">
+                                                    <input type="checkbox" class="custom-control-input" name="hot_deal" id="hot_deal" value="1">
                                                     <label class="custom-control-label" for="hot_deal">Active</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group pb-4">
-                                                <label for="is_publish">Publish</label>
+                                                <label class="form-label" for="is_publish">Publish</label>
                                                 <select name="is_publish" id="is_publish" class="select2 form-control">
                                                     <option value="0">Unpublished</option>
                                                     <option value="1">Published</option>
@@ -179,7 +204,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group pb-4">
-                                                <label for="is_active">Status</label>
+                                                <label class="form-label" for="is_active">Status</label>
                                                 <select name="is_active" id="is_active" class="select2 form-control">
                                                     <option value="0">Inactive</option>
                                                     <option value="1">Active</option>
@@ -216,8 +241,8 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-sm btn-primary addMore" type="button">+</button> &nbsp;
-                    <button class="btn btn-sm btn-danger deleteItem" type="button">-</button>
+                    <button style="margin-top: 25px;" class="btn btn-sm btn-primary addMore" type="button">+</button> &nbsp;
+                    <button style="margin-top: 25px;" class="btn btn-sm btn-danger deleteItem" type="button">-</button>
                 </div>
             </div>
         </div>
