@@ -177,7 +177,7 @@
                                                         @php
                                                             $attribute_values = explode(',', $attribute->attributes);
                                                         @endphp
-                                                        <select name="variant_value[]" class="select2" id="{{ $attribute->name }}" multiple="multiple">
+                                                        <select name="{{ $attribute->name }}[]" class="select2" id="{{ $attribute->name }}" multiple="multiple">
                                                             @foreach($attribute_values as $attribute_value)
                                                                 <option value="{{ $attribute_value }}">{{ $attribute_value }}</option>
                                                             @endforeach

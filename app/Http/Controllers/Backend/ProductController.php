@@ -8,6 +8,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Gallery;
 use App\Models\Product;
+use App\Models\ProductVariant;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -58,6 +59,7 @@ class ProductController extends Controller
         $product->subcategory_id = $request->subcategory_id;
         $product->brand_id = $request->brand_id;
         $product->unit_price = $request->unit_price;
+        $product->quantity = $request->quantity;
         $product->discount = $request->discount;
         $product->discount_price = $request->discount_price;
 
@@ -81,6 +83,7 @@ class ProductController extends Controller
         $product->is_active = $request->is_active;
         $save = $product->save();
 
+        // Gallery Image
         if ($request->file('gallery')){
             if ($save){
                 $count = count($request->file('gallery'));
@@ -108,7 +111,23 @@ class ProductController extends Controller
             }
         }
 
-        return 'ok';
+        // Product Variant
+        if ($request->variant_name){
+            foreach ($request->variant_name as $variant){
+
+                $product_variant = new ProductVariant();
+                $product_variant->product_id = $product->id;
+                $product_variant->variant_name = $variant;
+
+                // Array to string convert - "value1,value2,value3"
+                $string_value = implode(',', $request->$variant);
+                $product_variant->variant_value = $string_value;
+                $product_variant->save();
+
+            }
+        }
+        toastr()->success('Product inserted successfully!', 'Success');
+        return redirect()->route('backend.product.create');
     }
 
     /**
