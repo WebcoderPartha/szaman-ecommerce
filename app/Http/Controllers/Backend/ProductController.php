@@ -151,14 +151,17 @@ class ProductController extends Controller
         if ($request->variant_name){
             foreach ($request->variant_name as $variant){
 
-                $product_variant = new ProductVariant();
-                $product_variant->product_id = $product->id;
-                $product_variant->variant_name = $variant;
+                if ($request->$variant){
+                    $product_variant = new ProductVariant();
+                    $product_variant->product_id = $product->id;
+                    $product_variant->variant_name = $variant;
 
-                // Array to string convert - "value1,value2,value3"
-                $string_value = implode(',', $request->$variant);
-                $product_variant->variant_value = $string_value;
-                $product_variant->save();
+                    // Array to string convert - "value1,value2,value3"
+                    $string_value = implode(',', $request->$variant);
+                    $product_variant->variant_value = $string_value;
+                    $product_variant->save();
+                }
+
 
             }
         }
@@ -179,7 +182,7 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $product = Product::with('category', 'sub_category', 'brand', 'gallery', 'variation')->first();
+        $product = Product::with('category', 'sub_category', 'brand', 'gallery', 'variation')->find($id);
         if (!$product){
             toastr()->error('Page not found!', 'Error');
             return redirect()->route('backend.product.index');
@@ -294,15 +297,16 @@ class ProductController extends Controller
             $exist_variant = ProductVariant::where('product_id', $product->id)->delete();
             foreach ($request->variant_name as $variant){
 
-                $product_variant = new ProductVariant();
-                $product_variant->product_id = $product->id;
-                $product_variant->variant_name = $variant;
+                if ($request->$variant){
+                    $product_variant = new ProductVariant();
+                    $product_variant->product_id = $product->id;
+                    $product_variant->variant_name = $variant;
 
-                // Array to string convert - "value1,value2,value3"
-                $string_value = implode(',', $request->$variant);
-                $product_variant->variant_value = $string_value;
-                $product_variant->save();
-
+                    // Array to string convert - "value1,value2,value3"
+                    $string_value = implode(',', $request->$variant);
+                    $product_variant->variant_value = $string_value;
+                    $product_variant->save();
+                }
             }
         }
         toastr()->success('Product updated successfully!', 'Success');

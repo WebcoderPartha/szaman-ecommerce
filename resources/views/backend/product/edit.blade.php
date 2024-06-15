@@ -200,21 +200,28 @@
 
                                         <div class="col-md-12 mt-2 mb-2">
                                             <h2>Attributes</h2>
-
                                             <div class="row" style="border: 1px solid #dcd8d8; padding: 10px 0px 18px 0px;">
                                                 @foreach($attributes as $atbkey => $attribute)
-
                                                     <div class="col-md-3">
-                                                        <label class="form-label"  for="{{ $attribute->name }}">{{ $attribute->name }}
+                                                        <label class="form-label" for="{{ $attribute->name }}">
+                                                            {{ $attribute->name }}
                                                             <input type="hidden" name="variant_name[]" value="{{ $attribute->name }}">
                                                         </label>
                                                         @php
                                                             $attribute_values = explode(',', $attribute->attributes);
-                                                            $product_variation = explode(',', $product->variation[$atbkey]->variant_value);
+
+                                                            $product_variation = [];
+                                                            foreach ($product->variation as $variant) {
+                                                                $product_variation = array_merge($product_variation, explode(',', $variant['variant_value']));
+                                                            }
                                                         @endphp
                                                         <select name="{{ $attribute->name }}[]" class="select2" id="{{ $attribute->name }}" multiple="multiple">
                                                             @foreach($attribute_values as $attribute_value)
-                                                                <option @if(in_array($attribute_value, $product_variation)) selected @endif value="{{ $attribute_value }}">{{ $attribute_value }}</option>
+
+                                                                <option value="{{ $attribute_value }}"
+                                                                        @if(in_array($attribute_value, $product_variation)) selected @endif>
+                                                                    {{ $attribute_value }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
