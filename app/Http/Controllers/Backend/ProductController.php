@@ -203,7 +203,7 @@ class ProductController extends Controller
             'title' => 'required|string'
         ]);
 
-        $product = Product::with('gallery')->first();
+        $product = Product::with('gallery')->find($id);
 
         $product->title = $request->title;
         $product->description = $request->description;
