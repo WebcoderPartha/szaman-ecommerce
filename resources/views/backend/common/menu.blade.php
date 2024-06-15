@@ -1,39 +1,39 @@
 
 <li class="dashboard_permission">
-    <a href="{{ route('backend.dashboard') }}" title="Dashboard" data-filter-tags="blank page">
+    <a href="{{ route('backend.dashboard') }}" @if(request()->is('admin/dashboard')) style="background: rgba(0, 0, 0, 0.1)" @endif data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
         <span class="nav-link-text" data-i18n="nav.blankpage">Dashboard </span>
     </a>
 </li>
 
 <li class="dashboard_permission">
-    <a href="{{ route('backend.category.index') }}" title="Category" data-filter-tags="blank page">
+    <a href="{{ route('backend.category.index') }}" @if(request()->is('admin/category')) style="background: rgba(0, 0, 0, 0.1)" @endif data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
         <span class="nav-link-text" data-i18n="nav.blankpage">Category </span>
     </a>
 </li>
 <li class="dashboard_permission">
-    <a href="{{ route('backend.subcategory.index') }}" title="Brand" data-filter-tags="blank page">
+    <a href="{{ route('backend.subcategory.index') }}" @if(request()->is('admin/subcategory')) style="background: rgba(0, 0, 0, 0.1)" @endif data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
         <span class="nav-link-text" data-i18n="nav.blankpage">Subcategory </span>
     </a>
 </li>
 
 <li class="dashboard_permission">
-    <a href="{{ route('backend.brand.index') }}" title="Brand" data-filter-tags="blank page">
+    <a href="{{ route('backend.brand.index') }}" @if(request()->is('admin/brand')) style="background: rgba(0, 0, 0, 0.1)" @endif title="Brand" data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
         <span class="nav-link-text" data-i18n="nav.blankpage">Brand </span>
     </a>
 </li>
 <li class="dashboard_permission">
-    <a href="{{ route('backend.attribute.index') }}" title="Brand" data-filter-tags="blank page">
+    <a href="{{ route('backend.attribute.index') }}" @if(request()->is('admin/attribute')) style="background: rgba(0, 0, 0, 0.1)" @endif title="Attribute" data-filter-tags="blank page">
         <i class="fal fa-globe"></i>
         <span class="nav-link-text" data-i18n="nav.blankpage">Attribute </span>
     </a>
 </li>
 
 <li class="employee_permission">
-    <a title="Product"  data-filter-tags="application intel" class=" waves-effect waves-themed" aria-expanded="false">
+    <a title="Product"  data-filter-tags="application intel" @if(request()->is('admin/product') || request()->is('admin/product/create')) style="background: rgba(0, 0, 0, 0.1)" @endif class=" waves-effect waves-themed" aria-expanded="false">
         <i class="fal fa-info-circle"></i>
         <span class="nav-link-text" data-i18n="nav.application_intel">Product</span>
     </a>
