@@ -24,7 +24,7 @@
     </style>
 @endsection
 <!-- Swiper -->
-<div class="col-span-9">
+
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -51,7 +51,6 @@
         </div>
         <div class="swiper-pagination"></div>
     </div>
-</div>
 <!-- Swiper JS -->
 
 @section('js')
