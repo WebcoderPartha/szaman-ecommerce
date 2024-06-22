@@ -10,14 +10,23 @@
     <link rel="favicon" href="https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.82af6fe1.png" color="#5bbad5">
     <title>@yield('title')</title>
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
     <!-- Swiper slider -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 @vite('resources/css/app.css')
+    <style>
+      body{
+          font-family: "Roboto", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+      }
+    </style>
     @yield('css')
 </head>
-<body>
+<body class="bg-[#FCFCFC]">
 <header class="sticky top-0 z-20 bg-[#eb5d1e]" style="filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08));">
     <div class="px-4 md:px-2 container flex gap-20 py-5 m-auto justify-between items-center">
         <div class="flex items-center flex-1 gap-4 md:gap-8">
@@ -70,22 +79,6 @@
     @yield('content')
 </div>
 @yield('js')
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-    });
-</script>
 </body>
 </html>

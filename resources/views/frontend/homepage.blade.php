@@ -2,7 +2,10 @@
 
 
 @section('content')
-    <x-frontend.home.swiper-slider />
+    <div class="grid grid-cols-12">
+        <x-frontend.home.desktop-menu />
+        <x-frontend.home.swiper-slider />
+    </div>
 @endsection
 
 @section('js')
