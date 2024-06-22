@@ -9,11 +9,12 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\AttributeController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Frontend\HomeController;
 
 
-
-Route::get('/', function () {
-    return view('welcome');
+// Frontend
+Route::controller(HomeController::class)->group(function (){
+    Route::get('/', 'home_page')->name('frontend.home_page');
 });
 
 
@@ -22,6 +23,8 @@ Route::controller(LoginController::class)->group(function (){
     Route::post('/admin/login', 'login')->name('admin.login');
 });
 
+
+// Backend
 Route::middleware('admin')->prefix('/admin')->group(function (){
 
     // Dashboard Controller
