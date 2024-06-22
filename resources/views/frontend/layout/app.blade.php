@@ -13,11 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <!-- Swiper slider -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-@vite('resources/css/app.css')
-
+    @vite('resources/css/app.css')
     @yield('css')
 </head>
 <body class="bg-[#FCFCFC]">
@@ -34,7 +33,7 @@
                         <div class=" max-w-[719px] flex-1 relative">
                             <div class="flex w-full overflow-hidden rounded-md">
                                 <div class="relative flex-1">
-                                    <input class="block w-full p-3 pl-4 outline-none" placeholder="Search in Evaly" autocomplete="off" value="">
+                                    <input class="block w-full p-3 pl-4 outline-none" placeholder="Search in Store" autocomplete="off" value="">
                                 </div>
                                 <button class="gap-2 p-2 px-5 text-lg font-medium text-white bg-[#e54904]">Search</button>
                             </div>

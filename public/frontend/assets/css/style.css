@@ -1,0 +1,16 @@
+.active_wishlist {
+    fill: red;
+    transform: translateX(0);
+}
+.active_addtocart{
+    fill: #eb5d1e;
+    transform: translateX(0);
+}
+.wishlist_button svg:hover {
+    fill: red;
+    transform: translateX(0);
+}
+.add_to_cart_button svg:hover{
+    fill: #eb5d1e;
+    transform: translateX(0);
+}
