@@ -1,11 +1,11 @@
 @extends('frontend.layout.app')
 @section('title', 'Customer Login')
 @section('content')
-    <div class=" flex items-center justify-center py-24">
-        <div class=" p-6 w-full max-w-md">
+    <div class="flex items-center justify-center py-24">
+        <div class="p-6 w-full max-w-md">
             <div class="flex justify-center items-center mb-4">
-                <button id="loginTab" class="w-full py-2 px-4 border-b-2 border-b-[#dedede] text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Login</button>
-                <button id="registerTab" class="w-full py-2 px-4 border-b-2 border-b-[#dedede] py-2 px-4 text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Register</button>
+                <button id="loginTab" class="w-full py-2 px-4 border-b-[3px] border-b-theme text-theme font-bold uppercase focus:outline-none block text-center">Login</button>
+                <button id="registerTab" class="w-full py-2 px-4 border-b-2 border-b-[#dedede] text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Register</button>
             </div>
             <div id="loginForm" class="space-y-8">
                 <div>
@@ -39,8 +39,6 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 
 @section('js')
