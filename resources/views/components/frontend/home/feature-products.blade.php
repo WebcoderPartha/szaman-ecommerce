@@ -4,7 +4,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://qcoom.com/_next/image?url=https%3A%2F%2Fproduction-qcoom-user.s3-ap-southeast-1.amazonaws.com%2Fstatic_image%2F2024-06-08T15%3A26%3A47.593_Q-I-Muba-04.jpg&w=1920&q=50" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -25,11 +25,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2024-03-31T16:36:04.796_Q-360-MART-44.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -68,11 +68,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2024-03-31T16:36:04.853_Q-360-MART-43.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -115,7 +115,7 @@
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-06-01T11:57:16.146_26.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -154,11 +154,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-06-01T11:57:16.540_38.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -197,11 +197,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -219,7 +219,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2022-09-11T17:30:23.405__0005_Layer_2.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -240,11 +240,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -262,7 +262,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2024-05-28T15:38:36.898_Q-HONDA-MAY-04.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -283,11 +283,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -305,7 +305,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T04:25:33.830_Q-Blackbuy-au-n-09.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -326,11 +326,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -348,7 +348,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -369,11 +369,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -391,7 +391,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.330_5.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -412,11 +412,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -434,7 +434,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T16:58:20.253__0004_Q-SBD-SUJ-05.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -455,11 +455,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -477,7 +477,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-10-09T16:21:20.504_f1.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -498,11 +498,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -520,7 +520,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-01-07T14:13:41.396_Q-BONGO-SHOP-362.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -541,11 +541,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -563,7 +563,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -584,11 +584,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -606,7 +606,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.396_33.1.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -627,11 +627,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -649,7 +649,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.387_32.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -670,11 +670,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -692,7 +692,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-21T01:27:29.271_2.png" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -713,11 +713,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Anjum Life Trendy Waterproof Large Bagpack (Blue)</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Anjum Life Trendy Waterproof Large Bagpack (Blue)</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
@@ -735,7 +735,7 @@
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-21T01:27:37.744_18.jpg" alt="">
-            <div class="absolute top-0 right-0 px-2 bg-[#eb5d1e] rounded-bl-lg">
+            <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                 <span class=" text-white text-xs">
                     <span class="font-bold">Flat 630 TK Off</span>
                 </span>
@@ -756,11 +756,11 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-theme font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
-                        <div class="text-sm text-[#eb5d1e] font-bold flex items-center">
+                        <div class="text-sm text-theme font-bold flex items-center">
                             <span> BDT </span><span>&nbsp;1,600.00</span>
                         </div>
                     </div>
