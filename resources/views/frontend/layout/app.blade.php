@@ -21,7 +21,7 @@
 </head>
 <body class="bg-[#FCFCFC]">
     <header class="sticky top-0 z-50 bg-[#eb5d1e] px-2 md:px-0" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">
-        <div class="container flex gap-6 py-2 m-auto">
+        <div class="mx-auto w-[1560px] max-w-full px-4 flex gap-6 py-2">
             <div class="flex items-center flex-1 gap-4 md:gap-8 justify-between">
                 <span class="md:w-[120px] w-[70px]">
                     <a href="/">
@@ -120,7 +120,7 @@
 {{--    </div>--}}
 {{--</header>--}}
 
-<div class="main-content container mx-auto">
+<div class="main-content mx-auto w-[1560px] max-w-full px-4">
     @yield('content')
 </div>
     <x-frontend.common.footer />

@@ -93,3 +93,7 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
 
 });
 
+Route::get('/clear-cache', function() {
+    Artisan::call('optimize:clear');
+    return 'Config cache has been cleared';
+});
