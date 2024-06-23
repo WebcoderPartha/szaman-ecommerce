@@ -1,5 +1,5 @@
 <footer class="footer-wrapper bg-[#002f4a] text-white">
-    <div class="mx-auto w-[1560px] max-w-full px-4">
+    <div class="mx-auto md:w-[1560px] max-w-full px-4">
         <div class="grid grid-cols-2 px-8 md:px-0 lg:grid-cols-12 gap-8 py-12 pb-8 transition-colors duration-150">
             <div class="col-span-6 lg:col-span-3 flex flex-col">
                 <div class="flex flex-initial items-center font-bold md:mr-10 mb-4 md:mb-4">

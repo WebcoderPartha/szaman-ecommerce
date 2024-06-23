@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\AttributeController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\UserLoginController;
 
 
 // Frontend
@@ -17,7 +18,11 @@ Route::controller(HomeController::class)->group(function (){
     Route::get('/', 'home_page')->name('frontend.home_page');
 });
 
+Route::controller(UserLoginController::class)->group(function () {
+    Route::get('/auth/login', 'user_login_page')->name('user_login_page');
+});
 
+// Admin Login
 Route::controller(LoginController::class)->group(function (){
     Route::get('/admin/login', 'login_form')->name('admin.form');
     Route::post('/admin/login', 'login')->name('admin.login');

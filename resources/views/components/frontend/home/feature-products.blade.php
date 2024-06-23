@@ -1,5 +1,5 @@
 
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6  gap-8 items-center bg-white px-6 py-8 shadow-lg">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-8 items-center bg-white px-4 md:px-6 py-8 shadow-lg">
     <!-- Single Product -->
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -111,7 +111,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -154,7 +154,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -197,7 +197,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -240,7 +240,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -283,7 +283,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -326,7 +326,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -369,7 +369,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -412,7 +412,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -455,7 +455,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -498,7 +498,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -541,7 +541,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -584,7 +584,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -627,7 +627,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -670,7 +670,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -713,7 +713,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Anjum Life Trendy Waterproof Large Bagpack (Blue)</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Anjum Life Trendy Waterproof Large Bagpack (Blue)</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
@@ -756,7 +756,7 @@
             </div>
         </div>
         <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-            <p class="text-[14px]">Mens Premium Embroidery Panjabi-19623P</p>
+            <p class="text-[14px] group-hover:text-[#eb5d1e] font-semibold duration-500">Mens Premium Embroidery Panjabi-19623P</p>
             <div class="product_price">
                 <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                     <div class="flex justify-center">
