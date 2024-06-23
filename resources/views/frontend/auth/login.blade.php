@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex items-center justify-center py-20">
         <div class="p-6 w-full max-w-md">
-            <div class="flex justify-center items-center mb-4">
+            <div class="flex justify-center items-center mb-10">
                 <button id="loginTab" class="w-full py-2 px-4 border-b-[3px] border-b-theme text-theme font-bold uppercase focus:outline-none block text-center">Login</button>
                 <button id="registerTab" class="w-full py-2 px-4 border-b-[3px] border-b-[#dedede] text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Register</button>
             </div>
@@ -54,6 +54,7 @@
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
 
+        // Login Tab Button
         loginTab.addEventListener('click', () => {
             loginForm.classList.remove('hidden');
             registerForm.classList.add('hidden');
@@ -63,6 +64,7 @@
             registerTab.classList.remove('border-b-theme', 'text-theme');
         });
 
+        // Register Tab Button
         registerTab.addEventListener('click', () => {
             loginForm.classList.add('hidden');
             registerForm.classList.remove('hidden');
@@ -71,6 +73,8 @@
             loginTab.classList.add('border-b-[#dedede]', 'text-[#9f9f9ff0]');
             loginTab.classList.remove('border-b-theme', 'text-theme');
         });
+
+        // Register Link button
         registerLink.addEventListener('click', () => {
             loginForm.classList.add('hidden');
             registerForm.classList.remove('hidden');
