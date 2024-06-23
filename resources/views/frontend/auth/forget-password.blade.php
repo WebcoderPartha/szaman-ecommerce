@@ -9,33 +9,33 @@
             </div>
             <div id="loginForm" class="space-y-8">
                 <div>
-                    <input type="email" placeholder="Email or phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="email" placeholder="Email or phone number" class="w-full p-2 border rounded">
                 </div>
                 <div>
-                    <input type="password" placeholder="******" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" placeholder="******" class="w-full p-2 border rounded">
                 </div>
-                <button class="w-full py-4 bg-theme text-white rounded-md">Login</button>
+                <button class="w-full py-2 bg-theme text-white rounded">Login</button>
             </div>
             <div id="registerForm" class="space-y-8 hidden">
                 <div>
-                    <input type="text" placeholder="First Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" placeholder="First Name" class="w-full p-2 border rounded">
                 </div>
                 <div>
-                    <input type="text" placeholder="Last Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" placeholder="Last Name" class="w-full p-2 border rounded">
                 </div>
                 <div>
-                    <input type="text" placeholder="Phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" placeholder="Phone number" class="w-full p-2 border rounded">
                 </div>
                 <div>
-                    <input type="email" placeholder="Email address" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="email" placeholder="Email address" class="w-full p-2 border rounded">
                 </div>
                 <div>
-                    <input type="password" placeholder="Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" placeholder="Password" class="w-full p-2 border rounded">
                 </div>
                 <div>
-                    <input type="password" placeholder="Confirm Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" placeholder="Confirm Password" class="w-full p-2 border rounded">
                 </div>
-                <button class="w-full py-4 bg-theme text-white rounded-md">Register</button>
+                <button class="w-full py-2 bg-theme text-white rounded">Register</button>
             </div>
         </div>
     </div>

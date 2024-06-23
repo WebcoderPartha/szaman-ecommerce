@@ -12,4 +12,8 @@ class UserLoginController extends Controller
         return view('frontend.auth.login');
     }
 
+    public function user_forget_password(){
+        return view('frontend.auth.forget-password');
+    }
+
 }
