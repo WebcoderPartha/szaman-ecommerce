@@ -12,7 +12,7 @@
                 <div>
                     <input type="email" placeholder="Email address" class="w-full p-3 border rounded-md focus:outline-none">
                 </div>
-                <button class="w-full py-3 bg-theme text-white rounded-md">Continue</button>
+                <button class="w-full py-3 bg-theme text-white hover:bg-white border border-b-theme hover:border hover:border-theme hover:text-theme font-semibold duration-300 rounded-md">Continue</button>
             </div>
         </div>
     </div>

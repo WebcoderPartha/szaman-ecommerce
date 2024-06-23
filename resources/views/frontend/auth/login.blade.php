@@ -14,7 +14,7 @@
                 <div>
                     <input type="password" placeholder="******" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
-                <button class="w-full py-4 bg-theme text-white rounded-md">Login</button>
+                <button class="w-full py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Login</button>
                 <div class="flex flex-col gap-4 text-center">
                     <a href="{{ route('user.forget.password') }}" class="text-sm text-theme">Forgot your password?</a>
                     <hr>
@@ -40,7 +40,7 @@
                 <div>
                     <input type="password" placeholder="Confirm Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
-                <button class="w-full py-4 bg-theme text-white rounded-md">Register</button>
+                <button class="w-full py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Register</button>
             </div>
         </div>
     </div>
