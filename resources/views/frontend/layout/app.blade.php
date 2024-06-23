@@ -123,7 +123,7 @@
 <div class="main-content container mx-auto">
     @yield('content')
 </div>
+    <x-frontend.common.footer />
 @yield('js')
-
 </body>
 </html>
