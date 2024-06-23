@@ -15,6 +15,11 @@
                     <input type="password" placeholder="******" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <button class="w-full py-4 bg-theme text-white rounded-md">Login</button>
+                <div class="flex flex-col gap-4 text-center">
+                    <a href="{{ route('user.forget.password') }}" class="text-sm text-theme">Forgot your password?</a>
+                    <hr>
+                    <p class="text-sm">New customer? <a href="#" id="registerLink" class="text-theme">Register</a> here.</p>
+                </div>
             </div>
             <div id="registerForm" class="space-y-8 hidden">
                 <div>
@@ -45,6 +50,7 @@
     <script>
         const loginTab = document.getElementById('loginTab');
         const registerTab = document.getElementById('registerTab');
+        const registerLink = document.getElementById('registerLink');
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
 
@@ -58,6 +64,14 @@
         });
 
         registerTab.addEventListener('click', () => {
+            loginForm.classList.add('hidden');
+            registerForm.classList.remove('hidden');
+            registerTab.classList.add('border-b-theme', 'text-theme');
+            registerTab.classList.remove('border-b-[#dedede]', 'text-[#9f9f9ff0]');
+            loginTab.classList.add('border-b-[#dedede]', 'text-[#9f9f9ff0]');
+            loginTab.classList.remove('border-b-theme', 'text-theme');
+        });
+        registerLink.addEventListener('click', () => {
             loginForm.classList.add('hidden');
             registerForm.classList.remove('hidden');
             registerTab.classList.add('border-b-theme', 'text-theme');
