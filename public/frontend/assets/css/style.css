@@ -35,3 +35,15 @@ Custom Scrollbar
 /*
 Custom Scrollbar
 */
+
+/* mobile sticky header */
+.mobile_sticky_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999999;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dcd8d8;
+}
