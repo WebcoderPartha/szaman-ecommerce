@@ -1,6 +1,6 @@
-<header class="header_area">
+<header class="header_area block md:hidden">
     <!-- header top start -->
-    <div class="header_top py-1 border-b bg-theme">
+    <div class="header_top py-1 bg-theme">
         <div class="header_top_list">
             <ul class="text-center flex flex-row items-center justify-center gap-8">
                 <li>
@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div>
-                <img src="{{ asset('frontend/img/log.png') }}" width="110" alt="">
+                <a href="{{ route('frontend.home_page') }}"><img src="{{ asset('frontend/img/log.png') }}" width="110" alt=""></a>
             </div>
             <div>
                 <a class="cursor-pointer text-xl text-theme"><i class="fa-solid fa-magnifying-glass"></i></a>

@@ -1,6 +1,6 @@
 <footer class="footer-wrapper bg-[#002f4a] text-white">
     <div class="mx-auto md:w-[1560px] max-w-full px-4">
-        <div class="grid grid-cols-2 px-8 md:px-0 lg:grid-cols-12 gap-8 py-12 pb-8 transition-colors duration-150">
+        <div class="grid grid-cols-2 lg:grid-cols-12 gap-8 py-12 pb-8 transition-colors duration-150">
             <div class="col-span-6 lg:col-span-3 flex flex-col">
                 <div class="flex flex-initial items-center font-bold md:mr-10 mb-4 md:mb-4">
                     <img alt="" src="https://m.media-amazon.com/images/I/615RU2+L5ML.jpg" width="100"/>
@@ -149,9 +149,8 @@
             </div>
 
         </div>
-        <div class="flex flex-col md:flex-row md:justify-between md:items-center border-t-[1px] border-t-[#707070] pb-4">
-            <div class="pt-6 pl-8 md:pl-0 pb-8 flex flex-col md:flex-row justify-between md:items-center space-y-4">
-
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center border-t-[1px] border-t-[#707070] pb-16 md:pb-0">
+            <div class="pt-6 pb-4 flex flex-col md:flex-row justify-between md:items-center space-y-4">
                 <div class="flex flex-col">
                     <span>
                         ©
@@ -165,6 +164,5 @@
                 <img src="{{ asset('frontend/assets/img/sslcommerz.webp') }}" width="600" alt="">
             </div>
         </div>
-
     </div>
 </footer>
