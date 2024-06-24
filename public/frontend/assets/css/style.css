@@ -15,21 +15,23 @@
     transform: translateX(0);
 }
 
-
+/*
+Custom Scrollbar
+*/
 .fixed_product_cart_body::-webkit-scrollbar {
     width: 6px;
 }
-
 .fixed_product_cart_body::-webkit-scrollbar-thumb {
     background-color: #eb5d1e; /* Change this to your desired color */
     border-radius: 6px;
 }
-
 .fixed_product_cart_body::-webkit-scrollbar-thumb:hover {
     background-color: #555; /* Change this to your desired color on hover */
 }
-
 .fixed_product_cart_body::-webkit-scrollbar-track {
     background: #f1f1f1; /* Change this to your desired color */
     border-radius: 2px;
 }
+/*
+Custom Scrollbar
+*/

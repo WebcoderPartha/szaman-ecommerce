@@ -36,293 +36,240 @@
         <!-- Fixed Product Cart Body -->
         <div class="fixed_product_cart_body h-[700px] overflow-y-scroll">
             <div class="px-2 py-2">
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
                     </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                    <div class="md:col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
                     </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                    <div class="md:col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
                     </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div><div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                    <div class="md:col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
                     </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                    <div class="md:col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
                     </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
-                    </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                    <div class="md:col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="flex flex-row gap-1 justify-between items-center">
-                    <div>
-                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.269_1.jpg" width="80" height="80" alt="">
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
                     </div>
-                    <div>
-                        <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                    </div>
-                    <div>
-                        <a class="card_remove text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                    <div class="md:col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-
+                <!--/ Cart Item -->
             </div>
         </div>
         <!--/ Fixed Product Cart Body -->
