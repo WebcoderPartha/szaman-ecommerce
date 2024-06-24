@@ -21,9 +21,10 @@
     @yield('css')
 </head>
 <body class="bg-[#FCFCFC]">
-<!-- Header -->
+<!-- Desktop Header -->
 <x-frontend.common.header />
-<!--/ Header -->
+<!--/ Desktop Header -->
+<x-frontend.common.mobile-header />
 <div class="main-content mx-auto md:w-[1560px] max-w-full px-4">
     @yield('content')
 </div>

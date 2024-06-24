@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-50 bg-[#eb5d1e] px-2 md:px-0" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">
+<header class="sticky top-0 z-50 bg-[#eb5d1e] px-2 md:px-0 hidden md:block" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">
     <div class="mx-auto md:w-[1560px] max-w-full px-4 flex gap-6 py-2">
         <div class="flex items-center flex-1 gap-4 md:gap-8 justify-between">
                 <span class="md:w-[120px] w-[70px]">
@@ -34,19 +34,6 @@
                 <span class="hidden md:inline-block">Sign in</span>
                 <span class="sr-only">Sign in</span>
             </a>
-        </div>
-    </div>
-    <div class="container mx-auto pt-2 pb-4 md:pb-0 md:pt-0">
-        <div class="flex w-full md:hidden"><div class="w-full">
-                <div class=" max-w-[719px] relative">
-                    <div class="flex w-full overflow-hidden rounded-md">
-                        <div class="relative flex-1">
-                            <input class="block w-full p-3 pl-4 outline-none bg-black1" placeholder="Search in Evaly" autocomplete="off" value="">
-                        </div>
-                        <button class="gap-2 p-2 px-5 text-lg font-medium text-white bg-[#e54904]">Search</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </header>
