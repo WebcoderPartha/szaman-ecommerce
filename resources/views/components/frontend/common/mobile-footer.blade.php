@@ -7,7 +7,7 @@
             </a>
         </li>
         <li>
-            <a href="https://mohasagor.com/wish-list" class="fixed_footer_menu_link relative  flex flex-col">
+            <a href="#" class="fixed_footer_menu_link relative  flex flex-col">
                 <i class="fa-regular fa-heart text-theme text-[18px]"></i>
                 <span class="p-0 m-0 text-sm">Wishlist</span>
                 <span class="fixed_footer_wishlist_count wish_list_count absolute -top-2 right-2 bg-black rounded-full w-4 h-4 flex items-center justify-center text-white text-xs">0</span>

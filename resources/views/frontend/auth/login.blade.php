@@ -1,13 +1,13 @@
 @extends('frontend.layout.app')
 @section('title', 'Customer Login')
 @section('content')
-    <div class="flex items-center justify-center py-20">
+    <div class="flex items-center justify-center pb-10 pt-4 md:py-20">
         <div class="p-6 w-full max-w-md">
             <div class="flex justify-center items-center mb-10">
                 <button id="loginTab" class="w-full py-2 px-4 border-b-[3px] border-b-theme text-theme font-bold uppercase focus:outline-none block text-center">Login</button>
                 <button id="registerTab" class="w-full py-2 px-4 border-b-[3px] border-b-[#dedede] text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Register</button>
             </div>
-            <div id="loginForm" class="space-y-8">
+            <div id="loginForm" class="space-y-4 md:space-y-8">
                 <div>
                     <input type="email" placeholder="Email or phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
@@ -21,7 +21,7 @@
                     <p class="text-sm">New customer? <a href="#" id="registerLink" class="text-theme">Register</a> here.</p>
                 </div>
             </div>
-            <div id="registerForm" class="space-y-8 hidden">
+            <div id="registerForm" class="space-y-4 md:space-y-8">
                 <div>
                     <input type="text" placeholder="First Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>

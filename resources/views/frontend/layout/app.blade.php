@@ -35,7 +35,7 @@
 <!--/ Desktop Fixed Product Cart -->
 <!-- Mobile Footer -->
 <x-frontend.common.mobile-footer />
-<!--/ Mobile Footer>
+<!--/ Mobile Footer -->
 @yield('js')
 </body>
 </html>
