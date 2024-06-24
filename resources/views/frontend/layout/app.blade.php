@@ -30,7 +30,12 @@
 <!-- Footer -->
 <x-frontend.common.footer />
 <!--/ Footer -->
+<!-- Desktop Fixed Product Cart -->
 <x-frontend.common.sticky-cart />
+<!--/ Desktop Fixed Product Cart -->
+<!-- Mobile Footer -->
+<x-frontend.common.mobile-footer />
+<!--/ Mobile Footer>
 @yield('js')
 </body>
 </html>

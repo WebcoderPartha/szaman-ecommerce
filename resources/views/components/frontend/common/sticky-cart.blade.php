@@ -1,4 +1,4 @@
-<div class="fixed_product_sticky fixed top-[40%] z-20 bg-white drop-shadow right-0 cursor-pointer" id="openModalButton">
+<div class="fixed_product_sticky hidden md:block fixed top-[40%] z-20 bg-white drop-shadow right-0 cursor-pointer" id="openModalButton">
     <div class="flex flex-col items-center justify-center">
         <div class="fixed_product_sticky_icon p-2">
             <i class="fa-solid text-theme fa-cart-shopping text-xl"></i>
@@ -41,9 +41,9 @@
                     <div class="col-span-3">
                         <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
                     </div>
-                    <div class="md:col-span-9">
+                    <div class="col-span-9">
                         <div class="flex flex-col w-full gap-1">
-                            <div class="flex justify-between items-center gap-4">
+                            <div class="flex justify-between gap-4">
                                 <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
                                 <a class="card_remove text-red-600">
                                     <i class="fa-solid fa-trash"></i>
@@ -80,9 +80,9 @@
                     <div class="col-span-3">
                         <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-06-01T11:57:16.540_38.jpg" width="80" height="80" alt="">
                     </div>
-                    <div class="md:col-span-9">
+                    <div class="col-span-9">
                         <div class="flex flex-col w-full gap-1">
-                            <div class="flex justify-between items-center gap-4">
+                            <div class="flex justify-between gap-4">
                                 <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
                                 <a class="card_remove text-red-600">
                                     <i class="fa-solid fa-trash"></i>
@@ -119,9 +119,9 @@
                     <div class="col-span-3">
                         <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2022-09-11T17:30:23.405__0005_Layer_2.jpg" width="80" height="80" alt="">
                     </div>
-                    <div class="md:col-span-9">
+                    <div class="col-span-9">
                         <div class="flex flex-col w-full gap-1">
-                            <div class="flex justify-between items-center gap-4">
+                            <div class="flex justify-between gap-4">
                                 <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
                                 <a class="card_remove text-red-600">
                                     <i class="fa-solid fa-trash"></i>
@@ -158,9 +158,9 @@
                     <div class="col-span-3">
                         <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T12:04:34.330_5.jpg" width="80" height="80" alt="">
                     </div>
-                    <div class="md:col-span-9">
+                    <div class="col-span-9">
                         <div class="flex flex-col w-full gap-1">
-                            <div class="flex justify-between items-center gap-4">
+                            <div class="flex justify-between gap-4">
                                 <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
                                 <a class="card_remove text-red-600">
                                     <i class="fa-solid fa-trash"></i>
@@ -197,9 +197,9 @@
                     <div class="col-span-3">
                         <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T16:58:20.253__0004_Q-SBD-SUJ-05.jpg" width="80" height="80" alt="">
                     </div>
-                    <div class="md:col-span-9">
+                    <div class="col-span-9">
                         <div class="flex flex-col w-full gap-1">
-                            <div class="flex justify-between items-center gap-4">
+                            <div class="flex justify-between gap-4">
                                 <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
                                 <a class="card_remove text-red-600">
                                     <i class="fa-solid fa-trash"></i>
@@ -236,9 +236,9 @@
                     <div class="col-span-3">
                         <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
                     </div>
-                    <div class="md:col-span-9">
+                    <div class="col-span-9">
                         <div class="flex flex-col w-full gap-1">
-                            <div class="flex justify-between items-center gap-4">
+                            <div class="flex justify-between gap-4">
                                 <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
                                 <a class="card_remove text-red-600">
                                     <i class="fa-solid fa-trash"></i>
