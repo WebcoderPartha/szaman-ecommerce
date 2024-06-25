@@ -45,6 +45,31 @@
 
 </header>
 
+<div class="md:hidden bg-white z-[99999] fixed top-0 left-0 right-0 px-4 py-2">
+    <div class="h-screen">
+        <div class="flex flex-row justify-between items-center border-b pb-2">
+            <div class="logo">
+                <img src="{{ asset('frontend/img/log.png') }}" width="100" alt="">
+            </div>
+            <button id="closeMobileMenu" class="text-gray-600 px-2 rounded-sm">
+                <i class="fa-solid fa-xmark text-2xl text-red-500"></i>
+            </button>
+        </div>
+        <div class="flex flex-col">
+            <div class="flex flex-row items-center justify-between px-1">
+                <a href="#" class="uppercase text-[16px] font-semibold">Shirt</a>
+                <i class="fa-solid fa-angle-down 2xl font-semibold"></i>
+            </div>
+            <div class="mobile_submenu flex flex-col pl-6">
+                <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+                <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+                <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+                <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
         window.onscroll = function() {myFunction()};
