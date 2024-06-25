@@ -14,7 +14,7 @@
             </a>
         </li>
         <li>
-            <a  href="" class="fixed_footer_menu_link relative flex flex-col">
+            <a id="fixed_footer_cart_id" class="fixed_footer_menu_link relative flex flex-col">
                 <i class="fa-solid fa-cart-shopping text-theme text-[18px]"></i>
                 <span class="p-0 m-0 text-sm">Cart</span>
                 <span class="fixed_footer_cart_count cart_item_total absolute -top-2 -right-1 bg-black rounded-full w-4 h-4 flex items-center justify-center text-white text-xs">7</span>
@@ -34,3 +34,15 @@
         </li>
     </ul>
 </div>
+
+<script>
+    const openMobileModalButton = document.getElementById('fixed_footer_cart_id');
+
+    openMobileModalButton.addEventListener('click', () => {
+        modal.classList.remove('left-full');
+        modal.classList.add('left-0');
+        document.body.classList.add("overflow-hidden");
+        sliding.classList.remove('-right-[600px]')
+        sliding.classList.add('-right-0')
+    });
+</script>

@@ -1,22 +1,22 @@
 <header class="header_area block md:hidden">
     <!-- header top start -->
-    <div class="header_top py-1 bg-theme">
+    <div class="header_top py-2 bg-theme">
         <div class="header_top_list">
-            <ul class="text-center flex flex-row items-center justify-center gap-8">
+            <ul class="text-center flex flex-row items-center justify-between px-4">
                 <li>
-                    <a href="#" class="header_top_list_link text-white text-sm flex flex-row gap-1 items-center justify-center">
+                    <a href="#" class="header_top_list_link text-white text-[12px] flex flex-row gap-1 items-center justify-center">
                         <i class="fa-solid fa-location-dot "></i>
                         <span>Order Tracking</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="header_top_list_link text-white text-sm flex flex-row gap-1 items-center justify-center">
-                        <i class="fa-solid fa-info"></i>
-                        <span>About</span>
+                    <a href="tel:+8809613332020" class="header_top_list_link text-white text-[12px] flex flex-row gap-1 items-center justify-center">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+880 961 333 2020</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="header_top_list_link text-sm text-white flex flex-row gap-1 items-center justify-center">
+                    <a href="#" class="header_top_list_link text-[12px] text-white flex flex-row gap-1 items-center justify-center">
                         <i class="fa-solid fa-headset"></i>
                         <span>Contact</span>
                     </a>
@@ -46,7 +46,7 @@
 </header>
 
 
-    <script>
+<script>
         window.onscroll = function() {myFunction()};
 
         var header = document.getElementById("fix_mobile_sticky");
@@ -59,5 +59,5 @@
                 header.classList.remove("mobile_sticky_header");
             }
         }
-    </script>
+</script>
 

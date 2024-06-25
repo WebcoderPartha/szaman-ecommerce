@@ -15,8 +15,8 @@
 
 
 <!-- Modal -->
-<div id="cartModel" class="fixed top-0 left-full inset-0 bg-gray-600 bg-opacity-50 items-center justify-center z-50">
-    <div id="cartSlide" class="bg-white shadow-lg py-2 w-full h-screen max-w-md absolute -right-[600px] duration-300 top-0">
+<div id="cartModel" class="fixed top-0 left-full inset-0 bg-gray-600 bg-opacity-50 items-center justify-center z-[9999]">
+    <div id="cartSlide" class="bg-white shadow-lg py-2 w-full h-screen max-h-full max-w-md absolute -right-[600px] duration-300 top-0">
         <!-- Fixed Product Cart Header -->
         <div class="flex justify-between items-center px-2">
             <div class="icon flex flex-row gap-2 justify-center items-center">
@@ -34,7 +34,7 @@
         <hr class="mt-2">
         <!--/ Fixed Product Cart Header -->
         <!-- Fixed Product Cart Body -->
-        <div class="fixed_product_cart_body h-[700px] overflow-y-scroll">
+        <div class="fixed_product_cart_body h-[700px] pb-[300px] md:pb-[200px] overflow-y-scroll">
             <div class="px-2 py-2">
                 <!-- Cart Item -->
                 <div class="grid grid-cols-12 border-b pb-1">
@@ -196,6 +196,396 @@
                 <div class="grid grid-cols-12 border-b pb-1">
                     <div class="col-span-3">
                         <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-14T16:58:20.253__0004_Q-SBD-SUJ-05.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
+                    </div>
+                    <div class="col-span-9">
+                        <div class="flex flex-col w-full gap-1">
+                            <div class="flex justify-between gap-4">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <a class="card_remove text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="fixed_product_card_size">
+                                <strong>Size:</strong>
+                                <span>S</span>
+                            </div>
+                            <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                <!-- fixed product cart quantity start -->
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- fixed product cart quantity end -->
+                                <!-- fixed product cart price start -->
+                                <div class="fixed_product_card_close_price">
+                                    <p>550 TK</p>
+                                </div>
+                                <!-- fixed product cart price end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Cart Item -->
+                <!-- Cart Item -->
+                <div class="grid grid-cols-12 border-b pb-1">
+                    <div class="col-span-3">
+                        <img src="https://production-qcoom-user.s3-ap-southeast-1.amazonaws.com/static_image/2023-08-27T11:53:23.244_30.1.jpg" width="80" height="80" alt="">
                     </div>
                     <div class="col-span-9">
                         <div class="flex flex-col w-full gap-1">
