@@ -28,7 +28,7 @@
     <!-- Header Middle -->
     <div class="mobile_header_middle py-2" id="fix_mobile_sticky">
         <div class="flex flex-row justify-between items-center px-4">
-            <div>
+            <div id="mobileMenuIconBars">
                 <a class="header_mobile_toggle text-xl text-theme cursor-pointer">
                     <i class="fa-solid fa-bars"></i>
                 </a>
@@ -45,26 +45,40 @@
 
 </header>
 
-<div class="md:hidden bg-white z-[99999] fixed top-0 left-0 right-0 px-4 py-2">
+<div class="md:hidden bg-white z-[99999] fixed top-0 right-full w-full px-4 py-2 duration-300" id="mobileSideMenu">
     <div class="h-screen">
         <div class="flex flex-row justify-between items-center border-b pb-2">
             <div class="logo">
                 <img src="{{ asset('frontend/img/log.png') }}" width="100" alt="">
             </div>
-            <button id="closeMobileMenu" class="text-gray-600 px-2 rounded-sm">
+            <button type="button" id="closeMobileMenu" class="text-gray-600 px-2 rounded-sm">
                 <i class="fa-solid fa-xmark text-2xl text-red-500"></i>
             </button>
         </div>
         <div class="flex flex-col">
-            <div class="flex flex-row items-center justify-between px-1">
-                <a href="#" class="uppercase text-[16px] font-semibold">Shirt</a>
-                <i class="fa-solid fa-angle-down 2xl font-semibold"></i>
+            <div class="border-b py-1">
+                <div class="flex flex-row items-center justify-between px-1">
+                    <a href="#" class="uppercase text-[16px] font-semibold">Shirt</a>
+                    <i class="fa-solid fa-angle-down 2xl font-semibold toggle-button"></i>
+                </div>
+                <div class="mobile_submenu flex flex-col pl-6" style="display: none">
+                    <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+                    <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+                    <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+                    <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+                </div>
             </div>
-            <div class="mobile_submenu flex flex-col pl-6">
-                <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
-                <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
-                <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
-                <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
+            <div class="border-b py-1">
+                <div class="flex flex-row items-center justify-between px-1">
+                    <a href="#" class="uppercase text-[16px] font-semibold">Pent</a>
+                    <i class="fa-solid fa-angle-down 2xl font-semibold toggle-button"></i>
+                </div>
+                <div class="mobile_submenu flex flex-col pl-6" style="display: none">
+                    <a href="" class="text-[16px] font-semibold"> Check Pent</a>
+                    <a href="" class="text-[16px] font-semibold"> Check Pent</a>
+                    <a href="" class="text-[16px] font-semibold"> Check pent</a>
+                    <a href="" class="text-[16px] font-semibold"> Check pent</a>
+                </div>
             </div>
         </div>
     </div>
@@ -84,5 +98,36 @@
                 header.classList.remove("mobile_sticky_header");
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleButtons = document.querySelectorAll('.toggle-button');
+
+            toggleButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var submenu = this.parentElement.nextElementSibling;
+                    submenu.style.display = (submenu.style.display === 'none' || submenu.style.display === '') ? 'flex' : 'none';
+                });
+            });
+        });
+
+        let mobileMenuIconBars = document.getElementById('mobileMenuIconBars');
+        let mobileSideMenu = document.getElementById('mobileSideMenu');
+
+        let closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        mobileMenuIconBars.addEventListener('click', function (){
+            mobileSideMenu.classList.remove('right-full')
+            mobileSideMenu.classList.add('right-0')
+            document.body.classList.add("overflow-hidden");
+        });
+        closeMobileMenu.addEventListener('click', function (){
+            mobileSideMenu.classList.remove('right-0')
+            mobileSideMenu.classList.add('right-full')
+            document.body.classList.remove("overflow-hidden");
+        });
+
+
+
 </script>
 
