@@ -670,8 +670,8 @@
                     <span>Subtotal:</span>
                     <span>342345 Tk</span>
                 </div>
-                <a href="" class="px-4 py-3 bg-theme font-bold text-white text-center">Checkout</a>
-                <a href="" class="px-4 py-3 font-bold bg-black text-white text-center">View Cart</a>
+                <a href="{{ route('frontend.checkout_view') }}" class="px-4 py-3 bg-theme font-bold text-white text-center">Checkout</a>
+                <a href="{{ route('frontend.cart_view') }}" class="px-4 py-3 font-bold bg-black text-white text-center">View Cart</a>
             </div>
         </div>
         <!--/ Fixed Product Cart Footer -->

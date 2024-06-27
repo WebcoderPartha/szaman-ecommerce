@@ -21,7 +21,7 @@
                     <p class="text-sm">New customer? <a href="#" id="registerLink" class="text-theme">Register</a> here.</p>
                 </div>
             </div>
-            <div id="registerForm" class="space-y-4 md:space-y-8">
+            <div id="registerForm" class="space-y-4 md:space-y-8 hidden">
                 <div>
                     <input type="text" placeholder="First Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>

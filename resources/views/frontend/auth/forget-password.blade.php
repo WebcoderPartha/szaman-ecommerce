@@ -1,5 +1,5 @@
 @extends('frontend.layout.app')
-@section('title', 'Customer Login')
+@section('title', 'Forget Password')
 @section('content')
     <div class="flex items-center justify-center pt-16 pb-44">
         <div class="p-6 w-full max-w-md">
