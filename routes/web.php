@@ -11,11 +11,18 @@ use App\Http\Controllers\Backend\AttributeController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserLoginController;
+use App\Http\Controllers\Frontend\FrontendCartController;
 
 
 // Frontend
 Route::controller(HomeController::class)->group(function (){
     Route::get('/', 'home_page')->name('frontend.home_page');
+});
+
+// Cart Controller
+Route::controller(FrontendCartController::class)->group(function (){
+    Route::get('/cart/view', 'cart_view')->name('frontend.cart_view');
+    Route::get('/checkout', 'checkout_view')->name('frontend.checkout_view');
 });
 
 Route::controller(UserLoginController::class)->group(function () {

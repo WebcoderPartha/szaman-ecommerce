@@ -45,7 +45,7 @@
 
 </header>
 
-<div class="md:hidden bg-white z-[99999] fixed top-0 right-full w-full px-4 py-2 duration-300" id="mobileSideMenu">
+<div class="md:hidden bg-white z-[99999] fixed top-0 right-full w-full px-4 py-2 duration-300 z-[999999]" id="mobileSideMenu">
     <div class="h-screen">
         <div class="flex flex-row justify-between items-center border-b pb-2">
             <div class="logo">
@@ -99,6 +99,7 @@
             }
         }
 
+        // Drop down menu
         document.addEventListener('DOMContentLoaded', function() {
             var toggleButtons = document.querySelectorAll('.toggle-button');
 
@@ -111,6 +112,8 @@
             });
         });
 
+
+        // Sidebar menu
         let mobileMenuIconBars = document.getElementById('mobileMenuIconBars');
         let mobileSideMenu = document.getElementById('mobileSideMenu');
 
@@ -126,7 +129,7 @@
             mobileSideMenu.classList.add('right-full')
             document.body.classList.remove("overflow-hidden");
         });
-
+        // Sidebar menu
 
 
 </script>
