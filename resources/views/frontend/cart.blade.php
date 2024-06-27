@@ -1,10 +1,10 @@
 @extends('frontend.layout.app')
 @section('title', 'Cart')
 @section('content')
-    <div class="cart-container py-6">
+    <div class="cart-container py-3 md:py-6 mb-6">
         <div class="grid grid-cols-12">
             <div class="col-span-12 md:col-span-9 md:pr-4 mb-6 md:mb-0">
-                <div class="cart-list bg-white shadow-lg px-6 py-6">
+                <div class="cart-list bg-white shadow-lg px-6 py-0 md:py-6">
                     <div class="cart-header py-4 border-b border-[#EEEEEE]">
                         <h2 class="text-xl font-bold">My Cart (2)</h2>
                     </div>
@@ -16,9 +16,12 @@
                                     <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
                                 </div>
 
-                                <div class="">
+                                <div class=" flex flex-col justify-between">
                                     <div class="items-title">
                                         <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                    <div class="hidden md:block remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                        Remove
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +41,11 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-span-12">
+                            <div class="md:hidden block text-center remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                Remove
+                            </div>
                         </div>
                     </div>
                     <!--/ Cart Item -->
@@ -51,9 +58,12 @@
                                     <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
                                 </div>
 
-                                <div class="">
+                                <div class=" flex flex-col justify-between">
                                     <div class="items-title">
                                         <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                    <div class="hidden md:block remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                        Remove
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +83,11 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-span-12">
+                            <div class="md:hidden block text-center remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                Remove
+                            </div>
                         </div>
                     </div>
                     <!--/ Cart Item -->
@@ -85,9 +99,12 @@
                                     <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
                                 </div>
 
-                                <div class="">
+                                <div class=" flex flex-col justify-between">
                                     <div class="items-title">
                                         <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                    <div class="hidden md:block remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                        Remove
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +124,11 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-span-12">
+                            <div class="md:hidden block text-center remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                Remove
+                            </div>
                         </div>
                     </div>
                     <!--/ Cart Item -->
@@ -119,9 +140,12 @@
                                     <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
                                 </div>
 
-                                <div class="">
+                                <div class=" flex flex-col justify-between">
                                     <div class="items-title">
                                         <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                    <div class="hidden md:block remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                        Remove
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +165,11 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-span-12">
+                            <div class="md:hidden block text-center remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                Remove
+                            </div>
                         </div>
                     </div>
                     <!--/ Cart Item -->
@@ -153,9 +181,12 @@
                                     <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
                                 </div>
 
-                                <div class="">
+                                <div class=" flex flex-col justify-between">
                                     <div class="items-title">
                                         <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                    <div class="hidden md:block remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                        Remove
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +206,11 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-span-12">
+                            <div class="md:hidden block text-center remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                Remove
+                            </div>
                         </div>
                     </div>
                     <!--/ Cart Item -->
@@ -187,9 +222,12 @@
                                     <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
                                 </div>
 
-                                <div class="">
+                                <div class=" flex flex-col justify-between">
                                     <div class="items-title">
                                         <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                    <div class="hidden md:block remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                        Remove
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +247,11 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-span-12">
+                            <div class="md:hidden block text-center remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                Remove
+                            </div>
                         </div>
                     </div>
                     <!--/ Cart Item -->
@@ -221,9 +263,12 @@
                                     <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
                                 </div>
 
-                                <div class="">
+                                <div class=" flex flex-col justify-between">
                                     <div class="items-title">
                                         <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                    <div class="hidden md:block remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                        Remove
                                     </div>
                                 </div>
                             </div>
@@ -243,7 +288,11 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-span-12">
+                            <div class="md:hidden block text-center remove_button uppercase font-semibold cursor-pointer hover:text-theme">
+                                Remove
+                            </div>
                         </div>
                     </div>
                     <!--/ Cart Item -->
