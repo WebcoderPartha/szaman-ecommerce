@@ -1,14 +1,260 @@
 @extends('frontend.layout.app')
 @section('title', 'Cart')
 @section('content')
-    <div class="cart-container">
+    <div class="cart-container py-6">
         <div class="grid grid-cols-12">
-            <div class="col-span-9">
-                dfsdfsdf
+            <div class="col-span-12 md:col-span-9 md:pr-4 mb-6 md:mb-0">
+                <div class="cart-list bg-white shadow-lg px-6 py-6">
+                    <div class="cart-header py-4 border-b border-[#EEEEEE]">
+                        <h2 class="text-xl font-bold">My Cart (2)</h2>
+                    </div>
+                    <!-- Cart Item -->
+                    <div class="cart-item py-4 grid grid-cols-12 gap-4 border-b border-[#EEEEEE]">
+                        <div class="col-span-12 md:col-span-8">
+                            <div class="flex flex-row gap-6">
+                                <div class="item-image">
+                                    <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
+                                </div>
+
+                                <div class="">
+                                    <div class="items-title">
+                                        <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 md:col-span-4">
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="view_cart_price">
+                                    <span>790 TK</span>
+                                </div>
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/ Cart Item -->
+
+                    <!-- Cart Item -->
+                    <div class="cart-item py-4 grid grid-cols-12 gap-4 border-b border-[#EEEEEE]">
+                        <div class="col-span-12 md:col-span-8">
+                            <div class="flex flex-row gap-6">
+                                <div class="item-image">
+                                    <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
+                                </div>
+
+                                <div class="">
+                                    <div class="items-title">
+                                        <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 md:col-span-4">
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="view_cart_price">
+                                    <span>790 TK</span>
+                                </div>
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/ Cart Item -->
+                    <!-- Cart Item -->
+                    <div class="cart-item py-4 grid grid-cols-12 gap-4 border-b border-[#EEEEEE]">
+                        <div class="col-span-12 md:col-span-8">
+                            <div class="flex flex-row gap-6">
+                                <div class="item-image">
+                                    <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
+                                </div>
+
+                                <div class="">
+                                    <div class="items-title">
+                                        <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 md:col-span-4">
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="view_cart_price">
+                                    <span>790 TK</span>
+                                </div>
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/ Cart Item -->
+                    <!-- Cart Item -->
+                    <div class="cart-item py-4 grid grid-cols-12 gap-4 border-b border-[#EEEEEE]">
+                        <div class="col-span-12 md:col-span-8">
+                            <div class="flex flex-row gap-6">
+                                <div class="item-image">
+                                    <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
+                                </div>
+
+                                <div class="">
+                                    <div class="items-title">
+                                        <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 md:col-span-4">
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="view_cart_price">
+                                    <span>790 TK</span>
+                                </div>
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/ Cart Item -->
+                    <!-- Cart Item -->
+                    <div class="cart-item py-4 grid grid-cols-12 gap-4 border-b border-[#EEEEEE]">
+                        <div class="col-span-12 md:col-span-8">
+                            <div class="flex flex-row gap-6">
+                                <div class="item-image">
+                                    <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
+                                </div>
+
+                                <div class="">
+                                    <div class="items-title">
+                                        <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 md:col-span-4">
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="view_cart_price">
+                                    <span>790 TK</span>
+                                </div>
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/ Cart Item -->
+                    <!-- Cart Item -->
+                    <div class="cart-item py-4 grid grid-cols-12 gap-4 border-b border-[#EEEEEE]">
+                        <div class="col-span-12 md:col-span-8">
+                            <div class="flex flex-row gap-6">
+                                <div class="item-image">
+                                    <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
+                                </div>
+
+                                <div class="">
+                                    <div class="items-title">
+                                        <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 md:col-span-4">
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="view_cart_price">
+                                    <span>790 TK</span>
+                                </div>
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/ Cart Item -->
+                    <!-- Cart Item -->
+                    <div class="cart-item py-4 grid grid-cols-12 gap-4 border-b border-[#EEEEEE]">
+                        <div class="col-span-12 md:col-span-8">
+                            <div class="flex flex-row gap-6">
+                                <div class="item-image">
+                                    <img src="https://storage.googleapis.com/pickaboo-prod/media/catalog/product/cache/90e3b9f4120fc209bf60003e3b0e1323/i/m/imiki-d2-5-23-24.jpg" alt="" class="w-32 border rounded">
+                                </div>
+
+                                <div class="">
+                                    <div class="items-title">
+                                        <h2>Imiki D2 AMOLED Display Rugged Smart Watch with Calling Feature </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 md:col-span-4">
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="view_cart_price">
+                                    <span>790 TK</span>
+                                </div>
+                                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                    <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                    <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/ Cart Item -->
+                </div>
             </div>
-            <div class="col-span-3">
-                <div class="product_shipping px-6 py-6 bg-white shadow-md">
-                    <div class="view_cart_subtotal flex justify-between items-center text-xl border-b pb-3">
+            <div class="col-span-12 md:col-span-3">
+                <div class="product_shipping px-6 py-6 bg-white shadow-md sticky top-20">
+                    <div class="text-2xl pb-3 border-b">
+                        <h2>Order Summary</h2>
+                    </div>
+                    <div class="view_cart_subtotal flex justify-between items-center text-xl border-b py-3">
                         <strong>Subtotal</strong>
                         <strong class="subTotal">1900 TK</strong>
                     </div>
