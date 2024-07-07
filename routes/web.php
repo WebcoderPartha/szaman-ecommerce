@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\AttributeController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ShiftChargeController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserLoginController;
 use App\Http\Controllers\Frontend\FrontendCartController;
@@ -102,6 +103,12 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::get('/destroy/{id}', 'destroy')->name('backend.product.destroy');
         Route::get('/{id}/edit', 'edit')->name('backend.product.edit');
         Route::put('/{id}/update', 'update')->name('backend.product.update');
+    });
+
+    // Shipping Charge Controller
+    Route::controller(ShiftChargeController::class)->prefix('shipping-charge')->group(function (){
+        Route::get('/', 'index')->name('backend.shipping-charge.index');
+        Route::post('/store', 'shipping_charge_store_or_update')->name('backend.shipping-charge.store');
     });
 
 });
