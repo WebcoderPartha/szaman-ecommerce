@@ -37,7 +37,7 @@ class ProductController extends Controller
                     return '-';
                 }
             })->addColumn('sub_category', function ($row){
-                if ($row->category){
+                if ($row->sub_categor){
                     return $row->sub_category->name;
                 }else{
                     return '-';
@@ -49,7 +49,7 @@ class ProductController extends Controller
                     return '<span class="badge badge-danger">Stock Out</span>';
                 }
             })->addColumn('brand', function ($row){
-                if ($row->category){
+                if ($row->brand){
                     return $row->brand->name;
                 }else{
                     return '-';
@@ -320,4 +320,5 @@ class ProductController extends Controller
     {
         //
     }
+
 }

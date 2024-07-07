@@ -13,11 +13,16 @@ use App\Http\Controllers\Backend\ShiftChargeController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserLoginController;
 use App\Http\Controllers\Frontend\FrontendCartController;
+use App\Http\Controllers\Frontend\FrontendProductController;
 
 
 // Frontend
 Route::controller(HomeController::class)->group(function (){
     Route::get('/', 'home_page')->name('frontend.home_page');
+});
+
+Route::controller(FrontendProductController::class)->group(function (){
+    Route::get('/product/{slug}', 'detail_page')->name('frontend.product.details');
 });
 
 // Cart Controller
@@ -40,6 +45,10 @@ Route::controller(LoginController::class)->group(function (){
 
 // Backend
 Route::middleware('admin')->prefix('/admin')->group(function (){
+
+    Route::get('/', function (){
+       return redirect()->route('backend.dashboard');
+    });
 
     // Dashboard Controller
     Route::controller(DashboardController::class)->group(function (){

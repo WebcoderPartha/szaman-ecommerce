@@ -19,7 +19,7 @@
             <div id="panel-5" class="panel py-2">
                 <div class="panel-container show">
                     <div class="panel-content">
-                        <h4>Brand List</h4>
+                        <h4>Product List <a class="float-right btn btn-sm btn-info" href="{{ route('backend.product.create') }}">Add Product</a></h4>
                         <!-- datatable start -->
                         <table id="data-table" class="table text-center table-bordered table-hover table-striped w-100">
                             <thead class="bg-primary-600">
@@ -167,7 +167,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then(function(result) {
                 if (result.value) {
-                    window.location = "/admin/brand/"+id+"/delete"
+                    // window.location = "/admin/brand/"+id+"/delete"
                 }
             }); //alert ends
         }

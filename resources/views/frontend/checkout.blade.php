@@ -31,59 +31,149 @@
                 </div>
             </div>
             <div class="col-span-12 md:col-span-6 bg-white shadow-lg p-6">
-                <div class="customer_info text-center text-2xl">
-                    <h2>Order Summary</h2>
+                <div class="customer_info text-center text-xl md:text-2xl pb-4 md:pb-2">
+                    <h2 >Order Summary</h2>
                 </div>
                 <div class="Order summary">
-                    <table class="table ">
-                        <thead>
-                        <tr>
-                            <th class="checkout_product_td_left">Product</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th class="checkout_product_th_total_price">Total Price</th>
-                            <th class="checkout_product_td_right">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody id="check_out_carts">
-                        <tr>
-                            <td class="checkout_product_td_left">
-                                <div class="checkout_product_name_image flex flex-row gap-2">
-                                    <img width="30" src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1719051299_2605.jpg" alt="images/product_thumbnail_img/thumbnail_1719051299_2605.jpg">
-                                    <p>Hurricane USB China 360 degree Light</p>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="checkout_product_qty">
-                                    <button id="e1e9b08f90cfe4b387f8fd5d0073b4ad" onclick="cartDecrement(this.id)" class="checkout_product_qty_minus">
-                                        <i class="fa-solid fa-minus"></i>
-                                    </button>
-                                    <input type="text" class="product_qty" value="1">
-                                    <button id="e1e9b08f90cfe4b387f8fd5d0073b4ad" onclick="cartIncrement(this.id)" class="checkout_product_qty_plus">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="checkout_product_price">
-                                    <p>1090 TK</p>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="checkout_product_total_price">
-                                    <p>1090 TK</p>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="checkout_product_delete_icon">
-                                    <button id="e1e9b08f90cfe4b387f8fd5d0073b4ad" onclick="miniCartRemove(this.id)" class="checkout_product_delete_icon_link">
+                    <!-- Loop Item -->
+                    <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
+                        <div class="col-span-3">
+                            <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
+                        </div>
+                        <div class="col-span-9">
+                            <div class="flex flex-col w-full gap-1">
+                                <div class="flex justify-between gap-4">
+                                    <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                    <a class="card_remove text-red-600 cursor-pointer ">
                                         <i class="fa-solid fa-trash"></i>
-                                    </button>
+                                    </a>
                                 </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                                <div class="fixed_product_card_size">
+                                    <strong>Size:</strong>
+                                    <span>S</span>
+                                </div>
+                                <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                    <!-- fixed product cart quantity start -->
+                                    <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                        <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </div>
+                                        <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                        <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                    <!-- fixed product cart quantity end -->
+                                    <!-- fixed product cart price start -->
+                                    <div class="fixed_product_card_close_price">
+                                        <p>550 TK</p>
+                                    </div>
+                                    <!-- fixed product cart price end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Loop Item -->
+                    <!-- Loop Item -->
+                    <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
+                        <div class="col-span-3">
+                            <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
+                        </div>
+                        <div class="col-span-9">
+                            <div class="flex flex-col w-full gap-1">
+                                <div class="flex justify-between gap-4">
+                                    <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                    <a class="card_remove text-red-600 cursor-pointer ">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </div>
+                                <div class="fixed_product_card_size">
+                                    <strong>Size:</strong>
+                                    <span>S</span>
+                                </div>
+                                <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                    <!-- fixed product cart quantity start -->
+                                    <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                        <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </div>
+                                        <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                        <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                    <!-- fixed product cart quantity end -->
+                                    <!-- fixed product cart price start -->
+                                    <div class="fixed_product_card_close_price">
+                                        <p>550 TK</p>
+                                    </div>
+                                    <!-- fixed product cart price end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Loop Item -->
+                    <!-- Loop Item -->
+                    <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
+                        <div class="col-span-3">
+                            <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
+                        </div>
+                        <div class="col-span-9">
+                            <div class="flex flex-col w-full gap-1">
+                                <div class="flex justify-between gap-4">
+                                    <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                    <a class="card_remove text-red-600 cursor-pointer ">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </div>
+                                <div class="fixed_product_card_size">
+                                    <strong>Size:</strong>
+                                    <span>S</span>
+                                </div>
+                                <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
+                                    <!-- fixed product cart quantity start -->
+                                    <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                                        <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </div>
+                                        <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
+                                        <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                    <!-- fixed product cart quantity end -->
+                                    <!-- fixed product cart price start -->
+                                    <div class="fixed_product_card_close_price">
+                                        <p>550 TK</p>
+                                    </div>
+                                    <!-- fixed product cart price end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Loop Item -->
+                </div>
+                <div class="price_summary mt-4">
+                    <div class="sub_total flex flex-row justify-between items-center border-b py-2 font-semibold">
+                        <span>Sub Total :</span>
+                        <span>1333 Tk</span>
+                    </div>
+                    <div class="shipping_charge flex flex-row justify-between items-center border-b py-2 font-semibold">
+                        <span>Shipping Charge :</span>
+                        <span>60 Tk</span>
+                    </div>
+                    <div class="discount_amount flex flex-row justify-between items-center border-b py-2 font-semibold">
+                        <span>Discount Amount :</span>
+                        <span>0 Tk</span>
+                    </div>
+                    <div class="discount_amount flex flex-row justify-between items-center border-b py-2 font-semibold">
+                        <span>Payable Amount :</span>
+                        <span>1200 Tk</span>
+                    </div>
+                </div>
+                <div class="payment_method flex flex-row items-center justify-center gap-4 pt-6 pb-4">
+                    <a href="#" class="px-4 py-1 bg-black text-white font-bold">COD</a>
+                    <a href="#" class="px-4 py-1 bg-theme text-white font-bold">Online Payment</a>
                 </div>
             </div>
         </div>

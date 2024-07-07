@@ -1,6 +1,7 @@
 
 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-8 items-center bg-white px-4 md:px-6 py-8 shadow-lg">
     <!-- Single Product -->
+    {{ $products }}
     <a href="#" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
         <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
             <img class=" group-hover:scale-125 duration-500" src="https://qcoom.com/_next/image?url=https%3A%2F%2Fproduction-qcoom-user.s3-ap-southeast-1.amazonaws.com%2Fstatic_image%2F2024-06-08T15%3A26%3A47.593_Q-I-Muba-04.jpg&w=1920&q=50" alt="">
