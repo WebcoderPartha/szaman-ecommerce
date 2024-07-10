@@ -15,7 +15,7 @@ class FrontendProductController extends Controller
 //    }
 
     public function detail_page($slug){
-        $product = Product::where('slug', $slug)->where('is_publish', 1)->where('is_active', 1)->first();
+        $product = Product::with('gallery')->where('slug', $slug)->where('is_publish', 1)->where('is_active', 1)->first();
         return view('frontend.product_details', compact('product'));
     }
 

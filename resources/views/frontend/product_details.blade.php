@@ -4,19 +4,20 @@
     <div class="grid grid-cols-12 py-4 gap-6">
         <div class="col-span-12 md:col-span-4">
             <div class="feature-image">
-                <img src="https://mohasagor.com/public/storage/images/products/product_1719810469_4510.jpg" alt="">
+                <img src="{{ asset('/storage/product/'.$product->feature_image) }}" id="productFeatureImage" class="w-full" alt="">
             </div>
             <div class="flex flex-row gap-2 py-2">
-                <div class="feature-image border-2 border-theme cursor-pointer">
-                    <img width="80" src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717407398_3986.jpg" alt="">
-                </div>
-                <div class="feature-image border-2 border-theme cursor-pointer">
-                    <img width="80" src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1719327179_9556.jpg" alt="">
-                </div>
-                <div class="feature-image border-2 border-theme cursor-pointer">
-                    <img width="80" src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1719810488_7580.jpg" alt="">
-                </div>
-
+                @if(count($product->gallery) > 0)
+                    @foreach($product->gallery as $gallery_image)
+                        <div class="feature-image border-2 border-theme cursor-pointer" onclick="imageClick('{{asset('/storage/gallery/'.$gallery_image->image)}}')">
+                            <img width="80" src="{{ asset('/storage/gallery/'.$gallery_image->image) }}" alt="{{ $gallery_image->image }}">
+                        </div>
+                    @endforeach
+                @else
+                    <div class="feature-image border-2 border-theme cursor-pointer" onclick="imageClick('{{asset('/storage/product/'.$product->feature_image)}}')">
+                        <img width="80" src="{{  asset('/storage/product/'.$product->feature_image) }}" alt="{{ $product->feature_image }}">
+                    </div>
+                @endif
             </div>
         </div>
         <div class="col-span-12 md:col-span-4">
@@ -41,11 +42,16 @@
             </div>
         </div>
         <div class="ol-span-12 md:col-span-4">
-            {{ $product }}
+            {{ count($product->gallery) }}
         </div>
     </div>
 @endsection
 
 @section('js')
-
+    <script>
+         function imageClick (event) {
+             document.getElementById('productFeatureImage').src = event
+            // console.log(event)
+        }
+    </script>
 @endsection
