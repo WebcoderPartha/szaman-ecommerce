@@ -4,9 +4,9 @@
 {{--    {{ $products }}--}}
     @foreach($products as $feature_product)
         <!-- Single Product -->
-        <a href="{{ route('frontend.product.details', $feature_product->slug) }}" class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg h-[380px]">
-            <div class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
-                <img class=" group-hover:scale-125 duration-500" src="{{ asset('/storage/product/'.$feature_product->feature_image) }}" alt="{{ $feature_product->feature_image }}">
+        <div class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg min-h-[400px]">
+            <a href="{{ route('frontend.product.details', $feature_product->slug) }}" class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
+                <img class=" group-hover:scale-125 duration-500" height="200" src="{{ asset('/storage/product/'.$feature_product->feature_image) }}" alt="{{ $feature_product->feature_image }}">
                 @if($feature_product->discount !== null)
                     <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                         <span class=" text-white text-xs">
@@ -29,9 +29,9 @@
                     </button>
                     <!-- Add to cart icon -->
                 </div>
-            </div>
-            <div class="product-price-info flex flex-col gap-2 py-2 justify-center items-center">
-                <p class="text-[14px] group-hover:text-theme font-semibold duration-500">{{ $feature_product->title }}</p>
+            </a>
+            <div class="product-price-info flex flex-col gap-2 py-4 justify-between items-center min-h-[200px] ">
+                <a href="{{ route('frontend.product.details', $feature_product->slug) }}"><h2 class="text-[14px] group-hover:text-theme font-semibold duration-500">{{ $feature_product->title }}</h2></a>
                 <div class="product_price">
                     <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                         @if($feature_product->discount !== null)
@@ -55,8 +55,11 @@
 
                     </div>
                 </div>
+                <div class=" border border-100 hover:border-theme duration-300 py-1 px-4 text-sm text-theme font-semibold rounded cursor-pointer">
+                    Add to Cart
+                </div>
             </div>
-        </a>
+        </div>
         <!--/ Single Product -->
     @endforeach
 
