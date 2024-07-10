@@ -40,6 +40,44 @@
                     <span>Ask for details</span>
                 </a>
             </div>
+            <div class="product_price mt-4">
+                <div class="flex flex-row gap-4">
+                    <div class="price_title font-semibold">Price:</div>
+                    <div class="price font-semibold">
+                        200 TK
+                    </div>
+                    <div class="regular_price line-through text-gray-400 font-semibold">
+                        300 TK
+                    </div>
+                </div>
+            </div>
+            <div class="qty_buynow flex flex-row gap-6 items-center mt-4">
+                <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
+                    <div class="fixed_product_card_qty_minus border-r px-4 py-2 cursor-pointer">
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
+                    <input class="product_qty w-16 font-semibold focus:outline-none text-center" type="text" value="1">
+                    <div class="fixed_product_card_qty_plus border-l px-4 py-2 cursor-pointer">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+                <div class="buynow_btn">
+                    <a href="#"  class="single_product_buy_now_btn_link cart_check_out bg-theme text-white px-8 py-3 font-semibold rounded">
+                        Order Now
+                        <i class="fa-solid fa-check"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="add_tocart_favourite flex flex-row gap-6 items-center mt-4">
+                <a href="#"  class="single_product_buy_now_btn_link cart_check_out border border-gray-300 px-6 py-3 hover:text-theme duration-300 rounded">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add To Cart
+                </a>
+                <a href="#"  class="single_product_buy_now_btn_link cart_check_out border border-gray-300 px-6 py-3 hover:text-theme duration-300 rounded">
+                    <i class="fa-regular fa-heart"></i>
+                    Add To Wishlist
+                </a>
+            </div>
         </div>
         <div class="ol-span-12 md:col-span-4">
             {{ count($product->gallery) }}
