@@ -8,6 +8,8 @@ Route::controller(HomeController::class)->group(function (){
    Route::get('/homelatestproduct', 'homeLatestProducts');
    Route::get('/singleproduct/{id}', 'product_detail');
    Route::get('/homeslider', 'home_slider');
+   Route::get('/getcategory', 'get_category');
+   Route::get('/getbrand', 'get_brand');
 });
 
 // Add more mobile-specific routes here
