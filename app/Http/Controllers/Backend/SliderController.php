@@ -148,6 +148,19 @@ class SliderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $slider = Slider::find($id);
+        // Remove existing image
+        if ($slider->image !== null) {
+            if (Storage::disk('public')->exists('slider/' . $slider->image)) {
+                Storage::disk('public')->delete('slider/' . $slider->image);
+            }
+        }
+
+        $slider->delete();
+
+        toastr()->success('Data deleted successfully!', 'Success');
+
+        return redirect()->back();
     }
 }

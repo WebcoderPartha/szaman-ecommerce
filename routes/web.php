@@ -70,6 +70,7 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::get('/', 'index')->name('backend.slider.index');
         Route::get('/{id}/edit', 'edit')->name('backend.slider.edit');
         Route::put('/{id}/update', 'update')->name('backend.slider.update');
+        Route::get('/{id}/delete', 'destroy')->name('backend.slider.destroy');
         Route::post('/store', 'store')->name('backend.slider.store');
         Route::get('/get-slider-data', 'get_slider_data')->name('backend.slider.data');
     });
