@@ -27,27 +27,19 @@
 
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="{{ asset('frontend/img/header-slider/1.jpg') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img src="{{ asset('frontend/img/header-slider/2.jpg') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img src="{{ asset('frontend/img/header-slider/3.jpg') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img src="{{ asset('frontend/img/header-slider/4.jpg') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img src="{{ asset('frontend/img/header-slider/5.jpg') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img src="{{ asset('frontend/img/header-slider/6.jpg') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img src="{{ asset('frontend/img/header-slider/7.jpg') }}" alt="">
-            </div>
+
+            @if($sliders->count() > 0)
+                @foreach($sliders as $slider)
+                    <div class="swiper-slide">
+                        <img src="{{ asset('/storage/slider/'.$slider->image) }}" alt="{{ $slider->image }}">
+                    </div>
+                @endforeach
+                @else
+                <div class="swiper-slide">
+                    <img src="https://placehold.co/1921x581" alt="">
+                </div>
+            @endif
+
         </div>
         <div class="swiper-pagination"></div>
     </div>
