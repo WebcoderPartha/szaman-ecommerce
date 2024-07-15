@@ -43,21 +43,27 @@
             <div class="product_price mt-4">
                 <div class="flex flex-row gap-4">
                     <div class="price_title font-semibold">Price:</div>
-                    <div class="price font-semibold">
-                        200 TK
-                    </div>
-                    <div class="regular_price line-through text-gray-400 font-semibold">
-                        300 TK
-                    </div>
+                    @if($product->discount !== null)
+                        <div class="price font-semibold">
+                            {{$product->discount_price}} TK
+                        </div>
+                        <div class="regular_price line-through text-gray-400 font-semibold">
+                            {{$product->unit_price}} TK
+                        </div>
+                        @else
+                        <div class="price font-semibold">
+                            {{$product->unit_price}} TK
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="qty_buynow flex flex-row gap-6 items-center mt-4">
                 <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
-                    <div class="fixed_product_card_qty_minus border-r px-4 py-2 cursor-pointer">
+                    <div class="fixed_product_card_qty_minus border-r px-4 py-2 cursor-pointer" id="qty_decrement">
                         <i class="fa-solid fa-minus"></i>
                     </div>
-                    <input class="product_qty w-16 font-semibold focus:outline-none text-center" type="text" value="1">
-                    <div class="fixed_product_card_qty_plus border-l px-4 py-2 cursor-pointer">
+                    <input class="product_qty w-16 font-semibold py-2 focus:outline-none text-center" id="qtyValue" type="text" value="1">
+                    <div class="fixed_product_card_qty_plus border-l px-4 py-2 cursor-pointer" id="qty_increment">
                         <i class="fa-solid fa-plus"></i>
                     </div>
                 </div>
@@ -69,7 +75,7 @@
                 </div>
             </div>
             <div class="add_tocart_favourite flex flex-row gap-6 items-center mt-4">
-                <a href="#"  class="single_product_buy_now_btn_link cart_check_out border border-gray-300 px-6 py-3 hover:text-theme duration-300 rounded">
+                <a href="javascript:void(0)" id="{{ $product->id }}" onclick="add_to_cart(this.id)" class="single_product_buy_now_btn_link cart_check_out border border-gray-300 px-6 py-3 hover:text-theme duration-300 rounded">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Add To Cart
                 </a>
@@ -78,18 +84,202 @@
                     Add To Wishlist
                 </a>
             </div>
+{{--            <div class="short-description_container mt-4">--}}
+{{--                <h2 class="py-2 border-b border-theme font-semibold">Short Description</h2>--}}
+{{--                <hr class="mt-4 ">--}}
+{{--                <div class="short_desc_content mt-2">--}}
+{{--                    {!! $product->short_description !!}--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
-        <div class="ol-span-12 md:col-span-4">
-            {{ count($product->gallery) }}
+        <div class="col-span-12 md:col-span-4">
+            <div class="flex flex-col gap-4">
+                <div class="single_product_specification_list border-2 border-theme border-dotted px-4 py-4">
+                    <ul class="flex flex-col gap-2">
+                        <li class="active">
+                            <i class="fa-solid fa-check"></i>
+                            Order today and receive it within 01 - 02 days
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-thumbs-up"></i>
+                            Quality Product
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake"></i>
+                            Cash On Delivery Available
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-truck-fast"></i>
+                            Delivery Charge Inside Dhaka
+                            60 TK
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-truck-fast"></i>
+                            Delivery Charge Outside Dhaka
+                            120 TK
+                        </li>
+                    </ul>
+                </div>
+                <div class="single_product_call_details border-2 border-theme border-dotted px-4 py-4 flex flex-col gap-4">
+                    <div class="single_product_call_title">
+                        <p class="text-base font-semibold">Have question about this product ? please call</p>
+                    </div>
+                    <div class="single_product_call">
+                        <ul class="flex flex-col gap-2">
+                            <li>
+                                <a href="tel:0161111111" class="single_product_call_link text-theme">
+                                    <i class="fa-solid fa-phone"></i>
+                                    01630990000
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:" class="single_product_call_link text-theme">
+                                    <i class="fa-solid fa-phone"></i>
+                                    Bkash Personal
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="tel:" class="single_product_call_link text-theme">
+                                    <i class="fa-solid fa-phone"></i>
+                                    Nagad Personal
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="product_tabs_container mt-4">
+        <div class="single_product_tab">
+            <ul class="single_product_tab_nav flex flex-row bg-gray-300">
+                <li class="nav-item single_product_tab_nav_item">
+                    <button class=" text-xs md:text-base px-4 py-2 bg-theme text-white font-bold hover:bg-theme hover:text-white" id="descriptionTabBtn" type="button">
+                        DESCRIPTION
+                    </button>
+                </li>
+                <li class="single_product_tab_nav_item">
+                    <button class="text-xs md:text-base text-black px-4 py-2 font-bold hover:bg-theme hover:text-white" id="howToBuyTabBtn" type="button">
+                        HOW TO BUY
+                    </button>
+                </li>
+                <li class="single_product_tab_nav_item">
+                    <button class="text-xs md:text-base text-black px-4 py-2 font-bold hover:bg-theme hover:text-white" id="refundPolicyBtn" type="button">
+                        RETURN POLICY
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content py-6">
+                <div class="tab-pane" id="descriptionContent">
+                    <div class="single_product_tab_content">
+                        {!! $product->description !!}
+                    </div>
+                </div>
+                <div class="tab-pane hidden" id="howToBuyContent">
+                    <div class="single_product_tab_content">
+                        <div class="single_product_tab_list">
+                            Select number of product you want to buy.
+                            Click Add To Cart Button
+                            Then go to checkout page
+                            If you are a new customer, please click on Sign Up.provide us your valid information information.
+                            Complete your checkout, we received your order, and for order confirmation or customer service contact with you
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane hidden" id="refundPolicyContent">
+                    <div class="single_product_tab_content">
+                        <div class="single_product_tab_list">
+                            <ul>
+                                <li>
+                                   Refund policy If your product is damaged, defective,
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="related_products">
+        <x-frontend.product.related-product />
     </div>
 @endsection
 
 @section('js')
     <script>
-         function imageClick (event) {
+        function imageClick (event) {
              document.getElementById('productFeatureImage').src = event
             // console.log(event)
         }
+        // Quantity
+            const increment = document.getElementById('qty_increment');
+            const decrement = document.getElementById('qty_decrement');
+            const qtyValue = document.getElementById('qtyValue');
+            increment.addEventListener('click', function (){
+                qtyValue.value++
+            });
+            decrement.addEventListener('click', function (){
+                if (parseInt(qtyValue.value) > 1){
+                    qtyValue.value--
+                }
+            });
+        // Quantity
+
+        // Tabs Javascript code
+         const descriptionTabBtn = document.getElementById('descriptionTabBtn');
+         const howToBuyTabBtn = document.getElementById('howToBuyTabBtn');
+         const refundPolicyBtn = document.getElementById('refundPolicyBtn');
+
+         const descriptionContent = document.getElementById('descriptionContent');
+         const howToBuyContent = document.getElementById('howToBuyContent');
+         const refundPolicyContent = document.getElementById('refundPolicyContent');
+
+         descriptionTabBtn.addEventListener('click', function (){
+             descriptionTabBtn.classList.add('bg-theme', 'text-white');
+             descriptionTabBtn.classList.remove('text-black');
+
+             howToBuyTabBtn.classList.remove('bg-theme', 'text-white')
+             howToBuyTabBtn.classList.add('text-black')
+
+             refundPolicyBtn.classList.remove('bg-theme', 'text-white')
+             refundPolicyBtn.classList.add('text-black')
+
+             descriptionContent.classList.remove('hidden');
+             howToBuyContent.classList.add('hidden');
+             refundPolicyContent.classList.add('hidden');
+         });
+
+         howToBuyTabBtn.addEventListener('click', function (){
+             descriptionTabBtn.classList.remove('bg-theme', 'text-white')
+             descriptionTabBtn.classList.add('text-black')
+
+             howToBuyTabBtn.classList.remove('text-black');
+             howToBuyTabBtn.classList.add('bg-theme', 'text-white');
+
+             refundPolicyBtn.classList.remove('bg-theme', 'text-white')
+             refundPolicyBtn.classList.add('text-black')
+
+             descriptionContent.classList.add('hidden');
+             howToBuyContent.classList.remove('hidden');
+             refundPolicyContent.classList.add('hidden');
+
+         });
+
+         refundPolicyBtn.addEventListener('click', function (){
+             descriptionTabBtn.classList.remove('bg-theme', 'text-white');
+             descriptionTabBtn.classList.add('text-black');
+
+             howToBuyTabBtn.classList.remove('bg-theme', 'text-white')
+             howToBuyTabBtn.classList.add('text-black')
+
+             refundPolicyBtn.classList.add('bg-theme', 'text-white')
+             refundPolicyBtn.classList.remove('text-black')
+
+             descriptionContent.classList.add('hidden');
+             howToBuyContent.classList.add('hidden');
+             refundPolicyContent.classList.remove('hidden');
+         });
+
+
     </script>
 @endsection

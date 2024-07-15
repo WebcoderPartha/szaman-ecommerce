@@ -1,10 +1,12 @@
 
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-8 items-center bg-white px-4 md:px-6 py-8 shadow-lg">
-
+<div class="related_product_title">
+    <h2 class="text-xl font-semibold">Related Products</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 items-center mb-6">
 {{--    {{ $products }}--}}
-    @foreach($products as $feature_product)
-        <!-- Single Product -->
-        <div class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg min-h-[400px]">
+@foreach($products as $feature_product)
+    <!-- Single Product -->
+        <div class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg min-h-[400px] bg-white my-6">
             <a href="{{ route('frontend.product.details', $feature_product->slug) }}" class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
                 <img class=" group-hover:scale-125 duration-500" height="200" src="{{ asset('/storage/product/'.$feature_product->feature_image) }}" alt="{{ $feature_product->feature_image }}">
                 @if($feature_product->discount !== null)
@@ -31,7 +33,7 @@
                 </div>
             </a>
             <div class="product-price-info flex flex-col gap-2 py-4 justify-between items-center min-h-[200px] ">
-                <a href="{{ route('frontend.product.details', $feature_product->slug) }}"><h2 class="text-[14px] group-hover:text-theme font-semibold duration-500">{{ $feature_product->title }}</h2></a>
+                <a href="{{ route('frontend.product.details', $feature_product->slug) }}"><h2 class="text-[14px] px-2 group-hover:text-theme font-semibold duration-500">{{ $feature_product->title }}</h2></a>
                 <div class="product_price">
                     <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                         @if($feature_product->discount !== null)
@@ -55,7 +57,7 @@
 
                     </div>
                 </div>
-                <div id="{{ $feature_product->id }}" onclick="add_to_carts(this.id)" class=" border border-100 hover:border-theme duration-300 py-1 px-4 text-sm text-theme font-semibold rounded cursor-pointer">
+                <div class=" border border-100 hover:border-theme duration-300 py-1 px-4 text-sm text-theme font-semibold rounded cursor-pointer">
                     Add to Cart
                 </div>
             </div>

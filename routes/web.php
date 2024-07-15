@@ -14,7 +14,15 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserLoginController;
 use App\Http\Controllers\Frontend\FrontendCartController;
 use App\Http\Controllers\Frontend\FrontendProductController;
+use App\Http\Controllers\Frontend\CartController;
 
+// Add To cart
+Route::controller(CartController::class)->group(function (){
+    Route::get('/getcartitems', 'getCartContent')->name('frontend.getcarts');
+    Route::post('/addtocart', 'add_to_cart')->name('frontend.addtocart');
+    Route::post('/updatecart', 'updateCart')->name('frontend.updatecart');
+    Route::post('/removecart', 'cartRemove')->name('frontend.removecart');
+});
 
 // Frontend
 Route::controller(HomeController::class)->group(function (){
