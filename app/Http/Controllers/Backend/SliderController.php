@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class SliderController extends Controller
 {
@@ -17,12 +18,21 @@ class SliderController extends Controller
         return view('backend.slider.index', compact('sliders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function get_slider_data(){
+        $data = Slider::all();
+
+        return Datatables::of($data)
+            ->addColumn('image', function ($row){
+                if ($row->image !== null){
+                    return '<img src="'.asset('storage/slider/'.$row->image).'"  width="50">';
+                }else{
+                    return '<img src="https://placehold.co/40x40"  width="50">';
+                }
+            })
+            ->addColumn('action', function($row){
+                $actionBtn = '<a href="'.route('backend.slider.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                return $actionBtn;
+            })->rawColumns(['image','action'])->addIndexColumn()->toJson();
     }
 
     /**

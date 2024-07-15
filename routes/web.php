@@ -68,6 +68,8 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
     // Slider Controller
     Route::controller(SliderController::class)->prefix('slider')->group(function (){
         Route::get('/', 'index')->name('backend.slider.index');
+        Route::get('/{id}/edit', 'edit')->name('backend.slider.edit');
+        Route::get('/get-slider-data', 'get_slider_data')->name('backend.slider.edit');
     });
 
     // Profile Controller

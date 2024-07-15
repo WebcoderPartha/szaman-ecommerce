@@ -10,7 +10,7 @@
     <div class="subheader">
         <h1 class="subheader-title">
             <small>
-                Category
+                Slider
             </small>
         </h1>
     </div>
@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="col-md-6">
 
-                                <h4>Add Category</h4>
+                                <h4>Add Slider</h4>
                                 <form action="{{ route('backend.category.store') }}" id="form" enctype="multipart/form-data" method="post">
                                     @csrf @method('POST')
                                     <div class="row">
@@ -60,7 +60,7 @@
                                     <thead class="bg-primary-600">
                                     <tr>
                                         <th>SL</th>
-                                        <th>Category Name</th>
+                                        <th>Name</th>
                                         <th>Image</th>
                                         <th>Action</th>
                                     </tr>
@@ -126,7 +126,7 @@
                 lengthChange : false,
                 sorting : true,
                 ajax: {
-                    url: "{{route('backend.category.data')}}",
+                    url: "{{route('backend.slider.edit')}}",
                     type: "GET",
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
