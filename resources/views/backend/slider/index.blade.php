@@ -21,27 +21,43 @@
                     <div class="panel-content">
                         <div class="row">
                             <div class="col-md-6">
-
                                 <h4>Add Slider</h4>
-                                <form action="{{ route('backend.category.store') }}" id="form" enctype="multipart/form-data" method="post">
+                                <form action="{{ route('backend.slider.store') }}" id="form" enctype="multipart/form-data" method="post">
                                     @csrf @method('POST')
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6 pb-4">
                                             <div class="form-group">
-                                                <label class="form-label" for="name">Category name</label>
-                                                <input class="form-control" id="name" placeholder="Ex: Laptop" type="text" name="name">
-                                                @error('name')
+                                                <label class="form-label" for="title">name</label>
+                                                <input class="form-control" id="title" placeholder="Ex: Slider 1" value="{{ old('title') }}" type="text" name="title">
+                                                @error('title')
                                                 <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6 pb-4">
                                             <div class="form-group">
                                                 <label class="form-label" for="name">Image</label>
                                                 <input class="form-control" id="image" type="file" name="image">
+                                                <span class="text-primary"><small>Image Dimensions 1921x581</small></span>
+                                                @error('image')
+                                                <span class="text-danger"><small>{{ $message }}</small></span>
+                                                @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6 pb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="status">Status</label>
+                                                <select name="status" class="form-control select2" id="status">
+                                                    <option value="">---Select---</option>
+                                                    <option value="1">Active</option>
+                                                    <option value="0">Inactive</option>
+                                                </select>
+                                                @error('status')
+                                                <span class="text-danger"><small>{{ $message }}</small></span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pb-2">
                                             <div class="col-md-4">
                                                 <p>Preview</p>
                                                 <img src="" width="200" id="imagePreview" alt="">
@@ -54,13 +70,13 @@
                                 </form>
                             </div>
                             <div class="col-md-6">
-                                <h4>Category List</h4>
+                                <h4>Slider List</h4>
                                 <!-- datatable start -->
                                 <table id="data-table" class="table text-center table-bordered table-hover table-striped w-100">
                                     <thead class="bg-primary-600">
                                     <tr>
                                         <th>SL</th>
-                                        <th>Name</th>
+                                        <th>Title</th>
                                         <th>Image</th>
                                         <th>Action</th>
                                     </tr>
@@ -140,8 +156,8 @@
                         orderable: false
                     },
                     {
-                        data: 'name',
-                        name: 'name',
+                        data: 'title',
+                        name: 'title',
                         searchable: true,
                         orderable: false
                     },
@@ -169,7 +185,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then(function(result) {
                 if (result.value) {
-                    window.location = "/admin/category/"+id+"/delete"
+                    window.location = "/admin/slider/"+id+"/delete"
                 }
             }); //alert ends
         }

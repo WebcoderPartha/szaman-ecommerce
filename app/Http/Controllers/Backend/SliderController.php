@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Yajra\DataTables\Facades\DataTables;
 
 class SliderController extends Controller
@@ -40,7 +43,36 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'title' => 'required|string',
+            'status' => 'required',
+            'image' => 'required|dimensions:min_width=1921,min_height=581'
+        ]);
+        $slider = new Slider();
+        $slider->title = $request->title;
+
+        // If image request
+        if ($request->file('image')){
+            $file = $request->file('image');
+            $image = 'slider'.'-'.rand(999999,100000).'.'.$file->getClientOriginalExtension();
+
+            // check post directory slider is exists
+            if(!Storage::disk('public')->exists('slider')){
+                Storage::disk('public')->makeDirectory('slider');
+            }
+
+            $imgResize = Image::make($request->image)->resize('1921', '581')->stream();
+            Storage::disk('public')->put('slider/'.$image,$imgResize);
+
+            $slider->image = $image;
+        }
+        $slider->status = $request->status;
+        $slider->save();
+
+        toastr()->success( 'Data inserted successfully!', 'Success');
+
+        return redirect()->back();
+
     }
 
     /**

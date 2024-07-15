@@ -69,6 +69,7 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
     Route::controller(SliderController::class)->prefix('slider')->group(function (){
         Route::get('/', 'index')->name('backend.slider.index');
         Route::get('/{id}/edit', 'edit')->name('backend.slider.edit');
+        Route::post('/store', 'store')->name('backend.slider.store');
         Route::get('/get-slider-data', 'get_slider_data')->name('backend.slider.edit');
     });
 
