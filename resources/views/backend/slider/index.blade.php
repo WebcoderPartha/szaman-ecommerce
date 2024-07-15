@@ -27,7 +27,7 @@
                                     <div class="row">
                                         <div class="col-md-6 pb-4">
                                             <div class="form-group">
-                                                <label class="form-label" for="title">name</label>
+                                                <label class="form-label" for="title">Title</label>
                                                 <input class="form-control" id="title" placeholder="Ex: Slider 1" value="{{ old('title') }}" type="text" name="title">
                                                 @error('title')
                                                 <span class="text-danger"><small>{{ $message }}</small></span>
@@ -78,6 +78,7 @@
                                         <th>SL</th>
                                         <th>Title</th>
                                         <th>Image</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -142,7 +143,7 @@
                 lengthChange : false,
                 sorting : true,
                 ajax: {
-                    url: "{{route('backend.slider.edit')}}",
+                    url: "{{route('backend.slider.data')}}",
                     type: "GET",
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -164,6 +165,12 @@
                     {
                         data: 'image',
                         name: 'image',
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'status',
+                        name: 'status',
                         searchable: true,
                         orderable: false
                     },
