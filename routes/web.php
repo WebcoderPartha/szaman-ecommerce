@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\AttributeController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ShiftChargeController;
+use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserLoginController;
 use App\Http\Controllers\Frontend\FrontendCartController;
@@ -58,11 +59,18 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
        return redirect()->route('backend.dashboard');
     });
 
+
     // Dashboard Controller
     Route::controller(DashboardController::class)->group(function (){
        Route::get('/dashboard', 'dashboard_view')->name('backend.dashboard');
     });
 
+    // Slider Controller
+    Route::controller(SliderController::class)->prefix('slider')->group(function (){
+        Route::get('/', 'index')->name('backend.slider.index');
+    });
+
+    // Profile Controller
     Route::controller(ProfileController::class)->prefix('profile')->group(function (){
         Route::get('/change-password', 'change_password_view')->name('backend.admin.change-password');
         Route::post('/change-password', 'update_change_password')->name('backend.admin.update-change-password');

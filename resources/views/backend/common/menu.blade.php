@@ -7,6 +7,12 @@
 </li>
 
 <li class="dashboard_permission">
+    <a href="{{ route('backend.slider.index') }}" @if(request()->is('admin/slider')) style="background: rgba(0, 0, 0, 0.1)" @endif>
+        <i class="fal fa-globe"></i>
+        <span class="nav-link-text">Slider</span>
+    </a>
+</li>
+<li class="dashboard_permission">
     <a href="{{ route('backend.category.index') }}" @if(request()->is('admin/category')) style="background: rgba(0, 0, 0, 0.1)" @endif>
         <i class="fal fa-globe"></i>
         <span class="nav-link-text">Category </span>
