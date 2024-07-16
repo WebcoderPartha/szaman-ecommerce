@@ -35,121 +35,20 @@
                 <div class="customer_info text-center text-xl md:text-2xl pb-4 md:pb-2">
                     <h2 >Order Summary</h2>
                 </div>
-                <div class="Order summary">
+                <div class="checkout_summary">
+
                     <!-- Loop Item -->
-                    <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
-                        <div class="col-span-3">
-                            <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
-                        </div>
+                  <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
                         <div class="col-span-9">
-                            <div class="flex flex-col w-full gap-1">
-                                <div class="flex justify-between gap-4">
-                                    <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                                    <a class="card_remove text-red-600 cursor-pointer ">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </div>
-                                <div class="fixed_product_card_size">
-                                    <strong>Size:</strong>
-                                    <span>S</span>
-                                </div>
-                                <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
-                                    <!-- fixed product cart quantity start -->
-                                    <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
-                                        <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
-                                            <i class="fa-solid fa-minus"></i>
-                                        </div>
-                                        <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
-                                        <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
-                                            <i class="fa-solid fa-plus"></i>
-                                        </div>
-                                    </div>
-                                    <!-- fixed product cart quantity end -->
-                                    <!-- fixed product cart price start -->
-                                    <div class="fixed_product_card_close_price">
-                                        <p>550 TK</p>
-                                    </div>
-                                    <!-- fixed product cart price end -->
-                                </div>
+                            <div class="flex flex-row gap-4 ">
+                                <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="40" height="40" alt="">
+                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
                             </div>
                         </div>
-                    </div>
-                    <!--/ Loop Item -->
-                    <!-- Loop Item -->
-                    <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
                         <div class="col-span-3">
-                            <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
-                        </div>
-                        <div class="col-span-9">
-                            <div class="flex flex-col w-full gap-1">
-                                <div class="flex justify-between gap-4">
-                                    <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                                    <a class="card_remove text-red-600 cursor-pointer ">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </div>
-                                <div class="fixed_product_card_size">
-                                    <strong>Size:</strong>
-                                    <span>S</span>
-                                </div>
-                                <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
-                                    <!-- fixed product cart quantity start -->
-                                    <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
-                                        <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
-                                            <i class="fa-solid fa-minus"></i>
-                                        </div>
-                                        <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
-                                        <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
-                                            <i class="fa-solid fa-plus"></i>
-                                        </div>
-                                    </div>
-                                    <!-- fixed product cart quantity end -->
-                                    <!-- fixed product cart price start -->
-                                    <div class="fixed_product_card_close_price">
-                                        <p>550 TK</p>
-                                    </div>
-                                    <!-- fixed product cart price end -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/ Loop Item -->
-                    <!-- Loop Item -->
-                    <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
-                        <div class="col-span-3">
-                            <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="80" height="80" alt="">
-                        </div>
-                        <div class="col-span-9">
-                            <div class="flex flex-col w-full gap-1">
-                                <div class="flex justify-between gap-4">
-                                    <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                                    <a class="card_remove text-red-600 cursor-pointer ">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </div>
-                                <div class="fixed_product_card_size">
-                                    <strong>Size:</strong>
-                                    <span>S</span>
-                                </div>
-                                <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">
-                                    <!-- fixed product cart quantity start -->
-                                    <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
-                                        <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer">
-                                            <i class="fa-solid fa-minus"></i>
-                                        </div>
-                                        <input class="product_qty w-10 font-semibold focus:outline-none text-center" type="text" value="1">
-                                        <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer">
-                                            <i class="fa-solid fa-plus"></i>
-                                        </div>
-                                    </div>
-                                    <!-- fixed product cart quantity end -->
-                                    <!-- fixed product cart price start -->
-                                    <div class="fixed_product_card_close_price">
-                                        <p>550 TK</p>
-                                    </div>
-                                    <!-- fixed product cart price end -->
-                                </div>
-                            </div>
+
+                                <p class="text-right">550 TK</p>
+                           
                         </div>
                     </div>
                     <!--/ Loop Item -->
@@ -182,5 +81,36 @@
 @endsection
 
 @section('js')
+
+    <script>
+
+    {{--    //================= get cart items ============== //--}}
+    {{--    const getCheckOutContent = () => {--}}
+    {{--        axios.get("{{route('frontend.getcarts')}}").then(getCheckoutContRes => {--}}
+    {{--            let carts = Object.values(getCheckoutContRes.data.cart);--}}
+
+    {{--            if (carts?.length > 0){--}}
+    {{--                let fixedCatItems = '';--}}
+    {{--                carts.forEach(cartItems => {--}}
+    {{--                    fixedCatItems +='<div class="grid grid-cols-12 border-b pb-1"><div class="col-span-3"><img src="/storage/product/'+cartItems.options.image+'" width="80" height="80" alt=""/></div><div class="col-span-9"><div class="flex flex-col w-full gap-1"><div class="flex justify-between gap-4"><h3>'+cartItems.name+'</h3> <a class="card_remove text-red-600 cursor-pointer" id="'+cartItems.rowId+'" onclick="cartRemove(this.id)" > <i class="fa-solid fa-trash"></i></a></div><div class="fixed_product_card_qty_price flex flex-row items-center justify-between"><div class="fixed_product_card_close_price"><p>'+ cartItems.subtotal +' TK</p></div></div></div></div></div>'--}}
+    {{--                })--}}
+    {{--                $('.checkout_summary').html(fixedCatItems);--}}
+    {{--                $('#fix_subtotal_price').text(getCartContRes.data.subtotal);--}}
+    {{--                $('.subTotal').text(getCartContRes.data.subtotal);--}}
+    {{--                $('.item_count').text(getCartContRes.data.total_qty);--}}
+    {{--            }else {--}}
+    {{--                $('#fix_subtotal_price').text("0.00")--}}
+    {{--                $('.item_count').text(0)--}}
+    {{--                $('.subTotal').text('0.00');--}}
+    {{--                $('.checkout_summary').html('<h2 class="text-center text-xl">Cart Empty!</h2>')--}}
+
+    {{--            }--}}
+    {{--        })--}}
+    {{--    }--}}
+    {{--    getCheckOutContent();--}}
+    {{--    //================= get cart items ============== //--}}
+    {{--</script>--}}
+
+
 
 @endsection
