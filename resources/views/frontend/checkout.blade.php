@@ -37,30 +37,28 @@
                 </div>
                 <div class="checkout_summary">
 
-                    <!-- Loop Item -->
-                  <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
+                    <!-- Loop Item
+                    <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
                         <div class="col-span-9">
                             <div class="flex flex-row gap-4 ">
                                 <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="40" height="40" alt="">
                                 <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
+                                <span class="font-semibold"><small>500x2</small></span>
                             </div>
                         </div>
                         <div class="col-span-3">
-
-                                <p class="text-right">550 TK</p>
-                           
+                            <p class="text-right">550 TK</p>
                         </div>
-                    </div>
-                    <!--/ Loop Item -->
+                    </div> -->
                 </div>
                 <div class="price_summary mt-4">
                     <div class="sub_total flex flex-row justify-between items-center border-b py-2 font-semibold">
                         <span>Sub Total :</span>
-                        <span>1333 Tk</span>
+                        <span><span class="subTotal"></span> Tk</span>
                     </div>
                     <div class="shipping_charge flex flex-row justify-between items-center border-b py-2 font-semibold">
                         <span>Shipping Charge :</span>
-                        <span>60 Tk</span>
+                        <span><span id="shipping_charge">0</span> Tk</span>
                     </div>
                     <div class="discount_amount flex flex-row justify-between items-center border-b py-2 font-semibold">
                         <span>Discount Amount :</span>
@@ -84,32 +82,41 @@
 
     <script>
 
-    {{--    //================= get cart items ============== //--}}
-    {{--    const getCheckOutContent = () => {--}}
-    {{--        axios.get("{{route('frontend.getcarts')}}").then(getCheckoutContRes => {--}}
-    {{--            let carts = Object.values(getCheckoutContRes.data.cart);--}}
+        //================= get cart items ============== //
+        const getCheckOutContent = () => {
+            axios.get("{{route('frontend.getcarts')}}").then(getCheckoutContRes => {
+                let checkoutCarts = Object.values(getCheckoutContRes.data.cart);
 
-    {{--            if (carts?.length > 0){--}}
-    {{--                let fixedCatItems = '';--}}
-    {{--                carts.forEach(cartItems => {--}}
-    {{--                    fixedCatItems +='<div class="grid grid-cols-12 border-b pb-1"><div class="col-span-3"><img src="/storage/product/'+cartItems.options.image+'" width="80" height="80" alt=""/></div><div class="col-span-9"><div class="flex flex-col w-full gap-1"><div class="flex justify-between gap-4"><h3>'+cartItems.name+'</h3> <a class="card_remove text-red-600 cursor-pointer" id="'+cartItems.rowId+'" onclick="cartRemove(this.id)" > <i class="fa-solid fa-trash"></i></a></div><div class="fixed_product_card_qty_price flex flex-row items-center justify-between"><div class="fixed_product_card_close_price"><p>'+ cartItems.subtotal +' TK</p></div></div></div></div></div>'--}}
-    {{--                })--}}
-    {{--                $('.checkout_summary').html(fixedCatItems);--}}
-    {{--                $('#fix_subtotal_price').text(getCartContRes.data.subtotal);--}}
-    {{--                $('.subTotal').text(getCartContRes.data.subtotal);--}}
-    {{--                $('.item_count').text(getCartContRes.data.total_qty);--}}
-    {{--            }else {--}}
-    {{--                $('#fix_subtotal_price').text("0.00")--}}
-    {{--                $('.item_count').text(0)--}}
-    {{--                $('.subTotal').text('0.00');--}}
-    {{--                $('.checkout_summary').html('<h2 class="text-center text-xl">Cart Empty!</h2>')--}}
+                if (checkoutCarts?.length > 0){
+                    let checkOutItems = '';
+                    checkoutCarts.forEach(cartItems => {
+                        // fixedCatItems +='<div class="grid grid-cols-12 border-b pb-1"><div class="col-span-3"><img src="/storage/product/'+cartItems.options.image+'" width="80" height="80" alt=""/></div><div class="col-span-9"><div class="flex flex-col w-full gap-1"><div class="flex justify-between gap-4"><h3>'+cartItems.name+'</h3> <a class="card_remove text-red-600 cursor-pointer" id="'+cartItems.rowId+'" onclick="cartRemove(this.id)" > <i class="fa-solid fa-trash"></i></a></div><div class="fixed_product_card_qty_price flex flex-row items-center justify-between"><div class="fixed_product_card_close_price"><p>'+ cartItems.subtotal +' TK</p></div></div></div></div></div>'
+                        checkOutItems +='<div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2"><div class="col-span-9"><div class="flex flex-row gap-4 "><img src="/storage/product/'+cartItems.options.image+'" width="40" height="40" alt=""><h3>'+cartItems.name+'</h3><span class="font-semibold"><small>'+cartItems.price+' x '+cartItems.qty+'</small></span></div></div><div class="col-span-3"><p class="text-right">'+cartItems.subtotal+' TK</p></div></div>'
+                    })
+                    $('.checkout_summary').html(checkOutItems);
+                    $('#fix_subtotal_price').text(getCheckoutContRes.data.subtotal);
+                    $('.subTotal').text(getCheckoutContRes.data.subtotal);
+                    $('.item_count').text(getCheckoutContRes.data.total_qty);
+                }else {
+                    $('#fix_subtotal_price').text("0.00")
+                    $('.item_count').text(0)
+                    $('.subTotal').text('0.00');
+                    $('.checkout_summary').html('<h2 class="text-center text-xl">Cart Empty!</h2>')
 
-    {{--            }--}}
-    {{--        })--}}
-    {{--    }--}}
-    {{--    getCheckOutContent();--}}
-    {{--    //================= get cart items ============== //--}}
-    {{--</script>--}}
+                }
+            })
+        }
+        getCheckOutContent();
+        //================= get cart items ============== //
+
+        const area = document.getElementById('area');
+        area.addEventListener('change', function (event){
+            let shipping = event.target.value
+            // console.log()
+            $('#shipping_charge').text(shipping)
+
+        })
+    </script>
 
 
 

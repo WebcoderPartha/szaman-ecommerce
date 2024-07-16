@@ -36,5 +36,22 @@ class CartController extends Controller
     }
 
 
+    public function addShippingCharge($amount)
+    {
+        // Remove previous shipping charge if it exists
+        Cart::setGlobalTax(0); // Assuming tax was set globally
+
+        // Add shipping as a fee (you can use negative discounts for this purpose)
+        Cart::add([
+            'id' => 'shipping',
+            'name' => 'Shipping Charge',
+            'qty' => 1,
+            'price' => $amount,
+            'weight' => 0,
+            'options' => ['type' => 'shipping']
+        ]);
+
+    }
+
 
 }
