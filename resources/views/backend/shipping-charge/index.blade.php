@@ -147,6 +147,19 @@
 
         });
 
+        function delete_alert(id) {
+            Swal.fire({
+                title: "Are you sure to delete?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!"
+            }).then(function(result) {
+                if (result.value) {
+                    window.location = "/admin/shipping-charge/destroy/"+id
+                }
+            }); //alert ends
+        }
+
         {{--$('#form_button').click(function (e){--}}
         {{--    e.preventDefault();--}}
         {{--    let name = $('#name').val();--}}

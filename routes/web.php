@@ -140,6 +140,7 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::get('/', 'index')->name('backend.shipping-charge.index');
         Route::get('/get-shipping-charge', 'get_shipping_data')->name('backend.shipping-charge.data');
         Route::get('/{id}/edit', 'edit')->name('backend.shipping-charge.edit');
+        Route::get('/destroy/{id}', 'destroy')->name('backend.shipping-charge.destroy');
         Route::put('/{id}/update', 'update')->name('backend.shipping-charge.update');
         Route::post('/store', 'shipping_charge_store_or_update')->name('backend.shipping-charge.store');
     });

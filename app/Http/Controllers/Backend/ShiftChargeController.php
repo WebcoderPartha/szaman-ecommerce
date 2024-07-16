@@ -63,4 +63,12 @@ class ShiftChargeController extends Controller
 
     }
 
+
+    public function destroy($id){
+        $shipping_charge = ShippingCharge::find($id);
+        $shipping_charge->delete();
+        toastr()->success('Data deleted successfully!', 'Success');
+        return redirect()->back();
+    }
+
 }
