@@ -25,25 +25,24 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="form-label" for="inside_dhaka">Inside Dhaka</label>
-                                                <input class="form-control" id="inside_dhaka" value="{{ !empty($shipping_charge->inside_dhaka) ? $shipping_charge->inside_dhaka : ''  }}" type="text" name="inside_dhaka">
-                                                @error('inside_dhaka')
+                                                <label class="form-label" for="shipping_charge_name">Shipping charge Name</label>
+                                                <input class="form-control" id="shipping_charge_name" value="{{ old('shipping_charge_name') }}" placeholder="Inside Dhaka" type="text" name="shipping_charge_name">
+                                                @error('shipping_charge_name')
                                                 <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="form-label" for="outside_dhaka">Outside Dhaka</label>
-                                                <input class="form-control" value="{{ !empty($shipping_charge->outside_dhaka) ? $shipping_charge->outside_dhaka : ''  }}" id="outside_dhaka" type="text" name="outside_dhaka">
-                                                @error('outside_dhaka')
+                                                <label class="form-label" for="amount">Amount</label>
+                                                <input class="form-control" value="{{ old('amount') }}" placeholder="60" id="amount" type="text" name="amount">
+                                                @error('amount')
                                                 <span class="text-danger"><small>{{ $message }}</small></span>
                                                 @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mt-4 text-right">
-                                        <input type="hidden" value="{{ !empty($shipping_charge->id) ? $shipping_charge->id : '' }}" name="shipping_charge_id" id="shipping_charge_id">
                                         <button type="submit" id="form_button" class="btn btn-success">Save</button>
                                     </div>
                                 </form>

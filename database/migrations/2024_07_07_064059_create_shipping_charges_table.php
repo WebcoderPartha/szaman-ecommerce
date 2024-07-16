@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('shipping_charges', function (Blueprint $table) {
             $table->id();
-            $table->string('inside_dhaka');
-            $table->string('outside_dhaka');
+            $table->string('shipping_charge_name');
+            $table->string('amount');
             $table->timestamps();
         });
     }

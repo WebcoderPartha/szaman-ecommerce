@@ -72,11 +72,11 @@
                     </div>
 
                     <div class="view_cart_shipping_content">
-                        <div class="product_shipping-title py-3">
+                        <!-- <div class="product_shipping-title py-3">
                             <h6 class="text-[16px] font-semibold">Calculate Shipping</h6>
                         </div>
 
-                        <div class="shipping_option_group flex flex-col gap-2 pb-4 border-b">
+                       <div class="shipping_option_group flex flex-col gap-2 pb-4 border-b">
 
                             <div class="shipping_option_item inline-flex items-center gap-2">
                                 <label class="relative flex items-center rounded-full cursor-pointer">
@@ -112,12 +112,12 @@
                                 </label>
                             </div>
 
-                        </div>
+                        </div> -->
 
-                        <div class="view_cart_total flex flex-row items-center justify-between text-xl py-4">
+                    <!--<div class="view_cart_total flex flex-row items-center justify-between text-xl py-4">
                             <strong>Total</strong>
                             <strong><span class="total_amount">{{ Cart::instance('shopping')->total() }}</span> TK</strong>
-                        </div>
+                        </div> -->
 
                         <div class="view_cart_process_checkout">
                             <a href="{{ route('frontend.checkout_view') }}" class="view_cart_process_checkout_link bg-theme inline-block w-full text-white text-[18px] py-3 text-center font-semibold rounded border border-theme hover:bg-transparent hover:text-theme duration-300">Check Out</a>
