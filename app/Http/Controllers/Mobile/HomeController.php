@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ShippingCharge;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -38,6 +39,11 @@ class HomeController extends Controller
     public function get_brand(){
         $brand = Brand::select('name', 'image')->get();
         return response()->json($brand, 200);
+    }
+
+    public function shipping_charge(){
+        $shipping_charge = ShippingCharge::orderBy('id', 'ASC')->get();
+        return response()->json($shipping_charge, 200);
     }
 
 }

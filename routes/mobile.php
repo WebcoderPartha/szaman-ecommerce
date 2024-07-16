@@ -10,6 +10,7 @@ Route::controller(HomeController::class)->group(function (){
    Route::get('/homeslider', 'home_slider');
    Route::get('/getcategory', 'get_category');
    Route::get('/getbrand', 'get_brand');
+   Route::get('/getshippingcharge', 'shipping_charge');
 });
 
 // Add more mobile-specific routes here
