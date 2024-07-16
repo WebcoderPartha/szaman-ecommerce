@@ -138,6 +138,9 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
     // Shipping Charge Controller
     Route::controller(ShiftChargeController::class)->prefix('shipping-charge')->group(function (){
         Route::get('/', 'index')->name('backend.shipping-charge.index');
+        Route::get('/get-shipping-charge', 'get_shipping_data')->name('backend.shipping-charge.data');
+        Route::get('/{id}/edit', 'edit')->name('backend.shipping-charge.edit');
+        Route::put('/{id}/update', 'update')->name('backend.shipping-charge.update');
         Route::post('/store', 'shipping_charge_store_or_update')->name('backend.shipping-charge.store');
     });
 

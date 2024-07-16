@@ -12,12 +12,12 @@
     </ol>
 
     <div class="row">
-        <div class="col-xl-6">
+        <div class="col-xl-12">
             <div id="panel-5" class="panel py-2">
                 <div class="panel-container show">
                     <div class="panel-content">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
 
                                 <h4> Shipping Charge</h4>
                                 <form id="form" method="POST" action="{{ route('backend.shipping-charge.store') }}">
@@ -46,6 +46,24 @@
                                         <button type="submit" id="form_button" class="btn btn-success">Save</button>
                                     </div>
                                 </form>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Shipping List</h4>
+                                <!-- datatable start -->
+                                <table id="data-table" class="table text-center table-bordered table-hover table-striped w-100">
+                                    <thead class="bg-primary-600">
+                                    <tr>
+                                        <th>SL</th>
+                                        <th>Name</th>
+                                        <th>Amount</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                                <!-- datatable end -->
                             </div>
                         </div>
                     </div>
@@ -79,6 +97,55 @@
             timerProgressBar: true,
         });
         // Sweetalert
+
+        $(document).ready(function() {
+
+            var table = $('#data-table').removeAttr('width').DataTable({
+                processing: true,
+                serverSide: true,
+                scrollX: false,
+                pageLength: 10,
+                ordering: true,
+                responsive : true,
+                searching : false,
+                bDestroy : true,
+                lengthChange : false,
+                sorting : true,
+                ajax: {
+                    url: "{{route('backend.shipping-charge.data')}}",
+                    type: "GET",
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                },
+                columns: [
+                    {
+                        data: 'DT_RowIndex',
+                        searchable: false,
+                        class: "text-center",
+                        orderable: false
+                    },
+                    {
+                        data: 'shipping_charge_name',
+                        name: 'shipping_charge_name',
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'amount',
+                        name: 'attribute',
+                        searchable: true,
+                        orderable: false
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                    }
+                ]
+            });
+
+        });
 
         {{--$('#form_button').click(function (e){--}}
         {{--    e.preventDefault();--}}
