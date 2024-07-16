@@ -86,7 +86,7 @@
         const getCheckOutContent = () => {
             axios.get("{{route('frontend.getcarts')}}").then(getCheckoutContRes => {
                 let checkoutCarts = Object.values(getCheckoutContRes.data.cart);
-
+                console.log(getCheckoutContRes.data)
                 if (checkoutCarts?.length > 0){
                     let checkOutItems = '';
                     checkoutCarts.forEach(cartItems => {
@@ -97,7 +97,8 @@
                     $('#fix_subtotal_price').text(getCheckoutContRes.data.subtotal);
                     $('.subTotal').text(getCheckoutContRes.data.subtotal.replace(/,/g, ''));
                     $('.item_count').text(getCheckoutContRes.data.total_qty);
-                    $('#paypalAmount').text(getCheckoutContRes.data.subtotal.replace(/,/g, ''))
+                    $('#shipping_charge').text(getCheckoutContRes.data.shipping_charge);
+                    $('#paypalAmount').text(parseInt(getCheckoutContRes.data.subtotal.replace(/,/g, '')) + parseInt(getCheckoutContRes.data.shipping_charge))
                 }else {
                     $('#fix_subtotal_price').text("0.00")
                     $('.item_count').text(0)
@@ -121,7 +122,7 @@
                 $('#shipping_charge').text(shippingRes.data.price);
                 let subtotalClass = document.getElementsByClassName('subTotal')[0].innerText
                 let subtotal = parseFloat(subtotalClass.replace(/,/g, ''))
-                console.log(subtotal)
+                // console.log(subtotal)
                 $('#paypalAmount').text(subtotal + shippingRes.data.price)
             })
         })
