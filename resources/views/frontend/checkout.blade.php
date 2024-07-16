@@ -66,7 +66,7 @@
                     </div>
                     <div class="discount_amount flex flex-row justify-between items-center border-b py-2 font-semibold">
                         <span>Payable Amount :</span>
-                        <span>1200 Tk</span>
+                        <span><span id="paypalAmount"></span> Tk</span>
                     </div>
                 </div>
                 <div class="payment_method flex flex-row items-center justify-center gap-4 pt-6 pb-4">
@@ -95,14 +95,15 @@
                     })
                     $('.checkout_summary').html(checkOutItems);
                     $('#fix_subtotal_price').text(getCheckoutContRes.data.subtotal);
-                    $('.subTotal').text(getCheckoutContRes.data.subtotal);
+                    $('.subTotal').text(getCheckoutContRes.data.subtotal.replace(/,/g, ''));
                     $('.item_count').text(getCheckoutContRes.data.total_qty);
+                    $('#paypalAmount').text(getCheckoutContRes.data.subtotal.replace(/,/g, ''))
                 }else {
                     $('#fix_subtotal_price').text("0.00")
                     $('.item_count').text(0)
                     $('.subTotal').text('0.00');
+                    $('#paypalAmount').text('0.00')
                     $('.checkout_summary').html('<h2 class="text-center text-xl">Cart Empty!</h2>')
-
                 }
             })
         }
@@ -113,8 +114,16 @@
         area.addEventListener('change', function (event){
             let shipping = event.target.value
             // console.log()
-            $('#shipping_charge').text(shipping)
 
+            axios.post('/shippingcharge', {amount: parseInt(shipping)}).then(shippingRes => {
+                // console.log(shippingRes.data)
+                let shipping_charge = parseInt(shippingRes.data.price)
+                $('#shipping_charge').text(shippingRes.data.price);
+                let subtotalClass = document.getElementsByClassName('subTotal')[0].innerText
+                let subtotal = parseFloat(subtotalClass.replace(/,/g, ''))
+                console.log(subtotal)
+                $('#paypalAmount').text(subtotal + shippingRes.data.price)
+            })
         })
     </script>
 

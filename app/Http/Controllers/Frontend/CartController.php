@@ -15,7 +15,9 @@ class CartController extends Controller
         $cart = Cart::instance('shopping')->content();
         $quantity = Cart::instance('shopping')->count();
         $subtotal = Cart::instance('shopping')->subtotal();
-        return response()->json(['cart' => $cart, 'total_qty' => $quantity, 'subtotal' => $subtotal], 200);
+        $shipping = Cart::instance('shipping')->content()->where('id', 'shipping')->first();
+        $shipping_charge = $shipping ? $shipping->price : 0;
+        return response()->json(['cart' => $cart, 'total_qty' => $quantity, 'subtotal' => $subtotal, 'shipping_charge' => $shipping_charge], 200);
     }
 
     public function add_to_cart(Request $request){
@@ -36,20 +38,30 @@ class CartController extends Controller
     }
 
 
-    public function addShippingCharge($amount)
+    public function addShippingCharge(Request $request)
     {
-        // Remove previous shipping charge if it exists
-        Cart::setGlobalTax(0); // Assuming tax was set globally
+        // Find the shipping item in the cart
+        $shippingItem = Cart::instance('shipping')->content()->where('id', 'shipping')->first();
 
-        // Add shipping as a fee (you can use negative discounts for this purpose)
-        Cart::add([
-            'id' => 'shipping',
-            'name' => 'Shipping Charge',
-            'qty' => 1,
-            'price' => $amount,
-            'weight' => 0,
-            'options' => ['type' => 'shipping']
-        ]);
+        if ($shippingItem) {
+            // Update the existing shipping charge
+            Cart::instance('shipping')->update($shippingItem->rowId, [
+                'price' => $request->amount,
+                'qty' => 1 // Ensure quantity is 1 for shipping
+            ]);
+        } else {
+            // Add a new shipping charge
+            Cart::instance('shipping')->add([
+                'id' => 'shipping',
+                'name' => 'Shipping Charge',
+                'qty' => 1,
+                'price' => $request->amount,
+                'weight' => 0,
+                'options' => ['type' => 'shipping']
+            ]);
+        }
+
+        return response()->json(Cart::instance('shipping')->content()->where('id', 'shipping')->first(), 200);
 
     }
 

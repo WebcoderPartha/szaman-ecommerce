@@ -23,6 +23,7 @@ Route::controller(CartController::class)->group(function (){
     Route::post('/addtocart', 'add_to_cart')->name('frontend.addtocart');
     Route::post('/updatecart', 'updateCart')->name('frontend.updatecart');
     Route::post('/removecart', 'cartRemove')->name('frontend.removecart');
+    Route::post('/shippingcharge', 'addShippingCharge')->name('frontend.shippingadd');
 });
 
 // Frontend
