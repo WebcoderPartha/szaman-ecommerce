@@ -10,23 +10,24 @@
                 <div class="form_customer">
                     <div class="flex flex-col gap-1 py-2">
                         <label for="full_name">Full Name</label>
-                        <input type="text" id="full_name" name="full_name" class="focus:outline-none border border-theme px-2 py-2 rounded-md" placeholder="Your name">
+                        <input type="text" id="full_name" name="full_name" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your name">
                     </div>
                     <div class="flex flex-col gap-1 py-2">
                         <label for="mobile_number">Mobile Number</label>
-                        <input type="text" id="mobile_number" name="mobile_number" class="focus:outline-none border border-theme px-2 py-2 rounded-md" placeholder="Mobile number">
+                        <input type="text" id="mobile_number" name="mobile_number" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Mobile number">
                     </div>
                     <div class="flex flex-col gap-1 py-2">
                         <label for="area">Your Area</label>
-                        <select name="area" id="area" class="focus:outline-none border border-theme px-2 py-2 rounded-md">
+                        <select name="area" id="area" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md">
                             <option value="">--Select your area--</option>
-                            <option value="">Inside Dhaka</option>
-                            <option value="">Outside Dhaka</option>
+                            @foreach($shipping_charge as $charge)
+                                <option value="{{ $charge->amount }}">{{ $charge->shipping_charge_name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="flex flex-col gap-1 py-2">
                         <label for="full_address">Full Address</label>
-                        <textarea name="full_address" id="full_address" class="focus:outline-none border border-theme px-2 py-2 rounded-md" placeholder="Village, union. thaka, district" cols="10" rows="3"></textarea>
+                        <textarea name="full_address" id="full_address" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Village, union. thaka, district" cols="10" rows="3"></textarea>
                     </div>
                 </div>
             </div>
