@@ -13,6 +13,14 @@
                         <input type="text" id="full_name" name="full_name" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your name">
                     </div>
                     <div class="flex flex-col gap-1 py-2">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your email">
+                    </div>
+                    <div class="flex flex-col gap-1 py-2">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="******">
+                    </div>
+                    <div class="flex flex-col gap-1 py-2">
                         <label for="mobile_number">Mobile Number</label>
                         <input type="text" id="mobile_number" name="mobile_number" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Mobile number">
                     </div>
