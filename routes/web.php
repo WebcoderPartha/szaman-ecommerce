@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\UserLoginController;
 use App\Http\Controllers\Frontend\FrontendCartController;
 use App\Http\Controllers\Frontend\FrontendProductController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\FtdOrderController;
 
 // Add To cart
 Route::controller(CartController::class)->group(function (){
@@ -24,6 +25,11 @@ Route::controller(CartController::class)->group(function (){
     Route::post('/updatecart', 'updateCart')->name('frontend.updatecart');
     Route::post('/removecart', 'cartRemove')->name('frontend.removecart');
     Route::post('/shippingcharge', 'addShippingCharge')->name('frontend.shippingadd');
+});
+
+// Order Controller
+Route::controller(FtdOrderController::class)->group(function (){
+    Route::post('/order-now', 'order_now')->name('frontend.ordernow');
 });
 
 // Frontend

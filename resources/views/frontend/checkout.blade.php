@@ -11,18 +11,22 @@
                     <div class="flex flex-col gap-1 py-2">
                         <label for="full_name">Full Name</label>
                         <input type="text" id="full_name" name="full_name" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your name">
+                        <small id="err_full_name" class="text-red-500"></small>
                     </div>
                     <div class="flex flex-col gap-1 py-2">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your email">
+                        <small id="err_email" class="text-red-500"></small>
                     </div>
                     <div class="flex flex-col gap-1 py-2">
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="******">
+                        <small id="err_password" class="text-red-500"></small>
                     </div>
                     <div class="flex flex-col gap-1 py-2">
                         <label for="mobile_number">Mobile Number</label>
                         <input type="text" id="mobile_number" name="mobile_number" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Mobile number">
+                        <small id="err_mobile_number" class="text-red-500"></small>
                     </div>
                     <div class="flex flex-col gap-1 py-2">
                         <label for="area">Your Area</label>
@@ -32,10 +36,12 @@
                                 <option value="{{ $charge->amount }}">{{ $charge->shipping_charge_name }}</option>
                             @endforeach
                         </select>
+                        <small id="err_area" class="text-red-500"></small>
                     </div>
                     <div class="flex flex-col gap-1 py-2">
                         <label for="full_address">Full Address</label>
                         <textarea name="full_address" id="full_address" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Village, union. thaka, district" cols="10" rows="3"></textarea>
+                        <small id="err_full_address" class="text-red-500"></small>
                     </div>
                 </div>
             </div>
@@ -78,7 +84,7 @@
                     </div>
                 </div>
                 <div class="payment_method flex flex-row items-center justify-center gap-4 pt-6 pb-4">
-                    <a href="#" class="px-4 py-1 bg-black text-white font-bold" onclick="order()">COD</a>
+                    <a href="javascript:void(0)" class="px-4 py-1 bg-black text-white font-bold" onclick="order()">COD</a>
                     <a href="#" class="px-4 py-1 bg-theme text-white font-bold">Online Payment</a>
                 </div>
             </div>
@@ -136,7 +142,32 @@
         });
 
         const order = () => {
-            alert('ok');
+            // toastr.success('sdfsdf');
+            let name = $('#full_name').val();
+            let email = $('#email').val();
+            let password = $('#password').val();
+            let mobile_number = $('#mobile_number').val();
+            let area = $('#area').val();
+            let full_address = $('#full_address').val();
+            if (!name?.length > 0){
+                $('#err_full_name').text('Full name is required!');
+            }else if(!email?.length > 0){
+                $('#err_email').text('Email is required!');
+            }else if(!password?.length > 0){
+                $('#err_password').text('Password is required!');
+            }else if(!mobile_number?.length > 0){
+                $('#err_mobile_number').text('Mobile number is required!');
+            }else if(!area?.length > 0){
+                $('#err_area').text('Area is required!');
+            }else if(!full_address?.length > 0){
+                $('#err_full_address').text('Full address is required!');
+            }else{
+                toastr.success('Order Success!!');
+                axios.post('{{route('frontend.ordernow')}}', {name: 'ok'}).then(orderRes => {
+                    console.log(orderRes.data)
+                })
+            }
+
         }
 
     </script>
