@@ -31,9 +31,9 @@
 <header class="sticky top-0 z-50 bg-[#eb5d1e] px-2 md:px-0 hidden md:block" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">
     <div class="mx-auto md:w-[1560px] max-w-full px-4 flex gap-6 py-2">
         <div class="flex items-center flex-1 gap-4 md:gap-8 justify-between">
-                <span class="md:w-[120px] w-[70px]">
+                <span class="md:w-[160px] w-[70px]">
                     <a href="/">
-                        <img src="https://m.media-amazon.com/images/I/615RU2+L5ML.jpg" width="50" alt="">
+                        <img src="{{ asset('/frontend/img/logo-3.png') }}" alt="">
                     </a>
                 </span>
             <div class="hidden w-full px-4 md:flex">

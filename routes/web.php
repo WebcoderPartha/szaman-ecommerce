@@ -50,6 +50,7 @@ Route::controller(FrontendCartController::class)->group(function (){
 Route::controller(UserLoginController::class)->group(function () {
     Route::get('/auth/login', 'user_login_page')->name('user_login_page');
     Route::get('/forget-password', 'user_forget_password')->name('user.forget.password');
+    Route::post('/auth/userregister', 'customer_register')->name('user.register.post');
 });
 
 // Admin Login

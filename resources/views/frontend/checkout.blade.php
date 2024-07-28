@@ -100,7 +100,7 @@
         const getCheckOutContent = () => {
             axios.get("{{route('frontend.getcarts')}}").then(getCheckoutContRes => {
                 let checkoutCarts = Object.values(getCheckoutContRes.data.cart);
-                console.log(getCheckoutContRes.data)
+                // console.log(getCheckoutContRes.data)
                 if (checkoutCarts?.length > 0){
                     let checkOutItems = '';
                     checkoutCarts.forEach(cartItems => {

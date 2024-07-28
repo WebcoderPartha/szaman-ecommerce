@@ -2,8 +2,8 @@
     <div class="mx-auto md:w-[1560px] max-w-full px-4">
         <div class="grid grid-cols-2 lg:grid-cols-12 gap-8 py-12 pb-8 transition-colors duration-150">
             <div class="col-span-6 lg:col-span-3 flex flex-col">
-                <div class="flex flex-initial items-center font-bold md:mr-10 mb-4 md:mb-4">
-                    <img alt="" src="https://m.media-amazon.com/images/I/615RU2+L5ML.jpg" width="100"/>
+                <div class="flex flex-initial items-center font-bold md:mr-10 mb-4 ">
+                    <img alt="" src="{{ asset('/frontend/img/logo-3.png') }}" />
                 </div>
                 <div class="mt-auto">
                     <p class="line-h-2xl mb-2">93, Kazi Nazrul Islam Avenue, (5th Floor) , Kawran Bazar, Dhaka-1215.</p>

@@ -5,7 +5,7 @@
         <div class="p-6 w-full max-w-md">
             <div class="flex justify-center items-center mb-10">
                 <button id="loginTab" class="w-full py-2 px-4 border-b-[3px] border-b-theme text-theme font-bold uppercase focus:outline-none block text-center">Login</button>
-                <button id="registerTab" class="w-full py-2 px-4 border-b-[3px] border-b-[#dedede] text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Register</button>
+                <button id="registerTab" class="w-full py-2 px-4 border-b-[3px] border-b-[#dedede] text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Register {{ Auth::guard('web')->user() }}</button>
             </div>
             <div id="loginForm" class="space-y-4 md:space-y-8">
                 <div>
@@ -23,24 +23,24 @@
             </div>
             <div id="registerForm" class="space-y-4 md:space-y-8 hidden">
                 <div>
-                    <input type="text" placeholder="First Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" id="first_name" placeholder="First Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="text" placeholder="Last Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" id="last_name" placeholder="Last Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="text" placeholder="Phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" id="phone" placeholder="Phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="email" placeholder="Email address" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="email" id="email" placeholder="Email address" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="password" placeholder="Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" id="password" placeholder="Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="password" placeholder="Confirm Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" id="confirm_password" placeholder="Confirm Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
-                <button class="w-full py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Register</button>
+                <button type="button" onclick="submitRegisterAction()" class="w-full py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Register</button>
             </div>
         </div>
     </div>
@@ -83,5 +83,41 @@
             loginTab.classList.add('border-b-[#dedede]', 'text-[#9f9f9ff0]');
             loginTab.classList.remove('border-b-theme', 'text-theme');
         });
+
+        const submitRegisterAction = () => {
+            let first_name = document.getElementById('first_name').value
+            let last_name = document.getElementById('last_name').value
+            let phone = document.getElementById('phone').value
+            let email = document.getElementById('email').value
+            let password = document.getElementById('password').value
+            let confirm_password = document.getElementById('confirm_password').value
+            if (!first_name?.length > 0){
+                toastr.error('First name is required!');
+            }else if(!last_name?.length > 0){
+                toastr.error('Last name is required!');
+            }else if(!phone?.length > 0){
+                toastr.error('Phone number is required!');
+            }else if(!email?.length > 0){
+                toastr.error('Email is required!');
+            }else if(!password?.length > 0){
+                toastr.error('Password is required!');
+            }else if(!confirm_password?.length > 0){
+                toastr.error('Confirm Password is required!');
+            }else if(password !== confirm_password){
+                toastr.error('Confirm password not match!');
+            }else {
+                toastr.success('ok')
+                const data = {
+                    first_name: first_name,
+                    last_name: last_name,
+                    phone: phone,
+                    email: email,
+                    password: password,
+                }
+                axios.post('{{ route('user.register.post') }}', data).then(regRes => {
+                    console.log(regRes.data)
+                })
+            }
+        }
     </script>
 @endsection

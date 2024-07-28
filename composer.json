@@ -9,6 +9,7 @@
         "cviebrock/eloquent-sluggable": "^10.0",
         "guzzlehttp/guzzle": "^7.2",
         "hardevine/shoppingcart": "^3.3",
+        "haruncpi/laravel-id-generator": "^1.1",
         "intervention/image": "2.*",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
