@@ -37,6 +37,12 @@
         <span class="nav-link-text" >Attribute </span>
     </a>
 </li>
+<li class="dashboard_permission">
+    <a href="{{ route('backend.customer.index') }}" @if(request()->is('admin/customer')) style="background: rgba(0, 0, 0, 0.1)" @endif >
+        <i class="fal fa-globe"></i>
+        <span class="nav-link-text" >Customer </span>
+    </a>
+</li>
 
 <li class="employee_permission">
     <a title="Product"  @if(request()->is('admin/product') || request()->is('admin/product/create')) style="background: rgba(0, 0, 0, 0.1)" @endif class=" waves-effect waves-themed" aria-expanded="false">
