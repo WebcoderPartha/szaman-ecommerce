@@ -18,12 +18,18 @@ class FrontendCartController extends Controller
     }
 
     public function checkout_view(){
-        if (Cart::instance('shopping')->content()->count() > 0){
-            $shipping_charge = ShippingCharge::all();
-            return view('frontend.checkout', compact('shipping_charge'));
-        }else {
+        if (auth('web')->check()){
+            if (Cart::instance('shopping')->content()->count() > 0){
+                $shipping_charge = ShippingCharge::all();
+                return view('frontend.checkout', compact('shipping_charge'));
+            }else {
+                return redirect()->route('frontend.home_page');
+            }
+        }else{
+            toastr()->error('Please login first!', 'Warning!');
             return redirect()->route('frontend.home_page');
         }
+
 
     }
 }
