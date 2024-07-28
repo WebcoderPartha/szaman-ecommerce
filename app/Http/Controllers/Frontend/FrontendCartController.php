@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ShippingCharge;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\User;
 
 class FrontendCartController extends Controller
 {
@@ -21,7 +22,8 @@ class FrontendCartController extends Controller
         if (auth('web')->check()){
             if (Cart::instance('shopping')->content()->count() > 0){
                 $shipping_charge = ShippingCharge::all();
-                return view('frontend.checkout', compact('shipping_charge'));
+                $customer = User::find(auth('web')->user()->id);
+                return view('frontend.checkout', compact('shipping_charge', 'customer'));
             }else {
                 return redirect()->route('frontend.home_page');
             }
