@@ -75,6 +75,7 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::get('/index', 'customer_index')->name('backend.customer.index');
         Route::get('/edit/{id}', 'customer_edit')->name('backend.customer.edit');
         Route::get('/get-customer-data', 'get_customer_data')->name('backend.customer.data');
+        Route::put('/update/{id}', 'customer_update')->name('backend.customer.update');
     });
 
     // Dashboard Controller

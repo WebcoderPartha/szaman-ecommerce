@@ -17,6 +17,25 @@ class CustomerController extends Controller
         return view('backend.customer.edit', compact('customer'));
     }
 
+    public function customer_update(Request $request, $id){
+        $validate = $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'phone' => 'required',
+            'email' => 'required|email',
+        ]);
+        $customer = User::find($id);
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->phone = $request->phone;
+        $customer->email  = $request->email;
+        $customer->address = $request->address;
+        $customer->status = $request->status;
+        $customer->save();
+        toastr()->success('Customer updated!', 'Success!');
+        return redirect()->route('backend.customer.index');
+    }
+
     public function get_customer_data(){
         $data = User::orderBy('id', 'ASC')->get();
 
@@ -36,10 +55,9 @@ class CustomerController extends Controller
                     return '<span class="badge badge-danger">Inactive</span>';
                 }
             })->addColumn('action', function($row){
-                $actionBtn = '<a href="'.route('backend.product.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                $actionBtn = '<a href="'.route('backend.customer.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
                 return $actionBtn;
             })->rawColumns(['name', 'address', 'status','action'])->addIndexColumn()->toJson();
-
     }
 
 }
