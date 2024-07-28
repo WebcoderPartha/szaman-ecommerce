@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\HomeController;
+use App\Http\Controllers\Mobile\CustomerAuthController;
 
 
 Route::controller(HomeController::class)->group(function (){
@@ -14,3 +15,8 @@ Route::controller(HomeController::class)->group(function (){
 });
 
 // Add more mobile-specific routes here
+
+Route::controller(CustomerAuthController::class)->group(function () {
+    Route::post('/customer/login', 'login');
+    Route::post('/customer/register', 'register');
+});

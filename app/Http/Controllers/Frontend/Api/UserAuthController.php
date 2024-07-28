@@ -16,7 +16,9 @@ class UserAuthController extends Controller
     public function login(Request $request){
         $credentials = $request->only('email', 'password');
 
-        if (! $token = Auth::guard('api')->attempt($credentials)) {
+        $fieldType = filter_var($request->login, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+
+        if (! $token = Auth::guard('api')->attempt([$fieldType => $credentials['login'], 'password' => $credentials['password']])) {
             return response()->json(['error' => 'Credentials is invalid!'], 401);
         }
         return $this->respond_with_token($token);

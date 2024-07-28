@@ -66,7 +66,7 @@
                 <span class="sr-only">Sign in</span>
             </a>
             @else
-                <a class="inline-flex md:border py-2 md:rounded-md text-white cursor-pointer items-center text-base justify-center md:w-[120px] gap-2 transition-colors" href="javascript:void(0)">
+                <a class="inline-flex md:border py-2 md:rounded-md text-white cursor-pointer items-center text-base justify-center md:w-[120px] gap-2 transition-colors" href="{{ route('customer.logout') }}">
                     <span class="hidden md:inline-block">Logout</span>
                 </a>
             @endif

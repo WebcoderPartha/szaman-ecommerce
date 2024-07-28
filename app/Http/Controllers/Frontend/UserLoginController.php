@@ -35,6 +35,24 @@ class UserLoginController extends Controller
         return response()->json(Auth::guard('web')->user(), 200);
     }
 
-    
+    public function customer_login(Request $request){
+        $login = $request->input('login_email_phone');
+        $password = $request->input('login_password');
+
+        // Attempt to log in using email or mobile number
+        if (Auth::guard('web')->attempt(['email' => $login, 'password' => $password]) ||
+            Auth::guard('web')->attempt(['phone' => $login, 'password' => $password])) {
+            return response()->json(['success' => 'Login success!'], 200);
+        }else {
+            return response()->json(['error' => 'Invalid credentials!']);
+        }
+
+    }
+
+    public function customer_logout(){
+        Auth::guard('web')->logout();
+        toastr()->success('Logout successfully!', 'Success');
+        return redirect()->route('frontend.home_page');
+    }
 
 }

@@ -9,12 +9,12 @@
             </div>
             <div id="loginForm" class="space-y-4 md:space-y-8">
                 <div>
-                    <input type="email" placeholder="Email or phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="email" id="login_email_phone" placeholder="Email or phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="password" placeholder="******" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" id="login_password" placeholder="******" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
-                <button class="w-full py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Login</button>
+                <button type="button" onclick="customer_login()" class="w-full py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Login</button>
                 <div class="flex flex-col gap-4 text-center">
                     <a href="{{ route('user.forget.password') }}" class="text-sm text-theme">Forgot your password?</a>
                     <hr>
@@ -116,6 +116,31 @@
                 }
                 axios.post('{{ route('user.register.post') }}', data).then(regRes => {
                     console.log(regRes.data)
+                })
+            }
+        }
+
+        // Customer Login method
+        const customer_login = () => {
+            let login_email_phone = document.getElementById('login_email_phone').value
+            let login_password = document.getElementById('login_password').value
+            if (!login_email_phone?.length > 0){
+                toastr.error('Enter Email or Phone number!');
+            }else if (!login_password?.length > 0){
+                toastr.error('Enter password!');
+            }else {
+                const login_data = {
+                    login_email_phone: login_email_phone,
+                    login_password: login_password
+                }
+                axios.post('{{ route('customer.login') }}', login_data).then(loginRes => {
+                    console.log(loginRes.data);
+                    if (loginRes.data.error){
+                        toastr.error(loginRes.data.error);
+                    }else {
+                        window.location.href =  "{{ route('frontend.home_page') }}"
+                        toastr.success(loginRes.data.success);
+                    }
                 })
             }
         }
