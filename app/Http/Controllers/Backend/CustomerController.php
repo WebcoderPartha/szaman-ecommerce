@@ -13,7 +13,8 @@ class CustomerController extends Controller
     }
 
     public function customer_edit($id){
-        return view('backend.customer.edit');
+        $customer = User::find($id);
+        return view('backend.customer.edit', compact('customer'));
     }
 
     public function get_customer_data(){
