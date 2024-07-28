@@ -70,12 +70,13 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
        return redirect()->route('backend.dashboard');
     });
 
-    // Dashboard Controller
+    // Customer Controller
     Route::controller(CustomerController::class)->prefix('customer')->group(function (){
         Route::get('/index', 'customer_index')->name('backend.customer.index');
         Route::get('/edit/{id}', 'customer_edit')->name('backend.customer.edit');
         Route::get('/get-customer-data', 'get_customer_data')->name('backend.customer.data');
         Route::put('/update/{id}', 'customer_update')->name('backend.customer.update');
+        Route::get('/status/{id}', 'active_inactive')->name('backend.customer.status');
     });
 
     // Dashboard Controller

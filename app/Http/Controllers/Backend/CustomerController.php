@@ -55,9 +55,26 @@ class CustomerController extends Controller
                     return '<span class="badge badge-danger">Inactive</span>';
                 }
             })->addColumn('action', function($row){
-                $actionBtn = '<a href="'.route('backend.customer.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                if ($row->status === 1){
+                    $actionBtn = '<a href="'.route('backend.customer.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="'.route('backend.customer.status', $row->id).'" class="btn btn-danger btn-sm">Inactive</a>';
+                }else{
+                    $actionBtn = '<a href="'.route('backend.customer.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="'.route('backend.customer.status', $row->id).'" class="btn btn-primary btn-sm">Active</a>';
+                }
+
                 return $actionBtn;
             })->rawColumns(['name', 'address', 'status','action'])->addIndexColumn()->toJson();
+    }
+
+    public function active_inactive($id){
+        $user = User::find($id);
+        if ($user->status === 1){
+            $user->status = 0;
+        }else {
+            $user->status = 1;
+        }
+        $user->save();
+        toastr()->success('Customer status updated!', 'Success!');
+        return redirect()->back();
     }
 
 }
