@@ -35,4 +35,6 @@ class UserLoginController extends Controller
         return response()->json(Auth::guard('web')->user(), 200);
     }
 
+    
+
 }
