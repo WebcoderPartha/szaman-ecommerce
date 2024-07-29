@@ -115,7 +115,8 @@
                     password: password,
                 }
                 axios.post('{{ route('user.register.post') }}', data).then(regRes => {
-                    console.log(regRes.data)
+                    window.location.href =  "{{ route('frontend.home_page') }}"
+                    toastr.success(loginRes.data.success);
                 })
             }
         }

@@ -21,8 +21,11 @@
                         </div>
                         <span onclick="shippingAddress()" class="absolute top-0 right-0 bg-theme text-white px-3 py-1 cursor-pointer"><i class="far fa-edit"></i></span>
                         <div class="billing_information text-center my-8 italic font-semibold">
-                            <h1 class="text-xl">{{ $customer->first_name }} {{ $customer->last_name }}</h1>
-                            <p>{{ $customer->phone }}</p>
+                            @if(!empty($customer->address_line_one))
+                                Ok
+                            @else
+                                <h1>N/A</h1>
+                            @endif
                         </div>
                     </div>
                     <div class="flex flex-col gap-1 py-2">
@@ -64,7 +67,7 @@
                     </div>
                     <div class="payment_method flex flex-row items-center justify-center gap-4 pt-6 pb-4">
                         <a href="javascript:void(0)" class="px-4 py-1 bg-black text-white font-bold" onclick="cancelShippingAddress()">Cancel</a>
-                        <a href="#" class="px-4 py-1 bg-theme text-white font-bold">Update</a>
+                        <span onclick="updateShippingAddress()" class="px-4 py-1 bg-theme text-white font-bold cursor-pointer">Update</span>
                     </div>
                 </div>
             </div>
@@ -107,7 +110,7 @@
                     </div>
                 </div>
                 <div class="payment_method flex flex-row items-center justify-center gap-4 pt-6 pb-4">
-                    <a href="javascript:void(0)" class="px-4 py-1 bg-black text-white font-bold" onclick="order()">COD</a>
+                    <a href="javascript:void(0)" class="px-4 py-1 bg-black text-white font-bold">COD</a>
                     <a href="#" class="px-4 py-1 bg-theme text-white font-bold">Online Payment</a>
                 </div>
             </div>
@@ -164,31 +167,28 @@
             })
         });
 
-        const order = () => {
+        function updateShippingAddress(){
             // toastr.success('sdfsdf');
-            let name = $('#full_name').val();
-            let email = $('#email').val();
-            let password = $('#password').val();
-            let mobile_number = $('#mobile_number').val();
-            let area = $('#area').val();
-            let full_address = $('#full_address').val();
-            if (!name?.length > 0){
-                $('#err_full_name').text('Full name is required!');
-            }else if(!email?.length > 0){
-                $('#err_email').text('Email is required!');
-            }else if(!password?.length > 0){
-                $('#err_password').text('Password is required!');
-            }else if(!mobile_number?.length > 0){
-                $('#err_mobile_number').text('Mobile number is required!');
-            }else if(!area?.length > 0){
-                $('#err_area').text('Area is required!');
-            }else if(!full_address?.length > 0){
-                $('#err_full_address').text('Full address is required!');
+            let address_line_one = $('#address_line_one').val();
+            let post_office = $('#post_office').val();
+            let thana = $('#thana').val();
+            let postal_code = $('#postal_code').val();
+            let district = $('#district').val();
+            if (!address_line_one?.length > 0){
+                $('#err_address_line_one').text('Enter address line one!');
+            }else if(!post_office?.length > 0){
+                $('#err_post_office').text('Enter post office!');
+            }else if(!thana?.length > 0){
+                $('#err_thana').text('Enter thana!');
+            }else if(!postal_code?.length > 0){
+                $('#err_postal_code').text('Enter postal code!');
+            }else if(!district?.length > 0){
+                $('#err_district').text('Enter district!');
             }else{
                 toastr.success('Order Success!!');
-                axios.post('{{route('frontend.ordernow')}}', {name: 'ok'}).then(orderRes => {
-                    console.log(orderRes.data)
-                })
+                {{--axios.post('{{route('frontend.ordernow')}}', {name: 'ok'}).then(orderRes => {--}}
+                {{--    console.log(orderRes.data)--}}
+                {{--})--}}
             }
 
         }

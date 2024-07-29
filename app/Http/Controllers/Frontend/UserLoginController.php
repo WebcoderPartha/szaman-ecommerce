@@ -55,4 +55,15 @@ class UserLoginController extends Controller
         return redirect()->route('frontend.home_page');
     }
 
+    public function update_address(Request $request){
+        $user = User::find(Auth::guard('web')->user()->id);
+        $user->address_line_one = $request->address_line_one;
+        $user->post_office = $request->post_office;
+        $user->thana = $request->thana;
+        $user->postal_code = $request->postal_code;
+        $user->district = $request->district;
+        $user->save();
+        return response()->json(['success' => 'Address updated!'], 200);
+    }
+
 }
