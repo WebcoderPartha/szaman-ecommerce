@@ -4,42 +4,62 @@
     <div class="cart-container py-3 md:py-16">
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12 md:col-span-6 bg-white shadow-lg p-6">
-                <div class="customer_info text-center text-2xl">
-                    <h2>Billing Information</h2>
-                </div>
-                <div class="form_customer">
-                    <div class="flex flex-col gap-1 py-2">
-                        <label for="full_name">Full Name</label>
-                        <input type="text" id="full_name" name="full_name" value="{{ $customer->first_name }} {{ $customer->last_name }}" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your name">
-                        <small id="err_full_name" class="text-red-500"></small>
-                    </div>
-                    <div class="flex flex-col gap-1 py-2">
-                        <label for="email">Email</label>
-                        <input type="email" value="{{ $customer->email }}" id="email" name="email" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your email">
-                        <small id="err_email" class="text-red-500"></small>
-                    </div>
+                <div class="flex flex-col gap-6">
+                    <div class="billing_container border border-theme my-4 relative">
+                        <div class="customer_info text-center text-2xl bg-white w-[35%] mx-auto absolute -top-[18px] left-[230px]">
+                            <h2>Billing Information</h2>
+                        </div>
+                        <div class="billing_information text-center my-8 italic font-semibold">
+                            <h1 class="text-xl">{{ $customer->first_name }} {{ $customer->last_name }}</h1>
+                            <p>{{ $customer->phone }}</p>
+                        </div>
 
-                    <div class="flex flex-col gap-1 py-2">
-                        <label for="mobile_number">Mobile Number</label>
-                        <input type="text" id="mobile_number" value="{{ $customer->phone }}" name="mobile_number" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Mobile number">
-                        <small id="err_mobile_number" class="text-red-500"></small>
                     </div>
-                    <div class="flex flex-col gap-1 py-2">
-                        <label for="area">Your Area</label>
-                        <select name="area" id="area" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md">
-                            <option value="">--Select your area--</option>
-                            @foreach($shipping_charge as $charge)
-                                <option value="{{ $charge->amount }}">{{ $charge->shipping_charge_name }}</option>
-                            @endforeach
-                        </select>
-                        <small id="err_area" class="text-red-500"></small>
-                    </div>
-                    <div class="flex flex-col gap-1 py-2">
-                        <label for="full_address">Full Address</label>
-                        <textarea name="full_address" id="full_address" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Village, union. thaka, district" cols="10" rows="3">{{ $customer->address }}</textarea>
-                        <small id="err_full_address" class="text-red-500"></small>
+                    <div class="billing_container border border-theme my-4 relative ">
+                        <div class="customer_info text-center text-2xl bg-white w-[35%] mx-auto absolute -top-[18px] left-[230px]">
+                            <h2>Shipping Address</h2>
+                        </div>
+                        <a href="" class="absolute top-0 right-0 bg-theme text-white px-3 py-1"><i class="far fa-edit"></i></a>
+                        <div class="billing_information text-center my-8 italic font-semibold">
+                            <h1 class="text-xl">{{ $customer->first_name }} {{ $customer->last_name }}</h1>
+                            <p>{{ $customer->phone }}</p>
+                        </div>
+
                     </div>
                 </div>
+{{--                <div class="form_customer">--}}
+{{--                    <div class="flex flex-col gap-1 py-2">--}}
+{{--                        <label for="full_name">Full Name</label>--}}
+{{--                        <input type="text" id="full_name" name="full_name" value="{{ $customer->first_name }} {{ $customer->last_name }}" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your name">--}}
+{{--                        <small id="err_full_name" class="text-red-500"></small>--}}
+{{--                    </div>--}}
+{{--                    <div class="flex flex-col gap-1 py-2">--}}
+{{--                        <label for="email">Email</label>--}}
+{{--                        <input type="email" value="{{ $customer->email }}" id="email" name="email" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Your email">--}}
+{{--                        <small id="err_email" class="text-red-500"></small>--}}
+{{--                    </div>--}}
+
+{{--                    <div class="flex flex-col gap-1 py-2">--}}
+{{--                        <label for="mobile_number">Mobile Number</label>--}}
+{{--                        <input type="text" id="mobile_number" value="{{ $customer->phone }}" name="mobile_number" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Mobile number">--}}
+{{--                        <small id="err_mobile_number" class="text-red-500"></small>--}}
+{{--                    </div>--}}
+{{--                    <div class="flex flex-col gap-1 py-2">--}}
+{{--                        <label for="area">Your Area</label>--}}
+{{--                        <select name="area" id="area" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md">--}}
+{{--                            <option value="">--Select your area--</option>--}}
+{{--                            @foreach($shipping_charge as $charge)--}}
+{{--                                <option value="{{ $charge->amount }}">{{ $charge->shipping_charge_name }}</option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                        <small id="err_area" class="text-red-500"></small>--}}
+{{--                    </div>--}}
+{{--                    <div class="flex flex-col gap-1 py-2">--}}
+{{--                        <label for="full_address">Full Address</label>--}}
+{{--                        <textarea name="full_address" id="full_address" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Village, union. thaka, district" cols="10" rows="3">{{ $customer->address }}</textarea>--}}
+{{--                        <small id="err_full_address" class="text-red-500"></small>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <div class="col-span-12 md:col-span-6 bg-white shadow-lg p-6">
                 <div class="customer_info text-center text-xl md:text-2xl pb-4 md:pb-2">
