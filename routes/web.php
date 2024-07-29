@@ -55,6 +55,7 @@ Route::controller(UserLoginController::class)->group(function () {
     Route::get('/logout', 'customer_logout')->name('customer.logout');
     Route::post('/customer-login', 'customer_login')->name('customer.login');
     Route::post('cus-address/update', 'update_customer_address')->name('update.customer.address');
+    Route::get('cus-address/get', 'get_customer_address')->name('get.customer.address');
 });
 
 // Admin Login

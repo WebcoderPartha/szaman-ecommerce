@@ -66,4 +66,9 @@ class UserLoginController extends Controller
         return response()->json(['success' => 'Address updated!'], 200);
     }
 
+    public function get_customer_address(){
+        $user = User::where('id', Auth::guard('web')->user()->id)->select('address_line_one', 'post_office', 'thana', 'postal_code', 'district')->first();
+        return response()->json($user, 200);
+    }
+
 }
