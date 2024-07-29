@@ -169,6 +169,21 @@
             })
         });
 
+        let shipping_container = document.getElementById('shipping_container')
+        let address_form = document.getElementById('address_form')
+
+        // ==================== Shipping Address Method ================= //
+        function shippingAddress(){
+            shipping_container.classList.add('hidden')
+            address_form.classList.remove('hidden')
+        }
+
+        // ==================== Cancel Shipping Address Method ================= //
+        function cancelShippingAddress(){
+            shipping_container.classList.remove('hidden')
+            address_form.classList.add('hidden')
+        }
+
         function updateShippingAddress(){
             // toastr.success('sdfsdf');
             let address_line_one = $('#address_line_one').val();
@@ -196,6 +211,8 @@
                 }
                 axios.post('{{ route('update.customer.address') }}', data).then(customerAddressRes => {
                     toastr.success(customerAddressRes.data.success);
+                    shipping_container.classList.remove('hidden')
+                    address_form.classList.add('hidden')
                 })
                 {{--axios.post('{{route('frontend.ordernow')}}', {name: 'ok'}).then(orderRes => {--}}
                 {{--    console.log(orderRes.data)--}}
@@ -203,23 +220,6 @@
             }
 
         }
-
-
-        let shipping_container = document.getElementById('shipping_container')
-        let address_form = document.getElementById('address_form')
-
-        // ==================== Shipping Address Method ================= //
-        function shippingAddress(){
-            shipping_container.classList.add('hidden')
-            address_form.classList.remove('hidden')
-        }
-
-        // ==================== Cancel Shipping Address Method ================= //
-        function cancelShippingAddress(){
-            shipping_container.classList.remove('hidden')
-            address_form.classList.add('hidden')
-        }
-
     </script>
 
 
