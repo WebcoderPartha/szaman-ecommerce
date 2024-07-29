@@ -22,7 +22,9 @@
                         <span onclick="shippingAddress()" class="absolute top-0 right-0 bg-theme text-white px-3 py-1 cursor-pointer"><i class="far fa-edit"></i></span>
                         <div class="billing_information text-center my-8 italic font-semibold">
                             @if(!empty($customer->address_line_one))
-                                Ok
+                                <div class="text-xl">
+                                    {{$customer->address_line_one}}, <br>{{$customer->post_office}}, {{$customer->thana}},<br> {{$customer->district}}-{{$customer->postal_code}}
+                                </div>
                             @else
                                 <h1>N/A</h1>
                             @endif
@@ -185,7 +187,16 @@
             }else if(!district?.length > 0){
                 $('#err_district').text('Enter district!');
             }else{
-                toastr.success('Order Success!!');
+                let data = {
+                    address_line_one: address_line_one,
+                    post_office: post_office,
+                    thana: thana,
+                    postal_code: postal_code,
+                    district: district,
+                }
+                axios.post('{{ route('update.customer.address') }}', data).then(customerAddressRes => {
+                    toastr.success(customerAddressRes.data.success);
+                })
                 {{--axios.post('{{route('frontend.ordernow')}}', {name: 'ok'}).then(orderRes => {--}}
                 {{--    console.log(orderRes.data)--}}
                 {{--})--}}
