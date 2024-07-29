@@ -24,7 +24,16 @@
                             <h1 class="text-xl">{{ $customer->first_name }} {{ $customer->last_name }}</h1>
                             <p>{{ $customer->phone }}</p>
                         </div>
-
+                    </div>
+                    <div class="flex flex-col gap-1 py-2">
+                        <label for="area">Delivery Area</label>
+                        <select name="area" id="area" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md">
+                            <option value="">--Select delivery area--</option>
+                            @foreach($shipping_charge as $charge)
+                                <option value="{{ $charge->amount }}">{{ $charge->shipping_charge_name }}</option>
+                            @endforeach
+                        </select>
+                        <small id="err_area" class="text-red-500"></small>
                     </div>
                 </div>
                 <div class="customer_form hidden" id="address_form">
@@ -52,16 +61,6 @@
                         <label for="district">District</label>
                         <input type="text" id="district" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md" placeholder="Enter district">
                         <small id="err_district" class="text-red-500"></small>
-                    </div>
-                    <div class="flex flex-col gap-1 py-2">
-                        <label for="area">Your Area</label>
-                        <select name="area" id="area" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md">
-                            <option value="">--Select your area--</option>
-                            @foreach($shipping_charge as $charge)
-                                <option value="{{ $charge->amount }}">{{ $charge->shipping_charge_name }}</option>
-                            @endforeach
-                        </select>
-                        <small id="err_area" class="text-red-500"></small>
                     </div>
                     <div class="payment_method flex flex-row items-center justify-center gap-4 pt-6 pb-4">
                         <a href="javascript:void(0)" class="px-4 py-1 bg-black text-white font-bold" onclick="cancelShippingAddress()">Cancel</a>

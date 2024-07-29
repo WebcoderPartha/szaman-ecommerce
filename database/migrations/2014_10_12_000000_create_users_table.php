@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->text('address')->nullable();
+            $table->text('address_line_one')->nullable();
+            $table->string('post_office')->nullable();
+            $table->string('thana')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('district')->nullable();
             $table->integer('status')->default(0)->nullable();
             $table->rememberToken();
             $table->timestamps();
