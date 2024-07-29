@@ -176,6 +176,14 @@
         function shippingAddress(){
             shipping_container.classList.add('hidden')
             address_form.classList.remove('hidden')
+            axios.get('{{route('get.customer.address')}}').then(getAddressRes => {
+                $('#address_line_one').val(getAddressRes.data.address_line_one);
+                $('#post_office').val(getAddressRes.data.post_office);
+                $('#thana').val(getAddressRes.data.thana);
+                $('#postal_code').val(getAddressRes.data.postal_code);
+                $('#district').val(getAddressRes.data.district);
+                console.log(getAddressRes.data)
+            })
         }
 
         // ==================== Cancel Shipping Address Method ================= //
