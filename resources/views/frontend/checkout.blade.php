@@ -254,8 +254,11 @@
 
         function cashOnDelivery(){
             let shipping_charge = document.getElementById('area').value
+            let hasAddress = document.getElementById('hasAddress').value
             if (shipping_charge == '0'){
                 toastr.error('Select delivery area!')
+            }else if(hasAddress == '0'){
+                toastr.error('Please add shipping address!')
             }else{
                 console.log('selected')
             }
