@@ -22,8 +22,8 @@
                         <span onclick="shippingAddress()" class="absolute top-0 right-0 bg-theme text-white px-3 py-1 cursor-pointer"><i class="far fa-edit"></i></span>
                         <div class="billing_information text-center my-8 italic font-semibold">
                             @if(!empty($customer->address_line_one))
-                                <div class="text-xl">
-                                    {{$customer->address_line_one}}, <br>{{$customer->post_office}}, {{$customer->thana}},<br> {{$customer->district}}-{{$customer->postal_code}}
+                                <div class="text-xl" id="getcustomeraddress">
+{{--                                    {{$customer->address_line_one}}, <br>{{$customer->post_office}}, {{$customer->thana}},<br> {{$customer->district}}-{{$customer->postal_code}}--}}
                                 </div>
                             @else
                                 <h1>N/A</h1>
@@ -172,18 +172,29 @@
         let shipping_container = document.getElementById('shipping_container')
         let address_form = document.getElementById('address_form')
 
-        // ==================== Shipping Address Method ================= //
-        function shippingAddress(){
-            shipping_container.classList.add('hidden')
-            address_form.classList.remove('hidden')
+
+        // =================== Get Customer address ======================= //
+        function getCustomerAddress(){
             axios.get('{{route('get.customer.address')}}').then(getAddressRes => {
+                let getCustomerAddress = '';
                 $('#address_line_one').val(getAddressRes.data.address_line_one);
                 $('#post_office').val(getAddressRes.data.post_office);
                 $('#thana').val(getAddressRes.data.thana);
                 $('#postal_code').val(getAddressRes.data.postal_code);
                 $('#district').val(getAddressRes.data.district);
-                console.log(getAddressRes.data)
+                // console.log(getAddressRes.data)
+                {{--"{{$customer->address_line_one}}, <br>{{$customer->post_office}}, {{$customer->thana}},<br> {{$customer->district}}-{{$customer->postal_code}}"--}}
+                    getCustomerAddress += getAddressRes.data?.address_line_one+',<br>'+getAddressRes.data?.post_office+', '+getAddressRes.data?.thana+',<br>'+getAddressRes.data?.district+'-'+getAddressRes.data?.postal_code;
+                $('#getcustomeraddress').html(getCustomerAddress);
             })
+        }
+        getCustomerAddress()
+
+        // ==================== Shipping Address Method ================= //
+        function shippingAddress(){
+            shipping_container.classList.add('hidden')
+            address_form.classList.remove('hidden')
+            getCustomerAddress()
         }
 
         // ==================== Cancel Shipping Address Method ================= //
@@ -221,6 +232,7 @@
                     toastr.success(customerAddressRes.data.success);
                     shipping_container.classList.remove('hidden')
                     address_form.classList.add('hidden')
+                    getCustomerAddress()
                 })
                 {{--axios.post('{{route('frontend.ordernow')}}', {name: 'ok'}).then(orderRes => {--}}
                 {{--    console.log(orderRes.data)--}}
