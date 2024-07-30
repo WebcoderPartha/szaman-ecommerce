@@ -71,7 +71,7 @@ class FtdOrderController extends Controller
 //        $cart = count(Cart::instance('shopping')->content());
         Cart::instance('shopping')->destroy();
         Cart::instance('shipping')->destroy();
-        return response()->json($cart);
+        return response()->json(['success' => 'Order has been placed!'], 200);
     }
 
 }

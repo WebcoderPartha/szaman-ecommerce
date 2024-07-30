@@ -161,15 +161,12 @@
         const area = document.getElementById('area');
         area.addEventListener('change', function (event){
             let shipping = event.target.value
-            // console.log()
-
             axios.post('/shippingcharge', {amount: parseInt(shipping)}).then(shippingRes => {
-                // console.log(shippingRes.data)
+
                 let shipping_charge = parseInt(shippingRes.data.price)
                 $('#shipping_charge').text(shippingRes.data.price);
                 let subtotalClass = document.getElementsByClassName('subTotal')[0].innerText
                 let subtotal = parseFloat(subtotalClass.replace(/,/g, ''))
-                // console.log(subtotal)
                 $('#paypalAmount').text(subtotal + shippingRes.data.price)
             })
         });
@@ -245,25 +242,8 @@
                     address_form.classList.add('hidden')
                     getCustomerAddress()
                 })
-                {{--axios.post('{{route('frontend.ordernow')}}', {name: 'ok'}).then(orderRes => {--}}
-                {{--    console.log(orderRes.data)--}}
-                {{--})--}}
             }
 
-        }
-
-        function cashOnDelivery(){
-            let shipping_charge = document.getElementById('area').value
-            let hasAddress = document.getElementById('hasAddress').value
-            if (shipping_charge == '0'){
-                toastr.error('Select delivery area!')
-            }else if(hasAddress == '0'){
-                toastr.error('Please add shipping address!')
-            }else{
-                axios.post("{{route('frontend.cod.ordernow')}}", {payment_method: 'COD'}).then(codOrderRes => {
-                    console.log(codOrderRes.data);
-                })
-            }
         }
 
     </script>

@@ -323,6 +323,26 @@
     getCartPageContent()
     //================ Cart Page =====================//
 
+
+    function cashOnDelivery(){
+        let shipping_charge = document.getElementById('area').value
+        let hasAddress = document.getElementById('hasAddress').value
+        if (shipping_charge == '0'){
+            toastr.error('Select delivery area!')
+        }else if(hasAddress == '0'){
+            toastr.error('Please add shipping address!')
+        }else{
+            axios.post("{{route('frontend.cod.ordernow')}}", {payment_method: 'COD'}).then(codOrderRes => {
+                toastr.success(codOrderRes.data.success)
+                getCartContent();
+                getCartPageContent();
+                window.location.href = "{{ route('frontend.home_page') }}"
+                // console.log(codOrderRes.data);
+            })
+        }
+    }
+
+
 </script>
 @yield('js')
 </body>
