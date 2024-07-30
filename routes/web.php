@@ -30,7 +30,7 @@ Route::controller(CartController::class)->group(function (){
 
 // Order Controller
 Route::controller(FtdOrderController::class)->group(function (){
-    Route::post('/order-now', 'order_now')->name('frontend.ordernow');
+    Route::post('/cod-order-now', 'cod_order_now')->name('frontend.cod.ordernow');
 });
 
 // Frontend

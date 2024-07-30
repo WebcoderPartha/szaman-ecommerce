@@ -260,7 +260,9 @@
             }else if(hasAddress == '0'){
                 toastr.error('Please add shipping address!')
             }else{
-                console.log('selected')
+                axios.post("{{route('frontend.cod.ordernow')}}", {payment_method: 'COD'}).then(codOrderRes => {
+                    console.log(codOrderRes.data);
+                })
             }
         }
 
