@@ -33,9 +33,9 @@
                     <div class="flex flex-col gap-1 py-2">
                         <label for="area">Delivery Area</label>
                         <select name="area" id="area" class="focus:outline-none border border-gray-300 px-2 py-2 rounded-md">
-                            <option value="">--Select delivery area--</option>
+                            <option value="0">--Select delivery area--</option>
                             @foreach($shipping_charge as $charge)
-                                <option value="{{ $charge->amount }}">{{ $charge->shipping_charge_name }}</option>
+                                <option @if(Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price == $charge->amount) selected @endif value="{{ $charge->amount }}">{{ $charge->shipping_charge_name }}</option>
                             @endforeach
                         </select>
                         <small id="err_area" class="text-red-500"></small>
