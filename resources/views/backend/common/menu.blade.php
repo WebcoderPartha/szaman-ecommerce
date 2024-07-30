@@ -63,6 +63,19 @@
     </ul>
 </li>
 <li class="employee_permission">
+    <a title="Product"  @if(request()->is('admin/order/*')) style="background: rgba(0, 0, 0, 0.1)" @endif class=" waves-effect waves-themed" aria-expanded="false">
+        <i class="fal fa-info-circle"></i>
+        <span class="nav-link-text" >Orders</span>
+    </a>
+    <ul style="display: none;" >
+        <li>
+            <a href="{{ route('backend.order.index') }}" class=" waves-effect waves-themed">
+                <span class="nav-link-text">Placed Order</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="employee_permission">
     <a title="Product" @if(request()->is('admin/shipping-charge') || request()->is('admin/product/create')) style="background: rgba(0, 0, 0, 0.1)" @endif class=" waves-effect waves-themed" aria-expanded="false">
         <i class="fal fa-info-circle"></i>
         <span class="nav-link-text" >Settings</span>

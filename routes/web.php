@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ShiftChargeController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserLoginController;
 use App\Http\Controllers\Frontend\FrontendCartController;
@@ -70,6 +71,12 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
 
     Route::get('/', function (){
        return redirect()->route('backend.dashboard');
+    });
+
+    // Order Controller
+    Route::controller(OrderController::class)->prefix('order')->group(function (){
+        Route::get('/index', 'index')->name('backend.order.index');
+        Route::get('/get-order-data', 'get_order_data')->name('backend.order.data');
     });
 
     // Customer Controller
