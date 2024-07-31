@@ -30,7 +30,7 @@
                                 <th>TRN ID</th>
                                 <th>Pay Method</th>
                                 <th>Payable Amount</th>
-                                <th>Status</th>
+                                <th>Payment Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>

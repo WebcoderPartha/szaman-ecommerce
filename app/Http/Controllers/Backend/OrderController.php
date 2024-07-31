@@ -14,10 +14,16 @@ class OrderController extends Controller
         $data = Order::all();
 
         return Datatables::of($data)
-            ->addColumn('action', function($row){
+            ->addColumn('payment_status', function($row){
+                if ($row->payment_status == 1){
+                    return "<span class='badge badge-info'>Paid</span>";
+                }else{
+                    return "<span class='badge badge-warning'>Unpaid</span>";
+                }
+            })->addColumn('action', function($row){
                 $actionBtn = '<a href="'.route('backend.category.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
                 return $actionBtn;
-            })->rawColumns(['image','action'])->addIndexColumn()->toJson();
+            })->rawColumns(['payment_status','action'])->addIndexColumn()->toJson();
     }
 
     public function index(){
