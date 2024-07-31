@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Order;
+use App\Models\User;
 
 class OrderController extends Controller
 {
@@ -21,7 +22,7 @@ class OrderController extends Controller
                     return "<span class='badge badge-warning'>Unpaid</span>";
                 }
             })->addColumn('action', function($row){
-                $actionBtn = '<a href="'.route('backend.category.edit', $row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Delete</a>';
+                $actionBtn = '<a href="'.route('backend.order.single.view', $row->id).'" class="btn btn-info btn-sm">View Order</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Status</a>';
                 return $actionBtn;
             })->rawColumns(['payment_status','action'])->addIndexColumn()->toJson();
     }
@@ -32,7 +33,8 @@ class OrderController extends Controller
 
     public function view_single_order($id){
         $order = Order::with('order_detail', 'shipping_address')->where('id', $id)->first();
-        return $order;
+        $user = User::find($order->user_id);
+        return view('backend.order.order-view', compact('order', 'user'));
     }
 
 }
