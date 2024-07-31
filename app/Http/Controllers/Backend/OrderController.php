@@ -30,4 +30,9 @@ class OrderController extends Controller
         return view('backend.order.index');
     }
 
+    public function view_single_order($id){
+        $order = Order::with('order_detail', 'shipping_address')->where('id', $id)->first();
+        return $order;
+    }
+
 }

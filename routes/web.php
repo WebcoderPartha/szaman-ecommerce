@@ -77,6 +77,7 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
     Route::controller(OrderController::class)->prefix('order')->group(function (){
         Route::get('/index', 'index')->name('backend.order.index');
         Route::get('/get-order-data', 'get_order_data')->name('backend.order.data');
+        Route::get('/{id}/view', 'view_single_order')->name('backend.order.single.view');
     });
 
     // Customer Controller

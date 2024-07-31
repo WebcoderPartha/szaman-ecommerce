@@ -11,6 +11,16 @@ class Order extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function order_detail(){
+        return $this->hasMany(OrderDetail::class, 'order_id', 'id');
+    }
+
+    public function shipping_address(){
+        return $this->belongsTo(ShippingAddress::class, 'id', 'order_id');
+    }
+
+
+
     public static function boot()
     {
         parent::boot();
