@@ -51,6 +51,7 @@ class FtdOrderController extends Controller
 //            $order_details->variation = $order->id;
             $order_details->price = $cart->price;
             $order_details->subtotal = $cart->subtotal;
+            $order_details->image = $cart->options->image;
             $order_details->save();
         }
         //=============== Order Detail ================//

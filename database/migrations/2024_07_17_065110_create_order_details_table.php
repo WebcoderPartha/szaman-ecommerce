@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('variation')->nullable();
             $table->string('price');
             $table->string('subtotal');
+            $table->text('image');
             $table->timestamps();
         });
     }
