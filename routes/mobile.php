@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\HomeController;
 use App\Http\Controllers\Mobile\CustomerAuthController;
 use App\Http\Controllers\Mobile\CheckoutController;
+use App\Http\Controllers\Mobile\AppOrderController;
 
 
 Route::controller(HomeController::class)->group(function (){
@@ -26,4 +27,9 @@ Route::controller(CustomerAuthController::class)->group(function () {
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout/get-address/{user_id}', 'get_customer_address');
     Route::post('/checkout/address/store/{user_id}', 'update_customer_address');
+});
+
+// App Order Controller
+Route::controller(AppOrderController::class)->group(function () {
+    Route::post('/cod-order', 'cod_order');
 });

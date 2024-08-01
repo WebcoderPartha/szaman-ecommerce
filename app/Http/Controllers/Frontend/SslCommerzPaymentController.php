@@ -80,7 +80,7 @@ class SslCommerzPaymentController extends Controller
         $update_product = DB::table('orders')
             ->where('transaction_id', $post_data['tran_id'])
             ->updateOrInsert([
-                'user_id' => Auth::guard('web')->user()->id,
+                'user_id' => 1,
 //                'order_number' => $post_data['cus_email'],
                 'transaction_id' => $post_data['tran_id'],
                 'payable_amount' => $post_data['total_amount'],

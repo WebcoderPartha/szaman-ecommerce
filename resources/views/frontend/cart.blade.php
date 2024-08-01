@@ -122,7 +122,6 @@
                         <div class="view_cart_process_checkout">
                             <a href="{{ route('frontend.checkout_view') }}" class="view_cart_process_checkout_link bg-theme inline-block w-full text-white text-[18px] py-3 text-center font-semibold rounded border border-theme hover:bg-transparent hover:text-theme duration-300">Check Out</a>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -130,6 +129,23 @@
     </div>
 @endsection
 
-@section('js')
-
-@endsection
+{{--@section('js')--}}
+{{--    <script>--}}
+{{--        function mobile_cod(){--}}
+{{--            let carts = [--}}
+{{--                { name: 'ok', qty: 1, price: 1343, subtotal: 35434, image: 'dfsf.jpg' },--}}
+{{--                { name: 'ok', qty: 1, price: 1343, subtotal: 35434, image: 'dfsf.jpg' },--}}
+{{--                { name: 'ok', qty: 1, price: 1343, subtotal: 35434, image: 'dfsf.jpg' },--}}
+{{--            ];--}}
+{{--            let data = {--}}
+{{--                user_id: 1,--}}
+{{--                payment_method: 'COD',--}}
+{{--                payable_amount: 13423,--}}
+{{--                carts:carts--}}
+{{--            }--}}
+{{--            axios.post('/api/mobile/cod-order', data).then(response => {--}}
+{{--                console.log(response.data)--}}
+{{--            })--}}
+{{--        }--}}
+{{--    </script>--}}
+{{--@endsection--}}
