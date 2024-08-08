@@ -32,6 +32,7 @@ class FtdOrderController extends Controller
         // Convert the float to an integer (optional, if you want an integer)
         $integerNumber = intval($floatNumber);
         $order->payable_amount = $integerNumber;
+        $order->shipping_charge = Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price;
         $order->payment_method = $request->payment_method;
 
         $order->payment_date = date('Y-m-d');
