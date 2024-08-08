@@ -118,7 +118,7 @@
                 </div>
                 <div class="payment_method flex flex-row items-center justify-center gap-4 pt-6 pb-4">
                     <a href="javascript:void(0)" onclick="cashOnDelivery()" class="px-4 py-1 bg-black text-white font-bold">COD</a>
-                    <a href="#" class="px-4 py-1 bg-theme text-white font-bold">Online Payment</a>
+                    <a href="#" class="px-4 py-1 bg-theme text-white font-bold" onclick="onlinePaymentOrder()">Online Payment</a>
                 </div>
             </div>
         </div>

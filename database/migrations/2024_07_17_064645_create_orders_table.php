@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('order_number')->nullable();
             $table->string('transaction_id')->nullable();
             $table->string('payable_amount');
+            $table->string('shipping_charge')->nullable();
             $table->string('payment_method')->nullable();
             $table->string('payment_date')->nullable();
             $table->string('order_date')->nullable();

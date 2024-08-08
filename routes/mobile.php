@@ -27,6 +27,7 @@ Route::controller(CustomerAuthController::class)->group(function () {
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout/get-address/{user_id}', 'get_customer_address');
     Route::post('/checkout/address/store/{user_id}', 'update_customer_address');
+    Route::get('/checkout/customer/{user_id}', 'get_customer_detail');
 });
 
 // App Order Controller

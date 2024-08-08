@@ -24,4 +24,10 @@ class CheckoutController extends Controller
         $user->save();
         return response()->json(['success' => 'Address updated!'], 200);
     }
+
+    public function get_customer_detail($user_id){
+        $customer = User::find($user_id);
+        return response()->json($customer, 200);
+    }
+
 }
