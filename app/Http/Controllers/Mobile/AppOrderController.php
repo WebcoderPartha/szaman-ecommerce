@@ -23,6 +23,7 @@ class AppOrderController extends Controller
 
         $order->payable_amount = $request->payable_amount;
         $order->payment_method = $request->payment_method;
+        $order->shipping_charge = $request->shipping_charge;
 
         $order->payment_date = date('Y-m-d');
         $order->order_date = date('Y-m-d');

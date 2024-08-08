@@ -136,6 +136,10 @@
                                                     </tr>
                                                 @endforeach
                                                 <tr>
+                                                    <td colspan="5" class="text-right"><b>Shipping Charge</b></td>
+                                                    <td><b>{{ $order->shipping_charge }}.00</b></td>
+                                                </tr>
+                                                <tr>
                                                     <td colspan="5" class="text-right"><b>Total</b></td>
                                                     <td><b>{{ $order->payable_amount }} Taka</b></td>
                                                 </tr>
