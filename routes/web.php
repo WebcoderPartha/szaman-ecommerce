@@ -25,7 +25,7 @@ use App\Http\Controllers\Frontend\OnlinePaymentController;
 //Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 //Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 
-Route::post('/pay', [OnlinePaymentController::class, 'index'])->name('online.payment');
+Route::get('/pay', [OnlinePaymentController::class, 'index'])->name('online.payment');
 
 Route::post('/success', [OnlinePaymentController::class, 'success']);
 Route::post('/fail', [OnlinePaymentController::class, 'fail']);
@@ -33,8 +33,6 @@ Route::post('/cancel', [OnlinePaymentController::class, 'cancel']);
 
 Route::post('/ipn', [OnlinePaymentController::class, 'ipn']);
 //SSLCOMMERZ END
-
-
 
 
 // Add To cart

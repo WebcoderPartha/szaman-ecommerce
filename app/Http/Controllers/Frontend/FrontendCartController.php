@@ -29,7 +29,7 @@ class FrontendCartController extends Controller
             }
         }else{
             toastr()->error('Please login first!', 'Warning!');
-            return redirect()->route('frontend.home_page');
+            return redirect()->route('user_login_page');
         }
 
 
