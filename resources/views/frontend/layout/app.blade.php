@@ -345,24 +345,24 @@
     //================ End Cash On Delivery Order ===============//
 
     //================ Online Payment Order ===============//
-    function onlinePaymentOrder(){
-        let shipping_charge = document.getElementById('area').value
-        let hasAddress = document.getElementById('hasAddress').value
-        if (shipping_charge == '0'){
-            toastr.error('Select delivery area!')
-        }else if(hasAddress == '0'){
-            toastr.error('Please add shipping address!')
-        }else{
-            console.log('online payment')
-            {{--axios.post("{{route('frontend.cod.ordernow')}}", {payment_method: 'COD'}).then(codOrderRes => {--}}
-            {{--    toastr.success(codOrderRes.data.success)--}}
-            {{--    getCartContent();--}}
-            {{--    getCartPageContent();--}}
-            {{--    window.location.href = "{{ route('frontend.home_page') }}"--}}
-            {{--    // console.log(codOrderRes.data);--}}
-            {{--})--}}
-        }
-    }
+    {{--function onlinePaymentOrder(){--}}
+    {{--    let shipping_charge = document.getElementById('area').value--}}
+    {{--    let hasAddress = document.getElementById('hasAddress').value--}}
+    {{--    if (shipping_charge == '0'){--}}
+    {{--        toastr.error('Select delivery area!')--}}
+    {{--    }else if(hasAddress == '0'){--}}
+    {{--        toastr.error('Please add shipping address!')--}}
+    {{--    }else{--}}
+    {{--        console.log('online payment')--}}
+    {{--        --}}{{--axios.post("{{route('frontend.cod.ordernow')}}", {payment_method: 'COD'}).then(codOrderRes => {--}}
+    {{--        --}}{{--    toastr.success(codOrderRes.data.success)--}}
+    {{--        --}}{{--    getCartContent();--}}
+    {{--        --}}{{--    getCartPageContent();--}}
+    {{--        --}}{{--    window.location.href = "{{ route('frontend.home_page') }}"--}}
+    {{--        --}}{{--    // console.log(codOrderRes.data);--}}
+    {{--        --}}{{--})--}}
+    {{--    }--}}
+    {{--}--}}
     //================ End Online Payment Order ===============//
 
 </script>

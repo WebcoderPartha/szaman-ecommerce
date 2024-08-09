@@ -19,20 +19,19 @@ use App\Http\Controllers\Frontend\FrontendCartController;
 use App\Http\Controllers\Frontend\FrontendProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FtdOrderController;
-use App\Http\Controllers\Frontend\SslCommerzPaymentController;
+use App\Http\Controllers\Frontend\OnlinePaymentController;
 
 // SSLCOMMERZ Start
-Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
-Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+//Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+//Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 
-Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
-Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+Route::post('/pay', [OnlinePaymentController::class, 'index'])->name('online.payment');
 
-Route::post('/success', [SslCommerzPaymentController::class, 'success']);
-Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
-Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+Route::post('/success', [OnlinePaymentController::class, 'success']);
+Route::post('/fail', [OnlinePaymentController::class, 'fail']);
+Route::post('/cancel', [OnlinePaymentController::class, 'cancel']);
 
-Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+Route::post('/ipn', [OnlinePaymentController::class, 'ipn']);
 //SSLCOMMERZ END
 
 

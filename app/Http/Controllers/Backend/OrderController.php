@@ -16,10 +16,12 @@ class OrderController extends Controller
 
         return Datatables::of($data)
             ->addColumn('payment_status', function($row){
-                if ($row->payment_status == 1){
+                if ($row->payment_status == 0){
+                    return "<span class='badge badge-warning'>Unpaid</span>";
+                }else if($row->payment_status == 1){
                     return "<span class='badge badge-info'>Paid</span>";
                 }else{
-                    return "<span class='badge badge-warning'>Unpaid</span>";
+                    return "<span class='badge badge-danger'>Cancelled</span>";
                 }
             })->addColumn('action', function($row){
                 $actionBtn = '<a href="'.route('backend.order.single.view', $row->id).'" class="btn btn-info btn-sm">View Order</a> <a href="#" data-confirm-delete="true" onclick="delete_alert('.$row->id.')" class="btn btn-danger btn-sm">Status</a>';
