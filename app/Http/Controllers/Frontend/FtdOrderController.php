@@ -23,7 +23,7 @@ class FtdOrderController extends Controller
         $order->user_id = Auth::guard('web')->user()->id;
 //        $order->order_number = IdGenerator::generate(['table' => 'orders', 'field' => 'order_number', 'length' => 8, 'prefix' => 'WC']);
         // Random Transaction ID Generate
-        $order->transaction_id = str()->random(20);;
+        $order->tnx_id = str()->random(20);;
 
         // Remove the comma
         $numberWithoutComma = str_replace(",", "", Cart::instance('shopping')->subtotal());

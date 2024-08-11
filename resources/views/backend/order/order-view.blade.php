@@ -39,7 +39,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>Transaction ID</td>
-                                                        <td>{{ $order->transaction_id }}</td>
+                                                        <td>{{ $order->tnx_id }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Payment Method</td>

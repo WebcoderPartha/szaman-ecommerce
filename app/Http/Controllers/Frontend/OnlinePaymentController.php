@@ -72,13 +72,13 @@ class OnlinePaymentController extends Controller
 
         // First, check if the transaction ID already exists
         $existingOrder = DB::table('orders')
-            ->where('transaction_id', $post_data['tran_id'])
+            ->where('tnx_id', $post_data['tran_id'])
             ->first();
 
         // If the order exists, update it
         if ($existingOrder) {
             DB::table('orders')
-                ->where('transaction_id', $post_data['tran_id'])
+                ->where('tnx_id', $post_data['tran_id'])
                 ->update([
                     'user_id'           => $user->id,
                     'payable_amount'    => $integerNumber + Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price,
@@ -96,7 +96,7 @@ class OnlinePaymentController extends Controller
             $orderId = DB::table('orders')->insertGetId([
                 'user_id'           => $user->id,
                 'order_number'      => IdGenerator::generate(['table' => 'orders', 'field' => 'order_number', 'length' => 8, 'prefix' => 'WC']),
-                'transaction_id'    => $post_data['tran_id'],
+                'tnx_id'    => $post_data['tran_id'],
                 'payable_amount'    => $integerNumber + Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price,
                 'shipping_charge'   => Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price,
                 'payment_method'    => 'Online Payment',
@@ -162,8 +162,8 @@ class OnlinePaymentController extends Controller
 
         #Check order status in order tabel against the transaction id or order id.
         $order_details = DB::table('orders')
-            ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'payment_status', 'payable_amount')->first();
+            ->where('tnx_id', $tran_id)
+            ->select('tnx_id', 'payment_status', 'payable_amount')->first();
 
         if ($order_details->payment_status == 0) {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
@@ -175,7 +175,7 @@ class OnlinePaymentController extends Controller
                 Here you can also sent sms or email for successfull transaction to customer
                 */
                 $update_product = DB::table('orders')
-                    ->where('transaction_id', $tran_id)
+                    ->where('tnx_id', $tran_id)
                     ->update(['payment_status' => 1]);
 
                 toastr()->success('Payment has been done!', 'Success!');
@@ -206,12 +206,12 @@ class OnlinePaymentController extends Controller
         $tran_id = $request->input('tran_id');
 
         $order_details = DB::table('orders')
-            ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'payment_status')->first();
+            ->where('tnx_id', $tran_id)
+            ->select('tnx_id', 'payment_status')->first();
 
         if ($order_details->payment_status == 0) {
             $update_product = DB::table('orders')
-                ->where('transaction_id', $tran_id)
+                ->where('tnx_id', $tran_id)
                 ->update(['payment_status' => 2]);
             toastr()->error('Transaction is Falied', 'Error!');
             return redirect()->route('frontend.home_page');
@@ -222,7 +222,7 @@ class OnlinePaymentController extends Controller
             return redirect()->route('frontend.home_page');
         } else {
             $update_product = DB::table('orders')
-                ->where('transaction_id', $tran_id)
+                ->where('tnx_id', $tran_id)
                 ->update(['payment_status' => 2]);
             toastr()->error('Transaction is Invalid!', 'Error!');
             return redirect()->route('frontend.home_page');
@@ -240,12 +240,12 @@ class OnlinePaymentController extends Controller
         $tran_id = $request->input('tran_id');
 
         $order_details = DB::table('orders')
-            ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'payment_status')->first();
+            ->where('tnx_id', $tran_id)
+            ->select('tnx_id', 'payment_status')->first();
 
         if ($order_details->payment_status == 0) {
             $update_product = DB::table('orders')
-                ->where('transaction_id', $tran_id)
+                ->where('tnx_id', $tran_id)
                 ->update(['payment_status' => 2]);
             toastr()->error('Transaction is Cancel', 'Error!');
             return redirect()->route('frontend.home_page');
@@ -255,7 +255,7 @@ class OnlinePaymentController extends Controller
             return redirect()->route('frontend.home_page');
         } else {
             $update_product = DB::table('orders')
-                ->where('transaction_id', $tran_id)
+                ->where('tnx_id', $tran_id)
                 ->update(['payment_status' => 2]);
             toastr()->error('Transaction is Invalid', 'Error!');
             return redirect()->route('frontend.home_page');
@@ -274,8 +274,8 @@ class OnlinePaymentController extends Controller
 
             #Check order status in order tabel against the transaction id or order id.
             $order_details = DB::table('orders')
-                ->where('transaction_id', $tran_id)
-                ->select('transaction_id', 'status', 'currency', 'amount')->first();
+                ->where('tnx_id', $tran_id)
+                ->select('tnx_id', 'status', 'currency', 'amount')->first();
 
             if ($order_details->status == 'Pending') {
                 $sslc = new SslCommerzNotification();
@@ -287,7 +287,7 @@ class OnlinePaymentController extends Controller
                     Here you can also sent sms or email for successful transaction to customer
                     */
                     $update_product = DB::table('orders')
-                        ->where('transaction_id', $tran_id)
+                        ->where('tnx_id', $tran_id)
                         ->update(['status' => 'Processing']);
 
                     echo "Transaction is successfully Completed";

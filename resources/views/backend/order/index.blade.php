@@ -112,8 +112,8 @@
                         orderable: false
                     },
                     {
-                        data: 'transaction_id',
-                        name: 'transaction_id',
+                        data: 'tnx_id',
+                        name: 'tnx_id',
                         searchable: true,
                         orderable: false,
                         width: "6%",

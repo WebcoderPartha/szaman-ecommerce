@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->nullable();
             $table->text('order_number')->nullable();
-            $table->string('transaction_id')->nullable();
+            $table->text('tnx_id')->nullable();
             $table->string('payable_amount');
             $table->string('shipping_charge')->nullable();
             $table->string('payment_method')->nullable();
