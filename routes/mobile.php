@@ -5,6 +5,7 @@ use App\Http\Controllers\Mobile\HomeController;
 use App\Http\Controllers\Mobile\CustomerAuthController;
 use App\Http\Controllers\Mobile\CheckoutController;
 use App\Http\Controllers\Mobile\AppOrderController;
+use App\Http\Controllers\Mobile\ProfileController
 
 
 Route::controller(HomeController::class)->group(function (){
@@ -36,4 +37,10 @@ Route::controller(AppOrderController::class)->group(function () {
     Route::post('/online-pay', 'online_payment');
     Route::post('/success', 'success_payment');
     Route::post('/fail-cancel', 'fail_or_payment');
+});
+
+
+// Profile Controller
+Route::controller(ProfileController::class)->group(function () {
+    Route::post('/update-password', 'password_update');
 });
