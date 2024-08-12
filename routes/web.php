@@ -62,6 +62,9 @@ Route::controller(FrontendProductController::class)->group(function (){
 // My Account Controller
 Route::controller(MyAccountController::class)->group(function (){
     Route::get('/my-account', 'my_account_page')->name('frontend.myaccount.page');
+    Route::get('/my-account/profile', 'view_profile')->name('frontend.myaccount.view_profile');
+    Route::get('/my-account/profile/edit', 'edit_profile')->name('frontend.myaccount.view_profile.edit');
+    Route::get('/my-account/change-password/', 'change_password')->name('frontend.myaccount.change_password');
 });
 
 // Cart Controller
