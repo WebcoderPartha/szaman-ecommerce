@@ -5,7 +5,7 @@ use App\Http\Controllers\Mobile\HomeController;
 use App\Http\Controllers\Mobile\CustomerAuthController;
 use App\Http\Controllers\Mobile\CheckoutController;
 use App\Http\Controllers\Mobile\AppOrderController;
-use App\Http\Controllers\Mobile\ProfileController
+use App\Http\Controllers\Mobile\ProfileController;
 
 
 Route::controller(HomeController::class)->group(function (){
@@ -43,4 +43,5 @@ Route::controller(AppOrderController::class)->group(function () {
 // Profile Controller
 Route::controller(ProfileController::class)->group(function () {
     Route::post('/update-password', 'password_update');
+    Route::post('/update-address', 'address_update');
 });

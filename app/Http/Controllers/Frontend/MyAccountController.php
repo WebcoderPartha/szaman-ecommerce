@@ -9,7 +9,12 @@ class MyAccountController extends Controller
 {
 
     public function my_account_page(){
-        return view('frontend.my-account');
+        if (auth('web')->check()){
+            return view('frontend.my-account');
+        }else{
+            toastr()->error('Login is required!', 'Error!');
+            return redirect()->route('user_login_page');
+        }
     }
 
 }

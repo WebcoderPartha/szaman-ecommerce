@@ -53,8 +53,39 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-9">
-            sdf
+        <div class="col-span-9 border border-gray-300">
+
+            <div class="profile_heading text-center">
+                <h3>All Orders</h3>
+            </div>
+            <div class="table-responsive px-4">
+                <table class="w-full border-collapse border border-slate-700">
+                    <thead class="bg-slate-200">
+                    <tr>
+                        <th class="border border-slate-300 py-1">SL</th>
+                        <th class="border border-slate-300 py-1">Invoice No</th>
+                        <th class="border border-slate-300 py-1">Date</th>
+                        <th class="border border-slate-300 py-1">Status</th>
+                        <th class="border border-slate-300 py-1">Discount</th>
+                        <th class="border border-slate-300 py-1">Total</th>
+                        <th class="border border-slate-300 py-1">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="text-center">
+                        <td class="border border-slate-300">1</td>
+                        <td class="border border-slate-300">WC0000001</td>
+                        <td class="border border-slate-300">{{ date('d-F-Y') }}</td>
+                        <td class="border border-slate-300">
+                            <span class="bg-theme text-white"><small>Pending</small></span>
+                        </td>
+                        <td class="border border-slate-300">10%</td>
+                        <td class="border border-slate-300">49540 BDT</td>
+                        <td class="border border-slate-300">Actions</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
