@@ -1,5 +1,5 @@
 @extends('frontend.layout.app')
-@section('title', 'My Account')
+@section('title', 'Edit Profile | My Account')
 @section('content')
     <div class="grid grid-cols-12 py-4 gap-6">
         <div class="col-span-12">
@@ -58,8 +58,34 @@
             <div class="profile_heading text-center py-4">
                 <h3 class="text-2xl font-semibold">Edit Profile</h3>
             </div>
-            <div class="table-responsive px-4">
-
+            <div class="grid grid-cols-12 gap-4 px-4">
+                <div class="col-span-6">
+                    <div class="flex flex-col gap-1">
+                        <label>Name</label>
+                        <input type="text" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="first_name" placeholder="First name">
+                    </div>
+                </div>
+                <div class="col-span-6">
+                    <div class="flex flex-col gap-1">
+                        <label>Last Name</label>
+                        <input type="text" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="last_name" value="" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="col-span-6">
+                    <div class="flex flex-col gap-1">
+                        <label>Email</label>
+                        <input type="email" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="email" value="" placeholder="Email">
+                    </div>
+                </div>
+                <div class="col-span-6">
+                    <div class="flex flex-col gap-1">
+                        <label>Phone</label>
+                        <input type="text" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="phone" value="" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="col-span-12">
+                    <button type="submit" class="bg-theme px-4 py-2 w-full text-xl text-white rounded">Update</button>
+                </div>
             </div>
         </div>
     </div>

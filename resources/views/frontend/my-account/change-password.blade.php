@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
-@section('title', 'My Account')
+@section('title', 'Change Password | My Account')
 @section('content')
-    <div class="grid grid-cols-12 py-4 gap-6">
+    <div class="grid grid-cols-12 py-4 gap-6 ">
         <div class="col-span-12">
             <h2 class="font-semibold">My Account</h2>
         </div>
@@ -56,10 +56,24 @@
         <div class="col-span-9 border border-gray-300">
 
             <div class="profile_heading text-center py-4">
-                <h3 class="text-2xl font-semibold">Change Password</h3>
+                <h3 class="text-2xl font-semibold">Edit Profile</h3>
             </div>
-            <div class="table-responsive px-4">
-
+            <div class="grid grid-cols-12 gap-4 px-4">
+                <div class="col-span-6">
+                    <div class="flex flex-col gap-1">
+                        <label>New Password</label>
+                        <input type="password" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="col-span-6">
+                    <div class="flex flex-col gap-1">
+                        <label>Confirm Password</label>
+                        <input type="password" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="confirm_password" placeholder="Confirm password">
+                    </div>
+                </div>
+                <div class="col-span-12">
+                    <button type="submit" class="bg-theme px-4 py-2 w-full text-xl text-white rounded">Save Change</button>
+                </div>
             </div>
         </div>
     </div>

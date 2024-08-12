@@ -1,5 +1,5 @@
 @extends('frontend.layout.app')
-@section('title', 'My Account')
+@section('title', 'Dashboard | My Account')
 @section('content')
     <div class="grid grid-cols-12 py-4 gap-6">
         <div class="col-span-12">
