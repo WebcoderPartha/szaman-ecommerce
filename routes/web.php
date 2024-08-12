@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\FrontendProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FtdOrderController;
 use App\Http\Controllers\Frontend\OnlinePaymentController;
+use App\Http\Controllers\Frontend\MyAccountController;
 
 // SSLCOMMERZ Start
 //Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
@@ -56,6 +57,11 @@ Route::controller(HomeController::class)->group(function (){
 
 Route::controller(FrontendProductController::class)->group(function (){
     Route::get('/product/{slug}', 'detail_page')->name('frontend.product.details');
+});
+
+// My Account Controller
+Route::controller(MyAccountController::class)->group(function (){
+    Route::get('/my-account}', 'my_account_page')->name('frontend.myaccount.page');
 });
 
 // Cart Controller

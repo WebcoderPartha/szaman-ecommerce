@@ -7,5 +7,9 @@ use Illuminate\Http\Request;
 
 class MyAccountController extends Controller
 {
-    //
+
+    public function my_account_page(){
+        return view('frontend.my-account');
+    }
+
 }

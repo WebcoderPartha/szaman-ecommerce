@@ -18,7 +18,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="header_top_list_link text-base flex flex-row gap-1 items-center justify-center">
+                        <a href="{{ route('frontend.myaccount.page') }}" class="header_top_list_link text-base flex flex-row gap-1 items-center justify-center">
                             <i class="fa-solid fa-user text-theme"></i>
                             <span class="font-semibold">My Account</span>
                         </a>
