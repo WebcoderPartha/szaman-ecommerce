@@ -35,4 +35,5 @@ Route::controller(AppOrderController::class)->group(function () {
     Route::post('/cod-order', 'cod_order');
     Route::post('/online-pay', 'online_payment');
     Route::post('/success', 'success_payment');
+    Route::post('/fail-cancel', 'fail_or_payment');
 });

@@ -124,5 +124,14 @@ class AppOrderController extends Controller
         return response()->json(['success' => 'Payment done with order updated'], 200);
     }
 
+    public function fail_or_payment(Request $request){
+        $order = Order::where('tnx_id', $request->tnx_id)->first();
+//        $order->tnx_id = $request->payment_transaction_id;
+//        $order->payment_method = $request->payment_method;
+        $order->payment_status = 2; //['Cancelled']
+        $order->save();
+        return response()->json(['success' => 'Payment failed with order updated'], 200);
+    }
+
 
 }
