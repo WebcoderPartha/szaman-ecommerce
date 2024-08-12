@@ -61,7 +61,7 @@ Route::controller(FrontendProductController::class)->group(function (){
 
 // My Account Controller
 Route::controller(MyAccountController::class)->group(function (){
-    Route::get('/my-account}', 'my_account_page')->name('frontend.myaccount.page');
+    Route::get('/my-account', 'my_account_page')->name('frontend.myaccount.page');
 });
 
 // Cart Controller
