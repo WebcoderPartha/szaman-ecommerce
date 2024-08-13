@@ -5,7 +5,7 @@
         <div class="col-span-12">
             <h2 class="font-semibold">My Account</h2>
         </div>
-        <div class="col-span-3 border border-gray-300 rounded">
+        <div class="col-span-12 md:col-span-3 border border-gray-300 rounded">
             <div class="flex flex-col gap-4 py-4">
                 <div class="profile">
                     <div class="profile_pic_content flex flex-col justify-center items-center gap-3">
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-9 border border-gray-300">
+        <div class="col-span-12 md:col-span-9 border border-gray-300">
 
             <div class="profile_heading text-center py-4">
                 <h3 class="text-2xl font-semibold">Profile</h3>
