@@ -120,6 +120,7 @@ class AppOrderController extends Controller
         $order->tnx_id = $request->payment_transaction_id;
         $order->payment_method = $request->payment_method;
         $order->payment_status = 1;
+        $order->order_status = 1;
         $order->save();
         return response()->json(['success' => 'Payment done with order updated'], 200);
     }
@@ -128,7 +129,7 @@ class AppOrderController extends Controller
         $order = Order::where('tnx_id', $request->tnx_id)->first();
 //        $order->tnx_id = $request->payment_transaction_id;
 //        $order->payment_method = $request->payment_method;
-        $order->payment_status = 2; //['Cancelled']
+        $order->payment_status = 0; //['Cancelled']
         $order->save();
         return response()->json(['success' => 'Payment failed with order updated'], 200);
     }
