@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class MyAccountController extends Controller
 {
@@ -64,5 +65,20 @@ class MyAccountController extends Controller
         toastr()->success('Profile is updated!', 'Success!');
         return redirect()->back();
     }
+
+    public function update_password(Request $request, $user_id){
+        $validated = $request->validate([
+            'password' => 'required|confirmed|min:8',
+            'password_confirmation' => 'required'
+        ]);
+
+        $user = User::find($user_id);
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        toastr()->success('Password is updated!', 'Success!');
+        return redirect()->back();
+    }
+
 
 }

@@ -53,28 +53,38 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-12 md:col-span-9 border border-gray-300">
-
-            <div class="profile_heading text-center py-4">
-                <h3 class="text-2xl font-semibold">Edit Profile</h3>
-            </div>
-            <div class="grid grid-cols-12 gap-4 px-4">
-                <div class="col-span-6">
-                    <div class="flex flex-col gap-1">
-                        <label>New Password</label>
-                        <input type="password" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="password" placeholder="Password">
+        <div class="col-span-12 md:col-span-9">
+            <form action="{{ route('frontend.myaccount.update.password', auth('web')->user()->id) }}" method="POST">
+                @csrf @method('POST')
+                <div class="border border-gray-300 rounded pb-8">
+                    <div class="profile_heading text-center py-4">
+                        <h3 class="text-2xl font-semibold">Edit Profile</h3>
+                    </div>
+                    <div class="grid grid-cols-12 gap-4 px-4">
+                        <div class="col-span-6">
+                            <div class="flex flex-col gap-1">
+                                <label for="password">New Password</label>
+                                <input type="password" required="" id="password" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="password" placeholder="Password">
+                                @error('password')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-span-6">
+                            <div class="flex flex-col gap-1">
+                                <label for="password_confirmation">Confirm Password</label>
+                                <input type="password" required="" id="password_confirmation" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="password_confirmation" placeholder="Confirm password">
+                                @error('password_confirmation')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-span-12">
+                            <button type="submit" class="bg-theme px-4 py-2 w-full text-xl text-white rounded">Save Change</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-span-6">
-                    <div class="flex flex-col gap-1">
-                        <label>Confirm Password</label>
-                        <input type="password" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="confirm_password" placeholder="Confirm password">
-                    </div>
-                </div>
-                <div class="col-span-12">
-                    <button type="submit" class="bg-theme px-4 py-2 w-full text-xl text-white rounded">Save Change</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 
