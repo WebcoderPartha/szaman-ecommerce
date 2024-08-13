@@ -86,6 +86,7 @@ class OnlinePaymentController extends Controller
                     'payment_method'    => 'Online Payment',
                     'payment_date'      => date('Y-m-d'),
                     'order_date'        => date('Y-m-d'),
+                    'order_status'    => 0,
                     'payment_status'    => 0,
                     'updated_at'        => date('Y-m-d H:i:s')
                 ]);
@@ -102,6 +103,7 @@ class OnlinePaymentController extends Controller
                 'payment_method'    => 'Online Payment',
                 'payment_date'      => date('Y-m-d'),
                 'order_date'        => date('Y-m-d'),
+                'order_status'    => 0,
                 'payment_status'    => 0,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s')
@@ -176,10 +178,10 @@ class OnlinePaymentController extends Controller
                 */
                 $update_product = DB::table('orders')
                     ->where('tnx_id', $tran_id)
-                    ->update(['payment_status' => 1]);
+                    ->update(['payment_status' => 1, 'order_status' => 1]);
 
                 toastr()->success('Payment has been done!', 'Success!');
-                return redirect()->route('frontend.home_page');
+                return redirect()->route('frontend.myaccount.page');
             }
         } else if ($order_details->payment_status == 1) {
             /*
@@ -212,7 +214,7 @@ class OnlinePaymentController extends Controller
         if ($order_details->payment_status == 0) {
             $update_product = DB::table('orders')
                 ->where('tnx_id', $tran_id)
-                ->update(['payment_status' => 2]);
+                ->update(['payment_status' => 0]); // [0=Initiated, 1=Confirmed, 3=Processing, 4=Picked, 5=Shipped, 6=Delivered, 7=Cancelled, 8=Refunded, 9 Returned]
             toastr()->error('Transaction is Falied', 'Error!');
             return redirect()->route('frontend.home_page');
         } else if ($order_details->payment_status == 1) {
@@ -223,7 +225,7 @@ class OnlinePaymentController extends Controller
         } else {
             $update_product = DB::table('orders')
                 ->where('tnx_id', $tran_id)
-                ->update(['payment_status' => 2]);
+                ->update(['payment_status' => 0]);// [0=Initiated, 1=Confirmed, 3=Processing, 4=Picked, 5=Shipped, 6=Delivered, 7=Cancelled, 8=Refunded, 9 Returned]
             toastr()->error('Transaction is Invalid!', 'Error!');
             return redirect()->route('frontend.home_page');
         }
@@ -246,7 +248,7 @@ class OnlinePaymentController extends Controller
         if ($order_details->payment_status == 0) {
             $update_product = DB::table('orders')
                 ->where('tnx_id', $tran_id)
-                ->update(['payment_status' => 2]);
+                ->update(['payment_status' => 0]);
             toastr()->error('Transaction is Cancel', 'Error!');
             return redirect()->route('frontend.home_page');
 
@@ -256,7 +258,7 @@ class OnlinePaymentController extends Controller
         } else {
             $update_product = DB::table('orders')
                 ->where('tnx_id', $tran_id)
-                ->update(['payment_status' => 2]);
+                ->update(['payment_status' => 0]);
             toastr()->error('Transaction is Invalid', 'Error!');
             return redirect()->route('frontend.home_page');
         }

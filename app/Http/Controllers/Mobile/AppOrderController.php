@@ -133,5 +133,10 @@ class AppOrderController extends Controller
         return response()->json(['success' => 'Payment failed with order updated'], 200);
     }
 
+    public function get_order($user_id){
+        $order = Order::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
+        return response()->json($order, 200);
+    }
+
 
 }
