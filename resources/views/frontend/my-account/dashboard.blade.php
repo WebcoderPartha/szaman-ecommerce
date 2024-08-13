@@ -5,7 +5,7 @@
         <div class="col-span-12">
             <h2 class="font-semibold">My Account</h2>
         </div>
-        <div class="col-span-3 border border-gray-300 rounded">
+        <div class="col-span-12 md:col-span-3 border border-gray-300 rounded">
             <div class="flex flex-col gap-4 py-4">
                 <div class="profile">
                     <div class="profile_pic_content flex flex-col justify-center items-center gap-3">
@@ -53,42 +53,42 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-9 border border-gray-300">
+        <div class="col-span-12 md:col-span-9 border border-gray-300 py-3">
 
-            <div class="profile_heading text-center py-4">
+            <div class="profile_heading text-center pb-3 pt-0 md:py-4">
                 <h3 class="text-2xl font-semibold">All Orders</h3>
             </div>
-            <div class="table-responsive px-4">
-                <table class="w-full border-collapse border border-slate-700">
+            <div class="overflow-x-auto px-4">
+                <table class=" min-w-full border-collapse border border-slate-700">
                     <thead class="bg-slate-200">
-                    <tr>
-                        <th class="border border-slate-300 py-1">SL</th>
-                        <th class="border border-slate-300 py-1">Invoice No</th>
-                        <th class="border border-slate-300 py-1">Order Date</th>
-                        <th class="border border-slate-300 py-1">payable_amount</th>
-                        <th class="border border-slate-300 py-1">Pay Method</th>
-                        <th class="border border-slate-300 py-1">Payment Status</th>
-                        <th class="border border-slate-300 py-1">Order Status</th>
-                        <th class="border border-slate-300 py-1">Actions</th>
-                    </tr>
+                        <tr>
+                            <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">SL</th>
+                            <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Invoice No</th>
+                            <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Order Date</th>
+                            <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Payable Amount</th>
+                            <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Pay Method</th>
+                            <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Payment Status</th>
+                            <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Order Status</th>
+                            <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                     @if(count($orders) > 0)
                         @foreach($orders as $key => $order)
                             <tr class="text-center">
-                                <td class="border border-slate-300 py-2">{{ $key+1 }}</td>
-                                <td class="border border-slate-300 py-2">{{ $order->order_number }}</td>
-                                <td class="border border-slate-300 py-2">{{ date('d-F-Y', strtotime($order->order_date)) }}</td>
-                                <td class="border border-slate-300 py-2">{{ $order->payable_amount }} Taka</td>
-                                <td class="border border-slate-300 py-2">{{ $order->payment_method }}</td>
-                                <td class="border border-slate-300 py-2">
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $key+1 }}</td>
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $order->order_number }}</td>
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ date('d-F-Y', strtotime($order->order_date)) }}</td>
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $order->payable_amount }} Taka</td>
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $order->payment_method }}</td>
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">
                                     @if($order->payment_status == 1)
                                         <span class="bg-green-700 text-white px-4 rounded m-0 pb-1"><small class="m-0">Paid</small></span>
                                     @else
                                         <span class="bg-slate-600 text-white px-4 pb-1 rounded m-0"><small class="m-0">Unpaid</small></span>
                                     @endif
                                 </td>
-                                <td class="border border-slate-300 py-2">
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">
                                     @if($order->payment_status == 0)
                                         <span class="bg-theme text-white px-4 rounded m-0 pb-1"><small class="m-0">Initiated</small></span>
                                     @elseif($order->payment_status == 1)
@@ -109,7 +109,7 @@
                                         <span class="bg-rose-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Returned</small></span>
                                     @endif
                                 </td>
-                                <td class="border border-slate-300 py-2">
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">
                                     <a href="" class="bg-theme px-3 pb-1 text-white rounded"><small>View</small></a>
                                 </td>
                             </tr>
