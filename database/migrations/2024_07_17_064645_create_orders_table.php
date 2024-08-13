@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('payment_method')->nullable();
             $table->string('payment_date')->nullable();
             $table->string('order_date')->nullable();
-            $table->integer('order_status')->nullable()->default(0); // [0=Initiated, 1=Confirmed, 3=Processing, 4=Picked, 5=Shipped, 6=Delivered, 7=Cancelled, 8=Refunded, 9 Returned]
+            $table->integer('order_status')->nullable()->default(0); // [0=Initiated, 1=Confirmed, 2=Processing, 3=Picked, 4=Shipped, 5=Delivered, 6=Cancelled, 7=Refunded, 8= Returned]
             $table->integer('payment_status')->nullable()->default(0);
             $table->timestamps();
         });

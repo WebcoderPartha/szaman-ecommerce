@@ -13,7 +13,7 @@
                             <img src="https://mohasagor.com/public/frontend/images/user/1.png" alt="" width="150">
                         </div>
                         <div class="profile_name">
-                            <h5 class="text-xl text-[#323232] font-semibold">Pritam Halder</h5>
+                            <h5 class="text-xl text-[#323232] font-semibold">{{ auth('web')->user()->first_name }} {{ auth('web')->user()->last_name }}</h5>
                         </div>
                     </div>
                 </div>
@@ -64,25 +64,55 @@
                     <tr>
                         <th class="border border-slate-300 py-1">SL</th>
                         <th class="border border-slate-300 py-1">Invoice No</th>
-                        <th class="border border-slate-300 py-1">Date</th>
-                        <th class="border border-slate-300 py-1">Status</th>
-                        <th class="border border-slate-300 py-1">Discount</th>
-                        <th class="border border-slate-300 py-1">Total</th>
+                        <th class="border border-slate-300 py-1">Order Date</th>
+                        <th class="border border-slate-300 py-1">payable_amount</th>
+                        <th class="border border-slate-300 py-1">Pay Method</th>
+                        <th class="border border-slate-300 py-1">Payment Status</th>
+                        <th class="border border-slate-300 py-1">Order Status</th>
                         <th class="border border-slate-300 py-1">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="text-center">
-                        <td class="border border-slate-300">1</td>
-                        <td class="border border-slate-300">WC0000001</td>
-                        <td class="border border-slate-300">{{ date('d-F-Y') }}</td>
-                        <td class="border border-slate-300">
-                            <span class="bg-theme text-white"><small>Pending</small></span>
-                        </td>
-                        <td class="border border-slate-300">10%</td>
-                        <td class="border border-slate-300">49540 BDT</td>
-                        <td class="border border-slate-300">Actions</td>
-                    </tr>
+                    @if(count($orders) > 0)
+                        @foreach($orders as $key => $order)
+                            <tr class="text-center">
+                                <td class="border border-slate-300 py-2">{{ $key+1 }}</td>
+                                <td class="border border-slate-300 py-2">{{ $order->order_number }}</td>
+                                <td class="border border-slate-300 py-2">{{ date('d-F-Y', strtotime($order->order_date)) }}</td>
+                                <td class="border border-slate-300 py-2">{{ $order->payable_amount }} Taka</td>
+                                <td class="border border-slate-300 py-2">{{ $order->payment_method }}</td>
+                                <td class="border border-slate-300 py-2">
+                                    @if($order->payment_status == 1)
+                                        <span class="bg-green-700 text-white px-4 rounded m-0 pb-1"><small class="m-0">Paid</small></span>
+                                    @else
+                                        <span class="bg-slate-600 text-white px-4 pb-1 rounded m-0"><small class="m-0">Unpaid</small></span>
+                                    @endif
+                                </td>
+                                <td class="border border-slate-300 py-2">
+                                    @if($order->payment_status == 0)
+                                        <span class="bg-theme text-white px-4 rounded m-0 pb-1"><small class="m-0">Initiated</small></span>
+                                    @elseif($order->payment_status == 1)
+                                        <span class="bg-fuchsia-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Confirmed</small></span>
+                                    @elseif($order->payment_status == 2)
+                                        <span class="bg-amber-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Processing</small></span>
+                                    @elseif($order->payment_status == 3)
+                                        <span class="bg-lime-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Picked</small></span>
+                                    @elseif($order->payment_status == 4)
+                                        <span class="bg-teal-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Shipped</small></span>
+                                    @elseif($order->payment_status == 5)
+                                        <span class="bg-green-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Delivered</small></span>
+                                    @elseif($order->payment_status == 6)
+                                        <span class="bg-red-600 text-white px-4 pb-1 rounded m-0"><small class="m-0">Cancelled</small></span>
+                                    @elseif($order->payment_status == 7)
+                                        <span class="bg-sky-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Refunded</small></span>
+                                    @else
+                                        <span class="bg-rose-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Returned</small></span>
+                                    @endif
+                                </td>
+                                <td class="border border-slate-300 py-2">Actions</td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>

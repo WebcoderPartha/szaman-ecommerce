@@ -139,5 +139,10 @@ class AppOrderController extends Controller
         return response()->json($order, 200);
     }
 
+    public function order_detail(Request $request){
+        $order_detail = Order::with('order_detail', 'shipping_address')->where('user_id', $request->user_id)->where('order_number', $request->order_number)->first();
+        return response()->json($order_detail, 200);
+    }
+
 
 }

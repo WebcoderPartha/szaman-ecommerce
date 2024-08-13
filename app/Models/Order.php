@@ -12,11 +12,11 @@ class Order extends Model
     protected $guarded = [];
 
     public function order_detail(){
-        return $this->hasMany(OrderDetail::class, 'order_id', 'id');
+        return $this->hasMany(OrderDetail::class, 'order_id', 'id')->select(['id', 'order_id', 'product_name', 'qty', 'variation', 'price', 'subtotal', 'image']);
     }
 
     public function shipping_address(){
-        return $this->belongsTo(ShippingAddress::class, 'id', 'order_id');
+        return $this->belongsTo(ShippingAddress::class, 'id', 'order_id')->select(['id', 'order_id', 'user_id', 'address_line_one', 'post_office', 'thana', 'postal_code', 'district']);
     }
 
 

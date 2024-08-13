@@ -38,6 +38,7 @@ Route::controller(AppOrderController::class)->group(function () {
     Route::post('/success', 'success_payment');
     Route::post('/fail-cancel', 'fail_or_payment');
     Route::get('/get-order/{user_id}', 'get_order');
+    Route::post('/order-detail', 'order_detail');
 });
 
 
