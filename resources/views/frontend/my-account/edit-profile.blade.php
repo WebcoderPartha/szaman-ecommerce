@@ -58,35 +58,44 @@
             <div class="profile_heading text-center py-4">
                 <h3 class="text-2xl font-semibold">Edit Profile</h3>
             </div>
-            <div class="grid grid-cols-12 gap-4 px-4">
-                <div class="col-span-6">
-                    <div class="flex flex-col gap-1">
-                        <label>Name</label>
-                        <input type="text" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="first_name" placeholder="First name">
+            <form action="{{ route('frontend.myaccount.update.profile', $profile->id) }}" method="POST">
+                @method('POST') @csrf
+                <div class="grid grid-cols-12 gap-4 px-4">
+                    <div class="col-span-6">
+                        <div class="flex flex-col gap-1">
+                            <label>First Name</label>
+                            <input type="text" required="required" value="{{ $profile->first_name }}" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="first_name" placeholder="First name">
+                        </div>
+                    </div>
+                    <div class="col-span-6">
+                        <div class="flex flex-col gap-1">
+                            <label>Last Name</label>
+                            <input type="text" required="required" value="{{ $profile->last_name }}" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="last_name" placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="col-span-6">
+                        <div class="flex flex-col gap-1">
+                            <label>Email</label>
+                            <input type="email" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="email" value="{{ $profile->email }}" placeholder="Email">
+                            @error('email')
+                                <small class="text-red-600">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-span-6">
+                        <div class="flex flex-col gap-1">
+                            <label>Phone</label>
+                            <input type="text" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="phone" value="{{ $profile->phone }}" placeholder="Phone">
+                            @error('phone')
+                                <small class="text-red-600">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-span-12">
+                        <button type="submit" class="bg-theme px-4 py-2 w-full text-xl text-white rounded">Update</button>
                     </div>
                 </div>
-                <div class="col-span-6">
-                    <div class="flex flex-col gap-1">
-                        <label>Last Name</label>
-                        <input type="text" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="last_name" value="" placeholder="Last name">
-                    </div>
-                </div>
-                <div class="col-span-6">
-                    <div class="flex flex-col gap-1">
-                        <label>Email</label>
-                        <input type="email" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="email" value="" placeholder="Email">
-                    </div>
-                </div>
-                <div class="col-span-6">
-                    <div class="flex flex-col gap-1">
-                        <label>Phone</label>
-                        <input type="text" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="phone" value="" placeholder="Phone">
-                    </div>
-                </div>
-                <div class="col-span-12">
-                    <button type="submit" class="bg-theme px-4 py-2 w-full text-xl text-white rounded">Update</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 

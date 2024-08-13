@@ -48,4 +48,21 @@ class MyAccountController extends Controller
         }
     }
 
+    public function update_edit_profile(Request $request, $user_id){
+        $validated = $request->validate([
+            'phone' => 'required|unique:users,phone,'.$user_id,
+            'email' => 'required|unique:users,email,'.$user_id,
+        ]);
+
+        $user = User::find($user_id);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->save();
+
+        toastr()->success('Profile is updated!', 'Success!');
+        return redirect()->back();
+    }
+
 }
