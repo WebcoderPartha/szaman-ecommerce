@@ -109,7 +109,9 @@
                                         <span class="bg-rose-500 text-white px-4 pb-1 rounded m-0"><small class="m-0">Returned</small></span>
                                     @endif
                                 </td>
-                                <td class="border border-slate-300 py-2">Actions</td>
+                                <td class="border border-slate-300 py-2">
+                                    <a href="" class="bg-theme px-3 pb-1 text-white rounded"><small>View</small></a>
+                                </td>
                             </tr>
                         @endforeach
                     @endif
