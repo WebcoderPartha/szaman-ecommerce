@@ -20,31 +20,31 @@
                 <div class="menu-list ">
                     <ul class="px-4 py-2">
                         <li class="border-b border-b-[#ced4da]">
-                            <a href="{{ route('frontend.myaccount.page') }}" class="py-2 text-sm uppercase block hover:text-theme">
+                            <a href="{{ route('frontend.myaccount.page') }}" class="@if(request()->is('my-account')) text-theme @endif py-2 text-sm uppercase block hover:text-theme">
                                 <i class="fa-solid fa-table-cells-large mr-1"></i>
                                 Dashboard
                             </a>
                         </li>
                         <li class="border-b border-b-[#ced4da]">
-                            <a href="{{ route('frontend.myaccount.view_profile') }}" class="py-2 text-sm uppercase block hover:text-theme">
+                            <a href="{{ route('frontend.myaccount.view_profile') }}" class="@if(request()->is('my-account/profile')) text-theme @endif py-2 text-sm uppercase block hover:text-theme ">
                                 <i class="fa-regular fa-user mr-1"></i>
                                 Profile
                             </a>
                         </li>
                         <li class="border-b border-b-[#ced4da]">
-                            <a href="{{ route('frontend.myaccount.view_profile.edit') }}" class="py-2 text-sm uppercase block hover:text-theme">
+                            <a href="{{ route('frontend.myaccount.view_profile.edit') }}" class="@if(request()->is('my-account/profile/edit')) text-theme @endif py-2 text-sm uppercase block hover:text-theme">
                                 <i class="fa-regular fa-pen-to-square mr-1"></i>
                                 Edit Profile
                             </a>
                         </li>
                         <li class="border-b border-b-[#ced4da]">
-                            <a href="{{ route('frontend.myaccount.change_password') }}" class="py-2 text-sm uppercase block hover:text-theme">
+                            <a href="{{ route('frontend.myaccount.change_password') }}" class="@if(request()->is('my-account/change-password')) text-theme @endif py-2 text-sm uppercase block hover:text-theme">
                                 <i class="fa-solid fa-key mr-1"></i>
                                 Change Password
                             </a>
                         </li>
                         <li>
-                            <a href="" class="py-2 text-sm uppercase block hover:text-theme">
+                            <a href="{{ route('customer.logout') }}" class="py-2 text-sm uppercase block hover:text-theme">
                                 <i class="fa-solid fa-right-from-bracket mr-1"></i>
                                 Logout
                             </a>
