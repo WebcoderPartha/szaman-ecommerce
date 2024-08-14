@@ -38,6 +38,12 @@
                             </a>
                         </li>
                         <li class="border-b border-b-[#ced4da]">
+                            <a href="{{ route('frontend.myaccount.address.view') }}" class="@if(request()->is('my-account/address')) text-theme @endif py-2 text-sm uppercase block hover:text-theme">
+                                <i class="fa-solid fa-location-dot mr-1"></i>
+                                Address
+                            </a>
+                        </li>
+                        <li class="border-b border-b-[#ced4da]">
                             <a href="{{ route('frontend.myaccount.change_password') }}" class="@if(request()->is('my-account/change-password')) text-theme @endif py-2 text-sm uppercase block hover:text-theme">
                                 <i class="fa-solid fa-key mr-1"></i>
                                 Change Password

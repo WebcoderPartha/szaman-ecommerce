@@ -1,5 +1,5 @@
 @extends('frontend.layout.app')
-@section('title', 'My Account')
+@section('title', 'Profile | My Account')
 @section('content')
     <div class="grid grid-cols-12 py-4 gap-6">
         <div class="col-span-12">
@@ -35,6 +35,12 @@
                             <a href="{{ route('frontend.myaccount.view_profile.edit') }}" class="@if(request()->is('my-account/profile/edit')) text-theme @endif py-2 text-sm uppercase block hover:text-theme">
                                 <i class="fa-regular fa-pen-to-square mr-1"></i>
                                 Edit Profile
+                            </a>
+                        </li>
+                        <li class="border-b border-b-[#ced4da]">
+                            <a href="{{ route('frontend.myaccount.address.view') }}" class="@if(request()->is('my-account/address')) text-theme @endif py-2 text-sm uppercase block hover:text-theme">
+                                <i class="fa-solid fa-location-dot mr-1"></i>
+                                Address
                             </a>
                         </li>
                         <li class="border-b border-b-[#ced4da]">

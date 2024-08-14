@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
-@section('title', 'Change Password | My Account')
+@section('title', 'Address | My Account')
 @section('content')
-    <div class="grid grid-cols-12 py-4 gap-6 ">
+    <div class="grid grid-cols-12 py-4 gap-6">
         <div class="col-span-12">
             <h2 class="font-semibold">My Account</h2>
         </div>
@@ -60,37 +60,61 @@
             </div>
         </div>
         <div class="col-span-12 md:col-span-9">
-            <form action="{{ route('frontend.myaccount.update.password', auth('web')->user()->id) }}" method="POST">
-                @csrf @method('POST')
-                <div class="border border-gray-300 rounded pb-8">
-                    <div class="profile_heading text-center py-4">
-                        <h3 class="text-2xl font-semibold">Edit Profile</h3>
-                    </div>
+            <div class="rounded border border-gray-300 pb-12">
+                <div class="profile_heading text-center py-4">
+                    <h3 class="text-2xl font-semibold">Edit Profile</h3>
+                </div>
+                <form action="{{ route('frontend.myaccount.address.update') }}" method="POST">
+                    @method('POST') @csrf
                     <div class="grid grid-cols-12 gap-4 px-4">
                         <div class="col-span-6">
                             <div class="flex flex-col gap-1">
-                                <label for="password">New Password</label>
-                                <input type="password" required="" id="password" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="password" placeholder="Password">
-                                @error('password')
-                                    <small class="text-red-600">{{ $message }}</small>
-                                @enderror
+                                <label for="address_line_one">Address Line One</label>
+                                <input type="text" required="required" id="address_line_one" value="{{ $address->address_line_one }}" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="address_line_one" placeholder="Address Line One">
                             </div>
                         </div>
                         <div class="col-span-6">
                             <div class="flex flex-col gap-1">
-                                <label for="password_confirmation">Confirm Password</label>
-                                <input type="password" required="" id="password_confirmation" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="password_confirmation" placeholder="Confirm password">
-                                @error('password_confirmation')
+                                <label for="thana">Thana</label>
+                                <input type="text" id="thana" required="" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="thana" value="{{ $address->thana }}" placeholder="thana">
+                                @error('thana')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-span-4">
+                            <div class="flex flex-col gap-1">
+                                <label for="post_office">Post Office</label>
+                                <input type="text" required="required" id="post_office" value="{{ $address->post_office	 }}" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="post_office" placeholder="Post office">
+                                @error('post_office')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-span-4">
+                            <div class="flex flex-col gap-1">
+                                <label for="postal_code">Postal Code</label>
+                                <input type="text" required="" id="postal_code" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="postal_code" value="{{ $address->postal_code }}" placeholder="Postal Code">
+                                @error('postal_code')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-span-4">
+                            <div class="flex flex-col gap-1">
+                                <label for="district">District</label>
+                                <input type="text" required="" id="district" class="focus:outline-none border border-gray-300 rounded py-2 px-4" name="district" value="{{ $address->district }}" placeholder="District">
+                                @error('district')
                                     <small class="text-red-600">{{ $message }}</small>
                                 @enderror
                             </div>
                         </div>
                         <div class="col-span-12">
-                            <button type="submit" class="bg-theme px-4 py-2 w-full text-xl text-white rounded">Save Change</button>
+                            <button type="submit" class="bg-theme px-4 py-2 w-full text-xl text-white rounded">Update</button>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 

@@ -21,6 +21,11 @@ class MyAccountController extends Controller
         }
     }
 
+    public function view_address(){
+        $address = User::where('id', auth('web')->user()->id)->select('address_line_one', 'post_office', 'thana', 'postal_code', 'district')->first();
+        return view('frontend.my-account.address', compact('address'));
+    }
+
     public function view_profile(){
         if (auth('web')->check()){
             return view('frontend.my-account.profile');
@@ -77,6 +82,18 @@ class MyAccountController extends Controller
         $user->save();
 
         toastr()->success('Password is updated!', 'Success!');
+        return redirect()->back();
+    }
+
+    public function update_address(Request $request){
+        $address = User::find(auth('web')->user()->id);
+        $address->address_line_one = $request->address_line_one;
+        $address->post_office = $request->post_office;
+        $address->thana = $request->thana;
+        $address->postal_code = $request->postal_code;
+        $address->district = $request->district;
+        $address->save();
+        toastr()->success('Address is updated!', 'Success!');
         return redirect()->back();
     }
 
