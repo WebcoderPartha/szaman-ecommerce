@@ -69,6 +69,7 @@ Route::controller(MyAccountController::class)->group(function (){
     Route::post('/my-account/update-password/{user_id}', 'update_password')->name('frontend.myaccount.update.password');
     Route::get('/my-account/address', 'view_address')->name('frontend.myaccount.address.view');
     Route::post('/my-account/address/update', 'update_address')->name('frontend.myaccount.address.update');
+    Route::get('/my-account/order-details/{order_number}', 'order_detail')->name('frontend.myaccount.orderdetail');
 });
 
 // Cart Controller

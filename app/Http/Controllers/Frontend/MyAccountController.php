@@ -98,7 +98,7 @@ class MyAccountController extends Controller
     }
 
     public function order_detail($order_number){
-        $order_detail = Order::with('order_detail', 'shipping_address')->where('order_number')->where('user_id', auth('web')->user()->id)->first();
+        $order_detail = Order::with('order_detail', 'shipping_address')->where('order_number', $order_number)->where('user_id', auth('web')->user()->id)->first();
         return view('frontend.my-account.order-detail', compact('order_detail'));
     }
 

@@ -116,7 +116,7 @@
                                     @endif
                                 </td>
                                 <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">
-                                    <a href="" class="bg-theme px-3 pb-1 text-white rounded"><small>View</small></a>
+                                    <a href="{{ route('frontend.myaccount.orderdetail', $order->order_number) }}" class="bg-theme px-3 py-1 hover:text-black text-white rounded"><i class="fa-regular fa-eye"></i></a>
                                 </td>
                             </tr>
                         @endforeach
