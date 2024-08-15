@@ -144,5 +144,14 @@ class AppOrderController extends Controller
         return response()->json($order_detail, 200);
     }
 
+    public function order_cancel(Request $request){
+        $order = Order::where('order_number', $request->order_number)->where('user_id', $request->user_id)->first();
+        $order->order_status = 6;
+        $order->save();
+        return response()->json([
+            'success' => 'Order is cancelled!'
+        ], 200);
+    }
+
 
 }
