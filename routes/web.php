@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ShiftChargeController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserLoginController;
 use App\Http\Controllers\Frontend\FrontendCartController;
@@ -202,6 +203,13 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
         Route::put('/{id}/update', 'update')->name('backend.shipping-charge.update');
         Route::post('/store', 'shipping_charge_store_or_update')->name('backend.shipping-charge.store');
     });
+
+    // Setting Controller
+    Route::controller(SettingController::class)->prefix('settings')->group(function (){
+        Route::get('/sslcommerz-credentials', 'sslcommerz_view')->name('backend.setting.sslcommerz');
+        Route::post('/sslcommerz-credentials', 'update_or_insert')->name('backend.setting.sslcommerz.store');
+    });
+
 
 });
 
