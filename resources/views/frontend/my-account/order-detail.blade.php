@@ -62,25 +62,58 @@
         <div class="col-span-12 md:col-span-9 border border-gray-300 py-3">
 
             <div class="profile_heading text-center pb-3 pt-0 md:py-4">
-                <h3 class="text-2xl font-semibold">All Orders</h3>
+                <h3 class="text-2xl font-semibold">Order Detail</h3>
             </div>
-            <div class="overflow-x-auto px-4">
+            <div class="overflow-x-auto px-4 py-6">
                 <table class=" min-w-full border-collapse border border-slate-700">
-                    <thead class="bg-slate-200">
+                    <thead class="">
                     <tr>
                         <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">SL</th>
-                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Invoice No</th>
-                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Order Date</th>
-                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Payable Amount</th>
-                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Pay Method</th>
-                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Payment Status</th>
-                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Order Status</th>
-                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Actions</th>
+                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Image</th>
+                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Product</th>
+                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Quantity</th>
+                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Price</th>
+                        <th class="border border-slate-300 py-1 px-2 whitespace-nowrap">Total</th>
+
                     </tr>
                     </thead>
-                    <tbody>
-                   {{ $order_detail }}
-                    fdfgf
+                    <tbody class="text-center">
+                    @php
+                        $subtotal = 0;
+                    @endphp
+                    @foreach($order_detail->order_detail as $key => $detail)
+                        @php $subtotal +=$detail->subtotal  @endphp
+                        <tr class="text-center">
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $key+1 }}</td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">
+                                <img src="{{ asset('/storage/product/'. $detail->image) }}" width="80" class="inline-block text-center" alt="">
+                            </td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $detail->product_name }}</td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $detail->qty }}</td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $detail->price }} TK</td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $detail->subtotal }} TK</td>
+                        </tr>
+                    @endforeach
+                        <tr>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap" colspan="4"></td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap font-bold">Sub Total</td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap font-bold">{{ $subtotal }} TK</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap" colspan="4"></td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap font-bold">Discount</td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap font-bold">0 TK</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap" colspan="4"></td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap font-bold">Shipping Cost</td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap font-bold">{{ $order_detail->shipping_charge }} TK</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap" colspan="4"></td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap font-bold">Total Payable</td>
+                            <td class="border border-slate-300 py-2 px-2 whitespace-nowrap font-bold">{{ $order_detail->payable_amount }} TK</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
