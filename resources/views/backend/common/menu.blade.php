@@ -86,6 +86,11 @@
                 <span class="nav-link-text" >Shipping Charge</span>
             </a>
         </li>
+        <li>
+            <a href="{{ route('backend.setting.sslcommerz') }}" class=" waves-effect waves-themed">
+                <span class="nav-link-text">SSLCommerz</span>
+            </a>
+        </li>
     </ul>
 </li>
 <li>
