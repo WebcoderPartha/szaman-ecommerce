@@ -17,7 +17,7 @@ class SwiperSlider extends Component
 
     public function __construct()
     {
-        $this->sliders = Slider::all();
+        $this->sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->get();
     }
 
     /**

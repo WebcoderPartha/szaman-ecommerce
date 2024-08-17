@@ -139,7 +139,7 @@
                     if (loginRes.data.error){
                         toastr.error(loginRes.data.error);
                     }else {
-                        window.location.href =  "{{ route('frontend.home_page') }}"
+                        window.location.href =  "{{ route('frontend.myaccount.page') }}"
                         toastr.success(loginRes.data.success);
                     }
                 })

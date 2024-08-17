@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ShippingCharge;
 use App\Models\Slider;
+use App\Models\Sslcommerze;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -44,6 +45,12 @@ class HomeController extends Controller
     public function shipping_charge(){
         $shipping_charge = ShippingCharge::orderBy('id', 'ASC')->get();
         return response()->json($shipping_charge, 200);
+    }
+
+
+    public function get_sslcredential(){
+        $sslcommerz = Sslcommerze::find(1);
+        return response()->json($sslcommerz, 200);
     }
 
 }

@@ -15,6 +15,7 @@ Route::controller(HomeController::class)->group(function (){
    Route::get('/getcategory', 'get_category');
    Route::get('/getbrand', 'get_brand');
    Route::get('/getshippingcharge', 'shipping_charge');
+   Route::get('/sslcredential', 'get_sslcredential');
 });
 
 // Add more mobile-specific routes here
