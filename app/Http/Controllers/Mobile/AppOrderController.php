@@ -22,7 +22,7 @@ class AppOrderController extends Controller
 
 
         $order->payable_amount = $request->payable_amount;
-        $order->payment_method = $request->payment_method;
+        $order->payment_method = 2; // [1=Online, 2=Cash On Delivery]
         $order->shipping_charge = $request->shipping_charge;
 
         $order->payment_date = date('Y-m-d');
@@ -73,7 +73,7 @@ class AppOrderController extends Controller
 //        $order->order_number = IdGenerator::generate(['table' => 'orders', 'field' => 'order_number', 'length' => 8, 'prefix' => 'WC']);
         // Random Transaction ID Generate
         $order->payable_amount = $request->payable_amount;
-        $order->payment_method = 'Online';
+        $order->payment_method = 1; // [1=Online, 2=Cash On Delivery]
         $order->shipping_charge = $request->shipping_charge;
         $order->tnx_id = $request->tnx_id;
         $order->payment_date = date('Y-m-d');
@@ -129,7 +129,7 @@ class AppOrderController extends Controller
         $order = Order::where('tnx_id', $request->tnx_id)->first();
 //        $order->tnx_id = $request->payment_transaction_id;
 //        $order->payment_method = $request->payment_method;
-        $order->payment_status = 0; //['Cancelled']
+        $order->payment_status = 0; //[0=unpaid]
         $order->save();
         return response()->json(['success' => 'Payment failed with order updated'], 200);
     }
