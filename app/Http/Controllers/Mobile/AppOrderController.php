@@ -118,7 +118,7 @@ class AppOrderController extends Controller
     public function success_payment(Request $request){
         $order = Order::where('tnx_id', $request->tnx_id)->first();
         $order->tnx_id = $request->payment_transaction_id;
-        $order->payment_method = $request->payment_method;
+//        $order->payment_method = $request->payment_method;
         $order->payment_status = 1;
         $order->order_status = 1;
         $order->save();

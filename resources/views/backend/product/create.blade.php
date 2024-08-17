@@ -208,8 +208,8 @@
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="is_publish">Publish</label>
                                                 <select name="is_publish" id="is_publish" class="select2 form-control">
-                                                    <option value="0">Unpublished</option>
                                                     <option value="1">Published</option>
+                                                    <option value="0">Unpublished</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -217,8 +217,8 @@
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="is_active">Status</label>
                                                 <select name="is_active" id="is_active" class="select2 form-control">
-                                                    <option value="0">Inactive</option>
                                                     <option value="1">Active</option>
+                                                    <option value="0">Inactive</option>
                                                 </select>
                                             </div>
                                         </div>

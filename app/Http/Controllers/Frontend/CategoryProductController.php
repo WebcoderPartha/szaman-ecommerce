@@ -10,7 +10,12 @@ class CategoryProductController extends Controller
 {
 
     public function get_category_product(){
-        $categories = Category::with('product')->orderBy('id', 'ASC')->get();
+
+        $categories = Category::orderBy('id', 'ASC')->get();
+
+        foreach ($categories as $category) {
+            $category->products = $category->product()->take(8)->get();
+        }
         return $categories;
     }
 

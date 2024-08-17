@@ -31,24 +31,12 @@
     <div class="product-categories mt-4">
         <x-frontend.home.product-categories />
     </div>
-    <div class="feature-products mt-4">
-        <x-frontend.home.feature-products />
-    </div>
-
+{{--    <div class="feature-products mt-4">--}}
+{{--        <x-frontend.home.feature-products />--}}
+{{--    </div>--}}
+    @include('frontend.partials.home.slider-category-products')
 @endsection
 
 @section('js')
-    <script>
-        let bannerSwiper = new Swiper(".bannerSwiper", {
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-        });
-    </script>
+
 @endsection

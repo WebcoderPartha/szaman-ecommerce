@@ -86,7 +86,13 @@
                                 <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $order->order_number }}</td>
                                 <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ date('d-F-Y', strtotime($order->order_date)) }}</td>
                                 <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $order->payable_amount }} Taka</td>
-                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">{{ $order->payment_method }}</td>
+                                <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">
+                                    @if($order->payment_method == 1)
+                                        <span>Online</span>
+                                    @else
+                                        <span>COD</span>
+                                    @endif
+                                </td>
                                 <td class="border border-slate-300 py-2 px-2 whitespace-nowrap">
                                     @if($order->payment_status == 1)
                                         <span class="bg-green-700 text-white px-4 rounded m-0 pb-1"><small class="m-0">Paid</small></span>

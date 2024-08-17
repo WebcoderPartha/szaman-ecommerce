@@ -250,8 +250,8 @@
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="is_publish">Publish</label>
                                                 <select name="is_publish" id="is_publish" class="select2 form-control">
-                                                    <option @if($product->is_publish === 0) selected @endif value="0">Unpublished</option>
                                                     <option @if($product->is_publish === 1) selected @endif value="1">Published</option>
+                                                    <option @if($product->is_publish === 0) selected @endif value="0">Unpublished</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -259,8 +259,8 @@
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="is_active">Status</label>
                                                 <select name="is_active" id="is_active" class="select2 form-control">
-                                                    <option @if($product->is_active === 0) selected @endif value="0">Inactive</option>
                                                     <option @if($product->is_active === 1) selected @endif value="1">Active</option>
+                                                    <option @if($product->is_active === 0) selected @endif value="0">Inactive</option>
                                                 </select>
                                             </div>
                                         </div>
