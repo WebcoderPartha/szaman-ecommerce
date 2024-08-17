@@ -6,7 +6,26 @@
             <x-frontend.home.desktop-menu />
         </div>
         <div class="col-span-12 md:col-span-9">
-            <x-frontend.home.swiper-slider />
+            <!-- Swiper -->
+            <div class="swiper bannerSwiper">
+                <div class="swiper-wrapper">
+
+                    @if($sliders->count() > 0)
+                        @foreach($sliders as $slider)
+                            <div class="swiper-slide">
+                                <img src="{{ asset('/storage/slider/'.$slider->image) }}" alt="{{ $slider->image }}">
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/1921x581" alt="">
+                        </div>
+                    @endif
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- Swiper JS -->
         </div>
     </div>
     <div class="product-categories mt-4">
@@ -15,8 +34,21 @@
     <div class="feature-products mt-4">
         <x-frontend.home.feature-products />
     </div>
+
 @endsection
 
 @section('js')
-
+    <script>
+        let bannerSwiper = new Swiper(".bannerSwiper", {
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
 @endsection

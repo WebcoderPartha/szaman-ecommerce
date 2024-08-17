@@ -83,7 +83,7 @@ class OnlinePaymentController extends Controller
                     'user_id'           => $user->id,
                     'payable_amount'    => $integerNumber + Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price,
                     'shipping_charge'   => Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price,
-                    'payment_method'    => 'Online Payment',
+                    'payment_method'    => 1, // [1=Online, 2=Cash On Delivery]
                     'payment_date'      => date('Y-m-d'),
                     'order_date'        => date('Y-m-d'),
                     'order_status'    => 0,
@@ -100,7 +100,7 @@ class OnlinePaymentController extends Controller
                 'tnx_id'    => $post_data['tran_id'],
                 'payable_amount'    => $integerNumber + Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price,
                 'shipping_charge'   => Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price,
-                'payment_method'    => 'Online Payment',
+                'payment_method'    => 1, // [1=Online, 2=Cash On Delivery]
                 'payment_date'      => date('Y-m-d'),
                 'order_date'        => date('Y-m-d'),
                 'order_status'    => 0,

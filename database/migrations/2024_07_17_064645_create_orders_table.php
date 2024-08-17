@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('tnx_id')->nullable();
             $table->string('payable_amount');
             $table->string('shipping_charge')->nullable();
-            $table->string('payment_method')->nullable();
+            $table->integer('payment_method')->nullable(); // [1=Online, 2=Cash On Delivery]
             $table->string('payment_date')->nullable();
             $table->string('order_date')->nullable();
             $table->integer('order_status')->nullable()->default(0); // [0=Initiated, 1=Confirmed, 2=Processing, 3=Picked, 4=Shipped, 5=Delivered, 6=Cancelled, 7=Refunded, 8= Returned]

@@ -31,7 +31,7 @@
                 </div>
             </a>
             <div class="product-price-info flex flex-col gap-2 py-4 justify-between items-center min-h-[200px] ">
-                <a href="{{ route('frontend.product.details', $feature_product->slug) }}"><h2 class="text-[14px] group-hover:text-theme font-semibold duration-500">{{ $feature_product->title }}</h2></a>
+                <a href="{{ route('frontend.product.details', $feature_product->slug) }}"><h2 class="text-[14px] group-hover:text-theme font-semibold duration-500 px-2">{{ $feature_product->title }}</h2></a>
                 <div class="product_price">
                     <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                         @if($feature_product->discount !== null)

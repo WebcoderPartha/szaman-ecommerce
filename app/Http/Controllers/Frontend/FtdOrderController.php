@@ -34,7 +34,7 @@ class FtdOrderController extends Controller
 
         $order->payable_amount = $integerNumber+Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price;
         $order->shipping_charge = Cart::instance('shipping')->content()->where('id', 'shipping')->first()->price;
-        $order->payment_method = $request->payment_method;
+        $order->payment_method = 2; // [1=Online, 2=Cash On Delivery]
 
         $order->payment_date = date('Y-m-d');
         $order->order_date = date('Y-m-d');
