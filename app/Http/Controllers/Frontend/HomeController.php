@@ -20,6 +20,7 @@ class HomeController extends Controller
         foreach ($category_wish_products as $category) {
             $category->products = $category->product()->take(8)->get();
         }
+
         return view('frontend.homepage', compact('sliders', 'products', 'category_wish_products'));
     }
 

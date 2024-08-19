@@ -5,6 +5,7 @@
         <div class="hidden md:inline-block md:col-span-3 bg-white shadow-sm relative">
             <x-frontend.home.desktop-menu />
         </div>
+
         <div class="col-span-12 md:col-span-9">
             <!-- Swiper -->
             <div class="swiper bannerSwiper">

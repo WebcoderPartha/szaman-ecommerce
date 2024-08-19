@@ -20,7 +20,11 @@
                     <li>
                         <a href="{{ route('frontend.myaccount.page') }}" class="header_top_list_link text-base flex flex-row gap-1 items-center justify-center">
                             <i class="fa-solid fa-user text-theme"></i>
-                            <span class="font-semibold">My Account</span>
+                            @if(Auth::guard('web')->check())
+                                <span class="font-semibold">{{ Auth::guard('web')->user()->first_name }} {{ Auth::guard('web')->user()->last_name }}</span>
+                            @else
+                                <span class="font-semibold">My Account</span>
+                            @endif
                         </a>
                     </li>
                 </ul>

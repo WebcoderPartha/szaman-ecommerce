@@ -53,4 +53,14 @@ class HomeController extends Controller
         return response()->json($sslcommerz, 200);
     }
 
+    public function get_category_wise_project(){
+        $category_wish_products = Category::orderBy('id', 'ASC')->get();
+
+        foreach ($category_wish_products as $category) {
+            $category->products = $category->product()->take(8)->get();
+        }
+
+        return response()->json($category_wish_products, 200);
+    }
+
 }
