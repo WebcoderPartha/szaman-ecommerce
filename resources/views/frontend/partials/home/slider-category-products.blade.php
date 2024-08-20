@@ -18,16 +18,16 @@
             <div class="swiper-wrapper">
 
             {{--            <div class="swiper-slide">--}}
-            @foreach($product_category->product as $feature_product)
+            @foreach($product_category->product as $ct_product)
                 <!-- Single Product -->
                     <div class="swiper-slide">
                         <div class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg min-h-[400px]">
-                            <a href="{{ route('frontend.product.details', $feature_product->slug) }}" class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
-                                <img class=" group-hover:scale-125 duration-500" height="200" src="{{ asset('/storage/product/'.$feature_product->feature_image) }}" alt="{{ $feature_product->feature_image }}">
-                                @if($feature_product->discount !== null)
+                            <a href="{{ route('frontend.product.details', $ct_product->slug) }}" class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
+                                <img class=" group-hover:scale-125 duration-500" height="200" src="{{ asset('/storage/product/'.$ct_product->feature_image) }}" alt="{{ $ct_product->feature_image }}">
+                                @if($ct_product->discount !== null)
                                     <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                         <span class=" text-white text-xs">
-                            <span class="font-bold">Flat {{$feature_product->discount}}% Off</span>
+                            <span class="font-bold">Flat {{$ct_product->discount}}% Off</span>
                         </span>
                                     </div>
                                 @endif
@@ -48,31 +48,31 @@
                                 </div>
                             </a>
                             <div class="product-price-info flex flex-col gap-2 py-4 justify-between items-center min-h-[200px] ">
-                                <a href="{{ route('frontend.product.details', $feature_product->slug) }}"><h2 class="text-[16px] group-hover:text-theme font-semibold duration-500 px-2">{{ $feature_product->title }}</h2></a>
+                                <a href="{{ route('frontend.product.details', $ct_product->slug) }}"><h2 class="text-[16px] group-hover:text-theme font-semibold duration-500 px-2">{{ $ct_product->title }}</h2></a>
                                 <div class="product_price">
                                     <div class="flex-row justify-around md:justify-center items-center gap-x-2">
-                                        @if($feature_product->discount !== null)
+                                        @if($ct_product->discount !== null)
                                             <div class="flex justify-center">
                                                 <div class="text-sm text-theme font-bold flex items-center">
-                                                    <span> BDT </span><span>&nbsp;{{$feature_product->discount_price}}</span>
+                                                    <span> BDT </span><span>&nbsp;{{$ct_product->discount_price}}</span>
                                                 </div>
                                             </div>
                                             <span class="mt-2 flex justify-center items-center">
                             <div class="inline-flex justify-center items-center gap-x-0.5 text-sm rounded-full font-bold border border-accent-3 py-0.5 px-2">
-                                <span> MRP </span><span class="line-through  text-red-800">&nbsp;{{$feature_product->unit_price}}</span>
+                                <span> MRP </span><span class="line-through  text-red-800">&nbsp;{{$ct_product->unit_price}}</span>
                             </div>
                         </span>
                                         @else
                                             <div class="flex justify-center">
                                                 <div class="text-sm text-theme font-bold flex items-center">
-                                                    <span> BDT </span><span>&nbsp;{{$feature_product->unit_price}}</span>
+                                                    <span> BDT </span><span>&nbsp;{{$ct_product->unit_price}}</span>
                                                 </div>
                                             </div>
                                         @endif
 
                                     </div>
                                 </div>
-                                <div id="{{ $feature_product->id }}" onclick="add_to_carts(this.id)" class=" border border-100 hover:border-theme duration-300 py-1 px-4 text-sm text-theme font-semibold rounded cursor-pointer">
+                                <div id="{{ $ct_product->id }}" onclick="add_to_carts(this.id)" class=" border border-100 hover:border-theme duration-300 py-1 px-4 text-sm text-theme font-semibold rounded cursor-pointer">
                                     Add to Cart
                                 </div>
                             </div>

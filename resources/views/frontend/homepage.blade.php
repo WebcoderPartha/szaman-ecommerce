@@ -29,15 +29,11 @@
             <!-- Swiper JS -->
         </div>
     </div>
-    <div class="product-categories mt-4">
-        <x-frontend.home.product-categories />
+    <div class="feature-productddfs">
+        @include('frontend.partials.home.feature-products')
     </div>
-{{--    <div class="feature-products mt-4">--}}
-{{--        <x-frontend.home.feature-products />--}}
-{{--    </div>--}}
+
     @include('frontend.partials.home.slider-category-products')
 @endsection
 
-@section('js')
 
-@endsection
