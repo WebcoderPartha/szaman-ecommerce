@@ -12,7 +12,7 @@
                     <span class="custom-swiper-button-prev-{{$csKey+1}}"><i class="fa-solid fa-arrow-right text-2xl"></i></span>
                 </div>
             </div>
-            <a href="#" class="bg-theme text-white px-2 py-1 rounded">View All</a>
+            <a href="{{ route('frontend.category.page', $product_category->slug) }}" class="bg-theme text-white px-2 py-1 rounded">View All</a>
         </div>
         <div class="swiper categoryProductSlider-{{$csKey+1}}">
             <div class="swiper-wrapper">

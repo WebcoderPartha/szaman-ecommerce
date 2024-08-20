@@ -1,3 +1,7 @@
+.bottom_shadow {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 10px !important;
+}
+
 .active_wishlist {
     fill: red;
     transform: translateX(0);

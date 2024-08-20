@@ -2,7 +2,12 @@
 @section('title', $category_products->name)
 @section('content')
 
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-8 items-center bg-white px-4 md:px-6 py-8 shadow-lg">
+    <div class="flex flex-col py-6 border-b">
+        <div class="text-2xl font-semibold">{{ $category_products->name }}</div>
+        <div class="text-sm">{{ count($category_products->product) }} items in {{ $category_products->name }}</div>
+    </div>
+{{--    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-8 items-center bg-white px-4 md:px-6 py-8 shadow-lg">--}}
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 items-center bg-white px-4 md:px-0 py-6">
 
     {{--    {{ $products }}--}}
     @foreach($category_products->product as $feature_product)
