@@ -23,6 +23,7 @@ use App\Http\Controllers\Frontend\FtdOrderController;
 use App\Http\Controllers\Frontend\OnlinePaymentController;
 use App\Http\Controllers\Frontend\MyAccountController;
 use App\Http\Controllers\Frontend\CategoryProductController;
+use App\Http\Controllers\Frontend\FrontendCategoryController;
 
 // SSLCOMMERZ Start
 //Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
@@ -45,6 +46,11 @@ Route::controller(CartController::class)->group(function (){
     Route::post('/updatecart', 'updateCart')->name('frontend.updatecart');
     Route::post('/removecart', 'cartRemove')->name('frontend.removecart');
     Route::post('/shippingcharge', 'addShippingCharge')->name('frontend.shippingadd');
+});
+
+// Frontend Category Controller
+Route::controller(FrontendCategoryController::class)->group(function (){
+    Route::get('/category/{slug}', 'category_page')->name('frontend.category.page');
 });
 
 // Category Product Controller

@@ -18,7 +18,7 @@
     <ul class="py-4">
         @foreach($menu_categories as $menu_category)
         <li class="group">
-            <a href="" class="@if(count($menu_category->sub_category) > 0) arrow-before @endif  block relative px-4 py-2 text-[14px] hover:text-[#eb5d1e]">{{$menu_category->name}}</a>
+            <a href="{{ route('frontend.category.page', $menu_category->slug) }}" class="@if(count($menu_category->sub_category) > 0) arrow-before @endif  block relative px-4 py-2 text-[14px] hover:text-[#eb5d1e]">{{$menu_category->name}}</a>
             @if(count($menu_category->sub_category) > 0)
                 <div class="sub-menu hidden group-hover:grid group-hover:grid-cols-2 text-[13px] bg-white absolute py-4 top-0 left-full z-20 w-full shadow-lg">
                     @foreach($menu_category->sub_category as $menu_subcategory)

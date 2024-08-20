@@ -63,4 +63,10 @@ class HomeController extends Controller
         return response()->json($category_wish_products, 200);
     }
 
+    public function category_product_list($category_id){
+        $category_product = Category::with('product')->where('id', $category_id)->first();
+        return response()->json($category_product, 200);
+    }
+
+
 }
