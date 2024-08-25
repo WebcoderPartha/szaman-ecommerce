@@ -15,9 +15,9 @@
                 @foreach($feature_products as $feature_product)
                     <!-- Single Product -->
                         <div class="swiper-slide">
-                            <div class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg min-h-[250px]">
+                            <div class="product-card group flex flex-col text-center border border-[#efefef] rounded-lg ">
                                 <a href="{{ route('frontend.product.details', $feature_product->slug) }}" class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
-                                    <img class=" group-hover:scale-125 duration-500" height="200" src="{{ asset('/storage/product/'.$feature_product->feature_image) }}" alt="{{ $feature_product->feature_image }}">
+                                    <img class=" group-hover:scale-125 duration-500 border-b border-theme" height="200" src="{{ asset('/storage/product/'.$feature_product->feature_image) }}" alt="{{ $feature_product->feature_image }}">
                                     @if($feature_product->discount !== null)
                                         <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                         <span class=" text-white text-xs">
@@ -41,8 +41,8 @@
                                         <!-- Add to cart icon -->
                                     </div>
                                 </a>
-                                <div class="product-price-info flex flex-col gap-2 py-4 justify-between items-center min-h-[200px] ">
-                                    <a href="{{ route('frontend.product.details', $feature_product->slug) }}"><h2 class="text-[16px] group-hover:text-theme font-semibold duration-500 px-2">{{ $feature_product->title }}</h2></a>
+                                <div class="product-price-info flex flex-col gap-2 py-4 items-center min-h-[180px]">
+                                    <a class="min-h-[60px]" href="{{ route('frontend.product.details', $feature_product->slug) }}"><h2 class="text-[16px] group-hover:text-theme font-semibold duration-500 px-2">{{ Str::limit($feature_product->title, 60) }}</h2></a>
                                     <div class="product_price">
                                         <div class="flex-row justify-around md:justify-center items-center gap-x-2">
                                             @if($feature_product->discount !== null)
