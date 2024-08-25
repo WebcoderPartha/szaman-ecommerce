@@ -186,7 +186,16 @@
                                                 @endforeach
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
+                                            <div class="form-group pb-4">
+                                                <label class="form-label" for="best_selling">Best Selling</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" name="best_selling" id="best_selling" value="1">
+                                                    <label class="custom-control-label" for="best_selling">Active</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="feature_product">Feature Product</label>
                                                 <div class="custom-control custom-switch">
@@ -195,7 +204,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <div class="form-group pb-4">
                                                 <label class="form-label" for="hot_deal">Hot Deal</label>
                                                 <div class="custom-control custom-switch">

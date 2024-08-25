@@ -113,6 +113,7 @@ class ProductController extends Controller
 
             $product->feature_image = $image;
         }
+        $product->best_selling = $request->best_selling;
         $product->feature_product = $request->feature_product;
         $product->hot_deal = $request->hot_deal;
         $product->is_publish = $request->is_publish;
@@ -237,6 +238,7 @@ class ProductController extends Controller
 
             $product->feature_image = $image;
         }
+        $product->best_selling = $request->best_selling;
         $product->feature_product = $request->feature_product;
         $product->hot_deal = $request->hot_deal;
         $product->is_publish = $request->is_publish;

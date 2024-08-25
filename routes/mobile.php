@@ -18,6 +18,8 @@ Route::controller(HomeController::class)->group(function (){
    Route::get('/sslcredential', 'get_sslcredential');
    Route::get('/catwiseproduct', 'get_category_wise_project');
    Route::get('/catproducts/{category_id}', 'category_product_list');
+   Route::get('/featureproducts', 'feature_products');
+   Route::get('/hotdealproducts', 'hot_deal_products');
 });
 
 // Add more mobile-specific routes here

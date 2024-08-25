@@ -68,5 +68,13 @@ class HomeController extends Controller
         return response()->json($category_product, 200);
     }
 
+    public function feature_products(){
+        $feature_products = Product::where('feature_product', 1)->where('is_publish', 1)->where('is_active', 1)->get();
+        return response()->json($feature_products, 200);
+    }
+    public function hot_deal_products(){
+        $hot_deal = Product::where('hot_deal', 1)->where('is_publish', 1)->where('is_active', 1)->get();
+        return response()->json($hot_deal, 200);
+    }
 
 }
