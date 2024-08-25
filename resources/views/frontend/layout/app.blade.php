@@ -212,7 +212,8 @@
     // ================ Stick Cart =======================//
 
     //================= Single Product Add To Cart =======================//
-    function add_to_carts(product_id){
+    function add_to_carts(event, product_id){
+        event.preventDefault();
         axios.post('{{ route('frontend.addtocart') }}', {
             product_id: parseInt(product_id),
             quantity: 1

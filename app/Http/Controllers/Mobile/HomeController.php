@@ -77,4 +77,9 @@ class HomeController extends Controller
         return response()->json($hot_deal, 200);
     }
 
+    public function best_selling_products(){
+        $hot_deal = Product::where('best_selling', 1)->where('is_publish', 1)->where('is_active', 1)->get();
+        return response()->json($hot_deal, 200);
+    }
+
 }
