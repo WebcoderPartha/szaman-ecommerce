@@ -9,13 +9,13 @@
                         <div class="customer_info text-center text-2xl bg-white w-[35%] mx-auto absolute -top-[18px] left-[230px]">
                             <h2>Billing Information</h2>
                         </div>
-                        <div class="billing_information text-center my-8 italic font-semibold">
+                        <div class="billing_information text-center py-16 italic font-semibold">
                             <h1 class="text-xl">{{ $customer->first_name }} {{ $customer->last_name }}</h1>
                             <p>{{ $customer->phone }}</p>
                         </div>
 
                     </div>
-                    <div class="billing_container border border-theme my-4 relative ">
+                    <div class="billing_container border border-theme py-8 relative ">
                         <div class="customer_info text-center text-2xl bg-white w-[35%] mx-auto absolute -top-[18px] left-[230px]">
                             <h2>Shipping Address</h2>
                         </div>
