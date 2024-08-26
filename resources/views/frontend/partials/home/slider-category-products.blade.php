@@ -22,13 +22,13 @@
                 <!-- Single Product -->
                     <div class="swiper-slide px-1">
                         <div class="product-card flex flex-col text-center border-[1px] border-theme rounded-lg group">
-                        <a href="{{ route('frontend.product.details', $ct_product->slug) }}" class=" product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
+                            <a href="{{ route('frontend.product.details', $ct_product->slug) }}" class=" product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
                                 <img class="group-hover:scale-125 duration-500 w-full" src="{{ asset('/storage/product/'.$ct_product->feature_image) }}" alt="{{ $ct_product->feature_image }}">
                                 @if($ct_product->discount !== null)
                                     <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
-                        <span class=" text-white text-xs">
-                            <span class="font-bold">Flat {{$ct_product->discount}}% Off</span>
-                        </span>
+                            <span class=" text-white text-xs">
+                                <span class="font-bold">Flat {{$ct_product->discount}}% Off</span>
+                            </span>
                                     </div>
                                 @endif
 
@@ -47,39 +47,32 @@
                                     <!-- Add to cart icon -->
                                 </div>
                             </a>
-                            <div class="product-price-info flex flex-col gap-2 py-4 items-center min-h-[180px]">
-                                <a class="min-h-[60px]" href="{{ route('frontend.product.details', $ct_product->slug) }}"><h2 class="text-[16px] group-hover:text-theme font-semibold duration-500 px-2">{{ Str::limit($ct_product->title, 60) }}</h2></a>
+                            <div class="product-price-info flex flex-col gap-2 py-2 items-center min-h-[125px]">
+                                <a class="min-h-[44px]" href="{{ route('frontend.product.details', $ct_product->slug) }}"><h2 class="text-[14px] group-hover:text-theme font-semibold duration-500 px-2">{{ Str::limit($ct_product->title, 40) }}</h2></a>
                                 <div class="product_price">
-                                    <div class="flex-row justify-around md:justify-center items-center gap-x-2">
-                                        @if($ct_product->discount !== null)
-                                            <div class="flex justify-center">
-                                                <div class="text-sm text-theme font-bold flex items-center">
-                                                    <span> BDT </span><span>&nbsp;{{$ct_product->discount_price}}</span>
-                                                </div>
+                                    @if($ct_product->discount !== null)
+                                        <div class="flex flex-row gap-2 items-center justify-center">
+                                            <div class="flex flex-row justify-center items-center gap-x-0.5 text-[12px] font-bold line-through">
+                                                <span> TK</span><span>{{$ct_product->unit_price}}</span>
                                             </div>
-                                            <span class="mt-2 flex justify-center items-center">
-                            <div class="inline-flex justify-center items-center gap-x-0.5 text-sm rounded-full font-bold border border-accent-3 py-0.5 px-2">
-                                <span> MRP </span><span class="line-through  text-red-800">&nbsp;{{$ct_product->unit_price}}</span>
-                            </div>
-                        </span>
-                                        @else
-                                            <div class="flex justify-center">
-                                                <div class="text-sm text-theme font-bold flex items-center">
-                                                    <span> BDT </span><span>&nbsp;{{$ct_product->unit_price}}</span>
-                                                </div>
-                                            </div>
-                                        @endif
 
-                                    </div>
+                                            <div class="text-[13px] text-theme font-bold flex items-center">
+                                                <span> TK </span><span>&nbsp;{{$ct_product->discount_price}}</span>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="flex justify-center">
+                                            <div class="text-[13px] text-theme font-bold flex items-center">
+                                                <span> TK </span><span>&nbsp;{{$ct_product->unit_price}}</span>
+                                            </div>
+                                        </div>
+                                    @endif
                                     <div class="product-rating flex flex-row gap-1 mt-2 text-theme">
                                         @for($i = 0; $i< 5; $i++)
                                             <svg fill="currentColor" width="16" height="16" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
                                         @endfor
                                     </div>
                                 </div>
-                                {{--                                    <div id="{{ $feature_product->id }}" onclick="add_to_carts(this.id)" class=" border border-100 hover:border-theme duration-300 py-1 px-4 text-sm text-theme font-semibold rounded cursor-pointer">--}}
-                                {{--                                        Add to Cart--}}
-                                {{--                                    </div>--}}
                             </div>
                         </div>
                     </div>
