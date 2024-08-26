@@ -25,4 +25,15 @@ class HomeController extends Controller
         return view('frontend.homepage', compact('sliders', 'products', 'category_wish_products', 'feature_products'));
     }
 
+    public function product_search(Request $request){
+        // Retrieve the 'title' from the request input
+        $keyword = $request->input('keyword');
+
+        // Search for products with titles that match the search term
+        $products = Product::where('title', 'LIKE', '%' . $keyword . '%')->select(['title', 'unit_price', 'discount_price', 'feature_image'])->get();
+
+        // Return the results, you can return it as JSON or pass it to a view
+        return response()->json($products);
+    }
+
 }

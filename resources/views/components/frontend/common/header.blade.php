@@ -45,7 +45,7 @@
                     <div class=" max-w-[719px] flex-1 relative">
                         <div class="flex w-full overflow-hidden rounded-md">
                             <div class="relative flex-1">
-                                <input class="block w-full p-3 pl-4 outline-none" placeholder="Search in Store" autocomplete="off" value="">
+                                <input class="block w-full p-3 pl-4 outline-none" onkeyup="searchProduct(this.value)" placeholder="Search in Store" autocomplete="off">
                             </div>
                             <button class="gap-2 p-2 px-5 text-lg font-medium text-white bg-[#e54904]">Search</button>
                         </div>

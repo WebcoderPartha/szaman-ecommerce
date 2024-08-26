@@ -22,7 +22,7 @@
     @vite('resources/css/app.css')
     @yield('css')
 <!-- Crisp Chat plugin --------->
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="072efc38-340f-4eb8-a485-7dbaf008f76f";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+{{--    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="072efc38-340f-4eb8-a485-7dbaf008f76f";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>--}}
     <!-- Crisp Chat plugin --------->
 </head>
 {{--<body class="bg-[#f7f8fa]">--}}
@@ -343,6 +343,20 @@
     getCartPageContent()
     //================ Cart Page =====================//
 
+    //================ Search Product ================//
+    function searchProduct(value){
+        if (value.length > 3){
+            let data = {
+                keyword: value
+            }
+            axios.post("{{route('frontend.search_product')}}", data).then(searchRes => {
+                console.log(searchRes.data);
+            })
+
+        }
+
+    }
+    //================ Search Product ================//
 
     //================ Cash On Delivery Order ===============//
     function cashOnDelivery(){

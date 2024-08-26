@@ -66,6 +66,7 @@ Route::controller(FtdOrderController::class)->group(function (){
 // Frontend
 Route::controller(HomeController::class)->group(function (){
     Route::get('/', 'home_page')->name('frontend.home_page');
+    Route::post('/search-product', 'product_search')->name('frontend.search_product');
 });
 
 Route::controller(FrontendProductController::class)->group(function (){
