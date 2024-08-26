@@ -23,7 +23,17 @@ class HomeController extends Controller
     public function product_detail($id){
 
         $product = Product::with('category', 'sub_category', 'brand', 'gallery', 'variation')->where('id', $id)->where('is_publish', 1)->where('is_active', 1)->first();
-        return response()->json($product, 200);
+
+        // Fetch related products based on category and partial title match
+        $related_products = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id) // Exclude the current product
+            ->where('is_publish', 1)
+            ->where('is_active', 1)
+//            ->where('title', 'LIKE', '%' . $product->title . '%') // Partial title match
+            ->take(4) // Limit the number of related products (optional)
+            ->get();
+
+        return response()->json(['product_detail' => $product, 'related_products' => $related_products], 200);
 
     }
 

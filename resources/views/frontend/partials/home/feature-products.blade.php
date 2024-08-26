@@ -17,7 +17,7 @@
                         <div class="swiper-slide px-1">
                             <div class="product-card flex flex-col text-center border-[1px] border-theme rounded-lg group">
                                 <a href="{{ route('frontend.product.details', $feature_product->slug) }}" class="product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
-                                    <img class=" group-hover:scale-125 duration-500" height="200" src="{{ asset('/storage/product/'.$feature_product->feature_image) }}" alt="{{ $feature_product->feature_image }}">
+                                    <img class=" group-hover:scale-125 w-full duration-500" src="{{ asset('/storage/product/'.$feature_product->feature_image) }}" alt="{{ $feature_product->feature_image }}">
                                     @if($feature_product->discount !== null)
                                         <div class="absolute top-0 right-0 px-2 bg-theme rounded-bl-lg">
                         <span class=" text-white text-xs">

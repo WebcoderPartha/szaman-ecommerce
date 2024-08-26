@@ -6,6 +6,7 @@
             <div class="feature-image">
                 <img src="{{ asset('/storage/product/'.$product->feature_image) }}" id="productFeatureImage" class="w-full" alt="">
             </div>
+
             <div class="flex flex-row gap-2 py-2">
                 @if(count($product->gallery) > 0)
                     @foreach($product->gallery as $gallery_image)
@@ -201,7 +202,7 @@
         </div>
     </div>
     <div class="related_products">
-        <x-frontend.product.related-product />
+        @include('frontend.partials.related-products')
     </div>
 @endsection
 
