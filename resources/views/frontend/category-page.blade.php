@@ -52,7 +52,7 @@
                             @else
                                 <div class="flex justify-center">
                                     <div class="text-[13px] text-theme font-bold flex items-center">
-                                        <span> TK </span><span>&nbsp;{{$fetch_catproduct->unit_price}}</span>
+                                        <span> TK </span><span>&nbsp;{{$fetch_cat_product->unit_price}}</span>
                                     </div>
                                 </div>
                             @endif
