@@ -92,4 +92,16 @@ class HomeController extends Controller
         return response()->json($hot_deal, 200);
     }
 
+    public function product_search(Request $request){
+        // Retrieve the 'title' from the request input
+        $keyword = $request->input('keyword');
+
+        // Search for products with titles that match the search term
+        $products = Product::where('title', 'LIKE', '%' . $keyword . '%')->select(['id', 'title', 'unit_price', 'discount_price', 'feature_image'])->get();
+
+        // Return the results, you can return it as JSON or pass it to a view
+        return response()->json($products, 200);
+    }
+
+
 }

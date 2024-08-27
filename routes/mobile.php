@@ -21,6 +21,7 @@ Route::controller(HomeController::class)->group(function (){
    Route::get('/featureproducts', 'feature_products');
    Route::get('/hotdealproducts', 'hot_deal_products');
    Route::get('/bestsellingproducts', 'best_selling_products');
+   Route::post('/searchproduct', 'product_search');
 });
 
 // Add more mobile-specific routes here
