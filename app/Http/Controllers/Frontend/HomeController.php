@@ -14,6 +14,7 @@ class HomeController extends Controller
     public function home_page(){
         $feature_products = Product::where('feature_product', 1)->where('is_publish', 1)->where('is_active', 1)->get();
         $hot_deals = Product::where('hot_deal', 1)->where('is_publish', 1)->where('is_active', 1)->get();
+        $best_selling = Product::where('best_selling', 1)->where('is_publish', 1)->where('is_active', 1)->get();
         $products = Product::where('is_publish', 1)->where('is_active', 1)->orderBy('id', 'DESC')->get();
         $sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->get();
 
@@ -23,7 +24,7 @@ class HomeController extends Controller
             $category->products = $category->product()->take(8)->get();
         }
 
-        return view('frontend.homepage', compact('sliders', 'products', 'category_wish_products', 'feature_products', 'hot_deals'));
+        return view('frontend.homepage', compact('sliders', 'products', 'category_wish_products', 'feature_products', 'hot_deals', 'best_selling'));
     }
 
     public function product_search(Request $request){

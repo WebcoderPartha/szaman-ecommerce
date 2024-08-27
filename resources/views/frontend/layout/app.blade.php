@@ -475,13 +475,46 @@
         spaceBetween: 10,
         loop: true,
         autoplay: {
-            delay: 2000,
+            delay: 2500,
             disableOnInteraction: false,
         },
         speed: 500,
         navigation: {
             nextEl: ".hotdeal-swiper-button-next",
             prevEl: ".hotdeal-swiper-button-prev",
+        },
+        breakpoints: {
+            "@0.00": {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            "@0.75": {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            "@1.00": {
+                slidesPerView: 3,
+                spaceBetween: 15,
+            },
+            "@1.50": {
+                slidesPerView: 5,
+                spaceBetween: 10,
+            },
+        },
+    });
+
+    let bestSellingSlider = new Swiper(".bestSellingSlider", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        speed: 500,
+        navigation: {
+            nextEl: ".bestselling-swiper-button-next",
+            prevEl: ".bestselling-swiper-button-prev",
         },
         breakpoints: {
             "@0.00": {

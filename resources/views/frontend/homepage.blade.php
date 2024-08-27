@@ -44,6 +44,13 @@
         </div>
     @endif
     <!-- End Hot Deal -->
+    <!-- Hot Deal -->
+    @if(count($best_selling) > 0)
+        <div class="feature-products">
+            @include('frontend.partials.home.best-selling')
+        </div>
+    @endif
+    <!-- End Hot Deal -->
 
     @include('frontend.partials.home.slider-category-products')
 @endsection
