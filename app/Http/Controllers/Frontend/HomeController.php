@@ -13,6 +13,7 @@ class HomeController extends Controller
 
     public function home_page(){
         $feature_products = Product::where('feature_product', 1)->where('is_publish', 1)->where('is_active', 1)->get();
+        $hot_deals = Product::where('hot_deal', 1)->where('is_publish', 1)->where('is_active', 1)->get();
         $products = Product::where('is_publish', 1)->where('is_active', 1)->orderBy('id', 'DESC')->get();
         $sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->get();
 
@@ -22,7 +23,7 @@ class HomeController extends Controller
             $category->products = $category->product()->take(8)->get();
         }
 
-        return view('frontend.homepage', compact('sliders', 'products', 'category_wish_products', 'feature_products'));
+        return view('frontend.homepage', compact('sliders', 'products', 'category_wish_products', 'feature_products', 'hot_deals'));
     }
 
     public function product_search(Request $request){
@@ -42,7 +43,8 @@ class HomeController extends Controller
                 $unitPrice = $product->unit_price;
                 $discountPrice = $product->discount_price;
 
-                $content .= '<a href="' . route('frontend.product.details', $product->slug) . '" class="flex flex-row gap-2 border-b border-b-theme py-2">
+                if ($discountPrice !== null){
+                    $content .= '<a href="' . route('frontend.product.details', $product->slug) . '" class="flex flex-row gap-2 border-b border-b-slate-700 py-2">
                             <div class="search-product-image">
                                 <img width="50" src="' . $imagePath . '" alt="' . $product->title . '">
                             </div>
@@ -59,6 +61,23 @@ class HomeController extends Controller
                                 </div>
                             </div>
                         </a>';
+                }else{
+                    $content .= '<a href="' . route('frontend.product.details', $product->slug) . '" class="flex flex-row gap-2 border-b border-b-slate-700 py-2">
+                            <div class="search-product-image">
+                                <img width="50" src="' . $imagePath . '" alt="' . $product->title . '">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <h2>' . $product->title . '</h2>
+                                <div class="flex flex-row gap-2">
+
+                                    <div class="text-[13px] text-theme flex items-center">
+                                        <span>TK</span><span>&nbsp;' . $unitPrice . '</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>';
+                }
+
             }
             return response()->json(['content' => $content, 'search_status' => true], 200);
         }else {

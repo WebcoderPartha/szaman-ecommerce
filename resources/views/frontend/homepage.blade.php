@@ -29,9 +29,17 @@
             <!-- Swiper JS -->
         </div>
     </div>
-    <div class="feature-productddfs">
+    <!-- Feature Products -->
+    <div class="feature-products">
         @include('frontend.partials.home.feature-products')
     </div>
+    <!-- End Feature Products -->
+
+    <!-- Hot Deal -->
+    <div class="feature-products">
+        @include('frontend.partials.home.hot-deal')
+    </div>
+    <!-- End Hot Deal -->
 
     @include('frontend.partials.home.slider-category-products')
 @endsection

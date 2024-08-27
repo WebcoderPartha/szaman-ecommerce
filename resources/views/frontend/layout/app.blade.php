@@ -437,7 +437,7 @@
     //================ End Online Payment Order ===============//
 
 
-    var featureProductSlider = new Swiper(".featureProductSlider", {
+    let featureProductSlider = new Swiper(".featureProductSlider", {
         slidesPerView: 1,
         spaceBetween: 10,
         loop: true,
@@ -449,6 +449,39 @@
         navigation: {
             nextEl: ".feature-swiper-button-next",
             prevEl: ".feature-swiper-button-prev",
+        },
+        breakpoints: {
+            "@0.00": {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            "@0.75": {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            "@1.00": {
+                slidesPerView: 3,
+                spaceBetween: 15,
+            },
+            "@1.50": {
+                slidesPerView: 5,
+                spaceBetween: 10,
+            },
+        },
+    });
+
+    let hotDealSlider = new Swiper(".hotDealSlider", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        speed: 500,
+        navigation: {
+            nextEl: ".hotdeal-swiper-button-next",
+            prevEl: ".hotdeal-swiper-button-prev",
         },
         breakpoints: {
             "@0.00": {
