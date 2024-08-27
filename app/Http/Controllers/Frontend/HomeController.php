@@ -26,14 +26,46 @@ class HomeController extends Controller
     }
 
     public function product_search(Request $request){
-        // Retrieve the 'title' from the request input
+        // Retrieve the 'keyword' from the request input
         $keyword = $request->input('keyword');
 
         // Search for products with titles that match the search term
-        $products = Product::where('title', 'LIKE', '%' . $keyword . '%')->select(['id', 'title', 'unit_price', 'discount_price', 'feature_image'])->get();
+        $products = Product::where('title', 'LIKE', '%' . $keyword . '%')
+            ->select(['id', 'title', 'unit_price', 'discount_price','slug', 'feature_image'])
+            ->get();
 
-        // Return the results, you can return it as JSON or pass it to a view
-        return response()->json($products);
+        $content = "";
+        if ($products->count() > 0){
+            foreach ($products as $product){
+                // Handle the image path and price dynamically
+                $imagePath = asset('storage/product/' . $product->feature_image);
+                $unitPrice = $product->unit_price;
+                $discountPrice = $product->discount_price;
+
+                $content .= '<a href="' . route('frontend.product.details', $product->slug) . '" class="flex flex-row gap-2 border-b border-b-theme py-2">
+                            <div class="search-product-image">
+                                <img width="50" src="' . $imagePath . '" alt="' . $product->title . '">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <h2>' . $product->title . '</h2>
+                                <div class="flex flex-row gap-2">
+                                    <div class="flex flex-row justify-center items-center gap-x-0.5 text-[12px] line-through">
+                                        <span>TK</span><span>' . $unitPrice . '</span>
+                                    </div>
+
+                                    <div class="text-[13px] text-theme flex items-center">
+                                        <span>TK</span><span>&nbsp;' . $discountPrice . '</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>';
+            }
+            return response()->json(['content' => $content, 'search_status' => true], 200);
+        }else {
+            return response()->json(['search_status' => false], 200);
+        }
+
+        // Return the results as a JSON response
     }
 
 }

@@ -345,17 +345,47 @@
 
     //================ Search Product ================//
     function searchProduct(value){
-        if (value.length > 3){
+        let search_button = document.getElementById('search_button');
+        let close_search_button = document.getElementById('close_search_button');
+        let ps_container_id = document.getElementById('ps-container');
+        if (value.length > 2){
             let data = {
                 keyword: value
             }
             axios.post("{{route('frontend.search_product')}}", data).then(searchRes => {
+                if (searchRes.data.search_status == true){
+                    ps_container_id.classList.remove('hidden')
+                    search_button.classList.add('hidden')
+                    close_search_button.classList.remove('hidden')
+                    $('.search-product-container').html(searchRes.data.content)
+                }else{
+                    ps_container_id.classList.add('hidden')
+
+                }
                 console.log(searchRes.data);
             })
 
+        }else{
+            ps_container_id.classList.add('hidden')
+            search_button.classList.remove('hidden')
+            close_search_button.classList.add('hidden')
         }
 
     }
+
+    function searchCloseButton(){
+        let ps_container_id = document.getElementById('ps-container');
+        ps_container_id.classList.add('hidden')
+        let search_button = document.getElementById('search_button');
+        search_button.classList.remove('hidden')
+
+        let close_search_button = document.getElementById('close_search_button');
+        close_search_button.classList.add('hidden')
+        $('#searchKeyword').val('');
+        $('.search-product-container').html("")
+
+    }
+
     //================ Search Product ================//
 
     //================ Cash On Delivery Order ===============//

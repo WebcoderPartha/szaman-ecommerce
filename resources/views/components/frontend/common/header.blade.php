@@ -45,11 +45,12 @@
                     <div class=" max-w-[719px] flex-1 relative">
                         <div class="flex w-full overflow-hidden rounded-md">
                             <div class="relative flex-1">
-                                <input class="block w-full p-3 pl-4 outline-none" onkeyup="searchProduct(this.value)" placeholder="Search in Store" autocomplete="off">
+                                <input class="block w-full p-3 pl-4 outline-none" id="searchKeyword" onkeyup="searchProduct(this.value)" placeholder="Search in Store" autocomplete="off">
                             </div>
-                            <button class="gap-2 p-2 px-5 text-lg font-medium text-white bg-[#e54904]">Search</button>
+                            <button id="search_button" class="gap-2 p-2 px-5 text-lg font-medium text-white bg-[#e54904]">Search</button>
+                            <button id="close_search_button" onclick="searchCloseButton()" class="gap-2 p-2 px-5 text-lg font-medium text-white bg-[#e54904] hidden"><i class="fa fa-close"></i></button>
                         </div>
-                        <div class="search-product-container px-1 bg-[#ffeee7] h-[400px] overflow-y-scroll absolute top-12 bottom-0 left-0 w-full shadow-sm">
+                        <div id="ps-container" class="search-product-container hidden px-1 bg-[#ffeee7] h-[400px] overflow-y-scroll absolute top-12 bottom-0 left-0 w-full shadow-sm">
                             <a href="" class="flex flex-row gap-2 border-b border-b-theme py-2">
                                 <div class="search-product-image">
                                     <img width="50" src="http://127.0.0.1:8000/storage/product/product-108934.jpg" alt="">
