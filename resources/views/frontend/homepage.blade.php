@@ -30,15 +30,19 @@
         </div>
     </div>
     <!-- Feature Products -->
-    <div class="feature-products">
-        @include('frontend.partials.home.feature-products')
-    </div>
+    @if(count($feature_products) > 0)
+        <div class="feature-products">
+            @include('frontend.partials.home.feature-products')
+        </div>
+    @endif
     <!-- End Feature Products -->
 
     <!-- Hot Deal -->
-    <div class="feature-products">
-        @include('frontend.partials.home.hot-deal')
-    </div>
+    @if(count($hot_deals) > 0)
+        <div class="feature-products">
+            @include('frontend.partials.home.hot-deal')
+        </div>
+    @endif
     <!-- End Hot Deal -->
 
     @include('frontend.partials.home.slider-category-products')
