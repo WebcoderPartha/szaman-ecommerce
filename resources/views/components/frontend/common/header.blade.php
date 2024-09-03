@@ -18,14 +18,17 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('frontend.myaccount.page') }}" class="header_top_list_link text-[14px] flex flex-row gap-1 items-center justify-center">
-                                <i class="fa-solid fa-user text-theme"></i>
-                                @if(Auth::guard('web')->check())
-                                    <span class="font-semibold">{{ Auth::guard('web')->user()->first_name }} {{ Auth::guard('web')->user()->last_name }}</span>
-                                @else
-                                    <span class="font-semibold">My Account</span>
-                                @endif
+                            @if(Auth::guard('web')->check())
+                            <a href="{{ route('frontend.myaccount.page') }}" class="header_top_list_link text-[14px] bg-theme px-3 py-1 rounded text-white flex flex-row gap-1 items-center justify-center">
+                                <i class="fa-solid fa-user "></i>
+                                <span class="font-semibold">{{ Auth::guard('web')->user()->first_name }} {{ Auth::guard('web')->user()->last_name }}</span>
                             </a>
+                            @else
+                                <a href="{{ route('user_login_page') }}" class="header_top_list_link text-[14px] bg-theme px-3 py-1 rounded text-white flex flex-row gap-1 items-center justify-center">
+                                    <i class="fa-solid fa-user "></i>
+                                    <span class="font-semibold">Login</span>
+                                </a>
+                            @endif
                         </li>
                     </ul>
                 </div>
@@ -33,7 +36,8 @@
         </div>
     </div>
 </div>
-<header class="sticky top-0 z-50 bg-[#f7f8fa] px-2 md:px-0 hidden md:block" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">
+{{--<header class="sticky top-0 z-50 bg-[#f7f8fa] px-2 md:px-0 hidden md:block" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">--}}
+<header id="myheader" class=" bg-[#f7f8fa] px-2 md:px-0 hidden md:block" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">
     <div class="mx-auto md:w-[1560px] max-w-full px-4 flex gap-6 py-2">
         <div class="flex items-center flex-1 gap-4 md:gap-8 justify-between">
                 <span class="md:w-[160px] w-[70px]">
@@ -86,7 +90,7 @@
 
 
 <!-- Your header with dropdown -->
-<header class="bg-[#eb5d1e] relative px-2 md:px-0 hidden md:block z-[999999]" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">
+<header id="header_bottom" class="bg-[#eb5d1e] relative px-2 md:px-0 hidden md:block z-[999]" style="filter:drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08))">
     <div class="relative z-50 mx-auto md:w-[1560px] max-w-full px-4 flex gap-6">
         <div class="flex flex-row gap-8 text-white items-center mx-auto uppercase text-[16px] font-semibold z-[999999]">
             @if(count($category_menus) > 0)

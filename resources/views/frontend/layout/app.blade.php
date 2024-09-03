@@ -111,6 +111,25 @@
 <!-- Initialize Swiper -->
 
 <script>
+
+    window.onscroll = function() {myFunction()};
+
+    var header = document.getElementById("myheader");
+    var header_bottom = document.getElementById("header_bottom");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > 10) {
+            header.classList.add("sticky");
+            header_bottom.classList.add('md:hidden')
+            header_bottom.classList.remove('md:block')
+        } else {
+            header.classList.remove("sticky");
+            header_bottom.classList.remove('md:hidden')
+            header_bottom.classList.add('md:block')
+        }
+    }
+
     toastr.options = {
         "closeButton": true,
         "progressBar": true

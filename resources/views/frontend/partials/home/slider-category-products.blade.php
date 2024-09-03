@@ -1,26 +1,22 @@
 <!-- Swiper -->
-@foreach($category_wish_products as $csKey => $product_category)
+@foreach($category_wish_products as $product_category)
     <!--:::::::::::::::::: Category Loop :::::::::::::-->
-    <div class="Category-products flex flex-col gap-3 my-4">
-        <div class="flex flex-row justify-between items-center border-b border-b-[#ced4da] py-2">
-            <div class="flex flex-row gap-4 items-center">
-                <div>
-                    <h2 class="text-base md:text-2xl font-semibold">{{ $product_category->name }}</h2>
-                </div>
-                <div class="slider_prev_next flex flex-row gap-6">
-                    <span class="custom-swiper-button-next-{{$csKey+1}}"><i class="fa-solid fa-arrow-left text-2xl"></i></span>
-                    <span class="custom-swiper-button-prev-{{$csKey+1}}"><i class="fa-solid fa-arrow-right text-2xl"></i></span>
-                </div>
+    <div class="Category-products flex flex-col gap-3 my-8">
+        <div class="flex flex-row justify-center items-center border-b border-b-[#ced4da] py-1 bg-theme">
+            <div class="">
+                <h2 class="text-base md:text-2xl text-center font-semibold text-white px-16 uppercase"><a href="{{ route('frontend.category.page', $product_category->slug) }}"
+                        href="">{{ $product_category->name }}</a></h2>
             </div>
-            <a href="{{ route('frontend.category.page', $product_category->slug) }}" class="bg-theme text-white px-2 py-1 rounded">View All</a>
         </div>
-        <div class="swiper categoryProductSlider-{{$csKey+1}}">
-            <div class="swiper-wrapper">
 
             {{--            <div class="swiper-slide">--}}
-            @foreach($product_category->product as $ct_product)
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-4 items-center bg-white  py-6">
+
+            @php
+                $cat_products = \App\Models\Product::where('category_id', $product_category->id)->orderBy('id', 'DESC')->take(16)->get();
+            @endphp
+            @foreach($cat_products as $ct_product)
                 <!-- Single Product -->
-                    <div class="swiper-slide px-1">
                         <div class="product-card flex flex-col text-center border-[1px] border-theme rounded-lg group">
                             <a href="{{ route('frontend.product.details', $ct_product->slug) }}" class=" product-img rounded-tl-lg rounded-tr-lg overflow-hidden relative">
                                 <img class="group-hover:scale-125 duration-500 w-full" src="{{ asset('/storage/product/'.$ct_product->feature_image) }}" alt="{{ $ct_product->feature_image }}">
@@ -75,11 +71,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+
                     <!--/ Single Product -->
                 @endforeach
-
-            </div>
+        </div>
+        <div class="flex items-center justify-center">
+            <a href="{{ route('frontend.category.page', $product_category->slug) }}" class="border border-theme px-4 py-1 uppercase rounded font-semibold text-black hover:bg-theme hover:text-white">View All</a>
         </div>
     </div>
     <!--:::::::::::::::::: Category Loop :::::::::::::-->
@@ -88,45 +85,3 @@
 
 <!-- Swiper -->
 
-@section('js')
-    <script>
-        let all_category = Number("{{ count($category_wish_products) }}")
-
-        for (let cs = 0; cs <= all_category; cs++){
-            var categoryProduct = new Swiper(".categoryProductSlider-"+cs, {
-                slidesPerView: 1,
-                spaceBetween: 10,
-                loop: true,
-                autoplay: {
-                    delay: 2000+cs,
-                    disableOnInteraction: false,
-                },
-                speed: 500,
-                navigation: {
-                    nextEl: ".custom-swiper-button-next-"+cs,
-                    prevEl: ".custom-swiper-button-prev-"+cs,
-                },
-                breakpoints: {
-                    "@0.00": {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
-                    "@0.75": {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
-                    "@1.00": {
-                        slidesPerView: 3,
-                        spaceBetween: 15,
-                    },
-                    "@1.50": {
-                        slidesPerView: 5,
-                        spaceBetween: 10,
-                    },
-                },
-            });
-        }
-
-
-    </script>
-@endsection
