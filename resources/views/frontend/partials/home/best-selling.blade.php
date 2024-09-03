@@ -74,8 +74,8 @@
                 @endforeach
 
             </div>
-            <span class="bestselling-swiper-button-next absolute top-[40%] -left-0 z-[9999]"><i class="border border-theme rounded-full px-2 bg-theme pt-[2px] pb-[2px] fa-solid fa-arrow-left text-2xl text-white"></i></span>
-            <span class="bestselling-swiper-button-prev absolute top-[40%] -right-0 z-[9999]"><i class="border border-theme hover:bg-theme hover:text-white rounded-full px-2 pt-[2px] pb-[2px] fa-solid fa-arrow-right text-2xl bg-theme text-white"></i></span>
+            <span class="bestselling-swiper-button-next absolute top-[40%] -left-0 z-[9999]"><i class="border border-theme rounded-full px-2 bg-theme pt-[2px] pb-[2px] fa-solid fa-arrow-left text-base md:text-2xl text-white"></i></span>
+            <span class="bestselling-swiper-button-prev absolute top-[40%] -right-0 z-[9999]"><i class="border border-theme hover:bg-theme hover:text-white rounded-full px-2 pt-[2px] pb-[2px] fa-solid fa-arrow-right text-base md:text-2xl bg-theme text-white"></i></span>
         </div>
     </div>
 
