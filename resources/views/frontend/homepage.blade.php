@@ -1,14 +1,9 @@
 @extends('frontend.layout.app')
 @section('title', 'Home Page')
 @section('content')
-    <div class="grid grid-cols-12">
-{{--        <div class="hidden md:inline-block md:col-span-3 bg-white shadow-sm relative">--}}
-{{--            <x-frontend.home.desktop-menu />--}}
-{{--        </div>--}}
-
-        <div class="col-span-12 md:col-span-12">
+    <div class="grid grid-cols-1 mt-2">
             <!-- Swiper -->
-            <div class="swiper bannerSwiper">
+            <div class="swiper bannerSwiper" >
                 <div class="swiper-wrapper">
 
                     @if($sliders->count() > 0)
@@ -27,8 +22,9 @@
                 <div class="swiper-pagination"></div>
             </div>
             <!-- Swiper JS -->
-        </div>
     </div>
+
+
     <!-- Feature Products -->
     @if(count($feature_products) > 0)
         <div class="feature-products">
@@ -39,14 +35,14 @@
 
     <!-- Hot Deal -->
     @if(count($hot_deals) > 0)
-        <div class="feature-products">
+        <div class="hod-deal-products">
             @include('frontend.partials.home.hot-deal')
         </div>
     @endif
     <!-- End Hot Deal -->
     <!-- Hot Deal -->
     @if(count($best_selling) > 0)
-        <div class="feature-products">
+        <div class="best-selling-products">
             @include('frontend.partials.home.best-selling')
         </div>
     @endif

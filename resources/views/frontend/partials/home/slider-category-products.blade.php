@@ -5,7 +5,7 @@
         <div class="flex flex-row justify-between items-center border-b border-b-[#ced4da] py-2">
             <div class="flex flex-row gap-4 items-center">
                 <div>
-                    <h2 class="text-2xl font-semibold">{{ $product_category->name }}</h2>
+                    <h2 class="text-base md:text-2xl font-semibold">{{ $product_category->name }}</h2>
                 </div>
                 <div class="slider_prev_next flex flex-row gap-6">
                     <span class="custom-swiper-button-next-{{$csKey+1}}"><i class="fa-solid fa-arrow-left text-2xl"></i></span>

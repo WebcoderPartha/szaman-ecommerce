@@ -37,9 +37,7 @@
 <!-- Footer -->
 <x-frontend.common.footer />
 <!--/ Footer -->
-<!-- Desktop Fixed Product Cart -->
-{{--<x-frontend.common.sticky-cart />--}}
-<!--/ Desktop Fixed Product Cart -->
+
 <!-- Mobile Footer -->
 <x-frontend.common.mobile-footer />
 <!--/ Mobile Footer -->
@@ -82,54 +80,6 @@
         <!-- Fixed Product Cart Body -->
         <div class="fixed_product_cart_body h-[700px] pb-[300px] md:pb-[200px] overflow-y-scroll">
             <div class="px-2 py-2 stickyCart">
-{{--            @if(count(Cart::instance('shopping')->content()))--}}
-{{--                @foreach(Cart::instance('shopping')->content() as $fixedCart)--}}
-{{--                    <!-- Cart Item -->--}}
-{{--                        <div class="grid grid-cols-12 border-b pb-1">--}}
-{{--                            <div class="col-span-3">--}}
-{{--                                <img src="{{ asset('/storage/product/'.$fixedCart->options->image) }}" width="80" height="80" alt="">--}}
-{{--                            </div>--}}
-{{--                            <div class="col-span-9">--}}
-{{--                                <div class="flex flex-col w-full gap-1">--}}
-{{--                                    <div class="flex justify-between gap-4">--}}
-{{--                                        <h3>{{ $fixedCart->name }}</h3>--}}
-{{--                                        <a class="card_remove text-red-600 cursor-pointer" id="{{ $fixedCart->rowId }}" onclick="cartRemove(this.id)">--}}
-{{--                                            <i class="fa-solid fa-trash"></i>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="fixed_product_card_size">--}}
-{{--                                        <strong>Size:</strong>--}}
-{{--                                        <span>S</span>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="fixed_product_card_qty_price flex flex-row items-center justify-between">--}}
-{{--                                        <!-- fixed product cart quantity start -->--}}
-{{--                                        <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">--}}
-{{--                                            <div class="fixed_product_card_qty_minus border-r px-2 cursor-pointer" id="{{$fixedCart->rowId}}" onclick="cartDecrement(this.id)">--}}
-{{--                                                <i class="fa-solid fa-minus"></i>--}}
-{{--                                            </div>--}}
-{{--                                            <input class="product_qty w-10 font-semibold focus:outline-none text-center" id="qty_{{$fixedCart->rowId}}" type="text" value="{{ $fixedCart->qty }}">--}}
-{{--                                            <div class="fixed_product_card_qty_plus border-l px-2 cursor-pointer" id="{{$fixedCart->rowId}}" onclick="cartIncrement(this.id)">--}}
-{{--                                                <i class="fa-solid fa-plus"></i>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <!-- fixed product cart quantity end -->--}}
-{{--                                        <!-- fixed product cart price start -->--}}
-{{--                                        <div class="fixed_product_card_close_price">--}}
-{{--                                            <p>{{ $fixedCart->subtotal }} TK</p>--}}
-{{--                                        </div>--}}
-{{--                                        <!-- fixed product cart price end -->--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <!--/ Cart Item -->--}}
-{{--                    @endforeach--}}
-
-{{--                @else--}}
-{{--                    <h2 class="text-center text-xl">Empty!</h2>--}}
-{{--                @endif--}}
-
-
 
             </div>
         </div>
