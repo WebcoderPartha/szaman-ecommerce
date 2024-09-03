@@ -63,26 +63,20 @@
             </div>
         </div>
         <div class="flex items-center gap-4 ">
-            <a class="relative transition-colors outline-1 p-1 text-white" href="{{ route('frontend.cart_view') }}">
+            <a class="relative transition-colors outline-1 p-1 text-red-500" href="{{ route('frontend.cart_view') }}">
+
+                <i class="fa-solid fa-heart"></i>
+                <span class="sr-only">Favorite</span>
+            </a>
+
+
+            <a href="{{ route('frontend.cart_view') }}" class="flex md:border py-1 md:rounded-md text-black cursor-pointer items-center text-base justify-center px-2 md:max-w-[150px] gap-0 transition-colors" >
                 <svg stroke="#eb5d1e" fill="none" stroke-width="0" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                 </svg>
-                <span class="sr-only">Cart</span>
+                <span class="hidden md:inline-block text-black subTotal">00</span><span>TK</span>
             </a>
-            @if(!Auth::guard('web')->check())
-            <a class="inline-flex md:border py-2 md:rounded-md text-white cursor-pointer items-center text-base justify-center md:w-[120px] gap-2 transition-colors" href="{{ route('user_login_page') }}">
-                <svg stroke="currentColor" fill="#eb5d1e" stroke-width="0" viewBox="0 0 448 512" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z">
-                    </path>
-                </svg>
-                <span class="hidden md:inline-block text-[#eb5d1e]">Sign in</span>
-                <span class="sr-only">Sign in</span>
-            </a>
-            @else
-                <a class="inline-flex md:border py-2 md:rounded-md text-white cursor-pointer items-center text-base justify-center md:w-[120px] gap-2 transition-colors" href="{{ route('customer.logout') }}">
-                    <span class="hidden md:inline-block">Logout</span>
-                </a>
-            @endif
+
         </div>
     </div>
 </header>

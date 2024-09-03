@@ -249,7 +249,7 @@
         axios.post('/removecart', data).then(rmvCartRes => {
             getCartContent();
             getCartPageContent();
-            toastr.success(rmvCartRes.data.success);
+            //toastr.success(rmvCartRes.data.success);
         })
     }
     // ====================/ Cart Removed ===================//
