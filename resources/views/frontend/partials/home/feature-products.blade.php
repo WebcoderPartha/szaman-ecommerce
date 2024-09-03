@@ -2,9 +2,9 @@
 <!-- Swiper -->
     <!--:::::::::::::::::: Category Loop :::::::::::::-->
     <div class="feature-products flex flex-col gap-3 my-4">
-        <div class="flex flex-row justify-center items-center bg-theme border-b border-b-[#ced4da] py-1">
+        <div class="flex flex-row justify-center items-center bg-[#00a88a] border-b border-b-[#ced4da] py-2">
             <div class="">
-                <h2 class="text-base md:text-2xl text-center font-semibold bg-theme text-white px-16">FEATURE PRODUCTS</h2>
+                <h2 class="text-base md:text-2xl text-center font-semibold text-white px-16">FEATURE PRODUCTS</h2>
             </div>
         </div>
 

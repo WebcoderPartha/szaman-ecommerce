@@ -2,7 +2,7 @@
 @foreach($category_wish_products as $product_category)
     <!--:::::::::::::::::: Category Loop :::::::::::::-->
     <div class="Category-products flex flex-col gap-3 my-8">
-        <div class="flex flex-row justify-center items-center border-b border-b-[#ced4da] py-1 bg-theme">
+        <div class="flex flex-row justify-center items-center border-b border-b-[#ced4da] py-2 bg-theme">
             <div class="">
                 <h2 class="text-base md:text-2xl text-center font-semibold text-white px-16 uppercase"><a href="{{ route('frontend.category.page', $product_category->slug) }}"
                         href="">{{ $product_category->name }}</a></h2>

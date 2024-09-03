@@ -2,9 +2,9 @@
 <!-- Swiper -->
 <!--:::::::::::::::::: Category Loop :::::::::::::-->
 <div class="hot-products flex flex-col gap-3 my-4">
-    <div class="flex flex-row justify-center items-center border-b bg-theme border-b-[#ced4da] py-1">
+    <div class="flex flex-row justify-center items-center border-b bg-red-500 border-b-[#ced4da] py-2">
         <div class="">
-            <h2 class="text-base md:text-2xl text-center font-semibold bg-theme text-white px-16">HOT DEAL</h2>
+            <h2 class="text-base md:text-2xl text-center font-semibold text-white px-16">HOT DEAL</h2>
         </div>
         {{--           <!-- <a href="{{ route('frontend.category.page', $product_category->slug) }}" class="bg-theme text-white px-2 py-1 rounded">View All</a> -->--}}
     </div>

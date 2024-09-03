@@ -45,14 +45,11 @@
 <!--=============== Sticky Cart ===============-->
 <div class="fixed_product_sticky hidden md:block fixed top-[40%] z-20 bg-white drop-shadow right-0 cursor-pointer" id="openModalButton">
     <div class="flex flex-col items-center justify-center">
-        <div class="fixed_product_sticky_icon p-2">
+        <div class="fixed_product_sticky_icon p-1">
             <i class="fa-solid text-theme fa-cart-shopping text-xl"></i>
         </div>
-        <div class="fixed_product_sticky_price">
-            <p class="subTotal">
-            </p>
-        </div>
-        <div class="fixed_product_sticky_count bg-theme text-white px-3 py-1">
+
+        <div class="fixed_product_sticky_count bg-theme text-white px-2 py-1">
             <p><span class="item_count">{{ Cart::instance('shopping')->count() }}</span> items</p>
         </div>
     </div>
@@ -120,11 +117,11 @@
 
     function myFunction() {
         if (window.pageYOffset > 10) {
-            header.classList.add("sticky");
+            header.classList.add("sticky_header");
             header_bottom.classList.add('md:hidden')
             header_bottom.classList.remove('md:block')
         } else {
-            header.classList.remove("sticky");
+            header.classList.remove("sticky_header");
             header_bottom.classList.remove('md:hidden')
             header_bottom.classList.add('md:block')
         }

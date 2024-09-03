@@ -1,11 +1,11 @@
-.sticky {
+.sticky_header {
     position: fixed;
     top: 0;
     width: 100%;
     -webkit-box-shadow: var(--shadow);
     box-shadow: var(--shadow);
     background-color: var(--white);
-    z-index: 999999999999999999;
+    z-index: 9999;
     padding: 8px 0px !important;
 }
 

@@ -2,7 +2,7 @@
 <!-- Swiper -->
 <!--:::::::::::::::::: Category Loop :::::::::::::-->
 <div class="best-selling-products flex flex-col gap-3 my-4">
-    <div class="flex flex-row justify-center items-center border-b bg-theme border-b-[#ced4da] py-1">
+    <div class="flex flex-row justify-center items-center border-b bg-yellow-500 border-b-[#ced4da] py-2">
         <div class="">
             <h2 class="text-base md:text-2xl text-center font-semibold text-white px-16">BEST SELLING</h2>
         </div>

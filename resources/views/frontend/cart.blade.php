@@ -63,10 +63,10 @@
             </div>
             <div class="col-span-12 md:col-span-3">
                 <div class="product_shipping px-6 py-6 bg-white shadow-md sticky top-20">
-                    <div class="text-2xl pb-3 border-b">
+                    <div class="text-2xl pb-3 border-b px-4">
                         <h2>Order Summary</h2>
                     </div>
-                    <div class="view_cart_subtotal flex justify-between items-center text-xl border-b py-3">
+                    <div class="view_cart_subtotal flex justify-between items-center text-xl border-b py-3 px-4">
                         <strong>Subtotal</strong>
                         <strong><span class="subTotal">{{ Cart::instance('shopping')->subtotal() }}</span> TK</strong>
                     </div>
@@ -120,7 +120,7 @@
                         </div> -->
 
                         <div class="view_cart_process_checkout">
-                            <a href="{{ route('frontend.checkout_view') }}" class="view_cart_process_checkout_link bg-theme inline-block w-full text-white text-[18px] py-3 text-center font-semibold rounded border border-theme hover:bg-transparent hover:text-theme duration-300">Check Out</a>
+                            <a href="{{ route('frontend.checkout_view') }}" class="view_cart_process_checkout_link bg-theme inline-block w-full text-white text-[18px] py-3 text-center font-semibold border border-theme hover:bg-transparent hover:text-theme duration-300">Checkout</a>
                         </div>
                     </div>
                 </div>
