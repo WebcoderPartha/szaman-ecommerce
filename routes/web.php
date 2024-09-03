@@ -52,6 +52,7 @@ Route::controller(CartController::class)->group(function (){
 // Frontend Category Controller
 Route::controller(FrontendCategoryController::class)->group(function (){
     Route::get('/category/{slug}', 'category_page')->name('frontend.category.page');
+    Route::get('/category/{category_slug}/{subcat_slug}', 'sub_category_page')->name('frontend.subcategory.page');
 });
 
 // Category Product Controller

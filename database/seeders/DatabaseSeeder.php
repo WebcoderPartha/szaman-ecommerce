@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
-//            CreateAdminSeeder::class,
-//            CreateUserSeeder::class,
+            CreateAdminSeeder::class,
+            CreateUserSeeder::class,
             CreateCategorySeeder::class,
-//            CreateSubcategorySeeder::class,
-//            CreateBrandSeeder::class,
-//            CreateAttributeSeeder::class,
+            CreateSubcategorySeeder::class,
+            CreateBrandSeeder::class,
+            CreateAttributeSeeder::class,
         ]);
     }
 }

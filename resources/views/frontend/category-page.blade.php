@@ -3,7 +3,11 @@
 @section('content')
 
     <div class="flex flex-col py-6 border-b">
-        <div class="text-2xl font-semibold">{{ $category_products->name }}</div>
+        <div class="text-base font-semibold">
+            <a href="{{ route('frontend.home_page') }}" class="hover:text-theme"><i class="fa fa-home"></i></a>&nbsp;
+            <a href="{{ route('frontend.category.page', $category_products->slug) }}">{{ $category_products->name }}</a>
+
+        </div>
         <div class="text-sm">{{ count($category_products->product) }} items in {{ $category_products->name }}</div>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 items-center bg-white px-4 md:px-0 py-6">

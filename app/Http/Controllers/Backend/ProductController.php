@@ -37,7 +37,7 @@ class ProductController extends Controller
                     return '-';
                 }
             })->addColumn('sub_category', function ($row){
-                if ($row->sub_categor){
+                if ($row->sub_category){
                     return $row->sub_category->name;
                 }else{
                     return '-';

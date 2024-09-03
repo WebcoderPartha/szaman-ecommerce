@@ -102,7 +102,7 @@
                     @if(count($category_menu->sub_category) > 0)
                         <div class="absolute w-[240px] hidden group-hover:block bg-white text-black mt-0 shadow-lg rounded">
                             @foreach($category_menu->sub_category as $sub_menu)
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:pl-8 border-b duration-300">{{ $sub_menu->name }}</a>
+                                <a href="{{ route('frontend.subcategory.page', ['category_slug' =>$category_menu->slug, 'subcat_slug' => $sub_menu->slug]) }}" class="block px-4 py-2 hover:bg-gray-100 hover:pl-8 border-b duration-300">{{ $sub_menu->name }}</a>
                             @endforeach
                         </div>
                     @endif
