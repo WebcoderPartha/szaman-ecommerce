@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\SiteSetting;
 use Illuminate\Http\Request;
 use App\Models\Sslcommerze;
 
@@ -35,5 +36,11 @@ class SettingController extends Controller
         return redirect()->back();
 
      }
+
+     public function site_setting(){
+        $site_setting = SiteSetting::first();
+        return view('backend.setting.site-setting', compact('site_setting'));
+     }
+
 
 }

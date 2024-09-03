@@ -14,6 +14,7 @@ Route::controller(HomeController::class)->group(function (){
    Route::get('/homeslider', 'home_slider');
    Route::get('/getcategory', 'get_category');
    Route::get('/getbrand', 'get_brand');
+   Route::get('/getbrandproduct/{brand_id}', 'brand_products');
    Route::get('/getshippingcharge', 'shipping_charge');
    Route::get('/sslcredential', 'get_sslcredential');
    Route::get('/catwiseproduct', 'get_category_wise_project');

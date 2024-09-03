@@ -48,8 +48,15 @@ class HomeController extends Controller
     }
 
     public function get_brand(){
-        $brand = Brand::select('name', 'image')->get();
+        $brand = Brand::select('name', 'image', 'id')->get();
         return response()->json($brand, 200);
+    }
+
+    public function brand_products($brand_id){
+
+        $products = Product::where('brand_id', $brand_id)->where('is_publish', 1)->where('is_active', 1)->get();
+
+        return response()->json($products, 200);
     }
 
     public function shipping_charge(){
@@ -102,6 +109,7 @@ class HomeController extends Controller
         // Return the results, you can return it as JSON or pass it to a view
         return response()->json($products, 200);
     }
+
 
 
 }

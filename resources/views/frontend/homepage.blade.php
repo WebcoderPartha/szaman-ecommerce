@@ -2,11 +2,11 @@
 @section('title', 'Home Page')
 @section('content')
     <div class="grid grid-cols-12">
-        <div class="hidden md:inline-block md:col-span-3 bg-white shadow-sm relative">
-            <x-frontend.home.desktop-menu />
-        </div>
+{{--        <div class="hidden md:inline-block md:col-span-3 bg-white shadow-sm relative">--}}
+{{--            <x-frontend.home.desktop-menu />--}}
+{{--        </div>--}}
 
-        <div class="col-span-12 md:col-span-9">
+        <div class="col-span-12 md:col-span-12">
             <!-- Swiper -->
             <div class="swiper bannerSwiper">
                 <div class="swiper-wrapper">

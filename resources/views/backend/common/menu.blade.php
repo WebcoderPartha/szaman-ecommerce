@@ -91,6 +91,11 @@
                 <span class="nav-link-text">SSLCommerz</span>
             </a>
         </li>
+        <li>
+            <a href="{{ route('backend.setting.site_setting') }}" class=" waves-effect waves-themed">
+                <span class="nav-link-text">Site Setting</span>
+            </a>
+        </li>
     </ul>
 </li>
 <li>

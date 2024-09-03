@@ -25,6 +25,7 @@ use App\Http\Controllers\Frontend\MyAccountController;
 use App\Http\Controllers\Frontend\CategoryProductController;
 use App\Http\Controllers\Frontend\FrontendCategoryController;
 
+
 // SSLCOMMERZ Start
 //Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 //Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
@@ -221,6 +222,7 @@ Route::middleware('admin')->prefix('/admin')->group(function (){
     Route::controller(SettingController::class)->prefix('settings')->group(function (){
         Route::get('/sslcommerz-credentials', 'sslcommerz_view')->name('backend.setting.sslcommerz');
         Route::post('/sslcommerz-credentials', 'update_or_insert')->name('backend.setting.sslcommerz.store');
+        Route::get('/site-setting', 'site_setting')->name('backend.setting.site_setting');
     });
 
 
