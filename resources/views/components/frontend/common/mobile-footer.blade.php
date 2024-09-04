@@ -17,7 +17,7 @@
             <a id="fixed_footer_cart_id" class="fixed_footer_menu_link relative flex flex-col">
                 <i class="fa-solid fa-cart-shopping text-theme text-[18px]"></i>
                 <span class="p-0 m-0 text-sm">Cart</span>
-                <span class="fixed_footer_cart_count item_count cart_item_total absolute -top-2 -right-1 bg-black rounded-full w-4 h-4 flex items-center justify-center text-white text-xs">7</span>
+                <span class="fixed_footer_cart_count item_count cart_item_total absolute -top-2 -right-1 bg-black rounded-full w-4 h-4 flex items-center justify-center text-white text-xs">{{ Cart::instance('shopping')->count() }}</span>
             </a>
         </li>
         <li>
