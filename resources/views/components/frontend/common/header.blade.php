@@ -4,7 +4,7 @@
             <div><a href="">example.com</a></div>
             <div>
                 <div class="header_top_list">
-                    <ul class="text-center flex flex-row items-center justify-between gap-6 px-4">
+                    <ul class="text-center flex flex-row items-center justify-between gap-6">
                         <li>
                             <a href="#" class="header_top_list_link text-[14px] flex flex-row gap-1 items-center justify-center">
                                 <i class="fa-solid fa-location-dot text-theme"></i>
@@ -63,9 +63,11 @@
             </div>
         </div>
         <div class="flex items-center gap-4 ">
-            <a class="relative transition-colors outline-1 p-1 text-red-500" href="{{ route('frontend.cart_view') }}">
-
-                <i class="fa-solid fa-heart"></i>
+            <a class="relative transition-colors outline-1 p-1 text-red-500 text-xl" href="{{ route('frontend.cart_view') }}">
+                <div class="flex flex-row items-center gap-1 justify-center">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="text-[14px] text-black font-semibold">0</span>
+                </div>
                 <span class="sr-only">Favorite</span>
             </a>
 
@@ -74,7 +76,7 @@
                 <svg stroke="#eb5d1e" fill="none" stroke-width="0" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                 </svg>
-                <span class="hidden md:inline-block text-black subTotal">00</span><span>TK</span>
+                <span class="hidden md:inline-block text-black subTotal">00</span>&nbsp;<span>TK</span>
             </a>
 
         </div>

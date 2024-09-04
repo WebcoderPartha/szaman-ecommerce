@@ -57,6 +57,7 @@ class SliderController extends Controller
         ]);
         $slider = new Slider();
         $slider->title = $request->title;
+        $slider->product_link = $request->product_link;
 
         // If image request
         if ($request->file('image')){
@@ -112,6 +113,7 @@ class SliderController extends Controller
 
         $slider = Slider::find($id);
         $slider->title = $request->title;
+        $slider->product_link = $request->product_link;
 
         // If image request
         if ($request->file('image')){

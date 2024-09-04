@@ -8,9 +8,9 @@
 
                     @if($sliders->count() > 0)
                         @foreach($sliders as $slider)
-                            <div class="swiper-slide">
+                            <a href="{{ $slider->product_link }}" class="swiper-slide">
                                 <img src="{{ asset('/storage/slider/'.$slider->image) }}" alt="{{ $slider->image }}">
-                            </div>
+                            </a>
                         @endforeach
                     @else
                         <div class="swiper-slide">

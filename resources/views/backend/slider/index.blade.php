@@ -64,6 +64,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-12 pb-2">
+                                        <div class="form-group">
+                                            <label class="form-label" for="product_link">Product Link</label>
+                                            <input class="form-control" id="product_link" placeholder="{{ route('frontend.home_page') }}/product/product-1" value="{{ old('product_link') }}" type="text" name="product_link">
+                                        </div>
+                                    </div>
                                     <div class="mt-4 text-right">
                                         <button type="submit" id="form_button" class="btn btn-success">Save</button>
                                     </div>
