@@ -512,6 +512,7 @@
     });
     //============= End Hot Deal Swiper Slider ==================//
 
+    //============= Best Selling Swiper Slider ==================//
     let bestSellingSlider = new Swiper(".bestSellingSlider", {
         slidesPerView: 1,
         spaceBetween: 10,
@@ -544,6 +545,15 @@
             },
         },
     });
+    // Stop the slider when the mouse enters the swiper container
+    document.querySelector('.bestSellingSlider').addEventListener('mouseenter', function() {
+        bestSellingSlider.autoplay.stop();
+    });
+    // Restart the slider when the mouse leaves the swiper container
+    document.querySelector('.bestSellingSlider').addEventListener('mouseleave', function() {
+        bestSellingSlider.autoplay.start();
+    });
+    //============= End Best Selling Swiper Slider ==================//
 
 </script>
 @yield('js')
