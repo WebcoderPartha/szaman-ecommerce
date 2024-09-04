@@ -132,28 +132,6 @@
         "progressBar": true
     }
 
-    //======= Banner Slider Swiper ============= //
-    let bannerSwiper = new Swiper(".bannerSwiper", {
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-    });
-    // Stop the slider when the mouse enters the swiper container
-    document.querySelector('.bannerSwiper').addEventListener('mouseenter', function() {
-        bannerSwiper.autoplay.stop();
-    });
-    // Restart the slider when the mouse leaves the swiper container
-    document.querySelector('.bannerSwiper').addEventListener('mouseleave', function() {
-        bannerSwiper.autoplay.start();
-    });
-    //======= End Banner Slider Swiper ============= //
 
     // ================ Stick Cart =======================//
     const openModalButton = document.getElementById('openModalButton');
@@ -427,6 +405,29 @@
     }
     //================ End Online Payment Order ===============//
 
+    //======= Banner Slider Swiper ============= //
+    let bannerSwiper = new Swiper(".bannerSwiper", {
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+    });
+    // Stop the slider when the mouse enters the swiper container
+    document.querySelector('.bannerSwiper').addEventListener('mouseenter', function() {
+        bannerSwiper.autoplay.stop();
+    });
+    // Restart the slider when the mouse leaves the swiper container
+    document.querySelector('.bannerSwiper').addEventListener('mouseleave', function() {
+        bannerSwiper.autoplay.start();
+    });
+    //======= End Banner Slider Swiper ============= //
+
     //======== Feature Product Swiper Slider ==============//
     let featureProductSlider = new Swiper(".featureProductSlider", {
         slidesPerView: 1,
@@ -555,6 +556,85 @@
         bestSellingSlider.autoplay.start();
     });
     //============= End Best Selling Swiper Slider ==================//
+
+
+
+
+    //================ Product Details Page =====================//
+    function imageClick (event) {
+        document.getElementById('productFeatureImage').src = event
+        // console.log(event)
+    }
+    // Quantity
+    const increment = document.getElementById('qty_increment');
+    const decrement = document.getElementById('qty_decrement');
+    const qtyValue = document.getElementById('qtyValue');
+    increment.addEventListener('click', function (){
+        qtyValue.value++
+    });
+    decrement.addEventListener('click', function (){
+        if (parseInt(qtyValue.value) > 1){
+            qtyValue.value--
+        }
+    });
+    // Quantity
+
+    // Tabs Javascript code
+    const descriptionTabBtn = document.getElementById('descriptionTabBtn');
+    const howToBuyTabBtn = document.getElementById('howToBuyTabBtn');
+    const refundPolicyBtn = document.getElementById('refundPolicyBtn');
+
+    const descriptionContent = document.getElementById('descriptionContent');
+    const howToBuyContent = document.getElementById('howToBuyContent');
+    const refundPolicyContent = document.getElementById('refundPolicyContent');
+
+    descriptionTabBtn.addEventListener('click', function (){
+        descriptionTabBtn.classList.add('bg-theme', 'text-white');
+        descriptionTabBtn.classList.remove('text-black');
+
+        howToBuyTabBtn.classList.remove('bg-theme', 'text-white')
+        howToBuyTabBtn.classList.add('text-black')
+
+        refundPolicyBtn.classList.remove('bg-theme', 'text-white')
+        refundPolicyBtn.classList.add('text-black')
+
+        descriptionContent.classList.remove('hidden');
+        howToBuyContent.classList.add('hidden');
+        refundPolicyContent.classList.add('hidden');
+    });
+
+    howToBuyTabBtn.addEventListener('click', function (){
+        descriptionTabBtn.classList.remove('bg-theme', 'text-white')
+        descriptionTabBtn.classList.add('text-black')
+
+        howToBuyTabBtn.classList.remove('text-black');
+        howToBuyTabBtn.classList.add('bg-theme', 'text-white');
+
+        refundPolicyBtn.classList.remove('bg-theme', 'text-white')
+        refundPolicyBtn.classList.add('text-black')
+
+        descriptionContent.classList.add('hidden');
+        howToBuyContent.classList.remove('hidden');
+        refundPolicyContent.classList.add('hidden');
+
+    });
+
+    refundPolicyBtn.addEventListener('click', function (){
+        descriptionTabBtn.classList.remove('bg-theme', 'text-white');
+        descriptionTabBtn.classList.add('text-black');
+
+        howToBuyTabBtn.classList.remove('bg-theme', 'text-white')
+        howToBuyTabBtn.classList.add('text-black')
+
+        refundPolicyBtn.classList.add('bg-theme', 'text-white')
+        refundPolicyBtn.classList.remove('text-black')
+
+        descriptionContent.classList.add('hidden');
+        howToBuyContent.classList.add('hidden');
+        refundPolicyContent.classList.remove('hidden');
+    });
+
+    //================ End Product Details Page =====================//
 
 </script>
 @yield('js')

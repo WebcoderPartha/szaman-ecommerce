@@ -80,7 +80,7 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                     Add To Cart
                 </a>
-                <a href="#"  class="single_product_buy_now_btn_link cart_check_out border border-gray-300 px-6 py-3 hover:text-theme duration-300 rounded">
+                <a href="javascript:void(0)" id="{{ $product->id }}" onclick="add_to_favorite(event, this.id)"  class="single_product_buy_now_btn_link cart_check_out border border-gray-300 px-6 py-3 hover:text-theme duration-300 rounded">
                     <i class="fa-regular fa-heart"></i>
                     Add To Wishlist
                 </a>
@@ -206,81 +206,3 @@
     </div>
 @endsection
 
-@section('js')
-    <script>
-        function imageClick (event) {
-             document.getElementById('productFeatureImage').src = event
-            // console.log(event)
-        }
-        // Quantity
-            const increment = document.getElementById('qty_increment');
-            const decrement = document.getElementById('qty_decrement');
-            const qtyValue = document.getElementById('qtyValue');
-            increment.addEventListener('click', function (){
-                qtyValue.value++
-            });
-            decrement.addEventListener('click', function (){
-                if (parseInt(qtyValue.value) > 1){
-                    qtyValue.value--
-                }
-            });
-        // Quantity
-
-        // Tabs Javascript code
-         const descriptionTabBtn = document.getElementById('descriptionTabBtn');
-         const howToBuyTabBtn = document.getElementById('howToBuyTabBtn');
-         const refundPolicyBtn = document.getElementById('refundPolicyBtn');
-
-         const descriptionContent = document.getElementById('descriptionContent');
-         const howToBuyContent = document.getElementById('howToBuyContent');
-         const refundPolicyContent = document.getElementById('refundPolicyContent');
-
-         descriptionTabBtn.addEventListener('click', function (){
-             descriptionTabBtn.classList.add('bg-theme', 'text-white');
-             descriptionTabBtn.classList.remove('text-black');
-
-             howToBuyTabBtn.classList.remove('bg-theme', 'text-white')
-             howToBuyTabBtn.classList.add('text-black')
-
-             refundPolicyBtn.classList.remove('bg-theme', 'text-white')
-             refundPolicyBtn.classList.add('text-black')
-
-             descriptionContent.classList.remove('hidden');
-             howToBuyContent.classList.add('hidden');
-             refundPolicyContent.classList.add('hidden');
-         });
-
-         howToBuyTabBtn.addEventListener('click', function (){
-             descriptionTabBtn.classList.remove('bg-theme', 'text-white')
-             descriptionTabBtn.classList.add('text-black')
-
-             howToBuyTabBtn.classList.remove('text-black');
-             howToBuyTabBtn.classList.add('bg-theme', 'text-white');
-
-             refundPolicyBtn.classList.remove('bg-theme', 'text-white')
-             refundPolicyBtn.classList.add('text-black')
-
-             descriptionContent.classList.add('hidden');
-             howToBuyContent.classList.remove('hidden');
-             refundPolicyContent.classList.add('hidden');
-
-         });
-
-         refundPolicyBtn.addEventListener('click', function (){
-             descriptionTabBtn.classList.remove('bg-theme', 'text-white');
-             descriptionTabBtn.classList.add('text-black');
-
-             howToBuyTabBtn.classList.remove('bg-theme', 'text-white')
-             howToBuyTabBtn.classList.add('text-black')
-
-             refundPolicyBtn.classList.add('bg-theme', 'text-white')
-             refundPolicyBtn.classList.remove('text-black')
-
-             descriptionContent.classList.add('hidden');
-             howToBuyContent.classList.add('hidden');
-             refundPolicyContent.classList.remove('hidden');
-         });
-
-
-    </script>
-@endsection
