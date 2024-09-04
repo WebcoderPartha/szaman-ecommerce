@@ -131,6 +131,8 @@
         "closeButton": true,
         "progressBar": true
     }
+
+    //======= Banner Slider Swiper ============= //
     let bannerSwiper = new Swiper(".bannerSwiper", {
         spaceBetween: 30,
         loop: true,
@@ -143,6 +145,15 @@
             disableOnInteraction: false,
         },
     });
+    // Stop the slider when the mouse enters the swiper container
+    document.querySelector('.bannerSwiper').addEventListener('mouseenter', function() {
+        bannerSwiper.autoplay.stop();
+    });
+    // Restart the slider when the mouse leaves the swiper container
+    document.querySelector('.bannerSwiper').addEventListener('mouseleave', function() {
+        bannerSwiper.autoplay.start();
+    });
+    //======= End Banner Slider Swiper ============= //
 
     // ================ Stick Cart =======================//
     const openModalButton = document.getElementById('openModalButton');
@@ -176,6 +187,18 @@
         }
     });
     // ================ Stick Cart =======================//
+    //================= Single Product Add To Cart =======================//
+    function add_to_favorite(event, product_id){
+        event.preventDefault();
+        axios.post('{{ route('frontend.addtofavorite') }}', {
+            product_id: parseInt(product_id),
+        }).then(addFavRes => {
+            toastr.success(addFavRes.data.success);
+            console.log(addFavRes.data.total_favorite)
+            // getCartContent();
+        })
+    }
+    //================ Add To Cart =========================//
 
     //================= Single Product Add To Cart =======================//
     function add_to_carts(event, product_id){
@@ -189,6 +212,7 @@
         })
     }
     //================ Add To Cart =========================//
+
 
 
     //================= Single Product Add To Cart =======================//
@@ -402,7 +426,7 @@
     }
     //================ End Online Payment Order ===============//
 
-
+    //======== Feature Product Swiper Slider ==============//
     let featureProductSlider = new Swiper(".featureProductSlider", {
         slidesPerView: 1,
         spaceBetween: 10,
@@ -435,7 +459,17 @@
             },
         },
     });
+    // Stop the slider when the mouse enters the swiper container
+    document.querySelector('.featureProductSlider').addEventListener('mouseenter', function() {
+        featureProductSlider.autoplay.stop();
+    });
+    // Restart the slider when the mouse leaves the swiper container
+    document.querySelector('.featureProductSlider').addEventListener('mouseleave', function() {
+        featureProductSlider.autoplay.start();
+    });
+    //======== End Feature Product Swiper Slider ==============//
 
+    //============= Hot Deal Swiper Slider ==================//
     let hotDealSlider = new Swiper(".hotDealSlider", {
         slidesPerView: 1,
         spaceBetween: 10,
@@ -468,6 +502,15 @@
             },
         },
     });
+    // Stop the slider when the mouse enters the swiper container
+    document.querySelector('.hotDealSlider').addEventListener('mouseenter', function() {
+        hotDealSlider.autoplay.stop();
+    });
+    // Restart the slider when the mouse leaves the swiper container
+    document.querySelector('.hotDealSlider').addEventListener('mouseleave', function() {
+        hotDealSlider.autoplay.start();
+    });
+    //============= End Hot Deal Swiper Slider ==================//
 
     let bestSellingSlider = new Swiper(".bestSellingSlider", {
         slidesPerView: 1,
