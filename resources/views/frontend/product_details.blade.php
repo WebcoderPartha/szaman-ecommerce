@@ -58,29 +58,27 @@
                     @endif
                 </div>
             </div>
-            <div class="qty_buynow flex flex-row gap-6 items-center mt-4">
+            <div class="qty_buynow flex flex-row gap-6 items-center justify-between md:justify-stretch mt-4">
                 <div class="fixed_product_card_qty flex flex-row items-center justify-center border rounded">
-                    <div class="fixed_product_card_qty_minus border-r px-4 py-2 cursor-pointer" id="qty_decrement">
+                    <div class="fixed_product_card_qty_minus border-r px-4 py-1 md:py-2 cursor-pointer" id="qty_decrement">
                         <i class="fa-solid fa-minus"></i>
                     </div>
-                    <input class="product_qty w-16 font-semibold py-2 focus:outline-none text-center" id="qtyValue" type="text" value="1">
-                    <div class="fixed_product_card_qty_plus border-l px-4 py-2 cursor-pointer" id="qty_increment">
+                    <input class="product_qty w-16 font-semibold py-1 md:py-2 focus:outline-none text-center" id="qtyValue" type="text" value="1">
+                    <div class="fixed_product_card_qty_plus border-l px-4 py-1 md:py-2 cursor-pointer" id="qty_increment">
                         <i class="fa-solid fa-plus"></i>
                     </div>
                 </div>
                 <div class="buynow_btn">
-                    <a href="javascript:void(0)" id="{{ $product->id }}" onclick="buy_now_button(this.id)"  class="single_product_buy_now_btn_link cart_check_out bg-theme text-white px-8 py-3 font-semibold rounded">
-                        Order Now
-                        <i class="fa-solid fa-check"></i>
+                    <a href="javascript:void(0)" id="{{ $product->id }}" onclick="buy_now_button(this.id)"  class=" bg-theme text-white px-6 py-2 md:px-8 md:py-3 font-semibold rounded">Order Now <i class="fa-solid fa-check"></i>
                     </a>
                 </div>
             </div>
-            <div class="add_tocart_favourite flex flex-row gap-6 items-center mt-4">
-                <a href="javascript:void(0)" id="{{ $product->id }}" onclick="add_to_cart(this.id)" class="single_product_buy_now_btn_link cart_check_out border border-gray-300 px-6 py-3 hover:text-theme duration-300 rounded">
+            <div class="flex flex-row gap-6 items-center justify-between md:justify-stretch mt-4">
+                <a href="javascript:void(0)" id="{{ $product->id }}" onclick="add_to_cart(this.id)" class="cart_check_out border border-gray-300 px-4 py-2 md:px-6 md:py-3 hover:text-theme duration-300 rounded">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Add To Cart
                 </a>
-                <a href="javascript:void(0)" id="{{ $product->id }}" onclick="add_to_favorite(event, this.id)"  class="single_product_buy_now_btn_link cart_check_out border border-gray-300 px-6 py-3 hover:text-theme duration-300 rounded">
+                <a href="javascript:void(0)" id="{{ $product->id }}" onclick="add_to_favorite(event, this.id)"  class="cart_check_out border border-gray-300 px-4 py-2 md:px-6 md:py-3 hover:text-theme duration-300 rounded">
                     <i class="fa-regular fa-heart"></i>
                     Add To Wishlist
                 </a>

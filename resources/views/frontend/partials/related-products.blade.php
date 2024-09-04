@@ -1,6 +1,6 @@
 
-<div class="related_product_title bg-theme text-white py-2 text-center my-4">
-    <h2 class="text-xl font-semibold">RELATED PRODUCTS</h2>
+<div class="related_product_title bg-theme text-white py-1 md:py-2 text-center my-4">
+    <h2 class="text-base md:text-xl font-semibold">RELATED PRODUCTS</h2>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 items-center mb-10">
 {{--    {{ $products }}--}}
