@@ -113,17 +113,43 @@
 
     var header = document.getElementById("myheader");
     var header_bottom = document.getElementById("header_bottom");
+    var header_cart_svg = document.getElementById("header_cart_svg");
+    var header_heart = document.getElementById("header_heart");
+    var header_cart_amount = document.getElementById("header_cart_amount");
+    var header_currency = document.getElementById("header_currency");
     var sticky = header.offsetTop;
 
     function myFunction() {
         if (window.pageYOffset > 10) {
             header.classList.add("sticky_header");
+            header.classList.add("bg-theme");
+            header.classList.remove('bg-[#f7f8fa]')
+
             header_bottom.classList.add('md:hidden')
             header_bottom.classList.remove('md:block')
+
+            header_heart.classList.add('text-white');
+            header_heart.classList.remove('text-red-500');
+
+            header_cart_svg.setAttribute('stroke', '#fff');
+            header_cart_amount.classList.add('text-white');
+            header_cart_amount.classList.remove('text-black');
+            header_currency.classList.add('text-white');
         } else {
             header.classList.remove("sticky_header");
+            header.classList.remove("bg-theme");
+            header.classList.add('bg-[#f7f8fa]')
+
             header_bottom.classList.remove('md:hidden')
             header_bottom.classList.add('md:block')
+
+            header_heart.classList.remove('text-white');
+            header_heart.classList.add('text-red-500');
+
+            header_cart_svg.setAttribute('stroke', '#eb5d1e');
+            header_cart_amount.classList.remove('text-white');
+            header_cart_amount.classList.add('text-black');
+            header_currency.classList.remove('text-white');
         }
     }
 
@@ -173,7 +199,7 @@
             product_id: parseInt(product_id),
         }).then(addFavRes => {
             toastr.success(addFavRes.data.success);
-            $('#favorite_count').text(addFavRes.data.total_favorite)
+            $('.favorite_count').text(addFavRes.data.total_favorite)
         })
     }
     //================ End Add To Favorite =========================//
@@ -343,7 +369,7 @@
 
     //================ Search Product ================//
     function searchProduct(value){
-        let search_button = document.getElementById('search_button');
+
         let close_search_button = document.getElementById('close_search_button');
         let ps_container_id = document.getElementById('ps-container');
         if (value.length > 2){
@@ -353,19 +379,16 @@
             axios.post("{{route('frontend.search_product')}}", data).then(searchRes => {
                 if (searchRes.data.search_status == true){
                     ps_container_id.classList.remove('hidden')
-                    search_button.classList.add('hidden')
                     close_search_button.classList.remove('hidden')
                     $('.search-product-container').html(searchRes.data.content)
                 }else{
                     ps_container_id.classList.add('hidden')
 
                 }
-                console.log(searchRes.data);
             })
 
         }else{
             ps_container_id.classList.add('hidden')
-            search_button.classList.remove('hidden')
             close_search_button.classList.add('hidden')
         }
 
@@ -374,8 +397,7 @@
     function searchCloseButton(){
         let ps_container_id = document.getElementById('ps-container');
         ps_container_id.classList.add('hidden')
-        let search_button = document.getElementById('search_button');
-        search_button.classList.remove('hidden')
+
 
         let close_search_button = document.getElementById('close_search_button');
         close_search_button.classList.add('hidden')
