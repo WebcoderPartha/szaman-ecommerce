@@ -195,6 +195,7 @@
         }).then(addFavRes => {
             toastr.success(addFavRes.data.success);
             console.log(addFavRes.data.total_favorite)
+            $('#favorite_count').text(addFavRes.data.total_favorite)
             // getCartContent();
         })
     }

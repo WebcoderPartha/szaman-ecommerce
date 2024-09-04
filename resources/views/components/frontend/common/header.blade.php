@@ -66,7 +66,7 @@
             <a class="relative transition-colors outline-1 p-1 text-red-500 text-xl" href="{{ route('frontend.cart_view') }}">
                 <div class="flex flex-row items-center gap-1 justify-center">
                     <i class="fa-regular fa-heart"></i>
-                    <span class="text-[14px] text-black font-semibold">0</span>
+                    <span class="text-[14px] text-black font-semibold" id="favorite_count">{{ Cart::instance('favorite')->count() > 0 ? Cart::instance('favorite')->count() : 0 }}</span>
                 </div>
                 <span class="sr-only">Favorite</span>
             </a>

@@ -33,7 +33,7 @@ class FavoriteController extends Controller
 
         }
 
-        return response()->json(['success' => 'Added to favorite!', 'total_favorite'=>Cart::instance('favorite')->count()], 200);
+        return response()->json(['success' => 'Added to favorite!', 'total_favorite'=> Cart::instance('favorite')->count()], 200);
     }
 
 
