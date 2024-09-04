@@ -2,9 +2,11 @@
 <!-- Swiper -->
 <!--:::::::::::::::::: Category Loop :::::::::::::-->
 <div class="hot-products flex flex-col gap-3 my-4">
-    <div class="flex flex-row justify-center items-center border-b bg-red-500 border-b-[#ced4da] py-2">
-        <div class="">
-            <h2 class="text-base md:text-2xl text-center font-semibold text-white px-16">HOT DEAL</h2>
+    <div class="flex flex-row justify-center items-center bg-slate-50 py-2">
+        <div class="flex flex-row items-center justify-center">
+            <img class="w-10" src="{{ asset('frontend/assets/img/fire.gif') }}" alt="">
+            <h2 class="text-base md:text-2xl text-center font-semibold text-black px-4">HOT DEAL</h2>
+            <img class="w-10" src="{{ asset('frontend/assets/img/fire.gif') }}" alt="">
         </div>
         {{--           <!-- <a href="{{ route('frontend.category.page', $product_category->slug) }}" class="bg-theme text-white px-2 py-1 rounded">View All</a> -->--}}
     </div>

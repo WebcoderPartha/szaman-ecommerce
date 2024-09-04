@@ -165,21 +165,33 @@
         }
     });
     // ================ Stick Cart =======================//
-    //================= Single Product Add To Cart =======================//
+
+    //================= Add To Favorite =======================//
     function add_to_favorite(event, product_id){
         event.preventDefault();
         axios.post('{{ route('frontend.addtofavorite') }}', {
             product_id: parseInt(product_id),
         }).then(addFavRes => {
             toastr.success(addFavRes.data.success);
-            console.log(addFavRes.data.total_favorite)
             $('#favorite_count').text(addFavRes.data.total_favorite)
-            // getCartContent();
         })
     }
-    //================ Add To Cart =========================//
+    //================ End Add To Favorite =========================//
 
-    //================= Single Product Add To Cart =======================//
+    //================= Remove to Favorite =======================//
+    function remove_to_favorite(event, row_id){
+        event.preventDefault();
+        axios.post('{{ route('frontend.removefavorite') }}', {
+            rowId: row_id,
+        }).then(rmvFavRes => {
+            toastr.success(rmvFavRes.data.success);
+            $('#favorite_count').text(rmvFavRes.data.total_favorite);
+            window.location.href = "{{ route('frontend.wishlist.page') }}"
+        })
+    }
+    //================ End Remove to Favorite =========================//
+
+    //================= Product Add To Cart =======================//
     function add_to_carts(event, product_id){
         event.preventDefault();
         axios.post('{{ route('frontend.addtocart') }}', {
@@ -205,7 +217,24 @@
             getCartContent();
         })
     }
-    //================ Add To Cart =========================//
+    //================ Single Product Add To Cart =========================//
+
+    // ================= Buy Now Button =======================//
+    function buy_now_button(product_id){
+        let qty = document.getElementById('qtyValue');
+        axios.post('{{ route('frontend.buynowbutton') }}', {
+            product_id: parseInt(product_id),
+            quantity: parseInt(qty.value)
+        }).then(buyNowRes => {
+            if (buyNowRes.data.success === true){
+                window.location.href = "{{route('frontend.checkout_view')}}"
+                getCartContent();
+            }else{
+                toastr.error(buyNowRes.data.error);
+            }
+        })
+    }
+    //================ Single Product Add To Cart =========================//
 
 
     // ==================== Increment Cart ================//
@@ -558,83 +587,6 @@
     //============= End Best Selling Swiper Slider ==================//
 
 
-
-
-    //================ Product Details Page =====================//
-    function imageClick (event) {
-        document.getElementById('productFeatureImage').src = event
-        // console.log(event)
-    }
-    // Quantity
-    const increment = document.getElementById('qty_increment');
-    const decrement = document.getElementById('qty_decrement');
-    const qtyValue = document.getElementById('qtyValue');
-    increment.addEventListener('click', function (){
-        qtyValue.value++
-    });
-    decrement.addEventListener('click', function (){
-        if (parseInt(qtyValue.value) > 1){
-            qtyValue.value--
-        }
-    });
-    // Quantity
-
-    // Tabs Javascript code
-    const descriptionTabBtn = document.getElementById('descriptionTabBtn');
-    const howToBuyTabBtn = document.getElementById('howToBuyTabBtn');
-    const refundPolicyBtn = document.getElementById('refundPolicyBtn');
-
-    const descriptionContent = document.getElementById('descriptionContent');
-    const howToBuyContent = document.getElementById('howToBuyContent');
-    const refundPolicyContent = document.getElementById('refundPolicyContent');
-
-    descriptionTabBtn.addEventListener('click', function (){
-        descriptionTabBtn.classList.add('bg-theme', 'text-white');
-        descriptionTabBtn.classList.remove('text-black');
-
-        howToBuyTabBtn.classList.remove('bg-theme', 'text-white')
-        howToBuyTabBtn.classList.add('text-black')
-
-        refundPolicyBtn.classList.remove('bg-theme', 'text-white')
-        refundPolicyBtn.classList.add('text-black')
-
-        descriptionContent.classList.remove('hidden');
-        howToBuyContent.classList.add('hidden');
-        refundPolicyContent.classList.add('hidden');
-    });
-
-    howToBuyTabBtn.addEventListener('click', function (){
-        descriptionTabBtn.classList.remove('bg-theme', 'text-white')
-        descriptionTabBtn.classList.add('text-black')
-
-        howToBuyTabBtn.classList.remove('text-black');
-        howToBuyTabBtn.classList.add('bg-theme', 'text-white');
-
-        refundPolicyBtn.classList.remove('bg-theme', 'text-white')
-        refundPolicyBtn.classList.add('text-black')
-
-        descriptionContent.classList.add('hidden');
-        howToBuyContent.classList.remove('hidden');
-        refundPolicyContent.classList.add('hidden');
-
-    });
-
-    refundPolicyBtn.addEventListener('click', function (){
-        descriptionTabBtn.classList.remove('bg-theme', 'text-white');
-        descriptionTabBtn.classList.add('text-black');
-
-        howToBuyTabBtn.classList.remove('bg-theme', 'text-white')
-        howToBuyTabBtn.classList.add('text-black')
-
-        refundPolicyBtn.classList.add('bg-theme', 'text-white')
-        refundPolicyBtn.classList.remove('text-black')
-
-        descriptionContent.classList.add('hidden');
-        howToBuyContent.classList.add('hidden');
-        refundPolicyContent.classList.remove('hidden');
-    });
-
-    //================ End Product Details Page =====================//
 
 </script>
 @yield('js')

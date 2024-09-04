@@ -11,11 +11,7 @@ use App\Models\User;
 class FrontendCartController extends Controller
 {
     public function cart_view(){
-       if (Cart::instance('shopping')->content()->count() > 0) {
-           return view('frontend.cart');
-       }else{
-           return redirect()->route('frontend.home_page');
-       }
+        return view('frontend.cart');
     }
 
     public function checkout_view(){

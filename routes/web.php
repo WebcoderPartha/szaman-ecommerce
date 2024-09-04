@@ -48,12 +48,14 @@ Route::controller(CartController::class)->group(function (){
     Route::post('/updatecart', 'updateCart')->name('frontend.updatecart');
     Route::post('/removecart', 'cartRemove')->name('frontend.removecart');
     Route::post('/shippingcharge', 'addShippingCharge')->name('frontend.shippingadd');
+    Route::post('/cartbuynow', 'buy_now_button')->name('frontend.buynowbutton');
 });
 
 // Add To Favorite
 Route::controller(FavoriteController::class)->group(function (){
     Route::post('/addtofavorite', 'add_to_favorite')->name('frontend.addtofavorite');
     Route::get('/wish-list', 'wishlist_page')->name('frontend.wishlist.page');
+    Route::post('/removefavorite', 'remove_favorite')->name('frontend.removefavorite');
 });
 
 

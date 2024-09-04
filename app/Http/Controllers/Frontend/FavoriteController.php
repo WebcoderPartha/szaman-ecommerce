@@ -37,11 +37,16 @@ class FavoriteController extends Controller
     }
 
     public function wishlist_page(){
-        $favorite_list = Cart::instance('favorite')->content();
 
+        $favorite_list = Cart::instance('favorite')->content();
         return view('frontend.wishlist', compact('favorite_list'));
+
     }
 
+    public function remove_favorite(Request $request){
+        $favorite = Cart::instance('favorite')->remove($request->rowId);
+        return response()->json(['success' => 'Item removed from Wishlist!', 'total_favorite'=> Cart::instance('favorite')->count()], 200);
+    }
 
 
 }
