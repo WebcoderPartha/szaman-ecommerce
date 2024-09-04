@@ -53,6 +53,7 @@ Route::controller(CartController::class)->group(function (){
 // Add To Favorite
 Route::controller(FavoriteController::class)->group(function (){
     Route::post('/addtofavorite', 'add_to_favorite')->name('frontend.addtofavorite');
+    Route::get('/wish-list', 'wishlist_page')->name('frontend.wishlist.page');
 });
 
 

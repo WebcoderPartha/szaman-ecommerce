@@ -36,6 +36,12 @@ class FavoriteController extends Controller
         return response()->json(['success' => 'Added to favorite!', 'total_favorite'=> Cart::instance('favorite')->count()], 200);
     }
 
+    public function wishlist_page(){
+        $favorite_list = Cart::instance('favorite')->content();
+
+        return view('frontend.wishlist', compact('favorite_list'));
+    }
+
 
 
 }
