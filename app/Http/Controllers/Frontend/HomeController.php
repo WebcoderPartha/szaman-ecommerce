@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -42,12 +43,12 @@ class HomeController extends Controller
                 $discountPrice = $product->discount_price;
 
                 if ($discountPrice !== null){
-                    $content .= '<a href="' . route('frontend.product.details', $product->slug) . '" class="flex flex-row gap-2 border-b border-b-slate-700 py-2">
+                    $content .= '<a href="' . route('frontend.product.details', $product->slug) . '" class="flex flex-row gap-2 border-b border-gray-300 py-2">
                             <div class="search-product-image">
                                 <img width="50" src="' . $imagePath . '" alt="' . $product->title . '">
                             </div>
                             <div class="flex flex-col gap-1">
-                                <h2>' . $product->title . '</h2>
+                                <h2 class="text-[12px] md:text-base">' . Str::words($product->title,8) . '</h2>
                                 <div class="flex flex-row gap-2">
                                     <div class="flex flex-row justify-center items-center gap-x-0.5 text-[12px] line-through">
                                         <span>TK</span><span>' . $unitPrice . '</span>
@@ -65,7 +66,7 @@ class HomeController extends Controller
                                 <img width="50" src="' . $imagePath . '" alt="' . $product->title . '">
                             </div>
                             <div class="flex flex-col gap-1">
-                                <h2>' . $product->title . '</h2>
+                                <h2 class="text-[12px] md:text-base">' . Str::words($product->title,8) . '</h2>
                                 <div class="flex flex-row gap-2">
 
                                     <div class="text-[13px] text-theme flex items-center">

@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
 @section('title', 'Home Page')
 @section('content')
-    <div class="grid grid-cols-12 py-4 gap-6">
+    <div class="grid grid-cols-12 py-0 md:py-4 gap-6">
         <div class="col-span-12 md:col-span-4">
             <div class="feature-image">
                 <img src="{{ asset('/storage/product/'.$product->feature_image) }}" id="productFeatureImage" class="w-full" alt="">

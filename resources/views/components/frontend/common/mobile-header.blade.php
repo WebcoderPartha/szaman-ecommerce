@@ -27,7 +27,7 @@
     <!-- header top end -->
     <!-- Header Middle -->
     <div class="mobile_header_middle py-2" id="fix_mobile_sticky">
-        <div class="flex flex-row justify-between items-center px-4">
+        <div class="flex flex-row justify-between items-center px-4 pb-2">
             <div id="mobileMenuIconBars">
                 <a class="header_mobile_toggle text-xl text-theme cursor-pointer">
                     <i class="fa-solid fa-bars"></i>
@@ -37,7 +37,15 @@
                 <a href="{{ route('frontend.home_page') }}"><img src="{{ asset('frontend/img/log.png') }}" width="110" alt=""></a>
             </div>
             <div>
-                <a class="cursor-pointer text-xl text-theme"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a id="mobileSrIcon" onclick="openMobileSearch()" class="cursor-pointer text-xl text-theme"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+        </div>
+        <div class="px-4 hidden" id="mobile_search_container">
+            <div class=" relative relative z-[99999999999999]">
+                <input type="type" id="mobilekeyword" onkeyup="mobileSearchProduct(this.value)" class="block w-full py-2 px-4 text-sm text-gray-900 border border-gray-300 rounded outline-none" placeholder="Search your product..." />
+                <div id="mb-container" class="mblsr-product-container border-t hidden px-1 bg-white h-[400px] overflow-y-scroll absolute top-10 bottom-0 left-0 w-full shadow-md">
+
+                </div>
             </div>
         </div>
     </div>
@@ -86,6 +94,47 @@
 
 
 <script>
+    let mbl_search_status = true;
+    let mobile_search_container = document.getElementById('mobile_search_container');
+    function openMobileSearch(){
+        if (mbl_search_status == true){
+            mbl_search_status = false;
+            mobile_search_container.classList.remove('hidden');
+        }else{
+            mbl_search_status = true
+            mobile_search_container.classList.add('hidden');
+            document.getElementById('mobilekeyword').value = ''
+            $('.mblsr-product-container').html('');
+            document.getElementById('mb-container').classList.add('hidden')
+        }
+    }
+    //================ Search Product ================//
+    function mobileSearchProduct(value){
+
+        // let close_search_button = document.getElementById('close_search_button');
+        let mb_container_id = document.getElementById('mb-container');
+        if (value.length > 2){
+            let data = {
+                keyword: value
+            }
+            axios.post("{{route('frontend.search_product')}}", data).then(mobSchRes => {
+                if (mobSchRes.data.search_status == true){
+                    mb_container_id.classList.remove('hidden')
+                    // close_search_button.classList.remove('hidden')
+                    $('.mblsr-product-container').html(mobSchRes.data.content)
+                    console.log(mobSchRes.data.content)
+                }else{
+                    mb_container_id.classList.add('hidden')
+
+                }
+            })
+
+        }else{
+            ps_container_id.classList.add('hidden')
+            // close_search_button.classList.add('hidden')
+        }
+
+    }
 
         // Drop down menu
         document.addEventListener('DOMContentLoaded', function() {
@@ -121,4 +170,6 @@
 
 
 </script>
+
+
 
