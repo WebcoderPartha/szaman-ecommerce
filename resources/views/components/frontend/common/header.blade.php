@@ -6,7 +6,7 @@
                 <div class="header_top_list">
                     <ul class="text-center flex flex-row items-center justify-between gap-6">
                         <li>
-                            <a href="#" class="header_top_list_link text-[14px] flex flex-row gap-1 items-center justify-center">
+                            <a href="{{ route('frontend.order_tracking_page') }}" class="header_top_list_link text-[14px] flex flex-row gap-1 items-center justify-center">
                                 <i class="fa-solid fa-location-dot text-theme"></i>
                                 <span class="font-semibold">Order Tracking</span>
                             </a>

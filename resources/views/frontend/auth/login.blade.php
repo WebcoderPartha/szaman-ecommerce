@@ -5,16 +5,16 @@
         <div class="p-6 w-full max-w-md">
             <div class="flex justify-center items-center mb-10">
                 <button id="loginTab" class="w-full py-2 px-4 border-b-[3px] border-b-theme text-theme font-bold uppercase focus:outline-none block text-center">Login</button>
-                <button id="registerTab" class="w-full py-2 px-4 border-b-[3px] border-b-[#dedede] text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Register {{ Auth::guard('web')->user() }}</button>
+                <button id="registerTab" class="w-full py-2 px-4 border-b-[3px] border-b-[#dedede] text-[#9f9f9ff0] font-bold uppercase focus:outline-none block text-center">Register</button>
             </div>
             <div id="loginForm" class="space-y-4 md:space-y-8">
                 <div>
-                    <input type="email" id="login_email_phone" placeholder="Email or phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="email" id="login_email_phone" placeholder="Email or phone number" class="w-full p-2 md:p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="password" id="login_password" placeholder="******" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" id="login_password" placeholder="******" class="w-full p-2 md:p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
-                <button type="button" onclick="customer_login()" class="w-full py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Login</button>
+                <button type="button" onclick="customer_login()" class="w-full py-2 md:py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Login</button>
                 <div class="flex flex-col gap-4 text-center">
                     <a href="{{ route('user.forget.password') }}" class="text-sm text-theme">Forgot your password?</a>
                     <hr>
@@ -23,24 +23,24 @@
             </div>
             <div id="registerForm" class="space-y-4 md:space-y-8 hidden">
                 <div>
-                    <input type="text" id="first_name" placeholder="First Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" id="first_name" placeholder="First Name" class="w-full p-2 md:p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="text" id="last_name" placeholder="Last Name" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" id="last_name" placeholder="Last Name" class="w-full p-2 md:p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="text" id="phone" placeholder="Phone number" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="text" id="phone" placeholder="Phone number" class="w-full p-2 md:p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="email" id="email" placeholder="Email address" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="email" id="email" placeholder="Email address" class="w-full p-2 md:p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="password" id="password" placeholder="Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" id="password" placeholder="Password" class="w-full p-2 md:p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
                 <div>
-                    <input type="password" id="confirm_password" placeholder="Confirm Password" class="w-full p-3 focus:outline-none border rounded-md" autocomplete="off">
+                    <input type="password" id="confirm_password" placeholder="Confirm Password" class="w-full p-2 md:p-3 focus:outline-none border rounded-md" autocomplete="off">
                 </div>
-                <button type="button" onclick="submitRegisterAction()" class="w-full py-4 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Register</button>
+                <button type="button" onclick="submitRegisterAction()" class="w-full p-2 md:p-3 bg-theme text-white border border-theme rounded-md hover:bg-white hover:border hover:border-theme hover:text-theme font-semibold duration-300">Register</button>
             </div>
         </div>
     </div>

@@ -25,6 +25,7 @@ use App\Http\Controllers\Frontend\MyAccountController;
 use App\Http\Controllers\Frontend\CategoryProductController;
 use App\Http\Controllers\Frontend\FrontendCategoryController;
 use App\Http\Controllers\Frontend\FavoriteController;
+use App\Http\Controllers\Frontend\OrderTrackingController;
 
 
 // SSLCOMMERZ Start
@@ -97,6 +98,11 @@ Route::controller(MyAccountController::class)->group(function (){
     Route::post('/my-account/address/update', 'update_address')->name('frontend.myaccount.address.update');
     Route::get('/my-account/order-details/{order_number}', 'order_detail')->name('frontend.myaccount.orderdetail');
 });
+
+Route::controller(OrderTrackingController::class)->group(function () {
+    Route::get('/order-tracking', 'order_tracking_page')->name('frontend.order_tracking_page');
+});
+
 
 // Cart Controller
 Route::controller(FrontendCartController::class)->group(function (){
