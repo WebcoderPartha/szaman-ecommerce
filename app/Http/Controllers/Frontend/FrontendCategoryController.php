@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Subcategory;
@@ -31,6 +33,16 @@ class FrontendCategoryController extends Controller
         }
 
 
+    }
+
+    public function brand_product_page($brand_id){
+        $brand_products = Brand::with('product')->where('id', $brand_id)->first();
+        if ($brand_products){
+            return view('frontend.brand-page', compact('brand_products'));
+        }else{
+            toastr()->error('Page doesn\'t exist!', 'Error!');
+            return redirect()->route('frontend.home_page');
+        }
     }
 
 }

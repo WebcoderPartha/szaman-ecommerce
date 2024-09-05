@@ -87,4 +87,5 @@ class HomeController extends Controller
         // Return the results as a JSON response
     }
 
+
 }

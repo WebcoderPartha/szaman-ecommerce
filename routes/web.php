@@ -64,6 +64,7 @@ Route::controller(FavoriteController::class)->group(function (){
 Route::controller(FrontendCategoryController::class)->group(function (){
     Route::get('/category/{slug}', 'category_page')->name('frontend.category.page');
     Route::get('/category/{category_slug}/{subcat_slug}', 'sub_category_page')->name('frontend.subcategory.page');
+    Route::get('/brand/{brand_id}', 'brand_product_page')->name('frontend.brand.page');
 });
 
 // Category Product Controller
