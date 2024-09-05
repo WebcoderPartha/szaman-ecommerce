@@ -58,7 +58,8 @@ class BrandController extends Controller
                 Storage::disk('public')->makeDirectory('brand');
             }
 
-            $imgResize = Image::make($request->image)->resize('300', '300')->stream();
+//            $imgResize = Image::make($request->image)->resize('300', '300')->stream();
+            $imgResize = Image::make($request->image)->stream();
             Storage::disk('public')->put('brand/'.$image,$imgResize);
 
             $brand->image = $image;
@@ -97,7 +98,8 @@ class BrandController extends Controller
                 }
             }
 
-            $imgResize = Image::make($request->image)->resize('300', '300')->stream();
+//            $imgResize = Image::make($request->image)->resize('300', '300')->stream();
+            $imgResize = Image::make($request->image)->stream();
             Storage::disk('public')->put('brand/'.$image,$imgResize);
 
             $brand->image = $image;

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Product;
+use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Support\Str;
 
@@ -18,11 +19,11 @@ class HomeController extends Controller
         $best_selling = Product::where('best_selling', 1)->where('is_publish', 1)->where('is_active', 1)->get();
         $products = Product::where('is_publish', 1)->where('is_active', 1)->orderBy('id', 'DESC')->get();
         $sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->get();
+        $brands = Brand::all();
 
         $category_wish_products = Category::with('product')->orderBy('id', 'ASC')->get();
 
-
-        return view('frontend.homepage', compact('sliders', 'products', 'category_wish_products', 'feature_products', 'hot_deals', 'best_selling'));
+        return view('frontend.homepage', compact('sliders', 'products', 'category_wish_products', 'feature_products', 'hot_deals', 'best_selling', 'brands'));
     }
 
     public function product_search(Request $request){

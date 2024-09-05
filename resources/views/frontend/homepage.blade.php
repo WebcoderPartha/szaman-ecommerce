@@ -47,8 +47,18 @@
         </div>
     @endif
     <!-- End Hot Deal -->
+    <!-- Category Home Product -->
+    @include('frontend.partials.home.category-home-products')
+    <!-- End Category Home Product -->
 
-    @include('frontend.partials.home.slider-category-products')
+    <!-- Brands -->
+    @if(count($brands) > 0)
+        <div class="best-selling-products">
+            @include('frontend.partials.home.brands')
+        </div>
+    @endif
+    <!-- End Brands -->
+
 @endsection
 
 
