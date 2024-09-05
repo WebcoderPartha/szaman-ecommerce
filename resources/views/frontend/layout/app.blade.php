@@ -109,7 +109,7 @@
 
 <script>
 
-    window.onscroll = function() {myFunction()};
+    window.onscroll = function() {desktopHeaderFunction()};
 
     var header = document.getElementById("myheader");
     var header_bottom = document.getElementById("header_bottom");
@@ -118,8 +118,9 @@
     var header_cart_amount = document.getElementById("header_cart_amount");
     var header_currency = document.getElementById("header_currency");
     var sticky = header.offsetTop;
+    var mobile_header = document.getElementById("fix_mobile_sticky");
 
-    function myFunction() {
+    function desktopHeaderFunction() {
         if (window.pageYOffset > 10) {
             header.classList.add("sticky_header");
             header.classList.add("bg-theme");
@@ -135,6 +136,8 @@
             header_cart_amount.classList.add('text-white');
             header_cart_amount.classList.remove('text-black');
             header_currency.classList.add('text-white');
+
+            mobile_header.classList.add("mobile_sticky_header");
         } else {
             header.classList.remove("sticky_header");
             header.classList.remove("bg-theme");
@@ -150,6 +153,8 @@
             header_cart_amount.classList.remove('text-white');
             header_cart_amount.classList.add('text-black');
             header_currency.classList.remove('text-white');
+
+            mobile_header.classList.remove("mobile_sticky_header");
         }
     }
 

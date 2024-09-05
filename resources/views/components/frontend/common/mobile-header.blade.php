@@ -45,7 +45,7 @@
 
 </header>
 
-<div class="md:hidden bg-white z-[99999] fixed top-0 right-full w-full px-4 py-2 duration-300 z-[999999]" id="mobileSideMenu">
+<div class="md:hidden bg-white fixed top-0 right-full w-full px-4 py-2 duration-300 z-[9999999999999999]" id="mobileSideMenu">
     <div class="h-screen">
         <div class="flex flex-row justify-between items-center border-b pb-2">
             <div class="logo">
@@ -86,18 +86,6 @@
 
 
 <script>
-        window.onscroll = function() {myFunction()};
-
-        var header = document.getElementById("fix_mobile_sticky");
-        var sticky = header.offsetTop;
-
-        function myFunction() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("mobile_sticky_header");
-            } else {
-                header.classList.remove("mobile_sticky_header");
-            }
-        }
 
         // Drop down menu
         document.addEventListener('DOMContentLoaded', function() {
