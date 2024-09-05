@@ -16,7 +16,7 @@ class Order extends Model
     }
 
     public function shipping_address(){
-        return $this->belongsTo(ShippingAddress::class, 'id', 'order_id')->select(['id', 'order_id', 'user_id', 'address_line_one', 'post_office', 'thana', 'postal_code', 'district']);
+        return $this->belongsTo(ShippingAddress::class, 'id', 'order_id')->select(['id', 'order_id', 'user_id', 'address_line_one', 'post_office', 'thana', 'postal_code', 'district', 'phone']);
     }
 
 

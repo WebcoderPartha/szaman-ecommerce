@@ -68,6 +68,7 @@ class FtdOrderController extends Controller
         $shipping_address->thana = $user->thana;
         $shipping_address->postal_code = $user->postal_code;
         $shipping_address->district = $user->district;
+        $shipping_address->phone = $user->phone;
         $done = $shipping_address->save();
         //=============== Shipping Address ===============//
 

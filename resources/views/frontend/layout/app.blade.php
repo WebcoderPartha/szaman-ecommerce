@@ -421,7 +421,7 @@
                 toastr.success(codOrderRes.data.success)
                 getCartContent();
                 getCartPageContent();
-                window.location.href = "{{ route('frontend.home_page') }}"
+                window.location.href = "{{ route('frontend.myaccount.page') }}"
                 // console.log(codOrderRes.data);
             })
         }

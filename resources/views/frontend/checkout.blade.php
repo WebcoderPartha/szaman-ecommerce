@@ -84,19 +84,6 @@
                 </div>
                 <div class="checkout_summary">
 
-                    <!-- Loop Item
-                    <div class="grid grid-cols-12 gap-4 md:gap-0 border-b py-2">
-                        <div class="col-span-9">
-                            <div class="flex flex-row gap-4 ">
-                                <img src="https://mohasagor.com/public/storage/images/product_thumbnail_img/thumbnail_1717475472_7548.jpg" width="40" height="40" alt="">
-                                <h3>Men's Double Pocket Solid Shirt- Fushia</h3>
-                                <span class="font-semibold"><small>500x2</small></span>
-                            </div>
-                        </div>
-                        <div class="col-span-3">
-                            <p class="text-right">550 TK</p>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="price_summary mt-4">
                     <div class="sub_total flex flex-row justify-between items-center border-b py-2 font-semibold">

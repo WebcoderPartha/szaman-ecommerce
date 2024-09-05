@@ -101,6 +101,7 @@ Route::controller(MyAccountController::class)->group(function (){
 
 Route::controller(OrderTrackingController::class)->group(function () {
     Route::get('/order-tracking', 'order_tracking_page')->name('frontend.order_tracking_page');
+    Route::post('/getordertrack', 'get_track_order_by_id')->name('frontend.get_track_order_by_id');
 });
 
 
