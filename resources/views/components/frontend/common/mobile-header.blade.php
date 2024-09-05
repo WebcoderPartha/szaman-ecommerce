@@ -56,30 +56,30 @@
             </button>
         </div>
         <div class="flex flex-col">
-            <div class="border-b py-1">
-                <div class="flex flex-row items-center justify-between px-1">
-                    <a href="#" class="uppercase text-[16px] font-semibold">Shirt</a>
-                    <i class="fa-solid fa-angle-down 2xl font-semibold toggle-button"></i>
-                </div>
-                <div class="mobile_submenu flex flex-col pl-6" style="display: none">
-                    <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
-                    <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
-                    <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
-                    <a href="" class="text-[16px] font-semibold"> Check Shirt</a>
-                </div>
-            </div>
-            <div class="border-b py-1">
-                <div class="flex flex-row items-center justify-between px-1">
-                    <a href="#" class="uppercase text-[16px] font-semibold">Pent</a>
-                    <i class="fa-solid fa-angle-down 2xl font-semibold toggle-button"></i>
-                </div>
-                <div class="mobile_submenu flex flex-col pl-6" style="display: none">
-                    <a href="" class="text-[16px] font-semibold"> Check Pent</a>
-                    <a href="" class="text-[16px] font-semibold"> Check Pent</a>
-                    <a href="" class="text-[16px] font-semibold"> Check pent</a>
-                    <a href="" class="text-[16px] font-semibold"> Check pent</a>
-                </div>
-            </div>
+            @if(count($mobile_category) > 0)
+                @foreach($mobile_category as $mobile_menu)
+                    <div class="border-b py-1">
+                        <div class="flex flex-row items-center justify-between px-1">
+                            <a href="{{ route('frontend.category.page', $mobile_menu->slug) }}" class="uppercase text-[16px] font-semibold py-1">{{ $mobile_menu->name }}</a>
+                            @if(count($mobile_menu->sub_category) > 0)
+                                <i class="fa-solid fa-angle-down 2xl font-semibold toggle-button"></i>
+                            @endif
+                        </div>
+                        <!-- Submenu -->
+                        @if(count($mobile_menu->sub_category) > 0)
+                            <div class="mobile_submenu flex flex-col pl-6" style="display: none">
+                                @foreach($mobile_menu->sub_category as $mobile_sub_menu)
+                                    <a href="{{ route('frontend.subcategory.page', ['category_slug' =>$mobile_menu->slug, 'subcat_slug' => $mobile_sub_menu->slug]) }}" class="text-[16px] font-semibold border-b py-1"> {{ $mobile_sub_menu->name }}</a>
+                                @endforeach
+                            </div>
+                        @endif
+                        <!-- End Submenu -->
+                    </div>
+
+                @endforeach
+
+            @endif
+
         </div>
     </div>
 </div>
